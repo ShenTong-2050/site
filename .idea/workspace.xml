@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67ddd3f0-ceb8-4a95-9322-f7f63631ad2b" name="默认的" comment="">
+      <change afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +39,8 @@
       <option name="presentableId" value="Default" />
       <updated>1689674564808</updated>
       <workItem from="1689674565916" duration="351000" />
+      <workItem from="1689727630118" duration="19000" />
+      <workItem from="1689727721005" duration="54000" />
     </task>
     <servers />
   </component>
