@@ -1,4 +1,4 @@
-baseURL = 'http://localhost/'
+baseURL = 'http://www.shentongtong.cn/'
 languageCode = 'zh-cn'
-title = '申通通'
-theme = 'ananke'
+title = 'title'
+theme = 'stack'
