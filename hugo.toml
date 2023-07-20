@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'bootstrap-bp-hugo-startpage'
+baseURL = 'http://localhost/'
+languageCode = 'zh-cn'
+title = '申通通'
+theme = 'ananke'
