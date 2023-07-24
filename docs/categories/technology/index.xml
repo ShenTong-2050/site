@@ -1,30 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Technologies on page title</title>
-        <link>http://localhost/technology/</link>
-        <description>Recent content in Technologies on page title</description>
+        <title>Technology on page title</title>
+        <link>http://localhost/categories/technology/</link>
+        <description>Recent content in Technology on page title</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language><atom:link href="http://localhost/technology/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>2023-07-21</title>
-        <link>http://localhost/technology/2023-07-21/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost/technology/2023-07-21/</guid>
-        <description>&lt;p&gt;第二个页面!!&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>2024 07 22</title>
-        <link>http://localhost/technology/2024-07-22/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://localhost/technology/2024-07-22/</guid>
-        <description>&lt;h4 id=&#34;标题&#34;&gt;标题&lt;/h4&gt;
-&lt;p&gt;关于想说些什么这件事&amp;hellip;.&lt;/p&gt;
-</description>
-        </item>
-        <item>
+        <language>en</language><atom:link href="http://localhost/categories/technology/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Markdown</title>
         <link>http://localhost/custom-url/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

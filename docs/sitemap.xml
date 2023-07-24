@@ -2,16 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost/technology/2023-07-20/</loc>
-  </url><url>
     <loc>http://localhost/technology/2023-07-21/</loc>
   </url><url>
+    <loc>http://localhost/technology/2024-07-22/</loc>
+  </url><url>
+    <loc>http://localhost/custom-url/</loc>
+  </url><url>
     <loc>http://localhost/categories/</loc>
+  </url><url>
+    <loc>http://localhost/essay/</loc>
+  </url><url>
+    <loc>http://localhost/</loc>
   </url><url>
     <loc>http://localhost/tags/</loc>
   </url><url>
     <loc>http://localhost/technology/</loc>
   </url><url>
-    <loc>http://localhost/</loc>
+    <loc>http://localhost/categories/technology/</loc>
+  </url><url>
+    <loc>http://localhost/essay/the-ordinary-world/</loc>
   </url>
 </urlset>
