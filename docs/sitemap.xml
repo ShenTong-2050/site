@@ -2,24 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost/technology/2023-07-21/</loc>
+    <loc>http://www.shentongtong.cn/technology/2023-07-21/</loc>
   </url><url>
-    <loc>http://localhost/technology/2024-07-22/</loc>
+    <loc>http://www.shentongtong.cn/technology/2024-07-22/</loc>
   </url><url>
-    <loc>http://localhost/custom-url/</loc>
+    <loc>http://www.shentongtong.cn/custom-url/</loc>
   </url><url>
-    <loc>http://localhost/categories/</loc>
+    <loc>http://www.shentongtong.cn/test/</loc>
+    <lastmod>2023-07-24T13:49:13+08:00</lastmod>
   </url><url>
-    <loc>http://localhost/essay/</loc>
+    <loc>http://www.shentongtong.cn/categories/</loc>
   </url><url>
-    <loc>http://localhost/</loc>
+    <loc>http://www.shentongtong.cn/essay/</loc>
   </url><url>
-    <loc>http://localhost/tags/</loc>
+    <loc>http://www.shentongtong.cn/</loc>
   </url><url>
-    <loc>http://localhost/technology/</loc>
+    <loc>http://www.shentongtong.cn/tags/</loc>
   </url><url>
-    <loc>http://localhost/categories/technology/</loc>
+    <loc>http://www.shentongtong.cn/technology/</loc>
   </url><url>
-    <loc>http://localhost/essay/the-ordinary-world/</loc>
+    <loc>http://www.shentongtong.cn/categories/technology/</loc>
+  </url><url>
+    <loc>http://www.shentongtong.cn/essay/the-ordinary-world/</loc>
   </url>
 </urlset>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Technology on page title</title>
-        <link>http://localhost/categories/technology/</link>
+        <link>http://www.shentongtong.cn/categories/technology/</link>
         <description>Recent content in Technology on page title</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en</language><atom:link href="http://localhost/categories/technology/index.xml" rel="self" type="application/rss+xml" /><item>
+        <language>en</language><atom:link href="http://www.shentongtong.cn/categories/technology/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Markdown</title>
-        <link>http://localhost/custom-url/</link>
+        <link>http://www.shentongtong.cn/custom-url/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost/custom-url/</guid>
+        <guid>http://www.shentongtong.cn/custom-url/</guid>
         <description>&lt;img src="https://octodex.github.com/images/minion.png" alt="Featured image of post Markdown" /&gt;&lt;h3 id=&#34;标题&#34;&gt;标题&lt;/h3&gt;
 &lt;p&gt;你好 世界!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost/custom-url/4.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/custom-url/4.png&#34;
 	width=&#34;1132&#34;
 	height=&#34;624&#34;
-	srcset=&#34;http://localhost/custom-url/4_huf785325568e4cb99f58f365eaf3c55b7_86632_480x0_resize_box_3.png 480w, http://localhost/custom-url/4_huf785325568e4cb99f58f365eaf3c55b7_86632_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://www.shentongtong.cn/custom-url/4_huf785325568e4cb99f58f365eaf3c55b7_86632_480x0_resize_box_3.png 480w, http://www.shentongtong.cn/custom-url/4_huf785325568e4cb99f58f365eaf3c55b7_86632_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Markdown Notion&#34;
