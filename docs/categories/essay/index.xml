@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Essay on </title>
-        <link>http://www.shentongtong.cn/essay/</link>
+        <link>http://www.shentongtong.cn/categories/essay/</link>
         <description>Recent content in Essay on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 22 Jul 2023 14:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/essay/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 22 Jul 2023 14:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/categories/essay/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>平凡的世界</title>
         <link>http://www.shentongtong.cn/essay/the-ordinary-world/</link>
         <pubDate>Sat, 22 Jul 2023 14:00:00 +0800</pubDate>
