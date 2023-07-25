@@ -17,10 +17,10 @@
     <loc>http://www.shentongtong.cn/categories/</loc>
     <lastmod>2023-07-24T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/technology/</loc>
+    <loc>http://www.shentongtong.cn/technology/</loc>
     <lastmod>2023-07-24T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/technology/</loc>
+    <loc>http://www.shentongtong.cn/categories/technology/</loc>
     <lastmod>2023-07-24T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://www.shentongtong.cn/categories/essay/</loc>
@@ -32,7 +32,13 @@
     <loc>http://www.shentongtong.cn/essay/the-ordinary-world/</loc>
     <lastmod>2023-07-22T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/tags/</loc>
+    <loc>http://www.shentongtong.cn/index.html</loc>
+  </url><url>
+    <loc>http://www.shentongtong.cn/about/</loc>
+  </url><url>
+    <loc>http://www.shentongtong.cn/contact/</loc>
+  </url><url>
+    <loc>http://www.shentongtong.cn/essay/</loc>
   </url><url>
     <loc>http://www.shentongtong.cn/archives/</loc>
   </url>
