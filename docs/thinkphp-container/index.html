@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='什么是容器以及为什么使用它 为什么要用 IOC 在面向对象设计的程序系统里, 有N多个类, 这些类与类相互依赖, 相互合作, 我们的程序才能完整的运行起来, 但'>
+<title>ThinkPHP Container(二)</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/thinkphp-container/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='ThinkPHP Container(二)'>
+<meta property='og:description' content='什么是容器以及为什么使用它 为什么要用 IOC 在面向对象设计的程序系统里, 有N多个类, 这些类与类相互依赖, 相互合作, 我们的程序才能完整的运行起来, 但'>
+<meta property='og:url' content='http://www.shentongtong.cn/thinkphp-container/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2022-09-01T20:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-09-01T20:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/thinkphp-container/img/thinkphp.png' />
+<meta name="twitter:title" content="ThinkPHP Container(二)">
+<meta name="twitter:description" content="什么是容器以及为什么使用它 为什么要用 IOC 在面向对象设计的程序系统里, 有N多个类, 这些类与类相互依赖, 相互合作, 我们的程序才能完整的运行起来, 但"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/thinkphp-container/img/thinkphp.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu437be7812669e35a1f9d511d27859abc_59375_300x0_resize_box_3.png" width="300"
+                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">申通通</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/thinkphp-container/">
+                <img src="/thinkphp-container/img/thinkphp_hua09d42f784ac73b4f253f72462fa63ee_4535_800x0_resize_box_3.png"
+                        srcset="/thinkphp-container/img/thinkphp_hua09d42f784ac73b4f253f72462fa63ee_4535_800x0_resize_box_3.png 800w, /thinkphp-container/img/thinkphp_hua09d42f784ac73b4f253f72462fa63ee_4535_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="320" 
+                        loading="lazy"
+                        alt="Featured image of post ThinkPHP Container(二)" />
+
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/thinkphp/" >
+                ThinkPHP
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/thinkphp-container/">ThinkPHP Container(二)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 01, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+    
+
+    
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是容器以及为什么使用它">什么是容器以及为什么使用它</a>
+      <ul>
+        <li><a href="#为什么要用-ioc">为什么要用 IOC</a></li>
+        <li><a href="#iocinversion-of-control">IOC（Inversion of Control）</a></li>
+      </ul>
+    </li>
+    <li><a href="#容器源码分析">容器源码分析</a>
+      <ul>
+        <li><a href="#类中属性">类中属性</a></li>
+        <li><a href="#单例模式-获取-容器中的对象">单例模式 获取 容器中的对象</a></li>
+        <li><a href="#创建对象实例">创建对象实例</a></li>
+        <li><a href="#参数绑定">参数绑定</a></li>
+        <li><a href="#闭包对象调用">闭包对象调用</a></li>
+        <li><a href="#类对象调用">类对象调用</a></li>
+        <li><a href="#__make-示例">__make 示例</a></li>
+        <li><a href="#对象创建示例">对象创建示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#对象创建流程">对象创建流程</a></li>
+        <li><a href="#instanceof-关键字">instanceof 关键字</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="什么是容器以及为什么使用它">什么是容器以及为什么使用它</h2>
+<h3 id="为什么要用-ioc">为什么要用 IOC</h3>
+<p>在面向对象设计的程序系统里, 有N多个类, 这些类与类相互依赖, 相互合作, 我们的程序才能完整的运行起来, 但是久而久之就发现一些问题, 如果对一个类结构进行更改, 那么与这个类直接依赖或间接依赖的类也要做出相对应的更改; 就像一块精密的手表, 里面多个独立的齿轮相互啮合在一起, 才能正常工作, 但如果更换其中一个齿轮, 变成其他型号, 那么如果别的齿轮不去更换, 手表就很难再继续运行了; 齿轮之间的啮合就像我们程序系统里的耦合一样, 耦合是不能消除的, 我们只能尽量去降低他, 而IOC的出现就是为了解决这个问题。</p>
+<p><img src="/thinkphp-container/img/ioc.png"
+	width="344"
+	height="201"
+	srcset="/thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_480x0_resize_box_3.png 480w, /thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="ioc"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="410px"
+	
+></p>
+<h3 id="iocinversion-of-control">IOC（Inversion of Control）</h3>
+<p>控制反转（Inversion of Control，缩写为IOC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体将其所依赖的对象的引用传递给它。也可以说，依赖被注入到对象中。</p>
+<p><img src="/thinkphp-container/img/ioc_1.png"
+	width="368"
+	height="181"
+	srcset="/thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_480x0_resize_box_3.png 480w, /thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="ioc"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="203"
+		data-flex-basis="487px"
+	
+></p>
+<p>由于引进了中间位置的“第三方”, 也就是IOC容器, 使得A、B、C、D这4个对象没有了耦合关系, 齿轮之间的传动全部依靠“第三方”了, 全部对象的控制权全部上缴给“第三方”IOC容器, 所以, IOC容器成了整个系统的关键核心, 它起到了一种类似“粘合剂”的作用, 把系统中的所有对象粘合在一起发挥作用，如果没有这个“粘合剂”, 对象与对象之间会彼此失去联系，这就是有人把IOC容器比喻成“粘合剂”的由来。</p>
+<p>如果我们把IOC这个第三方拿掉, 这个系统就变成了：</p>
+<p><img src="/thinkphp-container/img/ioc_2.png"
+	width="401"
+	height="194"
+	srcset="/thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_480x0_resize_box_3.png 480w, /thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="ioc"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="496px"
+	
+></p>
+<h2 id="容器源码分析">容器源码分析</h2>
+<h3 id="类中属性">类中属性</h3>
+<p><img src="/thinkphp-container/img/container.png"
+	width="361"
+	height="240"
+	srcset="/thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_480x0_resize_box_3.png 480w, /thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="container"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="150"
+		data-flex-basis="361px"
+	
+></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 容器对象实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @var Container
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">static</span> $instance;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 容器中的对象实例(命名空间=&gt;对象实例)
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @var array
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> $instances <span style="color:#ffb8d1">=</span> [];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 容器绑定标识(别名=&gt;包含命名空间的类名标识)
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @var array
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> $bind <span style="color:#ffb8d1">=</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;app&#39;</span>                   <span style="color:#ffb8d1">=&gt;</span> App<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;build&#39;</span>                 <span style="color:#ffb8d1">=&gt;</span> Build<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;cache&#39;</span>                 <span style="color:#ffb8d1">=&gt;</span> Cache<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;config&#39;</span>                <span style="color:#ffb8d1">=&gt;</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;cookie&#39;</span>                <span style="color:#ffb8d1">=&gt;</span> Cookie<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;debug&#39;</span>                 <span style="color:#ffb8d1">=&gt;</span> Debug<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;env&#39;</span>                   <span style="color:#ffb8d1">=&gt;</span> Env<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;hook&#39;</span>                  <span style="color:#ffb8d1">=&gt;</span> Hook<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;lang&#39;</span>                  <span style="color:#ffb8d1">=&gt;</span> Lang<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;log&#39;</span>                   <span style="color:#ffb8d1">=&gt;</span> Log<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;middleware&#39;</span>            <span style="color:#ffb8d1">=&gt;</span> Middleware<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;request&#39;</span>               <span style="color:#ffb8d1">=&gt;</span> Request<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;response&#39;</span>              <span style="color:#ffb8d1">=&gt;</span> Response<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;route&#39;</span>                 <span style="color:#ffb8d1">=&gt;</span> Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;session&#39;</span>               <span style="color:#ffb8d1">=&gt;</span> Session<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;template&#39;</span>              <span style="color:#ffb8d1">=&gt;</span> Template<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;url&#39;</span>                   <span style="color:#ffb8d1">=&gt;</span> Url<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;validate&#39;</span>              <span style="color:#ffb8d1">=&gt;</span> Validate<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;view&#39;</span>                  <span style="color:#ffb8d1">=&gt;</span> View<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;rule_name&#39;</span>             <span style="color:#ffb8d1">=&gt;</span> route\RuleName<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 接口依赖注入
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#1bc5e0">&#39;think\LoggerInterface&#39;</span> <span style="color:#ffb8d1">=&gt;</span> Log<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span>    ];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 容器标识别名(别名=&gt;命名空间)
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 该属性记录的值与 bind 类似，区别是 name 记录的为已经实例化后的映射关系
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @var array
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> $name <span style="color:#ffb8d1">=</span> [];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="单例模式-获取-容器中的对象">单例模式 获取 容器中的对象</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 获取容器中的对象实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string        $abstract       类名或者标识
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array|true    $vars           变量
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  bool          $newInstance    是否每次创建新的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return object
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">get</span>($abstract, $vars <span style="color:#ffb8d1">=</span> [], $newInstance <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">false</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">getInstance</span>()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">make</span>($abstract, $vars, $newInstance);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 获取当前容器的实例（单例）
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return static
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">getInstance</span>()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// new self   =&gt; 指向 调用方法 的本类(调用方法在哪个类中就返回哪个类)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// new static =&gt; 后期静态绑定 指向 调用方法 所在的类(在哪个类中调用的该方法则返回哪个类)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (is_null(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$instance)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$instance <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> <span style="color:#c2ffdf">static</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 返回当前容器对象
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$instance;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建对象实例">创建对象实例</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 创建类的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string        $abstract       类名或者标识
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array|true    $vars           变量
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  bool          $newInstance    是否每次创建新的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return object
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">make</span>($abstract, $vars <span style="color:#ffb8d1">=</span> [], $newInstance <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">false</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">true</span> <span style="color:#ffb8d1">===</span> $vars) {
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 总是创建新的实例化对象
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $newInstance <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span>            $vars        <span style="color:#ffb8d1">=</span> [];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">//    Array
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">//    (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">//        [app] =&gt; think\App
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">//        [log] =&gt; think\Log
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">//    )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $abstract <span style="color:#ffb8d1">=</span> isset($this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">name</span>[$abstract]) <span style="color:#ffb8d1">?</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">name</span>[$abstract] <span style="color:#ffb8d1">:</span> $abstract;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">//        Array
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//        (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            [think\App] =&gt; think\App Object
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                [modulePath] =&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                    [appDebug] =&gt; 1
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                    [beginTime] =&gt; 1661492489.4308
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                    [beginMem] =&gt; 681040
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                    [namespace] =&gt; app
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//        )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (isset($this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">instances</span>[$abstract]) <span style="color:#ffb8d1">&amp;&amp;</span> <span style="color:#ffb8d1">!</span>$newInstance) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">instances</span>[$abstract];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 根据别名查看当前对象是否绑定
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (isset($this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract])) {
+</span></span><span style="display:flex;"><span>            $concrete <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract];
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 判断当前对象的具体类型
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> ($concrete instanceof Closure) {
+</span></span><span style="display:flex;"><span>                $object <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">invokeFunction</span>($concrete, $vars);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>                $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">name</span>[$abstract] <span style="color:#ffb8d1">=</span> $concrete;
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">return</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">make</span>($concrete, $vars, $newInstance);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>            $object <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">invokeClass</span>($abstract, $vars);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>$newInstance) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">instances</span>[$abstract] <span style="color:#ffb8d1">=</span> $object;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $object;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="参数绑定">参数绑定</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 绑定参数
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access protected
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  \ReflectionMethod|\ReflectionFunction $reflect 反射类
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array                                 $vars    参数
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return array
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">bindParams</span>($reflect, $vars <span style="color:#ffb8d1">=</span> [])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> ($reflect<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getNumberOfParameters</span>() <span style="color:#ffb8d1">==</span> <span style="color:#c5a3ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> [];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 判断数组类型 数字数组时按顺序绑定参数
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        reset($vars);
+</span></span><span style="display:flex;"><span>        $type   <span style="color:#ffb8d1">=</span> key($vars) <span style="color:#ffb8d1">===</span> <span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">?</span> <span style="color:#c5a3ff">1</span> <span style="color:#ffb8d1">:</span> <span style="color:#c5a3ff">0</span>;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">//        Array
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//        (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            [0] =&gt; ReflectionParameter Object
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                [name] =&gt; year
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            [1] =&gt; ReflectionParameter Object
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                [name] =&gt; month
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            [2] =&gt; ReflectionParameter Object
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            (
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//                [name] =&gt; day
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//            )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">//        )
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $params <span style="color:#ffb8d1">=</span> $reflect<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getParameters</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">foreach</span> ($params <span style="color:#c2ffdf">as</span> $param) {
+</span></span><span style="display:flex;"><span>            $name      <span style="color:#ffb8d1">=</span> $param<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getName</span>();
+</span></span><span style="display:flex;"><span>            $lowerName <span style="color:#ffb8d1">=</span> Loader<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">parseName</span>($name);
+</span></span><span style="display:flex;"><span>            $class     <span style="color:#ffb8d1">=</span> $param<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getClass</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($class) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 如果参数是个类 则 附带参数继续创建类的对象(依赖注入)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $args[] <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getObjectParam</span>($class<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getName</span>(), $vars);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">elseif</span> (<span style="color:#c5a3ff">1</span> <span style="color:#ffb8d1">==</span> $type <span style="color:#ffb8d1">&amp;&amp;</span> <span style="color:#ffb8d1">!</span><span style="color:#c2ffdf">empty</span>($vars)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 将参数按顺序逐个压入数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $args[] <span style="color:#ffb8d1">=</span> array_shift($vars);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">elseif</span> (<span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">==</span> $type <span style="color:#ffb8d1">&amp;&amp;</span> isset($vars[$name])) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 将参数 按 key=&gt;value 形式 压入数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $args[] <span style="color:#ffb8d1">=</span> $vars[$name];
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">elseif</span> (<span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">==</span> $type <span style="color:#ffb8d1">&amp;&amp;</span> isset($vars[$lowerName])) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 将参数 按 小写key=&gt;value 压入数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $args[] <span style="color:#ffb8d1">=</span> $vars[$lowerName];
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">elseif</span> ($param<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">isDefaultValueAvailable</span>()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 将参数 按 默认值方式 压入数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $args[] <span style="color:#ffb8d1">=</span> $param<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getDefaultValue</span>();
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> InvalidArgumentException(<span style="color:#1bc5e0">&#39;method param miss:&#39;</span> <span style="color:#ffb8d1">.</span> $name);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $args;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 获取对象类型的参数值
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access protected
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string   $className  类名
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array    $vars       参数
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return mixed
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">getObjectParam</span>($className, <span style="color:#ffb8d1">&amp;</span>$vars)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        $array <span style="color:#ffb8d1">=</span> $vars;
+</span></span><span style="display:flex;"><span>        $value <span style="color:#ffb8d1">=</span> array_shift($array);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 判断 $value 是否为 类 $className 的对象
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// 类似：object(think\App) =&gt; think\App
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// 作用：如果传入了该对象就不会再去创建，提高响应效率
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> ($value instanceof $className) {
+</span></span><span style="display:flex;"><span>            $result <span style="color:#ffb8d1">=</span> $value;
+</span></span><span style="display:flex;"><span>            array_shift($vars);
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>            $result <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">make</span>($className);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $result;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="闭包对象调用">闭包对象调用</h3>
+<p>容器外部：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// 绑定一个闭包到容器
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">set</span>(<span style="color:#1bc5e0">&#39;get_live_day&#39;</span>,<span style="color:#c2ffdf">function</span> ($year,$month,$day){
+</span></span><span style="display:flex;"><span>        $bornDate <span style="color:#ffb8d1">=</span> mktime(<span style="color:#c5a3ff">0</span>,<span style="color:#c5a3ff">0</span>,<span style="color:#c5a3ff">0</span>,$month,$day,$year);
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> (time() <span style="color:#ffb8d1">-</span> $bornDate) <span style="color:#ffb8d1">/</span> (<span style="color:#c5a3ff">3600</span> <span style="color:#ffb8d1">*</span> <span style="color:#c5a3ff">24</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 执行调用
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;get_live_day&#39;</span>,<span style="color:#c2ffdf">array</span>(<span style="color:#c5a3ff">1997</span>,<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">3</span>));
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行示例：</p>
+<p><img src="/thinkphp-container/img/container_closure.png"
+	width="367"
+	height="254"
+	srcset="/thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_480x0_resize_box_3.png 480w, /thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="container closure"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="144"
+		data-flex-basis="346px"
+	
+></p>
+<p>容器内部：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 绑定一个类、闭包、实例、接口实现到容器
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string  $abstract    类标识、接口
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  mixed   $concrete    要绑定的类、闭包或者实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return Container
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">set</span>($abstract, $concrete <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">getInstance</span>()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bindTo</span>($abstract, $concrete);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 绑定一个类、闭包、实例、接口实现到容器
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string|array  $abstract    类标识、接口
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  mixed         $concrete    要绑定的类、闭包或者实例
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return $this
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">bindTo</span>($abstract, $concrete <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (is_array($abstract)) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span> <span style="color:#ffb8d1">=</span> array_merge($this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>, $abstract);
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">elseif</span> ($concrete instanceof Closure) {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract] <span style="color:#ffb8d1">=</span> $concrete;
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">elseif</span> (is_object($concrete)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> (isset($this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract])) {
+</span></span><span style="display:flex;"><span>                $abstract <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">instances</span>[$abstract] <span style="color:#ffb8d1">=</span> $concrete;
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bind</span>[$abstract] <span style="color:#ffb8d1">=</span> $concrete;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $this;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 执行函数或者闭包方法 支持参数调用
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  mixed  $function 函数或者闭包
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array  $vars     参数
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return mixed
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">invokeFunction</span>($function, $vars <span style="color:#ffb8d1">=</span> [])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
+</span></span><span style="display:flex;"><span>            $reflect <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> ReflectionFunction($function);
+</span></span><span style="display:flex;"><span>            $args <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bindParams</span>($reflect, $vars);
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> call_user_func_array($function, $args);
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">catch</span> (ReflectionException $e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> Exception(<span style="color:#1bc5e0">&#39;function not exists: &#39;</span> <span style="color:#ffb8d1">.</span> $function <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;()&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="类对象调用">类对象调用</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * 调用反射执行类的实例化 支持依赖注入
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @access public
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  string    $class 类名
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param  array     $vars  参数
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return mixed
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">invokeClass</span>($class, $vars <span style="color:#ffb8d1">=</span> [])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
+</span></span><span style="display:flex;"><span>            $reflect <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> ReflectionClass($class);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($reflect<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">hasMethod</span>(<span style="color:#1bc5e0">&#39;__make&#39;</span>)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// 返回的 $method 包含 __make 方法的各种信息
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                $method <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> ReflectionMethod($class, <span style="color:#1bc5e0">&#39;__make&#39;</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">if</span> ($method<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">isPublic</span>() <span style="color:#ffb8d1">&amp;&amp;</span> $method<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">isStatic</span>()) {
+</span></span><span style="display:flex;"><span>                    $args <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bindParams</span>($method, $vars);
+</span></span><span style="display:flex;"><span>                    <span style="color:#b0bec5">// 由于该方法为静态方法，所以第一个参数为 null
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    <span style="color:#c2ffdf">return</span> $method<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">invokeArgs</span>(<span style="color:#c2ffdf">null</span>, $args);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            $constructor <span style="color:#ffb8d1">=</span> $reflect<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getConstructor</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $args <span style="color:#ffb8d1">=</span> $constructor <span style="color:#ffb8d1">?</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">bindParams</span>($constructor, $vars) <span style="color:#ffb8d1">:</span> [];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> $reflect<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">newInstanceArgs</span>($args);
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">catch</span> (ReflectionException $e) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> ClassNotFoundException(<span style="color:#1bc5e0">&#39;class not exists: &#39;</span> <span style="color:#ffb8d1">.</span> $class, $class);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="__make-示例">__make 示例</h3>
+<p><img src="/thinkphp-container/img/__make.png"
+	width="810"
+	height="176"
+	srcset="/thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_480x0_resize_box_3.png 480w, /thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="__make"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="460"
+		data-flex-basis="1104px"
+	
+></p>
+<h3 id="对象创建示例">对象创建示例</h3>
+<h4 id="容器外部">容器外部</h4>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// 注册、调用 钩子 示例 
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">TestHook</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">run</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#39;this is a test hook!&#39;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;hook&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;test_hook&#39;</span>,TestHook<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>);
+</span></span><span style="display:flex;"><span>    Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;hook&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">listen</span>(<span style="color:#1bc5e0">&#39;test_hook&#39;</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 获取 log 对象示例
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    $appObj <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> App();
+</span></span><span style="display:flex;"><span>    Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;log&#39;</span>,<span style="color:#c2ffdf">array</span>($appObj));<span style="color:#c2ffdf">die</span>;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/thinkphp-container/img/container_log.png"
+	width="752"
+	height="157"
+	srcset="/thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_480x0_resize_box_3.png 480w, /thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="container log"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="478"
+		data-flex-basis="1149px"
+	
+></p>
+<h2 id="总结">总结</h2>
+<h3 id="对象创建流程">对象创建流程</h3>
+<ul>
+<li>
+<p>通过单例模式获取容器对象（所有核心类的对象通过容器去创建）</p>
+</li>
+<li>
+<p>通过别名获取命名空间并通过绑定的命名空间属性获取查找的对象</p>
+</li>
+<li>
+<p>判断当前对象是 类 还是 闭包，分别调用对应的执行方法【__make 与 构造函数】</p>
+</li>
+<li>
+<p>在执行过程中进行参数绑定时需要根据参数类型来判断是否递归的执行创建对象，因为 构造函数的 参数可以为一个类【依赖注入】</p>
+</li>
+</ul>
+<blockquote>
+<p>容器除了创建、调用、执行 之外，还通过实现 ArrayAccess、IteragorAggregate、Countable 接口来便携的 遍历、获取类中属性的成员与数量，也可以通过其他方法来实现对对象的管理，例如 绑定、添加、删除对象、判断对象是否存在、获取、清除全部对象等等。</p>
+</blockquote>
+<h3 id="instanceof-关键字">instanceof 关键字</h3>
+<ul>
+<li>
+<p>断某个对象是否属于某个类（$obj instanceof A =&gt; 判断 $obj 是否属于 A 类）</p>
+</li>
+<li>
+<p>判断某个对象是否继承自某个父类的子类</p>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">A</span> {}
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">B</span> {}
+</span></span><span style="display:flex;"><span>    $obj <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> B;
+</span></span><span style="display:flex;"><span>    var_dump($obj instanceof A);          <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof B);          <span style="color:#b0bec5">// true
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>可以确定 一个变量 是否为 实现了 某个接口 的 对象实例</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#c2ffdf">interface</span> A {}
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">B</span> <span style="color:#c2ffdf">implements</span> A {}
+</span></span><span style="display:flex;"><span>    $obj <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> B;
+</span></span><span style="display:flex;"><span>    var_dump($obj instanceof A);          <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof B);          <span style="color:#b0bec5">// true
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>虽然 instanceof 通常是与类名一起使用，不过 也可以使用 变量 来代替类名</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#c2ffdf">interface</span> A {}
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">B</span> <span style="color:#c2ffdf">implements</span> A {}
+</span></span><span style="display:flex;"><span>    $obj <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> B;
+</span></span><span style="display:flex;"><span>    $str1 <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;A&#39;</span>;
+</span></span><span style="display:flex;"><span>    $str2 <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;B&#39;</span>;
+</span></span><span style="display:flex;"><span>    var_dump($obj instanceof A);          <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof B);          <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof $str1);      <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof $str2);      <span style="color:#b0bec5">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    var_dump($obj instanceof <span style="color:#1bc5e0">&#39;A&#39;</span>);       <span style="color:#b0bec5">// 语法错误，无法解析
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2023 
+    </section>
+    
+    <section class="powerby">
+        
+            本站内容的最终解释权归本网站 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

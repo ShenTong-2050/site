@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='简介 JSON Web Token （缩写 JWT） 是目前最流行的跨域认证解决方案【支持php库】 跨域认证问题 一般用户认证服务流程： 用户向服务器发送用户名和密码 服务器验'>
+<title>JSON Web Token</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/jwt/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='JSON Web Token'>
+<meta property='og:description' content='简介 JSON Web Token （缩写 JWT） 是目前最流行的跨域认证解决方案【支持php库】 跨域认证问题 一般用户认证服务流程： 用户向服务器发送用户名和密码 服务器验'>
+<meta property='og:url' content='http://www.shentongtong.cn/jwt/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2022-06-21T20:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-06-21T20:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/jwt/img/jwt.png' />
+<meta name="twitter:title" content="JSON Web Token">
+<meta name="twitter:description" content="简介 JSON Web Token （缩写 JWT） 是目前最流行的跨域认证解决方案【支持php库】 跨域认证问题 一般用户认证服务流程： 用户向服务器发送用户名和密码 服务器验"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/jwt/img/jwt.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu437be7812669e35a1f9d511d27859abc_59375_300x0_resize_box_3.png" width="300"
+                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">申通通</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/jwt/">
+                <img src="/jwt/img/jwt_hubbb9189b6fe5db8d01be0efc139c41fc_2602_800x0_resize_box_3.png"
+                        srcset="/jwt/img/jwt_hubbb9189b6fe5db8d01be0efc139c41fc_2602_800x0_resize_box_3.png 800w, /jwt/img/jwt_hubbb9189b6fe5db8d01be0efc139c41fc_2602_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="400" 
+                        loading="lazy"
+                        alt="Featured image of post JSON Web Token" />
+
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/jwt/">JSON Web Token</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jun 21, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 10 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+    
+
+    
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#跨域认证问题">跨域认证问题</a></li>
+    <li><a href="#jwt-原理">JWT 原理</a></li>
+    <li><a href="#jwt-数据结构">JWT 数据结构</a>
+      <ul>
+        <li><a href="#header">Header</a></li>
+        <li><a href="#payload">Payload</a></li>
+        <li><a href="#signature">Signature</a></li>
+        <li><a href="#base64url">Base64URL</a></li>
+      </ul>
+    </li>
+    <li><a href="#jwt的使用方式">JWT的使用方式</a>
+      <ul>
+        <li><a href="#服务端响应未经身份验证的受保护资源的请求php示例httpswwwphpnetmanualzhfeatureshttp-authphp">服务端响应未经身份验证的受保护资源的请求【<a href="https://www.php.net/manual/zh/features.http-auth.php">php示例</a>】</a></li>
+        <li><a href="#服务端响应请求令牌响应示例">服务端响应请求令牌响应示例</a></li>
+        <li><a href="#客户端请求受保护资源">客户端请求受保护资源</a></li>
+        <li><a href="#获取jwt并将其用于访问api或资源示例">获取JWT并将其用于访问api或资源示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#jwt-的几个特点">JWT 的几个特点</a></li>
+    <li><a href="#jwt-示例">JWT 示例</a></li>
+  </ul>
+</nav>
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="简介">简介</h2>
+<p>JSON Web Token （缩写 <a class="link" href="https://jwt.io/"  title="打开官网"
+     target="_blank" rel="noopener"
+    >JWT</a>） 是目前最流行的跨域认证解决方案【<a class="link" href="https://jwt.io/libraries?language=PHP"  title="打开看看"
+     target="_blank" rel="noopener"
+    >支持php库</a>】</p>
+<h2 id="跨域认证问题">跨域认证问题</h2>
+<p>一般用户认证服务流程：</p>
+<ul>
+<li>
+<p>用户向服务器发送用户名和密码</p>
+</li>
+<li>
+<p>服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登陆时间等</p>
+</li>
+<li>
+<p>服务器向用户返回一个 session_id，用户写入 Cookie</p>
+</li>
+<li>
+<p>用户随后的每一次请求都会通过 Cookie 将 session_id 传回服务器</p>
+</li>
+<li>
+<p>服务器收到 session_id 找到之前保存的数据得知用户的身份</p>
+</li>
+</ul>
+<p>这种模式的问题在于，扩展性（scaling）不好。单机当然没有问题，如果是服务器集群，或者是跨域的服务导向架构，就要求 session 数据共享，每台服务器都能够读取 session</p>
+<p>举例来说，A 网站和 B 网站是同一家公司的关联服务。现在要求，用户只要在其中一个网站登录，再访问另一个网站就会自动登录，请问怎么实现？</p>
+<p>一种解决方案是 session 数据持久化，写入数据库或别的持久层。各种服务收到请求后，都向持久层请求数据。这种方案的优点是架构清晰，缺点是工程量比较大。另外，持久层万一挂了，就会单点失败。</p>
+<p>另一种方案是服务器索性不保存 session 数据了，所有数据都保存在客户端，每次请求都发回服务器。JWT 就是这种方案的一个代表。</p>
+<h2 id="jwt-原理">JWT 原理</h2>
+<p>JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，就像下面这样</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ffb8d1">&#34;name&#34;</span> : <span style="color:#1bc5e0">&#34;admin&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ffb8d1">&#34;role&#34;</span> : <span style="color:#1bc5e0">&#34;admin&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ffb8d1">&#34;expire_time&#34;</span> : <span style="color:#1bc5e0">&#34;2022-05-26 00:00:00&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以后，用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。</p>
+<p>服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。</p>
+<h2 id="jwt-数据结构">JWT 数据结构</h2>
+<p><img src="/jwt/img/jwt_struct.png"
+	width="800"
+	height="184"
+	srcset="/jwt/img/jwt_struct_hu911d1da67bb1d38e9c56bf09e82f980b_105530_480x0_resize_box_3.png 480w, /jwt/img/jwt_struct_hu911d1da67bb1d38e9c56bf09e82f980b_105530_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT数据结构"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="434"
+		data-flex-basis="1043px"
+	
+></p>
+<p>它是一个很长的字符串，中间用点（.）分隔成三个部分。注意，JWT 内部是没有换行的，这里只是为了便于展示，将它写成了几行。</p>
+<p>JWT 的三个部分依次如下</p>
+<p><img src="/jwt/img/jwt_part.png"
+	width="1162"
+	height="192"
+	srcset="/jwt/img/jwt_part_hu8302cd91ab1ff68495011655e009414f_12748_480x0_resize_box_3.png 480w, /jwt/img/jwt_part_hu8302cd91ab1ff68495011655e009414f_12748_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="605"
+		data-flex-basis="1452px"
+	
+></p>
+<p><img src="/jwt/img/jwt_part_1.png"
+	width="1053"
+	height="303"
+	srcset="/jwt/img/jwt_part_1_hu9d691e9155134d0c37eb63f1a39af2e7_92507_480x0_resize_box_3.png 480w, /jwt/img/jwt_part_1_hu9d691e9155134d0c37eb63f1a39af2e7_92507_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="347"
+		data-flex-basis="834px"
+	
+></p>
+<h3 id="header">Header</h3>
+<p>Header 部分是一个 JSON 对象，描述 JWT 的元数据，通常由两部分组成:令牌的类型，即JWT，以及使用的签名算法，如HMAC SHA256或RSA。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#ffb8d1">&#34;alg&#34;</span> : <span style="color:#1bc5e0">&#34;HS256&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ffb8d1">&#34;typ&#34;</span> : <span style="color:#1bc5e0">&#34;JWT&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>上面代码中，alg属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；typ属性表示这个令牌（token）的类型（type），JWT 令牌统一写为JWT。</p>
+<p>最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串。</p>
+<h3 id="payload">Payload</h3>
+<p>Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据。<a class="link" href="https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1"  title="官方字段"
+     target="_blank" rel="noopener"
+    >JWT 规定了7个官方字段</a>，供选用</p>
+<p><a class="link" href="img/jwt_fields.png"  title="字段"
+    >字段</a></p>
+<blockquote>
+<p>iss：令牌颁发者。表示该令牌由谁创建，该声明是一个字符串【可选】</p>
+<p>sub: Subject Identifier，iss提供的终端用户的标识，在iss范围内唯一，最长为255个ASCII个字符，区分大小写【可选】</p>
+<p>aud：Audience(s)，令牌的受众，分大小写的字符串数组【可选】</p>
+<p>exp：Expiration time，令牌的过期时间戳。超过此时间的token会作废， 该声明是一个整数，是1970年1月1日以来的秒数【可选】</p>
+<p>nbf：nbf(not before)，标识了声明JWT之前的时间不得接收处理，由于时钟偏差它通常会有一些小的回旋，通常不超过几分钟，它的值为一个数字日期值【可选】(时钟偏移（英语：clock skew）或称时钟偏斜，是指时钟信号到达数字电路各个部分所用时间的差异)</p>
+<p>iat: 令牌的颁发时间，该声明是一个整数，是1970年1月1日以来的秒数【可选】</p>
+<p>jti: 令牌的唯一标识，该声明的值在令牌颁发者创建的每一个令牌中都是唯一的，为了防止冲突，它通常是一个密码学随机值。这个值相当于向结构化令牌中加入了一个攻击者无法获得的随机熵组件，有利于防止令牌猜测攻击和重放攻击。【可选】</p>
+</blockquote>
+<p>除了官方字段，你还可以在这个部分定义私有字段，下面就是一个例子</p>
+<p><img src="/jwt/img/jwt_custom_fields.png"
+	width="1154"
+	height="191"
+	srcset="/jwt/img/jwt_custom_fields_hud165eba1958df2cf4e43a212a5b977e9_11021_480x0_resize_box_3.png 480w, /jwt/img/jwt_custom_fields_hud165eba1958df2cf4e43a212a5b977e9_11021_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="自定义字段"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="604"
+		data-flex-basis="1450px"
+	
+></p>
+<p>注意，JWT 默认是不加密的，任何人都可以读到，所以不要把秘密信息放在这个部分。</p>
+<p>这个 JSON 对象也要使用 Base64URL 算法转成字符串。</p>
+<h3 id="signature">Signature</h3>
+<p>Signature 部分是对前两部分的签名，防止数据篡改。</p>
+<p>首先，需要指定一个密钥（secret）。这个密钥只有服务器才知道，不能泄露给用户。然后，使用Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。</p>
+<p><img src="/jwt/img/jwt_signature.png"
+	width="1146"
+	height="167"
+	srcset="/jwt/img/jwt_signature_hu96eca40c8fede2c95ea469ca680df31b_15680_480x0_resize_box_3.png 480w, /jwt/img/jwt_signature_hu96eca40c8fede2c95ea469ca680df31b_15680_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Signature"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="686"
+		data-flex-basis="1646px"
+	
+></p>
+<p>算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用&quot;点&quot;（.）分隔，就可以返回给用户。</p>
+<h3 id="base64url">Base64URL</h3>
+<p>前面提到，Header 和 Payload 串型化的算法是 Base64URL。这个算法跟 Base64 算法基本类似，但有一些小的不同。</p>
+<p>JWT 作为一个令牌（token），有些场合可能会放到 URL（比如 api.example.com/?token=xxx）。Base64 有三个字符+、/和=，在 URL 里面有特殊含义，所以要被替换掉：=被省略、+替换成-，/替换成_ 。这就是 Base64URL 算法。</p>
+<h2 id="jwt的使用方式">JWT的使用方式</h2>
+<p>客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。</p>
+<p>此后，客户端每次与服务器通信，都要带上这个 JWT。你可以把它放在 Cookie 里面自动发送，但是这样不能跨域，所以更好的做法是放在 HTTP 请求的头信息Authorization字段里面。</p>
+<p>客户端收到服务器返回的 JWT，可以储存在 Cookie 里面，也可以储存在 localStorage。</p>
+<p>此后，客户端每次与服务器通信，都要带上这个 JWT。你可以把它放在 Cookie 里面自动发送，但是这样不能跨域，所以更好的做法是放在 HTTP 请求的头信息Authorization字段里面。</p>
+<p>Header Authorization Bear 模式<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p><img src="/jwt/img/jwt_request_bear.png"
+	width="788"
+	height="82"
+	srcset="/jwt/img/jwt_request_bear_hu20d9f18a18e9e5549460b12b58b7a473_3403_480x0_resize_box_3.png 480w, /jwt/img/jwt_request_bear_hu20d9f18a18e9e5549460b12b58b7a473_3403_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Bear Request"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="960"
+		data-flex-basis="2306px"
+	
+></p>
+<h3 id="服务端响应未经身份验证的受保护资源的请求php示例httpswwwphpnetmanualzhfeatureshttp-authphp">服务端响应未经身份验证的受保护资源的请求【<a class="link" href="https://www.php.net/manual/zh/features.http-auth.php"  target="_blank" rel="noopener"
+    >php示例</a>】</h3>
+<p><img src="/jwt/img/jwt_bad_request.png"
+	width="1178"
+	height="368"
+	srcset="/jwt/img/jwt_bad_request_hubab66d3aa57eacbfb2b494dffebbc46c_20407_480x0_resize_box_3.png 480w, /jwt/img/jwt_bad_request_hubab66d3aa57eacbfb2b494dffebbc46c_20407_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Bad Request"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="320"
+		data-flex-basis="768px"
+	
+></p>
+<h3 id="服务端响应请求令牌响应示例">服务端响应请求令牌响应示例</h3>
+<p><img src="/jwt/img/jwt_response.png"
+	width="1215"
+	height="391"
+	srcset="/jwt/img/jwt_response_hufca68b920b66ac75bc0e5b25ca461642_21610_480x0_resize_box_3.png 480w, /jwt/img/jwt_response_hufca68b920b66ac75bc0e5b25ca461642_21610_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT Response"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="310"
+		data-flex-basis="745px"
+	
+></p>
+<h3 id="客户端请求受保护资源">客户端请求受保护资源</h3>
+<p><img src="/jwt/img/jwt_request_demo.png"
+	width="1127"
+	height="119"
+	srcset="/jwt/img/jwt_request_demo_hu3da1f3bebc78c4372f62ba79e548d8ef_4452_480x0_resize_box_3.png 480w, /jwt/img/jwt_request_demo_hu3da1f3bebc78c4372f62ba79e548d8ef_4452_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT Request Demo"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="947"
+		data-flex-basis="2272px"
+	
+></p>
+<h3 id="获取jwt并将其用于访问api或资源示例">获取JWT并将其用于访问api或资源示例</h3>
+<p><img src="/jwt/img/jwt_request_process.png"
+	width="826"
+	height="302"
+	srcset="/jwt/img/jwt_request_process_hu553911ec3402719f9dc2d9fe622427bf_23042_480x0_resize_box_3.png 480w, /jwt/img/jwt_request_process_hu553911ec3402719f9dc2d9fe622427bf_23042_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="JWT Process"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="273"
+		data-flex-basis="656px"
+	
+></p>
+<p>另一种做法是，跨域的时候，JWT 就放在 POST 请求的数据体里面。</p>
+<h2 id="jwt-的几个特点">JWT 的几个特点</h2>
+<ul>
+<li>
+<p>JWT 默认是不加密，但也是可以加密的。生成原始 Token 以后，可以用密钥再加密一次。</p>
+</li>
+<li>
+<p>JWT 不加密的情况下，不能将秘密数据写入 JWT。</p>
+</li>
+<li>
+<p>JWT 不仅可以用于认证，也可以用于交换信息。有效使用 JWT，可以降低服务器查询数据库的次数。</p>
+</li>
+<li>
+<p>JWT 的最大缺点是，由于服务器不保存 session 状态，因此无法在使用过程中废止某个 token，或者更改 token 的权限。也就是说，一旦 JWT 签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑。</p>
+</li>
+<li>
+<p>JWT 本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT 的有效期应该设置得比较短。对于一些比较重要的权限，使用时应该再次对用户进行认证。</p>
+</li>
+<li>
+<p>为了减少盗用，JWT 不应该使用 HTTP 协议明码传输，要使用 HTTPS 协议传输。</p>
+</li>
+</ul>
+<h2 id="jwt-示例">JWT 示例</h2>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// config
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">return</span> [
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;JWT_KEY&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;jwtsignature&#39;</span>,    <span style="color:#b0bec5">// 密钥
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#1bc5e0">&#39;JWT_ENCRYPTION&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;HS256&#39;</span>,    <span style="color:#b0bec5">// 加密方式
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#1bc5e0">&#39;TOKEN_VOE&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">7200</span>,    <span style="color:#b0bec5">// 换取有效时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#1bc5e0">&#39;TOKEN_EXP&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">3600</span>,    <span style="color:#b0bec5">// token 有效时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    ];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// route
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// 登陆路由
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">group</span>(<span style="color:#1bc5e0">&#39;account&#39;</span>,<span style="color:#c2ffdf">function</span> (){
+</span></span><span style="display:flex;"><span>       Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">post</span>(<span style="color:#1bc5e0">&#39;/login&#39;</span>,<span style="color:#1bc5e0">&#39;index/Login/login&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">validate</span>(<span style="color:#1bc5e0">&#39;app\\login\\validate\\Login&#39;</span>,<span style="color:#1bc5e0">&#39;login&#39;</span>);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 受保护资源
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">group</span>(<span style="color:#1bc5e0">&#39;api&#39;</span>,<span style="color:#c2ffdf">function</span> () {
+</span></span><span style="display:flex;"><span>       Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">post</span>(<span style="color:#1bc5e0">&#39;/user&#39;</span>,<span style="color:#1bc5e0">&#39;index/Index/index&#39;</span>);
+</span></span><span style="display:flex;"><span>    })<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">middleware</span>(\app\http\middleware\Auth<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// login
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#ffb8d1">&lt;?</span>php
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">namespace</span> app\index\controller;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> app\common\help;
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> app\common\service\OperationToken;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\Controller;
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\Db;
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\Request;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Login</span> <span style="color:#c2ffdf">extends</span> Controller {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">login</span>(Request $request) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $where[<span style="color:#1bc5e0">&#39;del_time&#39;</span>] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(<span style="color:#1bc5e0">&#39;eq&#39;</span>,<span style="color:#c5a3ff">0</span>);
+</span></span><span style="display:flex;"><span>            $where[<span style="color:#1bc5e0">&#39;mobile&#39;</span>] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(<span style="color:#1bc5e0">&#39;eq&#39;</span>,$request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">param</span>(<span style="color:#1bc5e0">&#39;phone&#39;</span>));
+</span></span><span style="display:flex;"><span>            $where[<span style="color:#1bc5e0">&#39;password&#39;</span>] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(<span style="color:#1bc5e0">&#39;eq&#39;</span>,md5($request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">param</span>(<span style="color:#1bc5e0">&#39;password&#39;</span>)));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $info <span style="color:#ffb8d1">=</span> Db<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">name</span>(<span style="color:#1bc5e0">&#39;User&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">field</span>(<span style="color:#1bc5e0">&#39;id,uuid,nick,gender,icon,im_icon,is_ban&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">where</span>($where)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">findOrEmpty</span>();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($info <span style="color:#ffb8d1">==</span> <span style="color:#c2ffdf">null</span> <span style="color:#ffb8d1">||</span> <span style="color:#c2ffdf">empty</span>($info)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">return</span> help<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">errJsonReturn</span>(<span style="color:#1bc5e0">&#39;账号或密码错误&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($info[<span style="color:#1bc5e0">&#39;is_ban&#39;</span>] <span style="color:#ffb8d1">==</span> <span style="color:#c5a3ff">1</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">return</span> help<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">errJsonReturn</span>(<span style="color:#1bc5e0">&#39;账户已被禁用!&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $token <span style="color:#ffb8d1">=</span> self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">createToken</span>($info[<span style="color:#1bc5e0">&#39;id&#39;</span>],$info[<span style="color:#1bc5e0">&#39;uuid&#39;</span>],$info[<span style="color:#1bc5e0">&#39;is_ban&#39;</span>]);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> json([
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;type&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;Bearer&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;access_token&#39;</span><span style="color:#ffb8d1">=&gt;</span>$token[<span style="color:#1bc5e0">&#39;token&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;exp_time&#39;</span><span style="color:#ffb8d1">=&gt;</span>$token[<span style="color:#1bc5e0">&#39;exp&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;voe_time&#39;</span><span style="color:#ffb8d1">=&gt;</span>$token[<span style="color:#1bc5e0">&#39;voe&#39;</span>],
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;iat_time&#39;</span><span style="color:#ffb8d1">=&gt;</span>time()
+</span></span><span style="display:flex;"><span>            ]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">createToken</span>($uid, $uuid, $is_ban) {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            $time <span style="color:#ffb8d1">=</span> time();
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            $info_token <span style="color:#ffb8d1">=</span> [
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;iat&#39;</span> <span style="color:#ffb8d1">=&gt;</span> $time,<span style="color:#b0bec5">//签发时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;voe&#39;</span> <span style="color:#ffb8d1">=&gt;</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_VOE&#39;</span>,<span style="color:#c5a3ff">7200</span>) <span style="color:#ffb8d1">+</span> $time, <span style="color:#b0bec5">//换取token有效时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;exp&#39;</span> <span style="color:#ffb8d1">=&gt;</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_EXP&#39;</span>,<span style="color:#c5a3ff">3600</span>)<span style="color:#ffb8d1">+</span>$time,<span style="color:#b0bec5">//有效时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;sign&#39;</span> <span style="color:#ffb8d1">=&gt;</span> base64_encode($uuid),<span style="color:#b0bec5">//签名
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;data&#39;</span> <span style="color:#ffb8d1">=&gt;</span> [
+</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;uuid&#39;</span> <span style="color:#ffb8d1">=&gt;</span> $uuid,<span style="color:#b0bec5">//用户id
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    <span style="color:#1bc5e0">&#39;is_ban&#39;</span> <span style="color:#ffb8d1">=&gt;</span> $is_ban,<span style="color:#b0bec5">//是否被禁用
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                ]
+</span></span><span style="display:flex;"><span>            ];
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            $token <span style="color:#ffb8d1">=</span> JWT<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">encode</span>($info_token, Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.JWT_KEY&#39;</span>), Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.JWT_ENCRYPTION&#39;</span>));
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            $redisData[<span style="color:#1bc5e0">&#39;token&#39;</span>] <span style="color:#ffb8d1">=</span> $token;
+</span></span><span style="display:flex;"><span>            $redisData[<span style="color:#1bc5e0">&#39;voe_time&#39;</span>] <span style="color:#ffb8d1">=</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_VOE&#39;</span>,<span style="color:#c5a3ff">7200</span>) <span style="color:#ffb8d1">+</span> $time;
+</span></span><span style="display:flex;"><span>            $redisData[<span style="color:#1bc5e0">&#39;exp_time&#39;</span>] <span style="color:#ffb8d1">=</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_EXP&#39;</span>,<span style="color:#c5a3ff">3600</span>) <span style="color:#ffb8d1">+</span> $time;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            $jsonData <span style="color:#ffb8d1">=</span> json_encode($redisData);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            Cache<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">store</span>(<span style="color:#1bc5e0">&#39;redis&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">tag</span>(<span style="color:#1bc5e0">&#39;login_user&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">set</span>(<span style="color:#1bc5e0">&#39;token_&#39;</span> <span style="color:#ffb8d1">.</span> $uuid, $jsonData, Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_VOE&#39;</span>,<span style="color:#c5a3ff">7200</span>));
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            Db<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">name</span>(<span style="color:#1bc5e0">&#39;user_login_log&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">insert</span>(
+</span></span><span style="display:flex;"><span>                [
+</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;uid&#39;</span><span style="color:#ffb8d1">=&gt;</span>$uid,
+</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;token&#39;</span><span style="color:#ffb8d1">=&gt;</span>$token,
+</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;iat_time&#39;</span><span style="color:#ffb8d1">=&gt;</span>$time,  <span style="color:#b0bec5">// 签发时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    <span style="color:#1bc5e0">&#39;ip&#39;</span><span style="color:#ffb8d1">=&gt;</span>ip2long(request()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">ip</span>()),
+</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;exp_time&#39;</span><span style="color:#ffb8d1">=&gt;</span>Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_EXP&#39;</span>,<span style="color:#c5a3ff">3600</span>) <span style="color:#ffb8d1">+</span> $time,  <span style="color:#b0bec5">// token 过期时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    <span style="color:#1bc5e0">&#39;voe_time&#39;</span><span style="color:#ffb8d1">=&gt;</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_VOE&#39;</span>,<span style="color:#c5a3ff">7200</span>) <span style="color:#ffb8d1">+</span> $time  <span style="color:#b0bec5">// token 刷新时间
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                ]
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> [<span style="color:#1bc5e0">&#39;token&#39;</span><span style="color:#ffb8d1">=&gt;</span>$token, <span style="color:#1bc5e0">&#39;voe&#39;</span> <span style="color:#ffb8d1">=&gt;</span>Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_VOE&#39;</span>,<span style="color:#c5a3ff">7200</span>) <span style="color:#ffb8d1">+</span> $time,<span style="color:#1bc5e0">&#39;exp&#39;</span> <span style="color:#ffb8d1">=&gt;</span> Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.TOKEN_EXP&#39;</span>,<span style="color:#c5a3ff">3600</span>)<span style="color:#ffb8d1">+</span>$time];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">131
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">132
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">133
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">134
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">135
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">136
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">137
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">138
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">139
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">140
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">141
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">142
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// signature
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * Converts and signs a PHP object or array into a JWT string.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param object|array      $payload    PHP object or array
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param string|resource   $key        The secret key.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                      If the algorithm used is asymmetric, this is the private key
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param string            $alg        The signing algorithm.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                      Supported algorithms are &#39;ES384&#39;,&#39;ES256&#39;, &#39;HS256&#39;, &#39;HS384&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                      &#39;HS512&#39;, &#39;RS256&#39;, &#39;RS384&#39;, and &#39;RS512&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param mixed             $keyId
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param array             $head       An array with header elements to attach
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return string A signed JWT
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @uses jsonEncode
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @uses urlsafeB64Encode
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">encode</span>($payload, $key, $alg <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;HS256&#39;</span>, $keyId <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">null</span>, $head <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">null</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        $header <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(<span style="color:#1bc5e0">&#39;typ&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;JWT&#39;</span>, <span style="color:#1bc5e0">&#39;alg&#39;</span> <span style="color:#ffb8d1">=&gt;</span> $alg);
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> ($keyId <span style="color:#ffb8d1">!==</span> <span style="color:#c2ffdf">null</span>) {
+</span></span><span style="display:flex;"><span>            $header[<span style="color:#1bc5e0">&#39;kid&#39;</span>] <span style="color:#ffb8d1">=</span> $keyId;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (isset($head) <span style="color:#ffb8d1">&amp;&amp;</span> \is_array($head)) {
+</span></span><span style="display:flex;"><span>            $header <span style="color:#ffb8d1">=</span> \array_merge($head, $header);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        $segments <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>();
+</span></span><span style="display:flex;"><span>        $segments[] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Encode</span>(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">jsonEncode</span>($header));
+</span></span><span style="display:flex;"><span>        $segments[] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Encode</span>(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">jsonEncode</span>($payload));
+</span></span><span style="display:flex;"><span>        $signing_input <span style="color:#ffb8d1">=</span> \implode(<span style="color:#1bc5e0">&#39;.&#39;</span>, $segments);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        $signature <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">sign</span>($signing_input, $key, $alg);
+</span></span><span style="display:flex;"><span>        $segments[] <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Encode</span>($signature);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> \implode(<span style="color:#1bc5e0">&#39;.&#39;</span>, $segments);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * Decodes a JWT string into a PHP object.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param string                    $jwt            The JWT
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param Key|array&lt;Key&gt;|mixed      $keyOrKeyArray  The Key or array of Key objects.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                                  If the algorithm used is asymmetric, this is the public key
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                                  Each Key object contains an algorithm and matching key.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                                  Supported algorithms are &#39;ES384&#39;,&#39;ES256&#39;, &#39;HS256&#39;, &#39;HS384&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                                  &#39;HS512&#39;, &#39;RS256&#39;, &#39;RS384&#39;, and &#39;RS512&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @param array                     $allowed_algs   [DEPRECATED] List of supported verification algorithms. Only
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *                                                  should be used for backwards  compatibility.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @return object The JWT&#39;s payload as a PHP object
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws InvalidArgumentException     Provided JWT was empty
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws UnexpectedValueException     Provided JWT was invalid
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws SignatureInvalidException    Provided JWT was invalid because the signature verification failed
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws BeforeValidException         Provided JWT is trying to be used before it&#39;s eligible as defined by &#39;nbf&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws BeforeValidException         Provided JWT is trying to be used before it&#39;s been created as defined by &#39;iat&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @throws ExpiredException             Provided JWT has since expired, as defined by the &#39;exp&#39; claim
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     *
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @uses jsonDecode
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     * @uses urlsafeB64Decode
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">decode</span>($jwt, $keyOrKeyArray, <span style="color:#c2ffdf">array</span> $allowed_algs <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>())
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        $timestamp <span style="color:#ffb8d1">=</span> \is_null(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$timestamp) <span style="color:#ffb8d1">?</span> \time() <span style="color:#ffb8d1">:</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$timestamp;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">empty</span>($keyOrKeyArray)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> InvalidArgumentException(<span style="color:#1bc5e0">&#39;Key may not be empty&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        $tks <span style="color:#ffb8d1">=</span> \explode(<span style="color:#1bc5e0">&#39;.&#39;</span>, $jwt);
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (\count($tks) <span style="color:#ffb8d1">!=</span> <span style="color:#c5a3ff">3</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Wrong number of segments&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">list</span>($headb64, $bodyb64, $cryptob64) <span style="color:#ffb8d1">=</span> $tks;
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">null</span> <span style="color:#ffb8d1">===</span> ($header <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">jsonDecode</span>(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Decode</span>($headb64)))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Invalid header encoding&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">null</span> <span style="color:#ffb8d1">===</span> $payload <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">jsonDecode</span>(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Decode</span>($bodyb64))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Invalid claims encoding&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">false</span> <span style="color:#ffb8d1">===</span> ($sig <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">urlsafeB64Decode</span>($cryptob64))) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Invalid signature encoding&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">empty</span>($header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Empty algorithm&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">empty</span>(<span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$supported_algs[$header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span>])) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Algorithm not supported&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">list</span>($keyMaterial, $algorithm) <span style="color:#ffb8d1">=</span> self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">getKeyMaterialAndAlgorithm</span>(
+</span></span><span style="display:flex;"><span>            $keyOrKeyArray,
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">empty</span>($header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">kid</span>) <span style="color:#ffb8d1">?</span> <span style="color:#c2ffdf">null</span> <span style="color:#ffb8d1">:</span> $header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">kid</span>
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">empty</span>($algorithm)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Use deprecated &#34;allowed_algs&#34; to determine if the algorithm is supported.
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// This opens up the possibility of an attack in some implementations.
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// @see https://github.com/firebase/php-jwt/issues/351
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>\in_array($header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span>, $allowed_algs)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Algorithm not allowed&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Check the algorithm
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">constantTimeEquals</span>($algorithm, $header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span>)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">// See issue #351
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> UnexpectedValueException(<span style="color:#1bc5e0">&#39;Incorrect key for this algorithm&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> ($header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span> <span style="color:#ffb8d1">===</span> <span style="color:#1bc5e0">&#39;ES256&#39;</span> <span style="color:#ffb8d1">||</span> $header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span> <span style="color:#ffb8d1">===</span> <span style="color:#1bc5e0">&#39;ES384&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// OpenSSL expects an ASN.1 DER sequence for ES256/ES384 signatures
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $sig <span style="color:#ffb8d1">=</span> self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">signatureToDER</span>($sig);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span><span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">verify</span>(<span style="color:#1bc5e0">&#34;</span><span style="color:#1bc5e0">$headb64</span><span style="color:#1bc5e0">.</span><span style="color:#1bc5e0">$bodyb64</span><span style="color:#1bc5e0">&#34;</span>, $sig, $keyMaterial, $header<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">alg</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> SignatureInvalidException(<span style="color:#1bc5e0">&#39;Signature verification failed&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// Check the nbf if it is defined. This is the time that the
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// token can actually be used. If it&#39;s not yet that time, abort.
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (isset($payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">nbf</span>) <span style="color:#ffb8d1">&amp;&amp;</span> $payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">nbf</span> <span style="color:#ffb8d1">&gt;</span> ($timestamp <span style="color:#ffb8d1">+</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$leeway)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> BeforeValidException(
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;Cannot handle token prior to &#39;</span> <span style="color:#ffb8d1">.</span> \date(DateTime<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">ISO8601</span>, $payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">nbf</span>)
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// Check that this token has been created before &#39;now&#39;. This prevents
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// using tokens that have been created for later use (and haven&#39;t
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// correctly used the nbf claim).
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (isset($payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">iat</span>) <span style="color:#ffb8d1">&amp;&amp;</span> $payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">iat</span> <span style="color:#ffb8d1">&gt;</span> ($timestamp <span style="color:#ffb8d1">+</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$leeway)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> BeforeValidException(
+</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;Cannot handle token prior to &#39;</span> <span style="color:#ffb8d1">.</span> \date(DateTime<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">ISO8601</span>, $payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">iat</span>)
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// Check if this token has expired.
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (isset($payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">exp</span>) <span style="color:#ffb8d1">&amp;&amp;</span> ($timestamp <span style="color:#ffb8d1">-</span> <span style="color:#c2ffdf">static</span><span style="color:#ffb8d1">::</span>$leeway) <span style="color:#ffb8d1">&gt;=</span> $payload<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">exp</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> ExpiredException(<span style="color:#1bc5e0">&#39;Expired token&#39;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $payload;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>    <span style="color:#b0bec5">// 中间件 auth
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#ffb8d1">&lt;?</span>php
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">namespace</span> app\http\middleware;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> Firebase\JWT\JWT;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> Firebase\JWT\Key;
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> Firebase\JWT\SignatureInvalidException;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\exception\TokenException;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\exception\ValidateException;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\facade\Cache;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\facade\Config;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">use</span> think\Request;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Auth</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">handle</span>(Request $request, \Closure $next) {
+</span></span><span style="display:flex;"><span>            $bearer_token <span style="color:#ffb8d1">=</span> [];
+</span></span><span style="display:flex;"><span>            $bearer <span style="color:#ffb8d1">=</span> $request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">header</span>(<span style="color:#1bc5e0">&#39;Proxy-Authorization&#39;</span>);<span style="color:#b0bec5">//取header中的token
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> ($bearer <span style="color:#ffb8d1">!==</span> <span style="color:#c2ffdf">null</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">//不空尝试去匹配
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                preg_match(<span style="color:#1bc5e0">&#39;/^Bearers* (\S+)/i&#39;</span>, $bearer, $bearer_token);
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">//            $bearer_token = explode(&#34; &#34;,$bearer);
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> (<span style="color:#c2ffdf">empty</span>($bearer_token[<span style="color:#c5a3ff">1</span>])) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">//匹配不到结果尝试去url中获取
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#c2ffdf">if</span> ($request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">param</span>(<span style="color:#1bc5e0">&#39;token&#39;</span>) <span style="color:#ffb8d1">!==</span> <span style="color:#c2ffdf">null</span>) {
+</span></span><span style="display:flex;"><span>                    $token <span style="color:#ffb8d1">=</span> $request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">param</span>(<span style="color:#1bc5e0">&#39;token&#39;</span>);
+</span></span><span style="display:flex;"><span>                }<span style="color:#c2ffdf">else</span>{
+</span></span><span style="display:flex;"><span>                    <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;请登录&#39;</span>, <span style="color:#c5a3ff">401</span>);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }<span style="color:#c2ffdf">else</span>{
+</span></span><span style="display:flex;"><span>                $token<span style="color:#ffb8d1">=</span>$bearer_token[<span style="color:#c5a3ff">1</span>];
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">try</span> {
+</span></span><span style="display:flex;"><span>                $de_token <span style="color:#ffb8d1">=</span> JWT<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">decode</span>($token, <span style="color:#c2ffdf">new</span> Key(Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.JWT_KEY&#39;</span>),Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;jwt.JWT_ENCRYPTION&#39;</span>)));
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">catch</span> (SignatureInvalidException $exception) {
+</span></span><span style="display:flex;"><span>                <span style="color:#b0bec5">//捕获JWT解析错误
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;无效令牌&#39;</span>, <span style="color:#c5a3ff">401</span>);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">catch</span> (\Exception $exception) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;请重新登录&#39;</span>, <span style="color:#c5a3ff">401</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 刷新token过期 并且 token过期
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> ($de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">voe</span> <span style="color:#ffb8d1">&lt;</span> time() <span style="color:#ffb8d1">&amp;&amp;</span> $de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">exp</span> <span style="color:#ffb8d1">&gt;</span> time()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;请换取新令牌&#39;</span>, <span style="color:#c5a3ff">402</span>);
+</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">else</span> <span style="color:#c2ffdf">if</span> ($de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">voe</span> <span style="color:#ffb8d1">&lt;</span> time()) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;请重新登录&#39;</span>, <span style="color:#c5a3ff">401</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $jsonData <span style="color:#ffb8d1">=</span> Cache<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">store</span>(<span style="color:#1bc5e0">&#39;redis&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">tag</span>(<span style="color:#1bc5e0">&#39;login&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;token_&#39;</span> <span style="color:#ffb8d1">.</span> $de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">data</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">uuid</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $redisData <span style="color:#ffb8d1">=</span> json_decode($jsonData,<span style="color:#c2ffdf">true</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            $redisToken <span style="color:#ffb8d1">=</span> $redisData[<span style="color:#1bc5e0">&#39;token&#39;</span>];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($redisToken <span style="color:#ffb8d1">!=</span> $token) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> TokenException(<span style="color:#1bc5e0">&#39;用户信息错误，请重新登录&#39;</span>, <span style="color:#c5a3ff">401</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> ($de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">data</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">is_ban</span> <span style="color:#ffb8d1">==</span> <span style="color:#c5a3ff">1</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> ValidateException(<span style="color:#1bc5e0">&#39;该账户已被封禁&#39;</span>);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 给后续执行传参
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $request<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">auth</span> <span style="color:#ffb8d1">=</span> $de_token<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">data</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">uuid</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> $next($request);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>未登录请求受保护资源：</p>
+<p><img src="/jwt/img/request_protected_resource.png"
+	width="1456"
+	height="630"
+	srcset="/jwt/img/request_protected_resource_hu14e8d91b23513f58bc0c947c52ef8c1f_65411_480x0_resize_box_3.png 480w, /jwt/img/request_protected_resource_hu14e8d91b23513f58bc0c947c52ef8c1f_65411_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Request Protected Resource"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="554px"
+	
+></p>
+<p>登录请求：</p>
+<p><img src="/jwt/img/request_protected_resource_login.png"
+	width="1446"
+	height="793"
+	srcset="/jwt/img/request_protected_resource_login_hud0eef03eda273b75b3cf26ea68a2fe48_89873_480x0_resize_box_3.png 480w, /jwt/img/request_protected_resource_login_hud0eef03eda273b75b3cf26ea68a2fe48_89873_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Request Protected Resource"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="182"
+		data-flex-basis="437px"
+	
+></p>
+<p>正常请求受保护资源：</p>
+<p><img src="/jwt/img/request_protected_resource_1.png"
+	width="1448"
+	height="637"
+	srcset="/jwt/img/request_protected_resource_1_hu7b21c04595f97dd95b61dc064ea13170_81394_480x0_resize_box_3.png 480w, /jwt/img/request_protected_resource_1_hu7b21c04595f97dd95b61dc064ea13170_81394_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="Request Protected Resource"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="227"
+		data-flex-basis="545px"
+	
+></p>
+<blockquote>
+<p><a class="link" href="https://segmentfault.com/a/1190000013151506"  title="Token 刷新问题"
+     target="_blank" rel="noopener"
+    >Token 刷新问题</a>
+参考文章：http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</p>
+</blockquote>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><a class="link" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Authentication"  target="_blank" rel="noopener"
+    >Header Authorization</a> 标头 Bearer 模式：HTTP 协议中的 Authorization 请求消息头含有服务器用于验证用户代理身份的凭证，客户端通常会在服务器返回 401 Unauthorized 状态码以及 www-Authenticate 消息头之后的请求中发送此消息头；&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2023 
+    </section>
+    
+    <section class="powerby">
+        
+            本站内容的最终解释权归本网站 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

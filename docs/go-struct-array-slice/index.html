@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键'>
+<meta name="keywords" content="golang"><title>Go基础类型</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/go-struct-array-slice/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Go基础类型'>
+<meta property='og:description' content='结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键'>
+<meta property='og:url' content='http://www.shentongtong.cn/go-struct-array-slice/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Golang' /><meta property='article:published_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/go-struct-array-slice/golang.png' />
+<meta name="twitter:title" content="Go基础类型">
+<meta name="twitter:description" content="结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/go-struct-array-slice/golang.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu437be7812669e35a1f9d511d27859abc_59375_300x0_resize_box_3.png" width="300"
+                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">申通通</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/go-struct-array-slice/">
+                <img src="/go-struct-array-slice/golang_hu23feb9d7ab505493fc2e2310ba316ccf_3222_800x0_resize_box_3.png"
+                        srcset="/go-struct-array-slice/golang_hu23feb9d7ab505493fc2e2310ba316ccf_3222_800x0_resize_box_3.png 800w, /go-struct-array-slice/golang_hu23feb9d7ab505493fc2e2310ba316ccf_3222_1600x0_resize_box_3.png 1600w"
+                        width="800" 
+                        height="396" 
+                        loading="lazy"
+                        alt="Featured image of post Go基础类型" />
+
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/golang/" >
+                Golang
+            </a>
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/go-struct-array-slice/">Go基础类型</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 22, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+    
+
+    
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#结构体">结构体</a>
+      <ul>
+        <li><a href="#定义使用-与-字段的访问">定义、使用 与 字段的访问</a></li>
+        <li><a href="#指针结构体">指针结构体</a></li>
+        <li><a href="#结构体字段可见性与php类中方法的公有私有相似">结构体字段可见性(与php类中方法的公有、私有相似)</a></li>
+        <li><a href="#结构体-tag">结构体 Tag</a></li>
+      </ul>
+    </li>
+    <li><a href="#数组">数组</a>
+      <ul>
+        <li><a href="#数组是一个由固定长度的特定类型元素组成的序列">数组是一个由固定长度的特定类型元素组成的序列</a></li>
+        <li><a href="#遍历数组">遍历数组</a></li>
+        <li><a href="#数组布局">数组布局</a></li>
+      </ul>
+    </li>
+    <li><a href="#切片">切片</a>
+      <ul>
+        <li><a href="#切片的定义">切片的定义</a></li>
+        <li><a href="#添加切片元素">添加切片元素</a></li>
+        <li><a href="#删除切片元素">删除切片元素</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="结构体">结构体</h2>
+<pre><code>Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法
+</code></pre>
+<h3 id="定义使用-与-字段的访问">定义、使用 与 字段的访问</h3>
+<pre><code>使用 `struct` 关键字可以定义一个结构体及其中的字段或属性
+</code></pre>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
+</span></span><span style="display:flex;"><span>        Id      <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>        Name    <span style="color:#c2ffdf">string</span>
+</span></span><span style="display:flex;"><span>        Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 使用方式
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,Name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}	<span style="color:#b0bec5">// 使用方式二
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">var</span> m2 Member
+</span></span><span style="display:flex;"><span>        m2.Id = <span style="color:#c5a3ff">2</span>
+</span></span><span style="display:flex;"><span>        m2.Name = <span style="color:#1bc5e0">&#34;李四&#34;</span>
+</span></span><span style="display:flex;"><span>        m2.Age = <span style="color:#c5a3ff">18</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 使用方式三
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        m3 <span style="color:#ffb8d1">:=</span> Member{Id: <span style="color:#c5a3ff">3</span>,Name: <span style="color:#1bc5e0">&#34;王五&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 访问字段
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(m1.Id,m1.Name ,m1 .Age,m2 ,m3)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="指针结构体">指针结构体</h3>
+<p>结构体与数组一样，都是值传递，当把数组或结构体作为实参传递给函数的形参时会复制一个副本，所以我们为了提高性能一般不会直接传递，而是使用切片或指针来进行</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
+</span></span><span style="display:flex;"><span>        Id      <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>        Name    <span style="color:#c2ffdf">string</span>
+</span></span><span style="display:flex;"><span>        Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,Name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#ceb1ff">printlnStruct</span>(<span style="color:#ffb8d1">&amp;</span>m1)
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(m1)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">printlnStruct</span>(m <span style="color:#ffb8d1">*</span>Member) {
+</span></span><span style="display:flex;"><span>        m.Id = <span style="color:#c5a3ff">5</span>
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(m)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="结构体字段可见性与php类中方法的公有私有相似">结构体字段可见性(与php类中方法的公有、私有相似)</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-teststruct.go" data-lang="teststruct.go"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> teststruct
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
+</span></span><span style="display:flex;"><span>        Id      <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>        name    <span style="color:#c2ffdf">string</span>
+</span></span><span style="display:flex;"><span>        Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">Test</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#ceb1ff">PrintlnStruct</span>(<span style="color:#ffb8d1">&amp;</span>m1)
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(m1)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">PrintlnStruct</span>(m <span style="color:#ffb8d1">*</span>Member) {
+</span></span><span style="display:flex;"><span>        m.Id = <span style="color:#c5a3ff">5</span>
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(m)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-main.go" data-lang="main.go"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#34;test/teststruct&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>        m <span style="color:#ffb8d1">:=</span> <span style="color:#ffb8d1">&amp;</span>teststruct.Member{
+</span></span><span style="display:flex;"><span>            Id:  <span style="color:#c5a3ff">8</span>,
+</span></span><span style="display:flex;"><span>            Age: <span style="color:#c5a3ff">13</span>,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        teststruct.<span style="color:#ceb1ff">PrintlnStruct</span>(m)
+</span></span><span style="display:flex;"><span>        teststruct.<span style="color:#ceb1ff">Test</span>()
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="结构体-tag">结构体 Tag</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#34;encoding/json&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
+</span></span><span style="display:flex;"><span>        Id   <span style="color:#c2ffdf">int</span>    <span style="color:#1bc5e0">`json:&#34;json_id,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span>        Name <span style="color:#c2ffdf">string</span> <span style="color:#1bc5e0">`json:&#34;json_name,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span>        Age  <span style="color:#c2ffdf">int</span>    <span style="color:#1bc5e0">`json:&#34;json_age,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">construct</span>(id,age <span style="color:#c2ffdf">int</span>, name <span style="color:#c2ffdf">string</span>) <span style="color:#ffb8d1">*</span>Member {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#ffb8d1">&amp;</span>Member{
+</span></span><span style="display:flex;"><span>            Id:   id,
+</span></span><span style="display:flex;"><span>            Name: name,
+</span></span><span style="display:flex;"><span>            Age:  age,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>        b,_ <span style="color:#ffb8d1">:=</span> json.<span style="color:#ceb1ff">Marshal</span>(<span style="color:#ceb1ff">construct</span>(<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">53</span>,<span style="color:#1bc5e0">&#34;李四&#34;</span>))
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(string(b))
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="数组">数组</h2>
+<h3 id="数组是一个由固定长度的特定类型元素组成的序列">数组是一个由固定长度的特定类型元素组成的序列</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> array
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// MainArray 入口
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">MainArray</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">var</span> a [<span style="color:#c5a3ff">3</span>]<span style="color:#c2ffdf">int</span>  					<span style="color:#b0bec5">// 定义长度为3的int型数组,元素为0
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">var</span> b = [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>:<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">2</span>:<span style="color:#c5a3ff">3</span>}		<span style="color:#b0bec5">// 定义长度为3的int型数组,元素为0，2，3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">var</span> c = [<span style="color:#c5a3ff">4</span>][<span style="color:#c5a3ff">5</span>]<span style="color:#c2ffdf">int</span>{}				<span style="color:#b0bec5">// 定义一个四行五列的二维数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>}			<span style="color:#b0bec5">// 定义长度为3的int型数组
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        e <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">4</span>:<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}		<span style="color:#b0bec5">// 定义长度为6的int型数组,元素为1,2,0,0,5,6
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a,b,c,d,e)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="遍历数组">遍历数组</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span> () {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 方式一
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">for</span> i<span style="color:#ffb8d1">:=</span><span style="color:#c5a3ff">0</span>; i&lt;len(d); i<span style="color:#ffb8d1">++</span> {
+</span></span><span style="display:flex;"><span>            fmt.<span style="color:#ceb1ff">Println</span>(d[i])
+</span></span><span style="display:flex;"><span>            fmt.<span style="color:#ceb1ff">Printf</span>(<span style="color:#1bc5e0">&#34;%v\n&#34;</span>,d[i])
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 方式二
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">for</span> i,v <span style="color:#ffb8d1">:=</span> <span style="color:#c2ffdf">range</span> d {
+</span></span><span style="display:flex;"><span>            fmt.<span style="color:#ceb1ff">Println</span>(i,v)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数组布局">数组布局</h3>
+<p>Go语言数组是值语义即一个变量表示整个数组，当一个数组变量被赋值或传递的时候会复制
+整个数组，如果数组较大则会产生比较大的开销。为了避免复制数组带来的开销，可以传递一个
+指向数组的指针。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>        d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">/*e := [...]int{1,2,3}	// 此处是无法运行的
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">        printArray(e)*/</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ceb1ff">printArray</span>(d)           <span style="color:#b0bec5">// 值传递示例
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// printArray(&amp;d)       // 指针传递
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// func printArray(arr *[6]int) {
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">printArray</span>(arr [<span style="color:#c5a3ff">6</span>]<span style="color:#c2ffdf">int</span>) {
+</span></span><span style="display:flex;"><span>        arr[<span style="color:#c5a3ff">1</span>] = <span style="color:#c5a3ff">100</span>
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(arr)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>总结：因为数组的长度是数组类型的一个部分，不同长度或不同类型的数据组成的数组都是不同的类型，因此在Go语言中很少直接使用数组（不同长度的数组因为类型不同无法直接赋值）但数组是
+切片和字符串等结构的基础</p>
+</blockquote>
+<h2 id="切片">切片</h2>
+<p>切片是数组的简化版并且它不受长度的限制，数组虽然有适用他们的地方，但是其类型和操作都不够灵活，而切片正好弥补了这一点，切片在Go中的应用是非常广泛的</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#c2ffdf">type</span> SliceHeader <span style="color:#c2ffdf">struct</span> {
+</span></span><span style="display:flex;"><span>        Data <span style="color:#c2ffdf">uintptr</span>
+</span></span><span style="display:flex;"><span>        Len  <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>        Cap  <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="切片的定义">切片的定义</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> slice
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">MainSlice</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">var</span> (
+</span></span><span style="display:flex;"><span>            a []<span style="color:#c2ffdf">int</span>					<span style="color:#b0bec5">// nil 切片 和 nil 相等，一般用来表示一个不存在的切片
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            b = []<span style="color:#c2ffdf">int</span>{}				<span style="color:#b0bec5">// 空切片 和 nil 不相等， 一般用来表示一个空的集合
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            c = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>}		<span style="color:#b0bec5">// 有 3 个元素的切片，len和cap都为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            d = c[:<span style="color:#c5a3ff">2</span>]				<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            e = c[<span style="color:#c5a3ff">0</span>:<span style="color:#c5a3ff">2</span>:cap(c)]		<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            f = c[:<span style="color:#c5a3ff">0</span>]				<span style="color:#b0bec5">// 有 0 个元素的切片，len为0，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            g = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 3 个元素的切片，len和cap都为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            h = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            i = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">0</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 0 个元素的切片，len为0，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        )
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(a,b,c,d,e,f,g,h,i)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>小结：在底层数组指针、长度、容量没有发生变化的情况下，对切片的遍历、元素的读取、修改都和数组一样，在对切片赋值和传递时与数组类似，只是复制切片头信息，并不会复制底层的数据</p>
+</blockquote>
+<blockquote>
+<p>与数组区别：切片的类型和长度无关，只要是相同类型元素构成的切片均对应相同的切片类型；</p>
+</blockquote>
+<h3 id="添加切片元素">添加切片元素</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#ffb8d1">package</span> main
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">//var a = make([]int,100)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">var</span> a []<span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 尾部追加
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append(a,<span style="color:#c5a3ff">1</span>)          <span style="color:#b0bec5">// 追加 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append(a,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>)       <span style="color:#b0bec5">// 追加 3 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append(a,[]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>,<span style="color:#c5a3ff">7</span>}<span style="color:#ffb8d1">...</span>)  <span style="color:#b0bec5">// 追加 1 个切片
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(<span style="color:#1bc5e0">&#34;开区间:&#34;</span>,a[:<span style="color:#c5a3ff">2</span>])
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(<span style="color:#1bc5e0">&#34;闭区间:&#34;</span>,a[<span style="color:#c5a3ff">2</span>:])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 头部追加
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">0</span>},a<span style="color:#ffb8d1">...</span>)                    <span style="color:#b0bec5">// 在开头添加 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        a = append([]<span style="color:#c2ffdf">int</span>{<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">3</span>,<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">2</span>,<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">1</span>},a<span style="color:#ffb8d1">...</span>)               <span style="color:#b0bec5">// 在开头添加 1 个切片
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 在索引为 4 的位置插入 8
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// 第二个 append操作会构建一个临时切片,然后追加到 a[:4] 其实它的本质是 &#34;截取&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append(a[:<span style="color:#c5a3ff">4</span>],append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">8</span>},a[<span style="color:#c5a3ff">4</span>:]<span style="color:#ffb8d1">...</span>)<span style="color:#ffb8d1">...</span>)    <span style="color:#b0bec5">// 在索引为 4 的位置插入 8 (本质是截取之后在构建)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        a = append(a[:<span style="color:#c5a3ff">4</span>],append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">9</span>,<span style="color:#c5a3ff">10</span>},a[<span style="color:#c5a3ff">4</span>:]<span style="color:#ffb8d1">...</span>)<span style="color:#ffb8d1">...</span>)  <span style="color:#b0bec5">// 在索引为 4 的位置插入切片
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 可以通过 copy 与 append 组合来避免临时切片的创建,同样是插入操作
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a = append(a,<span style="color:#c5a3ff">0</span>)       <span style="color:#b0bec5">// 给原始切片插入一个空元素(截取的规则是右闭左开)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        copy(a[<span style="color:#c5a3ff">4</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">1</span>:],a[<span style="color:#c5a3ff">4</span>:])          <span style="color:#b0bec5">// 将 a[4:] 向后移动 1 个位置
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        a[<span style="color:#c5a3ff">4</span>] = <span style="color:#c5a3ff">11</span>              <span style="color:#b0bec5">// 修改切片元素的值
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 也可以在指定位置插入多个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">var</span> tmpSlice = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">12</span>,<span style="color:#c5a3ff">13</span>}
+</span></span><span style="display:flex;"><span>        a = append(a,tmpSlice<span style="color:#ffb8d1">...</span>)        <span style="color:#b0bec5">// 将 tmpSlice 所有元素追加至 a 切片后方
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        copy(a[<span style="color:#c5a3ff">4</span><span style="color:#ffb8d1">+</span>len(tmpSlice):],a[<span style="color:#c5a3ff">4</span>:])       <span style="color:#b0bec5">// 将 a[4:] 后边所有元素向后移动 len(tmpSlice) 个位置
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        copy(a[<span style="color:#c5a3ff">4</span>:],tmpSlice)            <span style="color:#b0bec5">// 将 tmpSlice 拷贝到指定位置
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/go-struct-array-slice/slice_add.jpg"
+	width="1862"
+	height="454"
+	srcset="/go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_480x0_resize_q75_box.jpg 480w, /go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="slice add"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="410"
+		data-flex-basis="984px"
+	
+></p>
+<h3 id="删除切片元素">删除切片元素</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span>    <span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">delSlice</span>() {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#c2ffdf">var</span> a = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">// 第一种:移动指针的方式
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">// 删除最后 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(a[:len(a)<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">1</span>])           <span style="color:#b0bec5">// [1 2 3]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       <span style="color:#b0bec5">// 删除最后 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(a[:len(a)<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">2</span>])           <span style="color:#b0bec5">// [1 2]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       <span style="color:#b0bec5">// 删除开头 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(a[<span style="color:#c5a3ff">1</span>:])                <span style="color:#b0bec5">// [2 3 4]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       <span style="color:#b0bec5">// 删除开头 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(a[<span style="color:#c5a3ff">2</span>:])                <span style="color:#b0bec5">// [3 4]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">// 第二种:通过append原地完成,不会导致内存空间结构发生变化
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
+</span></span><span style="display:flex;"><span>       b <span style="color:#ffb8d1">:=</span> []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>,<span style="color:#c5a3ff">7</span>,<span style="color:#c5a3ff">8</span>,<span style="color:#c5a3ff">9</span>}
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">// 删除开头 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(append(b[:<span style="color:#c5a3ff">0</span>],b[<span style="color:#c5a3ff">1</span>:]<span style="color:#ffb8d1">...</span>))       <span style="color:#b0bec5">// [6 7 8 9]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       <span style="color:#b0bec5">// 删除开头 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(append(b[:<span style="color:#c5a3ff">0</span>],b[<span style="color:#c5a3ff">2</span>:]<span style="color:#ffb8d1">...</span>))       <span style="color:#b0bec5">// [7 8 9]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
+</span></span><span style="display:flex;"><span>       <span style="color:#b0bec5">// 删除切片中间的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       c <span style="color:#ffb8d1">:=</span> []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
+</span></span><span style="display:flex;"><span>       c = append(c[:<span style="color:#c5a3ff">3</span>],c[<span style="color:#c5a3ff">3</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">1</span>:]<span style="color:#ffb8d1">...</span>)         <span style="color:#b0bec5">// 删除切片中间 1 个索引为 3 的元素 [1 2 3 5 6]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       <span style="color:#b0bec5">//fmt.Println(c)
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       c = append(c[:<span style="color:#c5a3ff">3</span>],c[<span style="color:#c5a3ff">3</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">2</span>:]<span style="color:#ffb8d1">...</span>)         <span style="color:#b0bec5">// 删除切片中间 2 个元素,索引分别为 3、4 [1 2 3 6]
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>       fmt.<span style="color:#ceb1ff">Println</span>(c)
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>总结：切片高效操作的要点是降低内存分配的次数，要尽量保证 &ldquo;append&rdquo; 操作不会超出 &ldquo;cap&rdquo;
+的容量，降低触发内存分配的次数和每次分配内存的大小</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed MIT</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2023 
+    </section>
+    
+    <section class="powerby">
+        
+            本站内容的最终解释权归本网站 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
