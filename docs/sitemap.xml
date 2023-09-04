@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.shentongtong.cn/custom-url/</loc>
-    <lastmod>2023-07-24T16:00:00+08:00</lastmod>
-  </url><url>
     <loc>http://www.shentongtong.cn/</loc>
     <lastmod>2023-07-24T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://www.shentongtong.cn/categories/</loc>
+    <lastmod>2023-07-24T16:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://www.shentongtong.cn/custom-url/</loc>
     <lastmod>2023-07-24T16:00:00+08:00</lastmod>
   </url><url>
     <loc>http://www.shentongtong.cn/technology/</loc>
@@ -25,6 +25,12 @@
   </url><url>
     <loc>http://www.shentongtong.cn/essay/the-ordinary-world/</loc>
     <lastmod>2023-07-22T14:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://www.shentongtong.cn/Matomo/</loc>
+    <lastmod>2023-02-02T21:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://www.shentongtong.cn/SocketLog/</loc>
+    <lastmod>2022-11-03T20:00:00+08:00</lastmod>
   </url><url>
     <loc>http://www.shentongtong.cn/categories/thinkphp/</loc>
     <lastmod>2022-09-01T20:00:00+08:00</lastmod>
