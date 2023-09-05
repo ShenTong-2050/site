@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Home on </title>
+        <link>http://www.shentongtong.cn/categories/home/</link>
+        <description>Recent content in Home on </description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en</language>
+        <lastBuildDate>Mon, 04 Sep 2023 16:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/categories/home/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于网站</title>
+        <link>http://www.shentongtong.cn/about/</link>
+        <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/about/</guid>
+        <description>&lt;p&gt;非科班出身打工人，想起来什么记点什么。。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>联系管理员</title>
+        <link>http://www.shentongtong.cn/contact/</link>
+        <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/contact/</guid>
+        <description>&lt;p&gt;什么？网站挂了？&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
