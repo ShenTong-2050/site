@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Markdown、Syntax'>
+<meta name="keywords" content="Markdown"><title>Markdown</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/markdown/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Markdown'>
+<meta property='og:description' content='Markdown、Syntax'>
+<meta property='og:url' content='http://www.shentongtong.cn/markdown/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-07-20T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-07-20T16:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/markdown/img/markdown.svg' />
+<meta name="twitter:title" content="Markdown">
+<meta name="twitter:description" content="Markdown、Syntax"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/markdown/img/markdown.svg' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3dc13b097e2f7867805642a43cfa2f61_11429_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">申通通</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/markdown/">
+                
+                    <img src="/markdown/img/markdown.svg" loading="lazy" alt="Featured image of post Markdown" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/markdown/">Markdown</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Markdown、Syntax
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 20, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 9 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+    
+
+    
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#markdown-前世今生">Markdown 前世今生</a></li>
+    <li><a href="#语法">语法</a>
+      <ul>
+        <li><a href="#标题">标题</a></li>
+        <li><a href="#注释">注释</a></li>
+        <li><a href="#横线">横线</a></li>
+        <li><a href="#正文">正文</a></li>
+        <li><a href="#内联-html">内联 HTML</a></li>
+        <li><a href="#加粗">加粗</a></li>
+        <li><a href="#引用">引用</a></li>
+        <li><a href="#通知">通知</a></li>
+        <li><a href="#列表">列表</a></li>
+        <li><a href="#内联缩进-与-代码块">内联、缩进 与 代码块</a></li>
+        <li><a href="#表格">表格</a></li>
+        <li><a href="#a-链接与相关属性">a 链接与相关属性</a></li>
+        <li><a href="#添加图片">添加图片</a></li>
+      </ul>
+    </li>
+    <li><a href="#markdown-extra">Markdown Extra</a>
+      <ul>
+        <li><a href="#html-格式的-markdown">HTML 格式的 Markdown</a></li>
+        <li><a href="#给-markdown-元素添加属性">给 Markdown 元素添加属性</a></li>
+        <li><a href="#属于描述-场景">属于、描述 场景</a></li>
+        <li><a href="#脚注">脚注</a></li>
+        <li><a href="#缩写">缩写</a></li>
+        <li><a href="#强调-与-反转义">强调 与 反转义</a></li>
+      </ul>
+    </li>
+    <li><a href="#php-markdown-解析器">PHP Markdown 解析器</a>
+      <ul>
+        <li><a href="#parsedown支持-markdown-extra-语法">Parsedown【支持 Markdown Extra 语法】</a></li>
+        <li><a href="#commonmark">CommonMark</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="markdown-前世今生">Markdown 前世今生</h2>
+<p>Markdown 是一种轻量级的标记语言，它可以让你使用易读易写的纯文本格式编写文档，然后将其转换为 HTML 格式。</p>
+<p>它由约翰·格鲁伯（John Gruber）和亚伦·斯沃茨（Aaron Swartz）在 2004 年创建，旨在让人们更容易地编写和阅读文档，而不需要使用复杂的 HTML 代码。</p>
+<p>Markdown 语法简单明了，易于学习，可以快速地将文本转换为结构化的 HTML 文档。它在写作、博客、文档等方面都有广泛的应用。</p>
+<p>支持编辑器：</p>
+<ul>
+<li>VSCode / Atom</li>
+<li>Vim / Emacs / Sublime Text / Notepad++</li>
+<li>IntelliJ IDEA / Android Studio / WebStorm</li>
+<li>Ulysses / Mou / Typora / Markpad</li>
+</ul>
+<h2 id="语法">语法</h2>
+<h3 id="标题">标题</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>#标题            h1
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##标题           h2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>....             h6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_title.png"
+	width="775"
+	height="192"
+	srcset="/markdown/img/markdown_title_hu6c391d9932651d99ddcabccfbec4fa53_9658_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_title_hu6c391d9932651d99ddcabccfbec4fa53_9658_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="markdown titme"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="403"
+		data-flex-basis="968px"
+	
+></p>
+<h3 id="注释">注释</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--注释内容不会显示--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="横线">横线</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>___    <span style="color:#b0bec5">&lt;!--三个下划线--&gt;</span>
+</span></span><span style="display:flex;"><span>---    <span style="color:#b0bec5">&lt;!--三个破折号--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>*    <span style="color:#b0bec5">&lt;!--*** 三个星号--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_line.png"
+	width="1238"
+	height="45"
+	srcset="/markdown/img/markdown_line_hudfc304844a06f1a2538c79caaa13d332_1304_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_line_hudfc304844a06f1a2538c79caaa13d332_1304_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="markdown line"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="2751"
+		data-flex-basis="6602px"
+	
+></p>
+<h3 id="正文">正文</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--正文由 P 标签包裹--&gt;</span>
+</span></span><span style="display:flex;"><span>php 是世界上最好的语言 
+</span></span><span style="display:flex;"><span>换行  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    新起一段....   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_paragraph.png"
+	width="984"
+	height="129"
+	srcset="/markdown/img/markdown_paragraph_hu86fd005c4a93f1b87aad6f89bb771eec_5287_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_paragraph_hu86fd005c4a93f1b87aad6f89bb771eec_5287_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="markdown paragraph"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="762"
+		data-flex-basis="1830px"
+	
+></p>
+<h3 id="内联-html">内联 HTML</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--内联带有 class 的 HTML 标签--&gt;</span>
+</span></span><span style="display:flex;"><span>Paragraph in Markdown
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ffb8d1">div</span> <span style="color:#ceb1ff">class</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#39;class&#39;</span>&gt;
+</span></span><span style="display:flex;"><span>    This is &lt;<span style="color:#ffb8d1">b</span>&gt;HTML&lt;/<span style="color:#ffb8d1">b</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ffb8d1">div</span>&gt;
+</span></span><span style="display:flex;"><span>Paragraph in Markdown
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_inline_html.png"
+	width="950"
+	height="143"
+	srcset="/markdown/img/markdown_inline_html_hu92b6c45cc78d7aefddf095260a67ed9d_6929_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_inline_html_hu92b6c45cc78d7aefddf095260a67ed9d_6929_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Inline HTML"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="664"
+		data-flex-basis="1594px"
+	
+></p>
+<blockquote>
+<p>块级 HTML 元素”例如 <!-- raw HTML omitted --> 、 <!-- raw HTML omitted --> 、 <!-- raw HTML omitted --> 、 <!-- raw HTML omitted --> 等” 必须用空行与周围内容分隔，并且开头和结尾块的标签不应使用制表符或空格缩进。</p>
+<p>因为 HTML 块级元素通常是独立的内容块，它们应该在视觉上与周围内容分开，以便更好地区分。在 Markdown 中，如果您在两个段落之间插入一个块级 HTML 元素，例如 <!-- raw HTML omitted -->，则需要在元素前后使用一个空行分隔，以确保该元素被视为独立的内容块，而不是段落的一部分。如果没有使用空行分隔，则 Markdown 解析器可能会将该元素与前面或后面的段落合并，导致渲染错误。</p>
+<p>此外，由于 Markdown 是基于文本的格式，因此在 Markdown 中使用制表符或空格缩进会导致 HTML 标签的格式不正确。如果在 HTML 块级元素的开头或结尾使用缩进，则可能会导致该元素的格式不正确，从而使渲染结果出现问题。因此，在 Markdown 中，应避免使用制表符或空格缩进来缩进 HTML 块级元素的开头或结尾。</p>
+</blockquote>
+<h3 id="加粗">加粗</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>*斜体1*
+</span></span><span style="display:flex;"><span><span style="font-style:italic">_斜体2_</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>粗体1**
+</span></span><span style="display:flex;"><span><span style="font-style:italic">__</span>粗体2__
+</span></span><span style="display:flex;"><span>这是一个 <span style="color:#f92672">~~删除线~~</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>*斜粗体1***
+</span></span><span style="display:flex;"><span><span style="font-weight:bold">___斜粗体2___</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>*~~斜粗体删除线1~~***
+</span></span><span style="display:flex;"><span><span style="color:#f92672">~~***斜粗体删除线2***~~</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_bold.png"
+	width="1259"
+	height="626"
+	srcset="/markdown/img/markdown_bold_hu67cf37574463ae0346031a33a74ed5db_51570_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_bold_hu67cf37574463ae0346031a33a74ed5db_51570_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Bold"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="201"
+		data-flex-basis="482px"
+	
+></p>
+<blockquote>
+<p>斜体、粗体、删除线可混合使用</p>
+</blockquote>
+<h3 id="引用">引用</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#c2ffdf">&gt; </span><span style="font-style:italic">**数据结构**
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>&gt;&gt; <span style="font-style:italic">**</span>树**
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt; <span style="font-style:italic">**</span>二叉树**
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt; <span style="font-style:italic">**</span>平衡二叉树**
+</span></span><span style="display:flex;"><span>&gt;&gt;&gt;&gt;&gt; <span style="font-style:italic">**</span>满二叉树**
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_quot.png"
+	width="1105"
+	height="477"
+	srcset="/markdown/img/markdown_quot_hu1e1d70981a8f5565070dc4e9d16f0453_19386_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_quot_hu1e1d70981a8f5565070dc4e9d16f0453_19386_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Quot"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="231"
+		data-flex-basis="555px"
+	
+></p>
+<h3 id="通知">通知</h3>
+<blockquote>
+<p>块引用语法的旧通知机制 已被弃用。通知现在通过名为 MarkdownNotices 的专用插件进行处理</p>
+</blockquote>
+<p><img src="/markdown/img/markdown_quot_notify.png"
+	width="1132"
+	height="624"
+	srcset="/markdown/img/markdown_quot_notify_huf785325568e4cb99f58f365eaf3c55b7_86632_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_quot_notify_huf785325568e4cb99f58f365eaf3c55b7_86632_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Quot Notify"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="181"
+		data-flex-basis="435px"
+	
+></p>
+<h3 id="列表">列表</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--无需列表 可以使用 * - + 中的任意一个符号--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 无序列表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#c2ffdf">*</span> 苹果
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">-</span> 苹果泥
+</span></span><span style="display:flex;"><span>        + 苹果汁
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">*</span> 香蕉
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!-- 有序列表 --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">1.</span> 入口文件
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">2.</span> 控制器
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">3.</span> 模型
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">4.</span> 视图
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!-- 有序列表 --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">1.</span> 入口文件
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">1.</span> 控制器
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">1.</span> 模型
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">1.</span> 视图
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 有序列表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#c2ffdf">2.</span> a
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">3.</span> b
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_list.png"
+	width="1166"
+	height="797"
+	srcset="/markdown/img/markdown_list_huf76803c4d5af94979729c603a9d55439_32708_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_list_huf76803c4d5af94979729c603a9d55439_32708_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown List"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="146"
+		data-flex-basis="351px"
+	
+></p>
+<h3 id="内联缩进-与-代码块">内联、缩进 与 代码块</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--嵌入--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="font-style:italic">**</span>加粗** 与使用 <span style="color:#1bc5e0">`&lt;b&gt;&lt;/b&gt;`</span> 表示的效果一样
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--缩进 至少四个空格 --&gt;</span>
+</span></span><span style="display:flex;"><span>    // some comments
+</span></span><span style="display:flex;"><span>    function calc() {
+</span></span><span style="display:flex;"><span>        return 2;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--块 代码，可以指定语言、代码高亮--&gt;</span>
+</span></span><span style="display:flex;"><span>\```php
+</span></span><span style="display:flex;"><span>function p($data) {
+</span></span><span style="display:flex;"><span>    echo &#34;&lt;<span style="color:#ffb8d1">pre</span>&gt;&#34;;
+</span></span><span style="display:flex;"><span>    print_r($data);
+</span></span><span style="display:flex;"><span>    echo &#34;&lt;/<span style="color:#ffb8d1">pre</span>&gt;&#34;;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>\```
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_code_block.png"
+	width="1123"
+	height="423"
+	srcset="/markdown/img/markdown_code_block_huaa1d46f756cf39da0cf644fb9082bbd0_20140_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_code_block_huaa1d46f756cf39da0cf644fb9082bbd0_20140_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Block Code"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="265"
+		data-flex-basis="637px"
+	
+></p>
+<h3 id="表格">表格</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">通过添加管道作为每个单元格之间的分隔线，
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">并在标题下方添加一行破折号（也由条分隔）来创建表格。
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">请注意，管道不需要垂直对齐
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">在任何标题下方的破折号右侧添加冒号将使该列的文本右对齐。
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">--&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### 表格
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>| id | name | age | province | function |
+</span></span><span style="display:flex;"><span>| --- | ---: | --- | --- | --- |
+</span></span><span style="display:flex;"><span>| 1 | <span style="font-style:italic">**</span>张三** | 18 | <span style="color:#f92672">~~山西~~</span> | <span style="color:#1bc5e0">`array_filter()`</span> |
+</span></span><span style="display:flex;"><span>| 2 | <span style="font-style:italic">**</span>李四** | 19 | <span style="color:#f92672">~~北京~~</span> | <span style="color:#1bc5e0">`array_map()`</span> |
+</span></span><span style="display:flex;"><span>| 3 | <span style="font-style:italic">**</span>王五** | 20 |~~上海~~ | <span style="color:#1bc5e0">`call_user_func()`</span> |
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_table.png"
+	width="726"
+	height="183"
+	srcset="/markdown/img/markdown_table_huba3045f1268d486d6d44ae154649042c_11839_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_table_huba3045f1268d486d6d44ae154649042c_11839_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Table"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="396"
+		data-flex-basis="952px"
+	
+></p>
+<h3 id="a-链接与相关属性">a 链接与相关属性</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--添加一个 a 链接--&gt;</span>
+</span></span><span style="display:flex;"><span>[<span style="color:#ffb8d1">英才网联</span>](<span style="color:#ceb1ff">http://www.800hr.com &#34;标题&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--指定 a 链接的锚点--&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#####指定 a 链接的锚点
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#c2ffdf">*</span> [<span style="color:#ffb8d1">to chapter-1</span>](<span style="color:#ceb1ff">#chapter-1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">*</span> [<span style="color:#ffb8d1">to chapter-2</span>](<span style="color:#ceb1ff">#chapter-2</span>)
+</span></span><span style="display:flex;"><span>chapter-1&lt;<span style="color:#ffb8d1">a</span> <span style="color:#ceb1ff">id</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;chapter-1&#34;</span>&gt;&lt;/<span style="color:#ffb8d1">a</span>&gt;
+</span></span><span style="display:flex;"><span>chapter-2&lt;<span style="color:#ffb8d1">a</span> <span style="color:#ceb1ff">id</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;chapter-2&#34;</span>&gt;&lt;/<span style="color:#ffb8d1">a</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_a.png"
+	width="675"
+	height="249"
+	srcset="/markdown/img/markdown_a_hue0b0385f96b8443c8906ce525e3ec935_9601_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_a_hue0b0385f96b8443c8906ce525e3ec935_9601_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown a"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="271"
+		data-flex-basis="650px"
+	
+></p>
+<h3 id="添加图片">添加图片</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--与 添加链接相似，多了一个 ! 号，[]=&gt;alt--&gt;</span>
+</span></span><span style="display:flex;"><span>![<span style="color:#ffb8d1">Stt</span>](<span style="color:#ceb1ff">https://octodex.github.com/images/minion.png &#34;标题&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>![Alt text][stt-id]
+</span></span><span style="display:flex;"><span>[stt-id]: https://octodex.github.com/images/dojocat.jpg  &#34;????&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="markdown-extra">Markdown Extra</h2>
+<p>Markdown Extra 与 Markdown 语法的主要区别在于 Markdown Extra 扩展了一些新的语法和功能，使得 Markdown 更加强大和灵活，但其不是官方规范的一部分。</p>
+<p>支持的平台和工具：</p>
+<ul>
+<li>GitHub：GitHub 支持部分 Markdown Extra 的语法，并且可以在 GitHub Pages 中使用该语法来编写网站内容</li>
+<li>GitLab：GitLab 也支持部分 Markdown Extra 的语法，可以在 GitLab 中编写项目文档和 README 文件等</li>
+<li>Jekyll：Jekyll 是一个静态网站生成器，支持使用 Markdown Extra 语法来编写网站内容</li>
+<li>Hugo：Hugo 是另一个静态网站生成器，也支持使用 Markdown Extra 语法来编写网站内容</li>
+<li>Typora：Typora 是一款支持实时预览的 Markdown 编辑器，支持 Markdown Extra 的语法</li>
+</ul>
+<blockquote>
+<p>Jekyll 是一个静态网站生成器，它使用 Markdown、Liquid 模板语言和 YAML 前置数据来生成静态网站。Jekyll 最初是由 Tom Preston-Werner 创建的，他是 GitHub 的联合创始人之一。Jekyll 最初是作为 GitHub Pages 的默认静态网站生成器而开发的，后来成为了一个独立的开源项目。</p>
+<p>Jekyll 基于 Ruby 编程语言开发，它使用 Liquid 模板语言来将模板和数据合并生成静态网页。Jekyll 支持 Markdown、Textile 和 HTML 等多种标记语言，并且可以使用 Front Matter 来添加页面的元数据。Jekyll 还提供了许多内置的插件和主题，方便用户进行定制和扩展。
+使用 Jekyll 可以快速、方便地创建静态网站，并且可以将生成的网站部署到 GitHub Pages、Amazon S3、Netlify 等多个平台。</p>
+<p>Jekyll 也被广泛应用于博客、文档、个人网站等多种场合。</p>
+</blockquote>
+<h3 id="html-格式的-markdown">HTML 格式的 Markdown</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### HTML嵌套MarkDown文本
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&lt;<span style="color:#ffb8d1">p</span>&gt;hello <span style="font-weight:bold">**world!**</span>&lt;/<span style="color:#ffb8d1">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ffb8d1">p</span> <span style="color:#ceb1ff">markdown</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;1&#34;</span>&gt;hello <span style="font-weight:bold">**world!**</span>&lt;/<span style="color:#ffb8d1">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ffb8d1">p</span> <span style="color:#ceb1ff">markdown</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;1&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>\```php
+</span></span><span style="display:flex;"><span>echo &#34;代码块&#34;;
+</span></span><span style="display:flex;"><span>\```
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ffb8d1">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ffb8d1">div</span>&gt;Hello <span style="font-weight:bold">**World!**</span>&lt;/<span style="color:#ffb8d1">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ffb8d1">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ffb8d1">td</span>&gt;单元格**行内元素**内容&lt;/<span style="color:#ffb8d1">td</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ffb8d1">td</span> <span style="color:#ceb1ff">markdown</span><span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;1&#34;</span>&gt;单元格**行内元素**内容&lt;/<span style="color:#ffb8d1">td</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ffb8d1">td</span>&gt;&lt;<span style="color:#ffb8d1">div</span>&gt;单元格块级元素&lt;/<span style="color:#ffb8d1">div</span>&gt;&lt;<span style="color:#ffb8d1">span</span>&gt;单元格行内元素&lt;/<span style="color:#ffb8d1">span</span>&gt;11&lt;/<span style="color:#ffb8d1">td</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ffb8d1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ffb8d1">table</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">*</span> _Markdown_ 文本&lt;<span style="color:#ffb8d1">div</span>&gt;**块级元素**&lt;/<span style="color:#ffb8d1">div</span>&gt;&lt;<span style="color:#ffb8d1">span</span>&gt;行内元素&lt;/<span style="color:#ffb8d1">span</span>&gt;22
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">*</span> 2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_html.png"
+	width="1303"
+	height="669"
+	srcset="/markdown/img/markdown_html_hub06e603f524597f52c340040e7ebb400_40611_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_html_hub06e603f524597f52c340040e7ebb400_40611_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown HTML"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="194"
+		data-flex-basis="467px"
+	
+></p>
+<h3 id="给-markdown-元素添加属性">给 Markdown 元素添加属性</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### 给标签添加属性
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>[<span style="color:#ffb8d1">给a链接添加id属性</span>](<span style="color:#ceb1ff">https://www.baidu.com &#34;百度一下&#34;</span>) {#baidu}
+</span></span><span style="display:flex;"><span>[<span style="color:#ffb8d1">给a链接添加class属性</span>](<span style="color:#ceb1ff">https://www.jd.com &#34;京东&#34;</span>) {.jingdong}
+</span></span><span style="display:flex;"><span>[<span style="color:#ffb8d1">自定义属性</span>](<span style="color:#ceb1ff">https://www.taobao.com &#34;淘宝一下&#34;</span>){#taobao .taobao}
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--给图片添加属性--&gt;</span>
+</span></span><span style="display:flex;"><span>![<span style="color:#ffb8d1">Stt</span>](<span style="color:#ceb1ff">https://octodex.github.com/images/minion.png &#34;标题&#34;</span>) {#img}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_property.png"
+	width="1054"
+	height="520"
+	srcset="/markdown/img/markdown_property_hu3b967de1da782ddae2e70feb1be7532a_50545_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_property_hu3b967de1da782ddae2e70feb1be7532a_50545_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Property"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="202"
+		data-flex-basis="486px"
+	
+></p>
+<h3 id="属于描述-场景">属于、描述 场景</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### 术语、描述列表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--简单定义--&gt;</span>
+</span></span><span style="display:flex;"><span>苹果
+</span></span><span style="display:flex;"><span>:   蔷薇科苹果属植物的果实。
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--多列表 与 多术语--&gt;</span>
+</span></span><span style="display:flex;"><span>香蕉
+</span></span><span style="display:flex;"><span>:   巴拉巴拉
+</span></span><span style="display:flex;"><span>:   巴拉巴拉
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>红草莓、蓝莓
+</span></span><span style="display:flex;"><span>:   巴拉巴拉
+</span></span><span style="display:flex;"><span>:   巴拉巴拉
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>芒果
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>: 芒果巴拉巴拉
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_term_1.png"
+	width="1755"
+	height="1188"
+	srcset="/markdown/img/markdown_term_1_hu86bcb4490b88e9278a50e415bd3d4155_109756_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_term_1_hu86bcb4490b88e9278a50e415bd3d4155_109756_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Term"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="147"
+		data-flex-basis="354px"
+	
+></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#b0bec5">&lt;!--多描述列表--&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>术语一
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:   列表一 段落一
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    段落二
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:   列表二
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>术语二
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>:   列表一
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ```php
+</span></span><span style="display:flex;"><span>    echo &#34;代码块&#34;;
+</span></span><span style="display:flex;"><span>    ```
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">
+</span></span></span><span style="display:flex;"><span><span style="color:#c2ffdf">    &gt; </span><span style="font-style:italic">引用注释
+</span></span></span><span style="display:flex;"><span><span style="font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">1.</span> 有序列表
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">2.</span> 有序列表
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_term_2.png"
+	width="1845"
+	height="824"
+	srcset="/markdown/img/markdown_term_2_hu299d3a8b65a19059264edbfc6b7da71d_37560_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_term_2_hu299d3a8b65a19059264edbfc6b7da71d_37560_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Term"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="223"
+		data-flex-basis="537px"
+	
+></p>
+<h3 id="脚注">脚注</h3>
+<p>在 Markdown Extra 中，脚注（<a class="link" href="%22Footnotes%22" >Footnotes</a>）是一种在文本中添加注释的方法。脚注可以帮助读者快速查看和理解文本中的特定术语或概念，而不会干扰到文本的流畅性</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### 脚注
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>PHP是世界上最好的语言![^1]
+</span></span><span style="display:flex;"><span>[^1]: 关于php是什么这件事
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_footnotes.png"
+	width="1755"
+	height="1271"
+	srcset="/markdown/img/markdown_footnotes_hua833f5c62590008b5aef39176d6e495e_216520_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_footnotes_hua833f5c62590008b5aef39176d6e495e_216520_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Footnotes"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="138"
+		data-flex-basis="331px"
+	
+></p>
+<blockquote>
+<p>1）脚注定义可以在文档中的任何位置找到，但脚注将始终按照它们在文本中链接的顺序列出<br>
+2）每个脚注必须有一个独特的名称。该名称将用于将脚注引用链接到脚注定义，但对脚注的编号没有影响。名称可以包含 HTML 中的id 属性内有效的任何字符<br>
+3）脚注内容一般都是在内容最下方</p>
+</blockquote>
+<h3 id="缩写">缩写</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### 缩写示例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>*[HTML]: Hyper Text Markup Language
+</span></span><span style="display:flex;"><span>*[W3C]:  World Wide Web Consortium
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>The HTML specification
+</span></span><span style="display:flex;"><span>is maintained by the W3C.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_abbr.png"
+	width="1741"
+	height="1125"
+	srcset="/markdown/img/markdown_abbr_hu23889c0db7867ccf9386bf1cfe9b5da9_230663_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_abbr_hu23889c0db7867ccf9386bf1cfe9b5da9_230663_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Abbr"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="154"
+		data-flex-basis="371px"
+	
+></p>
+<h3 id="强调-与-反转义">强调 与 反转义</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">### 强调 与 反斜杠转义
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>&#34;双引号&#34; 原始输出.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>关于我想强调 <span style="font-style:italic">_一个词组_</span> 这件事
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>\**我不是粗体**
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_emphasize.png"
+	width="1624"
+	height="352"
+	srcset="/markdown/img/markdown_emphasize_hu9aab70b9886e97a7bb867b39adc91853_39016_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_emphasize_hu9aab70b9886e97a7bb867b39adc91853_39016_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown emphasize"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="461"
+		data-flex-basis="1107px"
+	
+></p>
+<h2 id="php-markdown-解析器">PHP Markdown 解析器</h2>
+<p>原始的 Markdown 实现已经演变为 <a class="link" href="https://spec.commonmark.org/"  title="CommonMark"
+     target="_blank" rel="noopener"
+    >CommonMark</a> 和 <a class="link" href="https://github.com/guodongxiaren/README"  title="GitHub-Flavored Markdown"
+     target="_blank" rel="noopener"
+    >GitHub-Flavored Markdown</a>，它们提供了更好的代码块、表格和其他一些原始规范中没有的功能。</p>
+<p>并非所有的 Markdown 库都能产生相同的输出结果：一些库可能无法识别某些语法特性，有些甚至可能没有遵循特定的规范，如 CommonMark 或 GFM。但是，至少所有的库都支持 John Gruber 的原始语法，而且像 表格语法 和 代码块语法 大多数广泛使用的语法也都得到了支持。</p>
+<ul>
+<li><a class="link" href="https://github.com/erusev/parsedown"  title="Parsedown"
+     target="_blank" rel="noopener"
+    >Parsedown</a></li>
+<li><a class="link" href="https://github.com/thephpleague/commonmark"  title="CommonMark"
+     target="_blank" rel="noopener"
+    >CommonMark</a></li>
+<li><a class="link" href="https://github.com/michelf/php-markdown"  title="PHP Markdown"
+     target="_blank" rel="noopener"
+    >PHP Markdown</a></li>
+<li><a class="link" href="https://github.com/cebe/markdown"  title="cebe/markdown"
+     target="_blank" rel="noopener"
+    >cebe/markdown</a></li>
+</ul>
+<h3 id="parsedown支持-markdown-extra-语法">Parsedown【支持 Markdown Extra 语法】</h3>
+<p>Parsedown 是 PHP 中最受欢迎的 Markdown 库之一，由 Emanuil Rusev 编写。目前在 GitHub 上已获得超过 14,000 多个 star，并且在 Packagist 上迄今已经有超过 7500 万次下载。它被用于几个静态 CMS 软件、Laravel &lt; 6 和其他超过 600 个项目（根据 Packagist 上的报告）。</p>
+<p>Parsedown 支持大部分 CommonMark 语法，但并非全部。它是一个高度主观的库，有意地挑选出了 Markdown 语法中最常用的一些特性，并对不常用的特性开放扩展。</p>
+<blockquote>
+<p>composer require erusev/parsedown<br>
+composer require erusev/parsedown-extra</p>
+</blockquote>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 解析 并将 Markdown 输出为 HTML
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// Markdown 内容可以是 存储在数据库中的，也可以是 .md 文件中的
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$markdown <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&lt;&lt;&lt;</span><span style="color:#1bc5e0">EOT</span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"># Hello, Parsedown!
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">This is **Parsedown**, a better Markdown parser in PHP.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- It&#39;s easy to use
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- It&#39;s fast
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- It supports [GitHub flavoured Markdown](https://github.github.com/gfm/)
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">You can learn more about Parsedown at [parsedown.org](https://parsedown.org).
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"></span><span style="color:#1bc5e0">EOT</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$Parsedown <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Parsedown();
+</span></span><span style="display:flex;"><span>$html <span style="color:#ffb8d1">=</span> $Parsedown<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">text</span>($markdown);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $html;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_php_parsedown.png"
+	width="798"
+	height="312"
+	srcset="/markdown/img/markdown_php_parsedown_hu8a0185bffb0ecdd80abbd4d27d1ca676_28816_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_php_parsedown_hu8a0185bffb0ecdd80abbd4d27d1ca676_28816_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="php parsedown"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="255"
+		data-flex-basis="613px"
+	
+></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// MarkdownExtra 语法
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$markdown <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&lt;&lt;&lt;</span><span style="color:#1bc5e0">EOT</span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"># My Custom Markdown Format
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| Name | Age | Email |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|------|-----|-------|
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| **伏羲** | 30  | _john@example.com_ |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| **神农** | 25  | _jane@example.com_ |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">Here is a paragraph with a [custom link](custom://link).
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">*[HTML]: Hyper Text Markup Language
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">*[W3C]:  World Wide Web Consortium
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">The HTML specification is maintained by the W3C.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">~~~ warning
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">This is a warning message.
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">~~~
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"></span><span style="color:#1bc5e0">EOT</span>;
+</span></span><span style="display:flex;"><span>$Parsedown <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> \ParsedownExtra();
+</span></span><span style="display:flex;"><span>$html <span style="color:#ffb8d1">=</span> $Parsedown<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">text</span>($markdown);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $html;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_extra.png"
+	width="1003"
+	height="367"
+	srcset="/markdown/img/markdown_extra_hu52bf0f299e86a77451aa191ec420ce4b_36330_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_extra_hu52bf0f299e86a77451aa191ec420ce4b_36330_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="Markdown Extra"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="273"
+		data-flex-basis="655px"
+	
+></p>
+<h3 id="commonmark">CommonMark</h3>
+<p>CommonMark 是一个高度可扩展且现代的 Markdown 库，由 Colin O&rsquo;Dell 和多位贡献者编写。自 Laravel 6 起，其成为首选的 Markdown 处理器，并在 GitHub 上获得了超过 1,700 个 star，在 Packagist 上报告了超过 3100 万次下载，并有超过 250 个项目将其声明为依赖项。</p>
+<p>CommonMark 支持完整的 CommonMark 规范和完整的 GitHub-Flavored Markup 规范，使其成为 PHP 中最完整的 Markdown 库。</p>
+<p>CommonMark 库由一个解析器和一个渲染器（HTML）组成，解析器将原始的 Markdown 文本转换为抽象语法树（AST），渲染器将 AST 转换为 HTML。这些组件可以进行交换以适应不同的需求，或者通过插件支持对解析器和渲染器进行更高级别的修改。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#b0bec5"># league/commonmark 库还提供了一个命令行工具，提供流畅的 CLI 接口，用于转换 Markdown 文本</span>
+</span></span><span style="display:flex;"><span>composer require league/commonmark 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$md <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&lt;&lt;&lt;</span><span style="color:#1bc5e0">EOT</span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">### 复选框
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [x] 需求分析
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [x] 系统设计
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [x] 详细设计
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [ ] 编码
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [ ] 测试
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">- [ ] 交付
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">### 表格
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| 姓名 | 邮箱 |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| --- | --- |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| ~~张三~~ | 111@qq.com |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">| ~~李四~~ | 222@qq.com |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">### 原始HTML
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">&lt;textarea&gt;textarea Content&lt;/textarea&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"></span><span style="color:#1bc5e0">EOT</span>;
+</span></span><span style="display:flex;"><span>$env <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Environment();
+</span></span><span style="display:flex;"><span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> AutolinkExtension());            <span style="color:#b0bec5">//  自动将文本中的URL和邮箱地址转换为链接，无需使用Markdown语法
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> CommonMarkCoreExtension());      <span style="color:#b0bec5">//  CommonMark规范的核心扩展，提供对Markdown基本语法的支持
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> DisallowedRawHtmlExtension());   <span style="color:#b0bec5">//  禁止使用原始的HTML标记，以提高解析器的安全性
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> StrikethroughExtension());       <span style="color:#b0bec5">//  支持使用 &#34;~~&#34; 符号表示 删除线
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> TableExtension());               <span style="color:#b0bec5">//  支持使用Markdown语法来创建表格
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$env<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addExtension</span>(<span style="color:#c2ffdf">new</span> TaskListExtension());            <span style="color:#b0bec5">//  支持使用Markdown语法来创建任务列表（即带有复选框的列表）
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
+</span></span><span style="display:flex;"><span>$convert <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> MarkdownConverter($env);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $convert<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">convert</span>($md)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getContent</span>();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/markdown/img/markdown_commonmark.png"
+	width="1409"
+	height="795"
+	srcset="/markdown/img/markdown_commonmark_hu164d6c909abac027e88217be5ec008db_60536_480x0_resize_mitchellnetravali_3.png 480w, /markdown/img/markdown_commonmark_hu164d6c909abac027e88217be5ec008db_60536_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="CommonMark"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="425px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2023 
+    </section>
+    
+    <section class="powerby">
+        
+            本站内容的最终解释权归本网站 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
