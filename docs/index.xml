@@ -6,7 +6,25 @@
         <description>Recent content on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sat, 22 Jul 2023 14:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 04 Sep 2023 16:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>关于网站</title>
+        <link>http://www.shentongtong.cn/about/</link>
+        <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/about/</guid>
+        <description>&lt;p&gt;非科班出身打工人，想起来什么记点什么。。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>联系管理员</title>
+        <link>http://www.shentongtong.cn/contact/</link>
+        <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/contact/</guid>
+        <description>&lt;p&gt;什么？网站挂了？&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>平凡的世界</title>
         <link>http://www.shentongtong.cn/essay/the-ordinary-world/</link>
         <pubDate>Sat, 22 Jul 2023 14:00:00 +0800</pubDate>
@@ -9349,24 +9367,6 @@ REPL 环境在学习编程、探索编程语言特性、进行快速原型开发
         
         <guid>http://www.shentongtong.cn/archives/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>关于...</title>
-        <link>http://www.shentongtong.cn/about/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://www.shentongtong.cn/about/</guid>
-        <description>&lt;p&gt;非科班出身打工人，想起来什么记点什么。。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>联系我...</title>
-        <link>http://www.shentongtong.cn/contact/</link>
-        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-        
-        <guid>http://www.shentongtong.cn/contact/</guid>
-        <description>&lt;p&gt;凑页面的。。。&lt;/p&gt;
-</description>
         </item>
         
     </channel>
