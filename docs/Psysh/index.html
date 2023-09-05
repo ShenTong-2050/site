@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='关于Psysh Psysh 是一个 PHP 的 REPL（Read-Eval-Print Loop）工具，它提供了一个交互式的命令行环境，让您可以在命令行下输入 PHP 代'>
+<title>Psysh</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/Psysh/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Psysh'>
+<meta property='og:description' content='关于Psysh Psysh 是一个 PHP 的 REPL（Read-Eval-Print Loop）工具，它提供了一个交互式的命令行环境，让您可以在命令行下输入 PHP 代'>
+<meta property='og:url' content='http://www.shentongtong.cn/Psysh/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-04-11T20:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-04-11T20:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/Psysh/img/psysh_tp_1.png' />
+<meta name="twitter:title" content="Psysh">
+<meta name="twitter:description" content="关于Psysh Psysh 是一个 PHP 的 REPL（Read-Eval-Print Loop）工具，它提供了一个交互式的命令行环境，让您可以在命令行下输入 PHP 代"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/Psysh/img/psysh_tp_1.png' />
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu3dc13b097e2f7867805642a43cfa2f61_11429_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description">申通通</h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Psysh/">
+                <img src="/Psysh/img/psysh_tp_1_hu5abffb5ff32a2f66ce0eee354ba5bc65_24185_800x0_resize_mitchellnetravali_3.png"
+                        srcset="/Psysh/img/psysh_tp_1_hu5abffb5ff32a2f66ce0eee354ba5bc65_24185_800x0_resize_mitchellnetravali_3.png 800w, /Psysh/img/psysh_tp_1_hu5abffb5ff32a2f66ce0eee354ba5bc65_24185_1600x0_resize_mitchellnetravali_3.png 1600w"
+                        width="800" 
+                        height="212" 
+                        loading="lazy"
+                        alt="Featured image of post Psysh" />
+
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Psysh/">Psysh</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 11, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+
+    
+    
+
+    
+    
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于psysh">关于Psysh</a>
+      <ul>
+        <li><a href="#特性">特性</a></li>
+        <li><a href="#psysh-与-php--a-区别">Psysh 与 php -a 区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#安装与配置">安装与配置</a>
+      <ul>
+        <li><a href="#所需扩展">所需扩展</a></li>
+        <li><a href="#引入">引入</a></li>
+        <li><a href="#配置文件-httpsgithubcombobthecowpsyshwikiconfig-options-配置文件-"><a href="https://github.com/bobthecow/psysh/wiki/Config-options" title="配置文件">配置文件</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#与框架命令行结合">与框架命令行结合</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a></li>
+  </ul>
+</nav>
+    
+
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="关于psysh">关于Psysh</h2>
+<p><a class="link" href="http://psysh.org/"  title="Psysh"
+     target="_blank" rel="noopener"
+    >Psysh</a> 是一个 PHP 的 REPL（Read-Eval-Print Loop）工具，它提供了一个交互式的命令行环境，让您可以在命令行下输入 PHP 代码片段并立即看到其执行结果。Psysh 具有丰富的特性，包括语法高亮、自动完成、历史记录、查看和编辑变量值、显示方法和属性、调试工具等，
+使得在命令行下进行 PHP 代码调试、验证和测试变得更加方便和快捷。【<a class="link" href="https://github.com/bobthecow/psysh/wiki/Home"  title="Psysh手册"
+     target="_blank" rel="noopener"
+    >Psysh手册</a>】</p>
+<p>Psysh 可以用作一个独立的 REPL 工具，也可以嵌入到您的 PHP 项目中，作为一个开发工具来进行交互式调试和测试。Psysh 支持 PHP 5.4 及以上版本，并且可以与多种命令行终端配合使用。您可以通过 Composer 安装 Psysh，然后在命令行下运行 &ldquo;psysh&rdquo; 命令来启动 Psysh。</p>
+<blockquote>
+<p>REPL 是 Read-Eval-Print Loop（读取-求值-输出循环）的缩写。它是一种计算机编程环境，通常用于解释性编程语言，提供了一种交互式的编程方式。
+在一个 REPL 环境中，用户可以输入一条代码或表达式，然后系统会立即对其进行求值并返回结果，这样用户可以实时看到代码的执行结果。用户还可以继续输入更多的代码或表达式，形成一个循环的交互过程。
+REPL 提供了一种便捷的方式来进行代码测试、验证和调试。用户可以在 REPL 环境中快速尝试不同的代码片段，观察其执行结果，从而加快开发和调试的速度。REPL 环境通常包括一个命令行界面或交互式界面，如 Python 的交互式解释器、Ruby 的 irb、JavaScript 的 Node.js REPL 等。
+REPL 环境在学习编程、探索编程语言特性、进行快速原型开发和进行交互式数据分析等场景中非常有用，并广泛应用于各种编程语言和开发工具中。</p>
+</blockquote>
+<h3 id="特性">特性</h3>
+<ul>
+<li>语法高亮：Psysh 可以对输入的 PHP 代码进行语法高亮显示，使代码更易读。</li>
+<li>自动完成：Psysh 支持自动完成，可以帮助您输入 PHP 代码时自动补全函数、类、变量等名称。</li>
+<li>历史记录：Psysh 会记录您在 REPL 中输入的代码，并允许您通过上下箭头键来访问以前输入的代码，方便查找和重用。</li>
+<li>查看和编辑变量值：Psysh 允许您查看和编辑当前的变量值，方便进行调试和验证。</li>
+<li>显示方法和属性：Psysh 可以显示对象的方法和属性列表，方便您在 REPL 中探索对象的结构和内容。</li>
+<li>调试工具：Psysh 提供了一些内置的调试工具，如 &ldquo;wtf&rdquo; 命令用于查看函数调用栈，&ldquo;debug&rdquo; 命令用于启动调试器等。</li>
+</ul>
+<h3 id="psysh-与-php--a-区别">Psysh 与 php -a 区别</h3>
+<p><img src="/Psysh/img/psysh_php_a.png"
+	width="1041"
+	height="508"
+	srcset="/Psysh/img/psysh_php_a_hu3ae2441fe93045973ee6813f0b4b4210_51617_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_php_a_hu3ae2441fe93045973ee6813f0b4b4210_51617_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="difference"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="491px"
+	
+></p>
+<h2 id="安装与配置">安装与配置</h2>
+<h3 id="所需扩展">所需扩展</h3>
+<ul>
+<li>ext-json：用于操作JSON数据</li>
+<li>ext-mbstring：用于处理多字节字符串</li>
+<li>ext-tokenizer：用于分析PHP代码并产生token</li>
+<li>ext-readline：用于支持交互式命令行</li>
+<li>ext-posix：用于提供POSIX标准相关的功能</li>
+</ul>
+<h3 id="引入">引入</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require psy/psysh     <span style="color:#b0bec5"># 引入【需要将 vendor/bin 添加至环境变量】</span>
+</span></span><span style="display:flex;"><span>./vendor/bin/psysh             <span style="color:#b0bec5"># 运行</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/succ_install.png"
+	width="1025"
+	height="220"
+	srcset="/Psysh/img/succ_install_hua3b9e1d51a8a6b6e2b6c3a87eae86026_11178_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/succ_install_hua3b9e1d51a8a6b6e2b6c3a87eae86026_11178_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="success install"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="465"
+		data-flex-basis="1118px"
+	
+></p>
+<h3 id="配置文件-httpsgithubcombobthecowpsyshwikiconfig-options-配置文件-"><a class="link" href="https://github.com/bobthecow/psysh/wiki/Config-options"  title="配置文件"
+     target="_blank" rel="noopener"
+    >配置文件</a></h3>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>casters</td>
+<td>这个配置项指定了使用 symfony/var-dumper 库进行输出时，如何对某些类型的变量进行格式化和显示。示例配置文件默认定义了一个自定义类型 MyFooClass 和对应的格式化函数MyFooClassCaster::castMyFooObject，表示在输出 MyFooClass 类型的变量时，会调用 MyFooClassCaster::castMyFooObject 函数来格式化输出。</td>
+</tr>
+<tr>
+<td>colorMode</td>
+<td>这个配置项指定了在终端中输出时，是否启用颜色。可选的值有：\Psy\Configuration::COLOR_MODE_FORCED 强制启用颜色、\Psy\Configuration::COLOR_MODE_DISABLED 禁用颜色、\Psy\Configuration::COLOR_MODE_AUTO 自动检测终端是否支持颜色。</td>
+</tr>
+<tr>
+<td>commands</td>
+<td>这个配置项定义了 PsySH Shell 中可用的命令。这里只定义了一个解析 PHP 代码的命令 \Psy\Command\ParseCommand。</td>
+</tr>
+<tr>
+<td>defaultIncludes</td>
+<td>这个配置项指定了在每个 PsySH 会话开始时需要自动加载的文件。这里定义了一个 bootstrap.php 文件，如果存在的话，就加载它</td>
+</tr>
+<tr>
+<td>eraseDuplicates</td>
+<td>这个配置项指定了历史记录是否允许出现重复的命令。如果设置为 true，则不会出现重复的命令，新的命令会覆盖旧的命令；如果设置为 false，则允许出现重复的命令。</td>
+</tr>
+<tr>
+<td>errorLoggingLevel</td>
+<td>这个配置项指定了记录错误日志的级别。只有符合这个级别的错误才会被记录下来。默认值是 E_ALL &amp; ~E_NOTICE，表示记录所有错误，但不记录 NOTICE 级别的错误。</td>
+</tr>
+<tr>
+<td>forceArrayIndexes</td>
+<td>这个配置项指定了是否始终显示数组的索引，即使数组的键是数字。如果设置为 true，则始终显示数组的索引；如果设置为 false，则只有当数组的键不是数字时才会显示键。</td>
+</tr>
+<tr>
+<td>historySize</td>
+<td>这个配置项指定了历史记录最多可以包含的命令数量。如果设置为 0，则历史记录的数量是无限的。</td>
+</tr>
+<tr>
+<td>interactiveMode</td>
+<td>这个配置项指定了 PsySH 是否在交互模式下运行。可选的值有：\Psy\Configuration::INTERACTIVE_MODE_FORCED 强制交互模式、\Psy\Configuration::INTERACTIVE_MODE_DISABLED 禁用交互模式、\Psy\Configuration::INTERACTIVE_MODE_AUTO 根据输入的连接类型自动选择。</td>
+</tr>
+<tr>
+<td>matchers</td>
+<td>这个配置项定义了用于自动补全的匹配器。默认定义了两个用于自动补全 MongoDB 数据库和集合名称的匹配器。</td>
+</tr>
+<tr>
+<td>pager</td>
+<td>这个配置项指定了在输出超过屏幕内容时进行自动分页的分页器。默认使用 more，超出一屏时按下 空格键 或 回车键 显示下一页。</td>
+</tr>
+<tr>
+<td>prompt</td>
+<td>这个配置项指定了 PsySH Shell 中的提示符。</td>
+</tr>
+<tr>
+<td>rawOutput</td>
+<td>这个配置项指定了是否以 var_export 格式输出</td>
+</tr>
+<tr>
+<td>historyFile</td>
+<td>指定历史命令存储文件绝对路径</td>
+</tr>
+</tbody>
+</table></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/用户目录/.config/psysh/config.php  <span style="color:#b0bec5"># 新版 Psysh windowns 下 默认的配置文件 加载路径</span>
+</span></span><span style="display:flex;"><span>psysh --config /path/to/psysh_config.php <span style="color:#b0bec5"># 通过指定配置文件来运行 Psysh</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>默认的配置目录可能不存在，需要手动创建【建议使用默认的配置文件】</p>
+</blockquote>
+<h2 id="用法">用法</h2>
+<ul>
+<li>help 命令</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>psysh
+</span></span><span style="display:flex;"><span>&gt;help               // 获取支持的命令
+</span></span><span style="display:flex;"><span>&gt;help ls            // 获取 ls 命令的用法示例
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/psysh_help.png"
+	width="1224"
+	height="472"
+	srcset="/Psysh/img/psysh_help_hu2908fbd756dcf938d73a6108f7038de4_85318_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_help_hu2908fbd756dcf938d73a6108f7038de4_85318_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh help"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="259"
+		data-flex-basis="622px"
+	
+></p>
+<blockquote>
+<p>1）ls 命令用于列出给定对象（变量、对象、数组等）的属性、方法或数组元素。<br>
+2）show 命令用于显示各种信息，如类的继承关系、方法、属性、命名空间、函数等。<br>
+3）wtf【What the Function】命令是 Psysh 中的一个命令，用于显示最近的异常的堆栈跟踪信息。通常在调试过程中，程序会抛出异常，然后我们需要查看堆栈跟踪信息来帮助定位问题。这时就可以使用 wtf 命令来查看异常的详细信息，包括出错文件、代码行数以及堆栈跟踪信息等。例如，输入 wtf 命令可以显示最近一次的异常信息，而输入 wtf -a 命令可以显示完整的堆栈跟踪信息。在使用 wtf 命令时，还可以通过指定参数 incredulity 来控制显示的堆栈跟踪信息的行数。<br>
+4）whereami是Psysh的一个命令，它用于显示当前代码执行的位置。当你在调试代码时，如果你忘记了当前位置是在哪个文件或者类的哪个方法里，你可以使用这个命令来快速查看。<br>
+5）timeit 是一个命令，用于测量 PHP 代码执行的时间。它会运行一段给定的 PHP 代码并计算执行所花费的时间，然后返回运行该代码的时间。可以使用它来比较两个实现同一任务的算法之间的性能差异。</p>
+</blockquote>
+<p><img src="/Psysh/img/psysh_wtf.png"
+	width="1282"
+	height="609"
+	srcset="/Psysh/img/psysh_wtf_hub2a6b0fcedf4c011cd123e947921caa3_66123_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_wtf_hub2a6b0fcedf4c011cd123e947921caa3_66123_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh wtf"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="210"
+		data-flex-basis="505px"
+	
+></p>
+<p><img src="/Psysh/img/psysh_timeit.png"
+	width="706"
+	height="219"
+	srcset="/Psysh/img/psysh_timeit_hu590471699a291c7b3f6e00f026f7a28e_8309_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_timeit_hu590471699a291c7b3f6e00f026f7a28e_8309_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh timeit"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="322"
+		data-flex-basis="773px"
+	
+></p>
+<ul>
+<li>定义变量与函数</li>
+</ul>
+<p><img src="/Psysh/img/psysh_var.png"
+	width="932"
+	height="386"
+	srcset="/Psysh/img/psysh_var_huf65aab8aea9881fd57344bab2e5216b8_13545_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_var_huf65aab8aea9881fd57344bab2e5216b8_13545_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh var"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="241"
+		data-flex-basis="579px"
+	
+></p>
+<blockquote>
+<p>可以通过 unset($var) 来删除变量</p>
+</blockquote>
+<ul>
+<li>
+<p>类操作</p>
+<ul>
+<li>定义、实例化 类，设置/获取 属性</li>
+</ul>
+<p><img src="/Psysh/img/psysh_class_obj.png"
+	width="887"
+	height="509"
+	srcset="/Psysh/img/psysh_class_obj_hu8440f69d224db94a5898ca68f9d9e616_22276_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_class_obj_hu8440f69d224db94a5898ca68f9d9e616_22276_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh class object"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="174"
+		data-flex-basis="418px"
+	
+></p>
+<ul>
+<li>查看类属性与函数</li>
+</ul>
+<p><img src="/Psysh/img/psysh_class_obj_view.png"
+	width="1870"
+	height="965"
+	srcset="/Psysh/img/psysh_class_obj_view_hua892ef3b7480c8a340ede43d51940cd1_79572_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_class_obj_view_hua892ef3b7480c8a340ede43d51940cd1_79572_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh class view"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="193"
+		data-flex-basis="465px"
+	
+></p>
+<ul>
+<li>通过运行 php 文件来调试 Psysh</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// Windows.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">interface</span> Windows {
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// SimpleWindow.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">SimpleWindow</span> <span style="color:#c2ffdf">implements</span> Windows {
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">render</span>() {
+</span></span><span style="display:flex;"><span>        $returnString <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&lt;&lt;&lt;</span><span style="color:#1bc5e0">EOL</span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">+-------------+
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|             |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|             |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|             |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|             |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|             |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">+-------------+
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"></span><span style="color:#1bc5e0">EOL</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $returnString <span style="color:#ffb8d1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">test</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#1bc5e0">&#34;hello world&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// DecoratedWindow.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">DecoratedWindow</span> <span style="color:#c2ffdf">implements</span> Windows {
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> $windowReference;
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> __construct(Windows $windowReference) {
+</span></span><span style="display:flex;"><span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">setWindowReference</span>($windowReference);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">render</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getWindowReference</span>()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">getWindowReference</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">windowReference</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">setWindowReference</span>(Windows $windowReference) {
+</span></span><span style="display:flex;"><span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">windowReference</span> <span style="color:#ffb8d1">=</span> $windowReference;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// TitledWindow.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">TitledWindow</span> <span style="color:#c2ffdf">extends</span> DecoratedWindow {
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">render</span>() {
+</span></span><span style="display:flex;"><span>        $string <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addTitle</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $string <span style="color:#ffb8d1">.</span> <span style="color:#c2ffdf">parent</span><span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">addTitle</span>() {
+</span></span><span style="display:flex;"><span>        $returnString <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&lt;&lt;&lt;</span><span style="color:#1bc5e0">EOL</span><span style="color:#1bc5e0">
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">+-------------+
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0">|Title        |
+</span></span></span><span style="display:flex;"><span><span style="color:#1bc5e0"></span><span style="color:#1bc5e0">EOL</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> $returnString <span style="color:#ffb8d1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// test.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>function_exists(<span style="color:#1bc5e0">&#39;p&#39;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">p</span>($data) {
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;&lt;pre&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span>        print_r($data);
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;&lt;/pre&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">include</span>(<span style="color:#1bc5e0">&#39;./Windows.php&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">include</span>(<span style="color:#1bc5e0">&#39;./SimpleWindow.php&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">include</span>(<span style="color:#1bc5e0">&#39;./DecoratedWindow.php&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">include</span>(<span style="color:#1bc5e0">&#39;./TitledWindow.php&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">require</span>(<span style="color:#1bc5e0">&#39;../../vendor/autoload.php&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$name <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;stt&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> PHP_EOL <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;Simple Window&#39;</span> <span style="color:#ffb8d1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>$window <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> SimpleWindow();
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $window<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> PHP_EOL <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;Decorated Simple Window&#39;</span> <span style="color:#ffb8d1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>$decoratedWindow <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> DecoratedWindow($window);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $decoratedWindow<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> PHP_EOL <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;Titled Simple Window&#39;</span> <span style="color:#ffb8d1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>$titledWindow <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> TitledWindow($window);
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">echo</span> $titledWindow<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">render</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>\Psy\Shell<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">debug</span>(get_defined_vars()); <span style="color:#b0bec5">//we want to debug our application here!
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/psysh_sample_1.png"
+	width="1591"
+	height="796"
+	srcset="/Psysh/img/psysh_sample_1_hu84743f1d26519b9987a56ed8d70575dc_43446_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_sample_1_hu84743f1d26519b9987a56ed8d70575dc_43446_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh sample demo"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="199"
+		data-flex-basis="479px"
+	
+></p>
+<p><img src="/Psysh/img/psysh_sample_2.png"
+	width="1188"
+	height="412"
+	srcset="/Psysh/img/psysh_sample_2_hu6b199f6a7add1367bf422d9b09296660_36079_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_sample_2_hu6b199f6a7add1367bf422d9b09296660_36079_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh sample demo"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="288"
+		data-flex-basis="692px"
+	
+></p>
+<blockquote>
+<p>1）Win 环境下运行 ls -al $var【变量名】 会报错无法识别变量名，可以通过 命名空间 指定类文件来查看类中属性与方法<br>
+2）通过 命名空间 与 类名 调用 静态函数 时需要注意 命名空间分隔符 与 静态函数的返回内容</p>
+</blockquote>
+<p><img src="/Psysh/img/psysh_sample_3.png"
+	width="1286"
+	height="967"
+	srcset="/Psysh/img/psysh_sample_3_huc1d0a12243a99acb1a48a6d2be774d48_109777_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_sample_3_huc1d0a12243a99acb1a48a6d2be774d48_109777_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh sample demo"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="319px"
+	
+></p>
+<p>也可通过 PHP 自带的服务进行调试【不支持像Apache、Nginx这种网络服务器】：</p>
+<p><img src="/Psysh/img/psysh_php_s.png"
+	width="962"
+	height="220"
+	srcset="/Psysh/img/psysh_php_s_hu548f9e7eb14499046fbc94198eb7d285_32595_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_php_s_hu548f9e7eb14499046fbc94198eb7d285_32595_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh php -S"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="437"
+		data-flex-basis="1049px"
+	
+></p>
+<ul>
+<li>魔术变量</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$_</td>
+<td>最新成功执行的结果</td>
+</tr>
+<tr>
+<td>$_e</td>
+<td>最后未捕获的错误或异常</td>
+</tr>
+<tr>
+<td>$__out</td>
+<td>最后执行的输出</td>
+</tr>
+<tr>
+<td>$__file</td>
+<td>最后一个文件路径</td>
+</tr>
+<tr>
+<td>$__line</td>
+<td>当前代码行数</td>
+</tr>
+<tr>
+<td>$__dir</td>
+<td>最后目录路径</td>
+</tr>
+<tr>
+<td>$__class</td>
+<td>最后的类名</td>
+</tr>
+<tr>
+<td>$__method</td>
+<td>最后的方法名</td>
+</tr>
+<tr>
+<td>$__function</td>
+<td>最后的函数名</td>
+</tr>
+<tr>
+<td>$__namespace</td>
+<td>最后的命名空间</td>
+</tr>
+</tbody>
+</table></div>
+<p><img src="/Psysh/img/psysh_magic_1.png"
+	width="1299"
+	height="655"
+	srcset="/Psysh/img/psysh_magic_1_hue880c3346575a73feaaf9d14f7539550_91056_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_magic_1_hue880c3346575a73feaaf9d14f7539550_91056_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh magic variable"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="475px"
+	
+>
+<img src="/Psysh/img/psysh_magic_2.png"
+	width="1248"
+	height="754"
+	srcset="/Psysh/img/psysh_magic_2_hu9a5499e1f6951fb2e994a263992efe86_44214_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_magic_2_hu9a5499e1f6951fb2e994a263992efe86_44214_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh magic variable"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="165"
+		data-flex-basis="397px"
+	
+></p>
+<h3 id="与框架命令行结合">与框架命令行结合</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 命令行配置文件 command.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">return</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;attribute&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;app\\common\\command\\Attribute&#39;</span>,
+</span></span><span style="display:flex;"><span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 命令行处理类文件 Attribute.php
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">namespace</span> app\common\command;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> think\console\Command;
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> think\console\Input;
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> think\console\Output;
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> think\facade\Env;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Attribute</span> <span style="color:#c2ffdf">extends</span> Command
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">configure</span>() {
+</span></span><span style="display:flex;"><span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">setName</span>(<span style="color:#1bc5e0">&#39;attribute&#39;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">setDescription</span>(<span style="color:#1bc5e0">&#39;export attribute uuid&#39;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">execute</span>(Input $input,Output $output) {
+</span></span><span style="display:flex;"><span>        $file <span style="color:#ffb8d1">=</span> Env<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;root_path&#39;</span>) <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;public/static/file/attribute.csv&#39;</span>;
+</span></span><span style="display:flex;"><span>        $handle <span style="color:#ffb8d1">=</span> fopen($file,<span style="color:#1bc5e0">&#39;r&#39;</span>);
+</span></span><span style="display:flex;"><span>        $uuid <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>();
+</span></span><span style="display:flex;"><span>        $data <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">while</span> (<span style="color:#ffb8d1">!</span>feof($handle)) {
+</span></span><span style="display:flex;"><span>            $data <span style="color:#ffb8d1">.=</span> fread($handle,<span style="color:#c5a3ff">2048</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        fclose($handle);
+</span></span><span style="display:flex;"><span>        $lineArr <span style="color:#ffb8d1">=</span> preg_split(<span style="color:#1bc5e0">&#39;/(\r\n|\n|\r)/&#39;</span>,$data);
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">for</span> ($i<span style="color:#ffb8d1">=</span><span style="color:#c5a3ff">0</span>;$i<span style="color:#ffb8d1">&lt;</span>count($lineArr)<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">1</span>;$i<span style="color:#ffb8d1">++</span>) {
+</span></span><span style="display:flex;"><span>            $tmp <span style="color:#ffb8d1">=</span> explode(<span style="color:#1bc5e0">&#39;,&#39;</span>,$lineArr[$i]);
+</span></span><span style="display:flex;"><span>            array_push($uuid,<span style="color:#1bc5e0">&#34;&#39;&#34;</span> <span style="color:#ffb8d1">.</span> $tmp[<span style="color:#c5a3ff">0</span>] <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#34;&#39;&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        $json <span style="color:#ffb8d1">=</span> json_encode($uuid);
+</span></span><span style="display:flex;"><span>        file_put_contents(<span style="color:#1bc5e0">&#39;./public/static/file/attribute_uuid.txt&#39;</span>,implode(<span style="color:#1bc5e0">&#39;,&#39;</span>,$uuid));
+</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 1.0 版本后将被弃用
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// \Psy\Shell::debug(get_defined_vars());
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        \Psy\debug(get_defined_vars());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;success count = &#34;</span> <span style="color:#ffb8d1">.</span> count($uuid);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/psysh_tp_1.png"
+	width="1037"
+	height="275"
+	srcset="/Psysh/img/psysh_tp_1_hu5abffb5ff32a2f66ce0eee354ba5bc65_24185_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_tp_1_hu5abffb5ff32a2f66ce0eee354ba5bc65_24185_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh thinkphp"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="377"
+		data-flex-basis="905px"
+	
+></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 将命令行参数传递到当前作用域 
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>extract(\Psy\debug(get_defined_vars())); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/psysh_tp_2.png"
+	width="1150"
+	height="557"
+	srcset="/Psysh/img/psysh_tp_2_hucd80992e0ff1c76cb47e9faca716b56f_29065_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_tp_2_hucd80992e0ff1c76cb47e9faca716b56f_29065_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh thinkphp"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="495px"
+	
+></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 传递当前类的对象至命令行
+</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>\Psy\debug(get_defined_vars(),$this);
+</span></span><span style="display:flex;"><span>extract(\Psy\debug(get_defined_vars(),$this));
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Psysh/img/psysh_tp_extract.png"
+	width="1521"
+	height="726"
+	srcset="/Psysh/img/psysh_tp_extract_hu170412f14b7becce06fb937079742b3f_47181_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_tp_extract_hu170412f14b7becce06fb937079742b3f_47181_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh thinkphp extract"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="209"
+		data-flex-basis="502px"
+	
+></p>
+<blockquote>
+<p>1）使用 extract() 函数会将 命令行的变量 传递到当前位置<br>
+2）命令行使用 $this 修改类内属性 会对后续操作造成影响</p>
+</blockquote>
+<h2 id="问题">问题</h2>
+<p>pager 配置项导致 输出大量内容时 的 内存不足问题【它默认执行的是 Linux/Unix 系统的 more，在 win 系统下不适用】</p>
+<p><img src="/Psysh/img/psysh_problem.png"
+	width="883"
+	height="172"
+	srcset="/Psysh/img/psysh_problem_hu2407e3d5a5773b410fea4375e62d5835_11033_480x0_resize_mitchellnetravali_3.png 480w, /Psysh/img/psysh_problem_hu2407e3d5a5773b410fea4375e62d5835_11033_1024x0_resize_mitchellnetravali_3.png 1024w"
+	loading="lazy"
+	
+		alt="psysh problem"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="513"
+		data-flex-basis="1232px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2023 
+    </section>
+    
+    <section class="powerby">
+        
+            本站内容的最终解释权归本网站 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
