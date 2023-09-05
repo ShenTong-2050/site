@@ -1,0 +1,19 @@
+name: Set Favicon
+
+on:
+  push:
+    branches:
+      - production # 或者您选择的其他分支
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set Favicon
+        uses: lowply/favicons-action@v2
+        with:
+          favicon_src: ./favicon.ico # 根据实际情况更改路径
