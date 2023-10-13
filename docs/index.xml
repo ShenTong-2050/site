@@ -6,7 +6,1233 @@
         <description>Recent content on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Mon, 04 Sep 2023 16:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 12 Oct 2023 10:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Glide</title>
+        <link>http://www.shentongtong.cn/glide/</link>
+        <pubDate>Thu, 12 Oct 2023 10:00:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/glide/</guid>
+        <description>&lt;img src="http://www.shentongtong.cn/glide/img/thephpleague.png" alt="Featured image of post Glide" /&gt;&lt;h2 id=&#34;关于图像处理&#34;&gt;关于图像处理&lt;/h2&gt;
+&lt;h3 id=&#34;glide&#34;&gt;Glide&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://glide.thephpleague.com/&#34;  title=&#34;Glide&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Glide&lt;/a&gt; 是一个非常易于使用的PHP编写的按需图像处理库。它通过 HTTP 提供了简单明了的 API，类似于像 Imgix 和 Cloudinary 这样的云图像处理服务。Glide 利用了强大的库，如 Intervention Image（用于图像处理和操作）和 Flysystem（用于文件系统抽象）。&lt;/p&gt;
+&lt;h4 id=&#34;特性&#34;&gt;特性&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;使用简单的基于 HTTP 的 API  调整大小 和 添加图像效果。&lt;/li&gt;
+&lt;li&gt;处理后的图像会自动缓存并通过响应标头进行提供。&lt;/li&gt;
+&lt;li&gt;可以创建自己 的 图像处理服务 或 直接将 Glide 集成到应用程序中。&lt;/li&gt;
+&lt;li&gt;支持 GD库 和 Imagick PHP扩展。&lt;/li&gt;
+&lt;li&gt;支持多种响应方法，包括PSR-7、HttpFoundation等。&lt;/li&gt;
+&lt;li&gt;能够使用HTTP签名保护图像URL。&lt;/li&gt;
+&lt;li&gt;通过Flysystem库与许多不同的文件系统配合使用。&lt;/li&gt;
+&lt;li&gt;由经过实战验证的Intervention Image图像处理和操作库提供支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HttpFoundation 是 Symfony 框架中的一个组件，它提供了一个面向对象的 API，用于处理 HTTP 请求和响应。它为开发人员提供了一个方便的方式来操作和处理与 HTTP 相关的数据，例如请求参数、头部信息、Cookie、会话等。&lt;/p&gt;
+&lt;p&gt;HttpFoundation 组件包含了一系列类和方法，可以帮助你构建和处理 HTTP 请求和响应。它提供了对请求方法、URL、查询参数、表单数据、文件上传等的访问和操作。同时，它还可以轻松地设置和获取响应状态码、头部信息、内容等。&lt;/p&gt;
+&lt;p&gt;通过使用 HttpFoundation 组件，开发人员可以方便地处理和操作 HTTP 请求和响应，包括验证和过滤输入数据、处理表单提交、设置响应头部、发送响应内容等。这样，开发人员可以更专注于应用程序的业务逻辑，而无需过多关注底层的 HTTP 协议细节&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;关于-intervention-image&#34;&gt;关于 Intervention Image&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://image.intervention.io/v2&#34;  title=&#34;Intervention Image&#34;
+     target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Intervention Image&lt;/a&gt; 是一个用于 PHP 的开源图像处理库，用于处理和操作图像。它提供了一系列功能，允许开发人员对图像进行各种操作，包括调整大小、裁剪、旋转、添加滤镜和水印等。&lt;/p&gt;
+&lt;p&gt;功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;调整大小和裁剪：可以轻松地改变图像的尺寸并裁剪图像以适应不同的需求。&lt;/li&gt;
+&lt;li&gt;滤镜和效果：支持各种滤镜和特效，如模糊、锐化、颜色调整等，以改变图像的外观。&lt;/li&gt;
+&lt;li&gt;水印：允许添加文本或图像水印到图像上，用于版权保护或品牌标识。&lt;/li&gt;
+&lt;li&gt;旋转和翻转：可以旋转图像并在水平或垂直方向翻转图像。&lt;/li&gt;
+&lt;li&gt;文件格式转换：支持不同的图像文件格式之间的转换，如JPEG、PNG、GIF等。&lt;/li&gt;
+&lt;li&gt;图像信息获取：可以获取图像的各种信息，如宽度、高度、颜色深度等。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;独立版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;composer require league/glide
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;框架版本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;composer require admad/cakephp-glide
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;composer require league/glide-laravel
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;composer require league/glide-symfony
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;composer require league/glide-zend
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;框架版 与 独立版 不需要同时安装&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;工厂配置&#34;&gt;工厂配置&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置项&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;source&lt;/td&gt;
+&lt;td&gt;string or object&lt;/td&gt;
+&lt;td&gt;指定原始图像文件的目录或源。Glide 将从该目录中读取原始图像文件，并在处理后将缓存的图像保存到不同的目录。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;source_path_prefix&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;为缓存文件名添加前缀，以防止与其他文件冲突。可以用于将缓存图像与其他文件隔离开来。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache&lt;/td&gt;
+&lt;td&gt;string or object&lt;/td&gt;
+&lt;td&gt;指定缓存处理后图像的目录。Glide 将处理的图像副本保存到这个目录中，以便以后的请求可以快速访问。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache_path_prefix&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;缓存目录 前缀&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;temp_dir&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;用于存储缓存 EXIF 数据的临时目录（默认为 &lt;code&gt;sys_get_temp_dir()&lt;/code&gt;）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;base_url&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;指定图像的基本 URL，用于生成完整的图像 URL。通常是你的网站域名或图像服务器的根路径。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;driver&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;指定用于图像处理的驱动程序。Glide 支持不同的图像处理库，如 GD、Imagick 和 Gmagick。你可以根据需要选择合适的驱动程序。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;group_cache_in_folders&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;布尔值，用于确定是否将缓存的图像分组存储在子文件夹中。这可以帮助管理大量缓存图像的文件系统性能。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache_path_prefix&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;为缓存的图像文件添加前缀，以防止与其他文件冲突。可以用于将缓存图像与其他文件隔离开来。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache_with_file_extensions&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;布尔值，用于确定是否在缓存文件名中包含原始图像文件的扩展名。这可以帮助在缓存中区分不同类型的图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;max_image_size&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;限制图像的最大宽度和高度，以防止恶意请求导致服务器负载过高。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;defaults&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;指定默认的图像处理选项，用于在没有指定特定选项的情况下处理图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;presets&lt;/td&gt;
+&lt;td&gt;array&lt;/td&gt;
+&lt;td&gt;定义一组预定义的图像处理选项，以便在处理图像时快速应用。这可以用于创建缩略图或不同尺寸的图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;watermarks&lt;/td&gt;
+&lt;td&gt;string or object&lt;/td&gt;
+&lt;td&gt;允许在图像上添加水印。你可以配置水印的位置、图像路径、透明度等属性。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;watermarks_path_prefix&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;水印文件系统路径前缀&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;response&lt;/td&gt;
+&lt;td&gt;string or object&lt;/td&gt;
+&lt;td&gt;指定图像处理后的响应类型。可以是文件响应、流响应、Symfony 响应等，用于定义图像输出方式。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache_with_query_string&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;布尔值，确定是否考虑查询字符串参数来生成缓存。这可以用于根据查询参数缓存不同版本的图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cache_path_callable&lt;/td&gt;
+&lt;td&gt;closure&lt;/td&gt;
+&lt;td&gt;允许自定义确定图像缓存路径的回调函数。通过这个回调函数，你可以根据不同的逻辑来定义缓存路径。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;or&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;转动图像度数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fit&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;调整图像大小的方式（crop、contain、max、fill、stretch）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;w&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;调整图像宽度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;h&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;调整图像高度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;p&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;预设key值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mark&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;水印图片路径（包含图片名称）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markfit&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;调整图像大小的方式（crop、contain、max、fill、stretch）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markw&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;水印图片宽度【单位：像素】&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markh&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;水印图片高度【单位：像素】&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markx&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;水印图片与右边的距离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;marky&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;水印图片与下边的距离&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markpad&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;距离 右、下 边的距离（markx 与 marky 的简写）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markpos&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;水印图片的位置（top-left、top、top-right、left、center、right、bottom、bottom-right）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;markalpha&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;设置图片不透明度（0 - 100，100 =&amp;gt; 完全不透明）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bri&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;调整图像亮度（-100 到 +100 之间，0 表示 没有变化）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;contrast&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;调整图像对比度（-100 到 +100 之间，0 表示 没有变化）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gam&lt;/td&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;调整图像 伽马 信息 （0.1 到 9.99）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sharp&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;调整图像 锐化 信息（0 到 100 之间）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;blur&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;为图像添加模糊效果（0 到 100）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pixel&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;对图像应用像素化效果（0 到 1000）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;flip&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;翻转图像（v =&amp;gt; 水平、h =&amp;gt; 垂直、both =&amp;gt; 同时）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fit&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;为图像添加滤镜（greyscale =&amp;gt; 黑白、sepia =&amp;gt; 复古）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bg&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;设置图像的背景颜色&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;border&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;给图像添加边框，格式为：width,color,method（10,black,overlay）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;q&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;图像格式为 jpg、jpeg、webp、avif 时可以通过该参数指定生成图像的质量（0-100）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;将图像编码为特定格式（jpg、jpeg、png、gif、webp、avif）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;35
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;36
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;37
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;39
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;40
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;41
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;42
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;43
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;44
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;45
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;46
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;47
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;48
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;49
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;50
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;51
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;52
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;53
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;54
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;55
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;56
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;57
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;58
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;59
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;60
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;61
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;62
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;63
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;64
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;65
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;66
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;67
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;68
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;69
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;70
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;71
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;72
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;73
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;74
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;75
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;76
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;77
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;78
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;79
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;80
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;&amp;lt;?&lt;/span&gt;php
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;Glide&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;extends&lt;/span&gt; Controller
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $host              &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;http://www.mine.cd&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $source_path       &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $cache_path        &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $temp_path         &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $water_mark_path   &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; string $img_operate_route &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/img/operate&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; Server $server;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;protected&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;array&lt;/span&gt;  $config;           &lt;span style=&#34;color:#b0bec5&#34;&gt;// 图像 配置 数组信息
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 签名信息
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;private&lt;/span&gt;   string $sign_key          &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;shentongtong123&amp;#39;&lt;/span&gt;; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; __construct() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; input();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;config&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;!&lt;/span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;empty&lt;/span&gt;($data) &lt;span style=&#34;color:#ffb8d1&#34;&gt;?&lt;/span&gt; $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;:&lt;/span&gt; [];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $staticPath &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; Env&lt;span style=&#34;color:#ffb8d1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;root_path&amp;#39;&lt;/span&gt;) &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;public/static/image&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;source_path&lt;/span&gt;          &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt;   $sourcePath &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $staticPath;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;cache_path&lt;/span&gt;           &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt;   $staticPath &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/cache/&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;temp_path&lt;/span&gt;            &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt;   $staticPath &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/temp/&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;water_mark_path&lt;/span&gt;      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt;   $staticPath &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/watermark/&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; ServerFactory&lt;span style=&#34;color:#ffb8d1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;create&lt;/span&gt;([
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// &amp;#39;source&amp;#39;                        =&amp;gt;      $this-&amp;gt;source_path,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;source&amp;#39;&lt;/span&gt;                        &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c2ffdf&#34;&gt;new&lt;/span&gt; Filesystem(&lt;span style=&#34;color:#c2ffdf&#34;&gt;new&lt;/span&gt; LocalFilesystemAdapter($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;source_path&lt;/span&gt;)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;source_path_prefix&amp;#39;&lt;/span&gt;            &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;cache&amp;#39;&lt;/span&gt;                         &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;cache_path&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// &amp;#39;cache&amp;#39;                         =&amp;gt;      new Filesystem(new LocalFilesystemAdapter(&amp;#39;path/to/cache/folder&amp;#39;)),
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;cache_path_prefix&amp;#39;&lt;/span&gt;             &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;watermarks&amp;#39;&lt;/span&gt;                    &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c2ffdf&#34;&gt;new&lt;/span&gt; Filesystem(&lt;span style=&#34;color:#c2ffdf&#34;&gt;new&lt;/span&gt; LocalFilesystemAdapter($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;source_path&lt;/span&gt;)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;watermarks_path_prefix&amp;#39;&lt;/span&gt;        &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;temp_dir&amp;#39;&lt;/span&gt;                      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;temp_path&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;group_cache_in_folders&amp;#39;&lt;/span&gt;        &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c2ffdf&#34;&gt;false&lt;/span&gt;,       &lt;span style=&#34;color:#b0bec5&#34;&gt;// 是否将缓存的图像分组存储在文件夹中
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;cache_with_file_extensions&amp;#39;&lt;/span&gt;    &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c2ffdf&#34;&gt;true&lt;/span&gt;,        &lt;span style=&#34;color:#b0bec5&#34;&gt;// 用于确定是否在缓存的图像文件名中包含文件扩展名
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;cache_path_callable&amp;#39;&lt;/span&gt;           &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; ($img,$data) &lt;span style=&#34;color:#c2ffdf&#34;&gt;use&lt;/span&gt;($sourcePath) { &lt;span style=&#34;color:#b0bec5&#34;&gt;// 通过动态函数返回根据自定义规则生成的缓存路径
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#b0bec5&#34;&gt;// $img =&amp;gt; banner/logo.png 【相对于 source_path 的图片地址】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data =&amp;gt; array(&amp;#39;w&amp;#39; =&amp;gt; 100, &amp;#39;bg&amp;#39; =&amp;gt; fuchsia) 【图片处理的相关参数】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#b0bec5&#34;&gt;// $sourcePath =&amp;gt; D:\phpstudy\WWW\minea\public/static/image【图片处理的根目录】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                $mimeInfo &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; explode(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;,getimagesize($sourcePath&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;$img)[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;mime&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                $cachePath &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; explode(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;,$img)[&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $cachePath &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;md5($img&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;serialize($data))&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt;$mimeInfo[&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;driver&amp;#39;&lt;/span&gt;                        &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;imagick&amp;#39;&lt;/span&gt;,  &lt;span style=&#34;color:#b0bec5&#34;&gt;// gd 或者 imagick
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;defaults&amp;#39;&lt;/span&gt;                      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      [   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 请求中 不存在 对应参数 则 使用 默认配置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt;         &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c5a3ff&#34;&gt;300&lt;/span&gt;,    &lt;span style=&#34;color:#b0bec5&#34;&gt;//  默认宽度 300
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt;         &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;,    &lt;span style=&#34;color:#b0bec5&#34;&gt;//  默认高度 200
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt;       &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b0bec5&#34;&gt;//  默认裁剪方式为裁剪
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;mark&amp;#39;&lt;/span&gt;      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;logo.png&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markw&amp;#39;&lt;/span&gt;     &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c5a3ff&#34;&gt;30&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markpad&amp;#39;&lt;/span&gt;   &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      &lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;presets&amp;#39;&lt;/span&gt;                       &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;      [   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 通过 预设名称 重用一组 参数 避免重复代码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;small&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;150&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;150&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;medium&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;800&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;600&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;base_url&amp;#39;&lt;/span&gt;                      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;  $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;host&lt;/span&gt;, 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// SymfonyResponseFactory 将 处理后的图像 直接输出 到 浏览器
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// FileResponseFactory  保存文件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// StreamResponseFactory 返回图像数据流
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// 默认 返回图像 url
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// 自定义 响应 CustomResponseFactory implements ResponseInterface
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#b0bec5&#34;&gt;// &amp;#39;response&amp;#39;                      =&amp;gt;  &amp;#39;&amp;#39;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;sign_key&amp;#39;&lt;/span&gt;                      &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;  $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;sign_key&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;max_image_size&amp;#39;&lt;/span&gt;                &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt;  &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#b0bec5&#34;&gt;// 限制图像最大为 250000 像素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        ]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;安全&#34;&gt;安全&lt;/h3&gt;
+&lt;p&gt;使用 HTTP 签名保护您的 Glide 图像服务器。通过使用私钥对每个请求进行签名，就无法对 URL 参数进行任何更改。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;强烈建议您在生产环境中使用签名 URL，否则您的应用程序将容易受到大规模图像调整大小攻击。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;create&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $_GET;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 签名校验
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    SignatureFactory&lt;span style=&#34;color:#ffb8d1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;create&lt;/span&gt;($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;sign_key&lt;/span&gt;)&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;validateRequest&lt;/span&gt;($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;img_operate_route&lt;/span&gt;,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $data[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    unset($data[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;outputImage&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;avatar&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 调整图像 方式一：返回 形如 http://mine.cd/img/operate?img=avatar%2Fcat.png&amp;amp;w=200&amp;amp;h=100&amp;amp;fit=crop&amp;amp;sign=82fbd4bd6a8ec80216ebb84396339af6 的地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $avatar &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; UrlBuilderFactory&lt;span style=&#34;color:#ffb8d1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;create&lt;/span&gt;($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;host&lt;/span&gt;,$this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;sign_key&lt;/span&gt;)&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getUrl&lt;/span&gt;($this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;img_operate_route&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;img&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar/cat.png&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 调整图像 方式二：返回 形如 avatar/4215a7d76f5463cf723c0596693b03d2.jpeg 的 图片地址
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $cachePath &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;makeImage&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $avatar &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;/static/image/cache/&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;.&lt;/span&gt; $cachePath;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 调整图像 方式三：返回 base64 格式的图像数据
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $avatar &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar/cat.png&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $avatar]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;请求地址示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_1.png&#34;
+	width=&#34;1149&#34;
+	height=&#34;420&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_1_hu2fc0f047dbe3c5b62a662054cad08066_138614_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_image_address_1_hu2fc0f047dbe3c5b62a662054cad08066_138614_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Image Address&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;273&#34;
+		data-flex-basis=&#34;656px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;缓存地址示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_2.png&#34;
+	width=&#34;1195&#34;
+	height=&#34;553&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_2_hudde808efc94af7382aa5903950420fcf_231324_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_image_address_2_hudde808efc94af7382aa5903950420fcf_231324_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Image Address&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;base64 地址示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_3.png&#34;
+	width=&#34;1006&#34;
+	height=&#34;434&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_image_address_3_hu13321e48e409ac713551ed464d336545_135752_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_image_address_3_hu13321e48e409ac713551ed464d336545_135752_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Image Address&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;231&#34;
+		data-flex-basis=&#34;556px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;原图示例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_demo.png&#34;
+	width=&#34;800&#34;
+	height=&#34;531&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_demo_hu67c3fc73a05a3134e08074bd2aafadd8_827042_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_demo_hu67c3fc73a05a3134e08074bd2aafadd8_827042_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Demo&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;361px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;默认值-与-预设&#34;&gt;默认值 与 预设&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;presets&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;setPresets&lt;/span&gt;(&lt;span style=&#34;color:#c2ffdf&#34;&gt;array&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;small&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 预设
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $avatar &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;p&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;small&amp;#39;&lt;/span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 默认值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $avatar &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;,[]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $avatar]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_default_and_preset.png&#34;
+	width=&#34;1221&#34;
+	height=&#34;535&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_default_and_preset_hu6dc7af249706d172cd0e7a4a166063a5_65769_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_default_and_preset_hu6dc7af249706d172cd0e7a4a166063a5_65769_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Preset Default&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;228&#34;
+		data-flex-basis=&#34;547px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;图像旋转&#34;&gt;图像旋转&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; * 旋转图像
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;orientation&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;or&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;180&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;q&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $orientation &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $orientation]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_orientation.png&#34;
+	width=&#34;816&#34;
+	height=&#34;543&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_orientation_hu302b723a443cd59e9df5061f5afa19ff_750322_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_orientation_hu302b723a443cd59e9df5061f5afa19ff_750322_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Orientation&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;150&#34;
+		data-flex-basis=&#34;360px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;图像裁剪&#34;&gt;图像裁剪&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; * 裁剪图像
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;crop&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 1）默认 裁剪 方式 crop-center
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data = [&amp;#39;fit&amp;#39; =&amp;gt; &amp;#39;crop&amp;#39;, &amp;#39;w&amp;#39; =&amp;gt; 600, &amp;#39;h&amp;#39; =&amp;gt; 400];  // 将图片 裁剪 为 指定大小
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 2）从 左边 开始 裁剪 600 像素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 可选为 crop-top-left、crop-top、crop-top-right、crop-left、crop-center、crop-right、crop-bottom、crop-bottom-right
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data = [&amp;#39;fit&amp;#39; =&amp;gt; &amp;#39;crop-left&amp;#39;,&amp;#39;w&amp;#39; =&amp;gt; 600, &amp;#39;h&amp;#39; =&amp;gt; 400];
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 3）按 百分比 裁剪 crop-x%-y%-n 【n 为 1-100 之间的浮点数，可以指定焦点放大倍数，建议 1 - 10】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data = [&amp;#39;fit&amp;#39; =&amp;gt; &amp;#39;crop-50-50&amp;#39;,&amp;#39;w&amp;#39; =&amp;gt; 600, &amp;#39;h&amp;#39; =&amp;gt; 400];
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop-50-50-2&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 4）在 其他调整操作 之前 将图片 裁剪为特定尺寸【以 50、50 为原点开始裁剪】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data = [&amp;#39;crop&amp;#39; =&amp;gt; &amp;#39;100,100,50,50&amp;#39;];
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $crop &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $crop]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_crop.png&#34;
+	width=&#34;776&#34;
+	height=&#34;528&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_crop_hu2ace1bd942f6a1fa32fe25ea3275dc0d_704830_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_crop_hu2ace1bd942f6a1fa32fe25ea3275dc0d_704830_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;示例3&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;146&#34;
+		data-flex-basis=&#34;352px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;图像调整&#34;&gt;图像调整&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;resize&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 1) contain 默认，适用于 原图大 生成小图 的情况 宽高比不变
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 2) max: 与 contain 相反，适用于 原图小 生成大图 的情况，宽高比不变
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data = [&amp;#39;fit&amp;#39; =&amp;gt; &amp;#39;max&amp;#39;, &amp;#39;w&amp;#39; =&amp;gt; 500, &amp;#39;h&amp;#39; =&amp;gt; 500];
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $resize &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $resize]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_resize_1.png&#34;
+	width=&#34;838&#34;
+	height=&#34;905&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_resize_1_hubc76a197017a2cb8fff71a76595b19d4_582949_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_resize_1_hubc76a197017a2cb8fff71a76595b19d4_582949_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Fit&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;92&#34;
+		data-flex-basis=&#34;222px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 3) fill: 图像将被调整大小以适应指定的宽度和高度边界，而不会被裁剪或扭曲。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 剩余的空白区域将填充为指定的背景颜色。生成的图像将完全填充指定的边界。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fill&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;900&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;900&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_resize_3.png&#34;
+	width=&#34;1116&#34;
+	height=&#34;929&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_resize_3_hud996c59d28e538b20ea55fc144fe0ae3_841890_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_resize_3_hud996c59d28e538b20ea55fc144fe0ae3_841890_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Fill&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;120&#34;
+		data-flex-basis=&#34;288px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 4) stretch: 图像将被 拉伸 或 挤压 至特定 宽度 和 高度，宽高比发生变化
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;stretch&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_resize_4.png&#34;
+	width=&#34;974&#34;
+	height=&#34;774&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_resize_4_hue193f1575fe61628438b4e023085cdb0_228594_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_resize_4_hue193f1575fe61628438b4e023085cdb0_228594_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Stretch&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;125&#34;
+		data-flex-basis=&#34;302px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 5) 调整图像 至特定 宽高 并 裁剪掉多余的图像
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;h&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;200&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_fit_crop.png&#34;
+	width=&#34;691&#34;
+	height=&#34;771&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_fit_crop_hu31914c84ba66f8b54f34400d58aa1989_170781_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_fit_crop_hu31914c84ba66f8b54f34400d58aa1989_170781_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Fit Crop&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;89&#34;
+		data-flex-basis=&#34;215px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 6) 调整图像亮度【-100 至 +100 之间，0 表示 无变化】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;400&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;bri&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;50&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_bri.png&#34;
+	width=&#34;586&#34;
+	height=&#34;373&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_bri_hu9890d006d81a21a15a951b4990e5808b_272468_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_bri_hu9890d006d81a21a15a951b4990e5808b_272468_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Bri&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;377px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 7) 调整图像对比度【-100 至 +100 之间，0 表示 无变化】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;400&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;con&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;50&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_con.png&#34;
+	width=&#34;588&#34;
+	height=&#34;384&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_con_hua739062a63f98053728aa1d9cbb34b63_192139_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_con_hua739062a63f98053728aa1d9cbb34b63_192139_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Con&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;153&#34;
+		data-flex-basis=&#34;367px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 8) 调整图像 伽马 值【0.1 至 9.99 之间】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;400&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;gam&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;1.6&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_gam.png&#34;
+	width=&#34;536&#34;
+	height=&#34;360&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_gam_hu8a5bc973166f0f652b790985f9efb834_317444_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_gam_hu8a5bc973166f0f652b790985f9efb834_317444_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Gam&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;148&#34;
+		data-flex-basis=&#34;357px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 9) 锐化 【0 至 100 之间】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;400&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;sharp&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;15&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_sharp.png&#34;
+	width=&#34;563&#34;
+	height=&#34;363&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_sharp_hu1673c132c7028c61264559909c89e8c7_373446_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_sharp_hu1673c132c7028c61264559909c89e8c7_373446_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Sharp&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;155&#34;
+		data-flex-basis=&#34;372px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;调整图像效果&#34;&gt;调整图像效果&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;effects&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 1) 模糊效果【blur 0 至 100】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;blur&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;10&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $sepia &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;sepia&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $sepia,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;greyscale&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $greyscale]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_fuzzy.png&#34;
+	width=&#34;646&#34;
+	height=&#34;438&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_fuzzy_huf6777f3b8b680e9e34ba0c91274c0477_319856_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_fuzzy_huf6777f3b8b680e9e34ba0c91274c0477_319856_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Fuzzy&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;147&#34;
+		data-flex-basis=&#34;353px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 2) 像素化效果【pixel 0 至 1000】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;pixel&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;50&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$effects &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $effects]); 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_pixel.png&#34;
+	width=&#34;656&#34;
+	height=&#34;430&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_pixel_hu74213ad87c0346f9411a562636bdd8ef_13209_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_pixel_hu74213ad87c0346f9411a562636bdd8ef_13209_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Pixel&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;152&#34;
+		data-flex-basis=&#34;366px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// 3) 滤镜效果
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;filt&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;greyscale&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$greyscale &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;crop&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;filt&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;sepia&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_filter.png&#34;
+	width=&#34;1289&#34;
+	height=&#34;444&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_filter_huf6f4b626e6cd085528e8e8d5543ec0a7_438307_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_filter_huf6f4b626e6cd085528e8e8d5543ec0a7_438307_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Filter&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;290&#34;
+		data-flex-basis=&#34;696px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;water&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $sourceImg &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;w&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;500&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markfit&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;contain&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;mark&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;flower.png&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markw&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;70&lt;/span&gt;, &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markh&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;70&lt;/span&gt;]; &lt;span style=&#34;color:#b0bec5&#34;&gt;// logo.png 是相对于 watermarks 指定的路径
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 1) 通过 x、y 指定 水印位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data[&amp;#39;markx&amp;#39;]      = 100; // 设置水印图片 与 右边距 的 距离
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data[&amp;#39;marky&amp;#39;]      = 100; // 设置水印图片 与 底边距 的 距离
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 2) 通过 markpad 指定 水印位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// $data[&amp;#39;markpad&amp;#39;]    = 100; // markx 与 marky 的简写
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 3) 通过 markpos 指定水印位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markpos&amp;#39;&lt;/span&gt;]    &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;center&amp;#39;&lt;/span&gt;; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $data[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;markalpha&amp;#39;&lt;/span&gt;]  &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;50&lt;/span&gt;;     &lt;span style=&#34;color:#b0bec5&#34;&gt;// 设置透明度 0-100，默认 100【png格式】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $waterImg &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($sourceImg,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $waterImg]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_water.png&#34;
+	width=&#34;639&#34;
+	height=&#34;428&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_water_hu71445f8a3793e6bbd5343dde4ce9d698_506714_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_water_hu71445f8a3793e6bbd5343dde4ce9d698_506714_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Water&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;358px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设置背景色&#34;&gt;设置背景色&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;bg&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/logo.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;bg&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;red&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $bg &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $bg]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_bg.png&#34;
+	width=&#34;154&#34;
+	height=&#34;98&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_bg_hu791c08f3d3cce1549781dbedf6a2a823_9378_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_bg_hu791c08f3d3cce1549781dbedf6a2a823_9378_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Bg&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;157&#34;
+		data-flex-basis=&#34;377px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设置边框&#34;&gt;设置边框&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;border&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/grass.png&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// overlay 将边框放在图像顶部 默认
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// shrink 缩小边框内的图像，画布不变
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// expand 扩展画布以容纳边框
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;border&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;10,aquamarine,overlay&amp;#39;&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $border &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $border]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_border.png&#34;
+	width=&#34;646&#34;
+	height=&#34;433&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_border_hud9b25cfedee556506f5777e774542e3a_457947_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_border_hud9b25cfedee556506f5777e774542e3a_457947_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Border&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;149&#34;
+		data-flex-basis=&#34;358px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;设置输出图像格式&#34;&gt;设置输出图像格式&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; * 设置输出图像编码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#1bc5e0&#34;&gt; */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;encode&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $img &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;banner/changbaishan.jpg&amp;#39;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// q 设置图像质量 0 至 100
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// fm 输出图像格式【jpg、jpeg、png、gif、webp、avif】
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    $data &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; [&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;q&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;fm&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;jpeg&amp;#39;&lt;/span&gt;]; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    $encode &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;server&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;getImageAsBase64&lt;/span&gt;($img,$data);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; $this&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ceb1ff&#34;&gt;fetch&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt;,[&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#39;avatar&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;=&amp;gt;&lt;/span&gt; $encode]);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;h3 id=&#34;41-图像旋转&#34;&gt;4.1 图像旋转&lt;/h3&gt;
+&lt;p&gt;or 参数 问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;旋转角度 可以 自定义，默认只有 5 个选项&lt;/li&gt;
+&lt;li&gt;旋转角度 度数 校验 时 会比对 数据类型 是否一致【关闭类型校验 或 指定参数类型】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_problem.png&#34;
+	width=&#34;1356&#34;
+	height=&#34;516&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_problem_hudddfff40c4e03ce6f11d1220915d26a0_93959_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_problem_hudddfff40c4e03ce6f11d1220915d26a0_93959_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Problem&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;262&#34;
+		data-flex-basis=&#34;630px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;42-使用-gd-驱动获取-exif-信息问题-需要开启-exif-扩展&#34;&gt;4.2 使用 GD 驱动获取 exif 信息问题 需要开启 exif 扩展&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/glide/img/glide_problem_gd.png&#34;
+	width=&#34;1155&#34;
+	height=&#34;533&#34;
+	srcset=&#34;http://www.shentongtong.cn/glide/img/glide_problem_gd_hu024de5db6f2040ade91444d49391fc9c_39106_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/glide/img/glide_problem_gd_hu024de5db6f2040ade91444d49391fc9c_39106_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Glide Gd&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;520px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>关于网站</title>
         <link>http://www.shentongtong.cn/about/</link>
         <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
