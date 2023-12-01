@@ -385,7 +385,7 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;切片&#34;&gt;切片&lt;/h2&gt;
 &lt;p&gt;切片是数组的简化版并且它不受长度的限制，数组虽然有适用他们的地方，但是其类型和操作都不够灵活，而切片正好弥补了这一点，切片在Go中的应用是非常广泛的&lt;/p&gt;
-&lt;!--#### 切片结构体定义--&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
