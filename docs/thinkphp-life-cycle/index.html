@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='目录结构 www WEB部署目录（或者子目录） ├─application 应用目录 │ ├─common 公共模块目录（可以更改） │ ├─module_nam'>
-<title>ThinkPHP Autoload(一)</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='thinkphp、tp'>
+<meta name="keywords" content="ThinkPHP"><title>ThinkPHP Autoload(一)</title>
 
 <link rel='canonical' href='http://www.shentongtong.cn/thinkphp-life-cycle/'>
 
 <link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='ThinkPHP Autoload(一)'>
-<meta property='og:description' content='目录结构 www WEB部署目录（或者子目录） ├─application 应用目录 │ ├─common 公共模块目录（可以更改） │ ├─module_nam'>
+<meta property='og:description' content='thinkphp、tp'>
 <meta property='og:url' content='http://www.shentongtong.cn/thinkphp-life-cycle/'>
 <meta property='og:site_name' content=''>
-<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2022-07-28T18:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-07-28T18:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2022-08-28T20:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-08-28T20:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp.png' />
 <meta name="twitter:title" content="ThinkPHP Autoload(一)">
-<meta name="twitter:description" content="目录结构 www WEB部署目录（或者子目录） ├─application 应用目录 │ ├─common 公共模块目录（可以更改） │ ├─module_nam"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="thinkphp、tp"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp.png' />
     <link rel="shortcut icon" href="img/favicon.ico" />
 
@@ -223,6 +223,10 @@
         </h2>
 
         
+        <h3 class="article-subtitle">
+            thinkphp、tp
+        </h3>
+        
     </div>
 
     
@@ -241,7 +245,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Jul 28, 2022</time>
+                <time class="article-time--published">Aug 28, 2022</time>
             </div>
         
 
@@ -256,7 +260,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -359,167 +363,81 @@
 ├─README.md             README 文件<br>
 ├─think                 命令行入口文件</p>
 <h2 id="入口文件-与-框架基类文件">入口文件 与 框架基类文件</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ffb8d1">&lt;?</span>php
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Copyright (c) 2006-2018 http://thinkphp.cn All rights reserved.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Author: liu21st &lt;liu21st@gmail.com&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// [ 应用入口文件 ]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">namespace</span> think;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;?</span>php
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Copyright (c) 2006-2018 http://thinkphp.cn All rights reserved.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Author: liu21st &lt;liu21st@gmail.com&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// [ 应用入口文件 ]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">namespace</span> think;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 加载基础文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">require</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/../thinkphp/base.php&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 加载基础文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">require</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/../thinkphp/base.php&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 支持事先使用静态方法设置Request对象和Config对象
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 执行应用并响应
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>Container<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;app&#39;</span>)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">run</span>()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">send</span>();
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ffb8d1">&lt;?</span>php
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | ThinkPHP [ WE CAN DO IT JUST THINK ]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// | Author: liu21st &lt;liu21st@gmail.com&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// +----------------------------------------------------------------------
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">namespace</span> think;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 支持事先使用静态方法设置Request对象和Config对象
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 执行应用并响应
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>Container<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">get</span>(<span style="color:#5af78e">&#39;app&#39;</span>)<span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">run</span>()<span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">send</span>();
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;?</span>php
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | ThinkPHP [ WE CAN DO IT JUST THINK ]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Copyright (c) 2006~2018 http://thinkphp.cn All rights reserved.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// | Author: liu21st &lt;liu21st@gmail.com&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// +----------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">namespace</span> think;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 载入Loader类
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">require</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/library/think/Loader.php&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 载入Loader类
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">require</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/library/think/Loader.php&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 注册自动加载
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>Loader<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">register</span>();
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 注册自动加载
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>Loader<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">register</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 注册错误和异常处理机制
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>Error<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">register</span>();
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 注册错误和异常处理机制
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>Error<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">register</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 实现日志接口
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">if</span> (interface_exists(<span style="color:#1bc5e0">&#39;Psr\Log\LoggerInterface&#39;</span>)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">interface</span> LoggerInterface <span style="color:#c2ffdf">extends</span> \Psr\Log\LoggerInterface
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 实现日志接口
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">if</span> (interface_exists(<span style="color:#5af78e">&#39;Psr\Log\LoggerInterface&#39;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">interface</span> LoggerInterface <span style="color:#ff6ac1">extends</span> \Psr\Log\LoggerInterface
 </span></span><span style="display:flex;"><span>    {}
-</span></span><span style="display:flex;"><span>} <span style="color:#c2ffdf">else</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">interface</span> LoggerInterface
+</span></span><span style="display:flex;"><span>} <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">interface</span> LoggerInterface
 </span></span><span style="display:flex;"><span>    {}
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 注册类库别名
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>Loader<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addClassAlias</span>([
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;App&#39;</span>      <span style="color:#ffb8d1">=&gt;</span> facade\App<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Build&#39;</span>    <span style="color:#ffb8d1">=&gt;</span> facade\Build<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Cache&#39;</span>    <span style="color:#ffb8d1">=&gt;</span> facade\Cache<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Config&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> facade\Config<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Cookie&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> facade\Cookie<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Db&#39;</span>       <span style="color:#ffb8d1">=&gt;</span> Db<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Debug&#39;</span>    <span style="color:#ffb8d1">=&gt;</span> facade\Debug<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Env&#39;</span>      <span style="color:#ffb8d1">=&gt;</span> facade\Env<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Facade&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> Facade<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Hook&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> facade\Hook<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Lang&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> facade\Lang<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Log&#39;</span>      <span style="color:#ffb8d1">=&gt;</span> facade\Log<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Request&#39;</span>  <span style="color:#ffb8d1">=&gt;</span> facade\Request<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Response&#39;</span> <span style="color:#ffb8d1">=&gt;</span> facade\Response<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Route&#39;</span>    <span style="color:#ffb8d1">=&gt;</span> facade\Route<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Session&#39;</span>  <span style="color:#ffb8d1">=&gt;</span> facade\Session<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Url&#39;</span>      <span style="color:#ffb8d1">=&gt;</span> facade\Url<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;Validate&#39;</span> <span style="color:#ffb8d1">=&gt;</span> facade\Validate<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;View&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> facade\View<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>,
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 注册类库别名
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>Loader<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addClassAlias</span>([
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;App&#39;</span>      <span style="color:#ff6ac1">=&gt;</span> facade\App<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Build&#39;</span>    <span style="color:#ff6ac1">=&gt;</span> facade\Build<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Cache&#39;</span>    <span style="color:#ff6ac1">=&gt;</span> facade\Cache<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Config&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> facade\Config<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Cookie&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> facade\Cookie<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Db&#39;</span>       <span style="color:#ff6ac1">=&gt;</span> Db<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Debug&#39;</span>    <span style="color:#ff6ac1">=&gt;</span> facade\Debug<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Env&#39;</span>      <span style="color:#ff6ac1">=&gt;</span> facade\Env<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Facade&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> Facade<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Hook&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> facade\Hook<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Lang&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> facade\Lang<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Log&#39;</span>      <span style="color:#ff6ac1">=&gt;</span> facade\Log<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Request&#39;</span>  <span style="color:#ff6ac1">=&gt;</span> facade\Request<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Response&#39;</span> <span style="color:#ff6ac1">=&gt;</span> facade\Response<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Route&#39;</span>    <span style="color:#ff6ac1">=&gt;</span> facade\Route<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Session&#39;</span>  <span style="color:#ff6ac1">=&gt;</span> facade\Session<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Url&#39;</span>      <span style="color:#ff6ac1">=&gt;</span> facade\Url<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;Validate&#39;</span> <span style="color:#ff6ac1">=&gt;</span> facade\Validate<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;View&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> facade\View<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>,
 </span></span><span style="display:flex;"><span>]);
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="注册自动加载流程图">注册自动加载流程图</h2>
+</span></span></code></pre></div><h2 id="注册自动加载流程图">注册自动加载流程图</h2>
 <p><img src="/thinkphp-life-cycle/img/thinkphp_autoload_class.png"
 	width="750"
 	height="886"
@@ -535,450 +453,218 @@
 	
 ></p>
 <h3 id="注册函数">注册函数</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 注册自动加载机制
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">register</span>($autoload <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;&#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 注册自动加载机制
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">register</span>(<span style="color:#ff5c57">$autoload</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;&#39;</span>)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 注册系统自动加载 函数 autoload
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    spl_autoload_register($autoload <span style="color:#ffb8d1">?:</span> <span style="color:#1bc5e0">&#39;think\\Loader::autoload&#39;</span>, <span style="color:#c2ffdf">true</span>, <span style="color:#c2ffdf">true</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 注册系统自动加载 函数 autoload
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    spl_autoload_register(<span style="color:#ff5c57">$autoload</span> <span style="color:#ff6ac1">?:</span> <span style="color:#5af78e">&#39;think\\Loader::autoload&#39;</span>, <span style="color:#ff6ac1">true</span>, <span style="color:#ff6ac1">true</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    $rootPath <span style="color:#ffb8d1">=</span> self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">getRootPath</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$rootPath</span> <span style="color:#ff6ac1">=</span> self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">getRootPath</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 获取 composer 目录路径
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    self<span style="color:#ffb8d1">::</span>$composerPath <span style="color:#ffb8d1">=</span> $rootPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;vendor&#39;</span> <span style="color:#ffb8d1">.</span> DIRECTORY_SEPARATOR <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;composer&#39;</span> <span style="color:#ffb8d1">.</span> DIRECTORY_SEPARATOR;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 获取 composer 目录路径
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$rootPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;vendor&#39;</span> <span style="color:#ff6ac1">.</span> DIRECTORY_SEPARATOR <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;composer&#39;</span> <span style="color:#ff6ac1">.</span> DIRECTORY_SEPARATOR;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// Composer自动加载支持
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_dir(self<span style="color:#ffb8d1">::</span>$composerPath)) {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 顶级命名空间初始化类，用于给核心类初始化顶级命名空间
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// ComposerStaticInite178cf12f908bc9f3e221ce38771c57e
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// 防止用户自定义类名跟这个类重复冲突了，所以在类名上加了一个 hash 值
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (is_file(self<span style="color:#ffb8d1">::</span>$composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_static.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">require</span> self<span style="color:#ffb8d1">::</span>$composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_static.php&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// Composer自动加载支持
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_dir(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$composerPath</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 顶级命名空间初始化类，用于给核心类初始化顶级命名空间
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// ComposerStaticInite178cf12f908bc9f3e221ce38771c57e
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// 防止用户自定义类名跟这个类重复冲突了，所以在类名上加了一个 hash 值
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">if</span> (is_file(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_static.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">require</span> self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_static.php&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 返回 由 当前脚本中 已定义 类的名字 组成的数组
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $declaredClass <span style="color:#ffb8d1">=</span> get_declared_classes();
-</span></span><span style="display:flex;"><span>            $composerClass <span style="color:#ffb8d1">=</span> array_pop($declaredClass);
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">foreach</span> ([<span style="color:#1bc5e0">&#39;prefixLengthsPsr4&#39;</span>, <span style="color:#1bc5e0">&#39;prefixDirsPsr4&#39;</span>, <span style="color:#1bc5e0">&#39;fallbackDirsPsr4&#39;</span>, <span style="color:#1bc5e0">&#39;prefixesPsr0&#39;</span>, <span style="color:#1bc5e0">&#39;fallbackDirsPsr0&#39;</span>, <span style="color:#1bc5e0">&#39;classMap&#39;</span>, <span style="color:#1bc5e0">&#39;files&#39;</span>] <span style="color:#c2ffdf">as</span> $attr) {
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">if</span> (property_exists($composerClass, $attr)) {
-</span></span><span style="display:flex;"><span>                    <span style="color:#b0bec5">// 此处 是 将 composer 中 各映射规范文件 加载到本类 对应的规范的属性中
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    self<span style="color:#ffb8d1">::</span>${$attr} <span style="color:#ffb8d1">=</span> $composerClass<span style="color:#ffb8d1">::</span>${$attr};
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 返回 由 当前脚本中 已定义 类的名字 组成的数组
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$declaredClass</span> <span style="color:#ff6ac1">=</span> get_declared_classes();
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$composerClass</span> <span style="color:#ff6ac1">=</span> array_pop(<span style="color:#ff5c57">$declaredClass</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">foreach</span> ([<span style="color:#5af78e">&#39;prefixLengthsPsr4&#39;</span>, <span style="color:#5af78e">&#39;prefixDirsPsr4&#39;</span>, <span style="color:#5af78e">&#39;fallbackDirsPsr4&#39;</span>, <span style="color:#5af78e">&#39;prefixesPsr0&#39;</span>, <span style="color:#5af78e">&#39;fallbackDirsPsr0&#39;</span>, <span style="color:#5af78e">&#39;classMap&#39;</span>, <span style="color:#5af78e">&#39;files&#39;</span>] <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$attr</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">if</span> (property_exists(<span style="color:#ff5c57">$composerClass</span>, <span style="color:#ff5c57">$attr</span>)) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">// 此处 是 将 composer 中 各映射规范文件 加载到本类 对应的规范的属性中
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                    self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">${$attr}</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$composerClass</span><span style="color:#ff6ac1">::</span><span style="color:#ff5c57">${$attr}</span>;
 </span></span><span style="display:flex;"><span>                }
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">registerComposerLoader</span>(self<span style="color:#ffb8d1">::</span>$composerPath);
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">registerComposerLoader</span>(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$composerPath</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 注册命名空间
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addNamespace</span>([
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;think&#39;</span>  <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">__DIR__</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;traits&#39;</span> <span style="color:#ffb8d1">=&gt;</span> dirname(<span style="color:#c5a3ff">__DIR__</span>) <span style="color:#ffb8d1">.</span> DIRECTORY_SEPARATOR <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;traits&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 注册命名空间
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addNamespace</span>([
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;think&#39;</span>  <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">__DIR__</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;traits&#39;</span> <span style="color:#ff6ac1">=&gt;</span> dirname(<span style="color:#ff9f43">__DIR__</span>) <span style="color:#ff6ac1">.</span> DIRECTORY_SEPARATOR <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;traits&#39;</span>,
 </span></span><span style="display:flex;"><span>    ]);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 加载类库映射文件，提高系统自动加载的性能
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_file($rootPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;runtime&#39;</span> <span style="color:#ffb8d1">.</span> DIRECTORY_SEPARATOR <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;classmap.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>        self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addClassMap</span>(__include_file($rootPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;runtime&#39;</span> <span style="color:#ffb8d1">.</span> DIRECTORY_SEPARATOR <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;classmap.php&#39;</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 加载类库映射文件，提高系统自动加载的性能
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_file(<span style="color:#ff5c57">$rootPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;runtime&#39;</span> <span style="color:#ff6ac1">.</span> DIRECTORY_SEPARATOR <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;classmap.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addClassMap</span>(__include_file(<span style="color:#ff5c57">$rootPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;runtime&#39;</span> <span style="color:#ff6ac1">.</span> DIRECTORY_SEPARATOR <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;classmap.php&#39;</span>));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 自动加载extend目录
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addAutoLoadDir</span>($rootPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;extend&#39;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 自动加载extend目录
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addAutoLoadDir</span>(<span style="color:#ff5c57">$rootPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;extend&#39;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 注册composer自动加载
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">registerComposerLoader</span>($composerPath)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 注册composer自动加载
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">registerComposerLoader</span>(<span style="color:#ff5c57">$composerPath</span>)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 符合 PSR0 标准的自动加载文件，存放着顶级命名空间与文件的映射
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_file($composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_namespaces.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>        $map <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">require</span> $composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_namespaces.php&#39;</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">foreach</span> ($map <span style="color:#c2ffdf">as</span> $namespace <span style="color:#ffb8d1">=&gt;</span> $path) {
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addPsr0</span>($namespace, $path);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 符合 PSR0 标准的自动加载文件，存放着顶级命名空间与文件的映射
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_file(<span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_namespaces.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">$map</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">require</span> <span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_namespaces.php&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$map</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$namespace</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$path</span>) {
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addPsr0</span>(<span style="color:#ff5c57">$namespace</span>, <span style="color:#ff5c57">$path</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">//符合 PSR4 标准的自动加载文件，存放着顶级命名空间与文件的映射
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_file($composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_psr4.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>        $map <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">require</span> $composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_psr4.php&#39;</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">foreach</span> ($map <span style="color:#c2ffdf">as</span> $namespace <span style="color:#ffb8d1">=&gt;</span> $path) {
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addPsr4</span>($namespace, $path);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">//符合 PSR4 标准的自动加载文件，存放着顶级命名空间与文件的映射
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_file(<span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_psr4.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">$map</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">require</span> <span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_psr4.php&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$map</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$namespace</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$path</span>) {
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addPsr4</span>(<span style="color:#ff5c57">$namespace</span>, <span style="color:#ff5c57">$path</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 自动加载的最简单形式，有完整的命名空间和文件目录的映射
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_file($composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_classmap.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>        $classMap <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">require</span> $composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_classmap.php&#39;</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> ($classMap) {
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addClassMap</span>($classMap);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 自动加载的最简单形式，有完整的命名空间和文件目录的映射
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_file(<span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_classmap.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">$classMap</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">require</span> <span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_classmap.php&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$classMap</span>) {
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addClassMap</span>(<span style="color:#ff5c57">$classMap</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">//用于加载全局函数的文件，存放各个全局函数所在的文件路径名
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (is_file($composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_files.php&#39;</span>)) {
-</span></span><span style="display:flex;"><span>        self<span style="color:#ffb8d1">::</span>$files <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">require</span> $composerPath <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;autoload_files.php&#39;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">//用于加载全局函数的文件，存放各个全局函数所在的文件路径名
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (is_file(<span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_files.php&#39;</span>)) {
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$files</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">require</span> <span style="color:#ff5c57">$composerPath</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;autoload_files.php&#39;</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="自动加载函数">自动加载函数</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 自动加载
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">autoload</span>($class)
+</span></span></code></pre></div><h3 id="自动加载函数">自动加载函数</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 自动加载
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">autoload</span>(<span style="color:#ff5c57">$class</span>)
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// self::$classAlias 是一个类内使用的数组，此处是 判断当前类 的 别名是否存在
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> (isset(self<span style="color:#ffb8d1">::</span>$classAlias[$class])) {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// class_alias(原始类,类的别名)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">return</span> class_alias(self<span style="color:#ffb8d1">::</span>$classAlias[$class], $class);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// self::$classAlias 是一个类内使用的数组，此处是 判断当前类 的 别名是否存在
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (isset(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$classAlias</span>[<span style="color:#ff5c57">$class</span>])) {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// class_alias(原始类,类的别名)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">return</span> class_alias(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$classAlias</span>[<span style="color:#ff5c57">$class</span>], <span style="color:#ff5c57">$class</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 通过类库文件、PSR-0 与 PSR-4 查找文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// http://static.kancloud.cn/xiak/php-node/191121
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// 此处 $file 为 false 或 文件地址
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">if</span> ($file <span style="color:#ffb8d1">=</span> self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">findFile</span>($class)) {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// Win环境严格区分大小写
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">if</span> (strpos(<span style="color:#c2ffdf">PHP_OS</span>, <span style="color:#1bc5e0">&#39;WIN&#39;</span>) <span style="color:#ffb8d1">!==</span> <span style="color:#c2ffdf">false</span> <span style="color:#ffb8d1">&amp;&amp;</span> pathinfo($file, PATHINFO_FILENAME) <span style="color:#ffb8d1">!=</span> pathinfo(realpath($file), PATHINFO_FILENAME)) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 通过类库文件、PSR-0 与 PSR-4 查找文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// http://static.kancloud.cn/xiak/php-node/191121
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// 此处 $file 为 false 或 文件地址
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$file</span> <span style="color:#ff6ac1">=</span> self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">findFile</span>(<span style="color:#ff5c57">$class</span>)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// Win环境严格区分大小写
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">if</span> (strpos(<span style="color:#ff6ac1">PHP_OS</span>, <span style="color:#5af78e">&#39;WIN&#39;</span>) <span style="color:#ff6ac1">!==</span> <span style="color:#ff6ac1">false</span> <span style="color:#ff6ac1">&amp;&amp;</span> pathinfo(<span style="color:#ff5c57">$file</span>, PATHINFO_FILENAME) <span style="color:#ff6ac1">!=</span> pathinfo(realpath(<span style="color:#ff5c57">$file</span>), PATHINFO_FILENAME)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">false</span>;
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        __include_file($file);
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span>        __include_file(<span style="color:#ff5c57">$file</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="注册命名空间">注册命名空间</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 注册命名空间
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">addNamespace</span>($namespace, $path <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;&#39;</span>)
+</span></span></code></pre></div><h3 id="注册命名空间">注册命名空间</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 注册命名空间
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">addNamespace</span>(<span style="color:#ff5c57">$namespace</span>, <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;&#39;</span>)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">//        Array
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//        (
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//            [think] =&gt; /www/wwwroot/thinkphp5.1/thinkphp/library/think
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//            [traits] =&gt; /www/wwwroot/thinkphp5.1/thinkphp/library/traits
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//        )
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (is_array($namespace)) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">foreach</span> ($namespace <span style="color:#c2ffdf">as</span> $prefix <span style="color:#ffb8d1">=&gt;</span> $paths) {
-</span></span><span style="display:flex;"><span>                self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addPsr4</span>($prefix <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;\\&#39;</span>, rtrim($paths, DIRECTORY_SEPARATOR), <span style="color:#c2ffdf">true</span>);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">//        Array
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//        (
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//            [think] =&gt; /www/wwwroot/thinkphp5.1/thinkphp/library/think
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//            [traits] =&gt; /www/wwwroot/thinkphp5.1/thinkphp/library/traits
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//        )
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (is_array(<span style="color:#ff5c57">$namespace</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$namespace</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$prefix</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$paths</span>) {
+</span></span><span style="display:flex;"><span>                self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addPsr4</span>(<span style="color:#ff5c57">$prefix</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;\\&#39;</span>, rtrim(<span style="color:#ff5c57">$paths</span>, DIRECTORY_SEPARATOR), <span style="color:#ff6ac1">true</span>);
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">addPsr4</span>($namespace <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;\\&#39;</span>, rtrim($path, DIRECTORY_SEPARATOR), <span style="color:#c2ffdf">true</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">addPsr4</span>(<span style="color:#ff5c57">$namespace</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;\\&#39;</span>, rtrim(<span style="color:#ff5c57">$path</span>, DIRECTORY_SEPARATOR), <span style="color:#ff6ac1">true</span>);
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 添加Psr4空间
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">private</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">addPsr4</span>($prefix, $paths, $prepend <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">false</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 添加Psr4空间
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">private</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">addPsr4</span>(<span style="color:#ff5c57">$prefix</span>, <span style="color:#ff5c57">$paths</span>, <span style="color:#ff5c57">$prepend</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">false</span>)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>$prefix) {
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Register directories for the root namespace.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#c2ffdf">if</span> ($prepend) {
-</span></span><span style="display:flex;"><span>                self<span style="color:#ffb8d1">::</span>$fallbackDirsPsr4 <span style="color:#ffb8d1">=</span> array_merge(
-</span></span><span style="display:flex;"><span>                    (<span style="color:#c2ffdf">array</span>) $paths,
-</span></span><span style="display:flex;"><span>                    self<span style="color:#ffb8d1">::</span>$fallbackDirsPsr4
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span><span style="color:#ff5c57">$prefix</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// Register directories for the root namespace.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$prepend</span>) {
+</span></span><span style="display:flex;"><span>                self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$fallbackDirsPsr4</span> <span style="color:#ff6ac1">=</span> array_merge(
+</span></span><span style="display:flex;"><span>                    (<span style="color:#ff6ac1">array</span>) <span style="color:#ff5c57">$paths</span>,
+</span></span><span style="display:flex;"><span>                    self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$fallbackDirsPsr4</span>
 </span></span><span style="display:flex;"><span>                );
-</span></span><span style="display:flex;"><span>            } <span style="color:#c2ffdf">else</span> {
-</span></span><span style="display:flex;"><span>                self<span style="color:#ffb8d1">::</span>$fallbackDirsPsr4 <span style="color:#ffb8d1">=</span> array_merge(
-</span></span><span style="display:flex;"><span>                    self<span style="color:#ffb8d1">::</span>$fallbackDirsPsr4,
-</span></span><span style="display:flex;"><span>                    (<span style="color:#c2ffdf">array</span>) $paths
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>                self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$fallbackDirsPsr4</span> <span style="color:#ff6ac1">=</span> array_merge(
+</span></span><span style="display:flex;"><span>                    self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$fallbackDirsPsr4</span>,
+</span></span><span style="display:flex;"><span>                    (<span style="color:#ff6ac1">array</span>) <span style="color:#ff5c57">$paths</span>
 </span></span><span style="display:flex;"><span>                );
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">elseif</span> (<span style="color:#ffb8d1">!</span>isset(self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix])) {
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Register directories for a new namespace.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $length <span style="color:#ffb8d1">=</span> strlen($prefix);
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">if</span> (<span style="color:#1bc5e0">&#39;\\&#39;</span> <span style="color:#ffb8d1">!==</span> $prefix[$length <span style="color:#ffb8d1">-</span> <span style="color:#c5a3ff">1</span>]) {
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">throw</span> <span style="color:#c2ffdf">new</span> \InvalidArgumentException(<span style="color:#1bc5e0">&#34;A non-empty PSR-4 prefix must end with a namespace separator.&#34;</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">elseif</span> (<span style="color:#ff6ac1">!</span>isset(self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>])) {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// Register directories for a new namespace.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$length</span> <span style="color:#ff6ac1">=</span> strlen(<span style="color:#ff5c57">$prefix</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (<span style="color:#5af78e">&#39;\\&#39;</span> <span style="color:#ff6ac1">!==</span> <span style="color:#ff5c57">$prefix</span>[<span style="color:#ff5c57">$length</span> <span style="color:#ff6ac1">-</span> <span style="color:#ff9f43">1</span>]) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">throw</span> <span style="color:#ff6ac1">new</span> \InvalidArgumentException(<span style="color:#5af78e">&#34;A non-empty PSR-4 prefix must end with a namespace separator.&#34;</span>);
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span>$prefixLengthsPsr4[$prefix[<span style="color:#c5a3ff">0</span>]][$prefix] <span style="color:#ffb8d1">=</span> $length;
-</span></span><span style="display:flex;"><span>            self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix]                <span style="color:#ffb8d1">=</span> (<span style="color:#c2ffdf">array</span>) $paths;
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">elseif</span> ($prepend) {
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Prepend directories for an already registered namespace.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix] <span style="color:#ffb8d1">=</span> array_merge(
-</span></span><span style="display:flex;"><span>                (<span style="color:#c2ffdf">array</span>) $paths,
-</span></span><span style="display:flex;"><span>                self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix]
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixLengthsPsr4</span>[<span style="color:#ff5c57">$prefix</span>[<span style="color:#ff9f43">0</span>]][<span style="color:#ff5c57">$prefix</span>] <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$length</span>;
+</span></span><span style="display:flex;"><span>            self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>]                <span style="color:#ff6ac1">=</span> (<span style="color:#ff6ac1">array</span>) <span style="color:#ff5c57">$paths</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">elseif</span> (<span style="color:#ff5c57">$prepend</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// Prepend directories for an already registered namespace.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>] <span style="color:#ff6ac1">=</span> array_merge(
+</span></span><span style="display:flex;"><span>                (<span style="color:#ff6ac1">array</span>) <span style="color:#ff5c57">$paths</span>,
+</span></span><span style="display:flex;"><span>                self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>]
 </span></span><span style="display:flex;"><span>            );
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">else</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// Append directories for an already registered namespace.
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix] <span style="color:#ffb8d1">=</span> array_merge(
-</span></span><span style="display:flex;"><span>                self<span style="color:#ffb8d1">::</span>$prefixDirsPsr4[$prefix],
-</span></span><span style="display:flex;"><span>                (<span style="color:#c2ffdf">array</span>) $paths
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// Append directories for an already registered namespace.
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>] <span style="color:#ff6ac1">=</span> array_merge(
+</span></span><span style="display:flex;"><span>                self<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>[<span style="color:#ff5c57">$prefix</span>],
+</span></span><span style="display:flex;"><span>                (<span style="color:#ff6ac1">array</span>) <span style="color:#ff5c57">$paths</span>
 </span></span><span style="display:flex;"><span>            );
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="composer-自动加载文件">Composer 自动加载文件</h2>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 这个名字是防止用户自定义类名跟这个类重复冲突了，所以在类名上加了一个 hash 值
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">ComposerStaticInite178cf12f908bc9f3e221ce38771c57e</span>
+</span></span></code></pre></div><h2 id="composer-自动加载文件">Composer 自动加载文件</h2>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 这个名字是防止用户自定义类名跟这个类重复冲突了，所以在类名上加了一个 hash 值
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">ComposerStaticInite178cf12f908bc9f3e221ce38771c57e</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> $prefixLengthsPsr4 <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 这里使用命名空间第一个字母作为前缀索引
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#1bc5e0">&#39;P&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#1bc5e0">&#39;Predis\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">7</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff5c57">$prefixLengthsPsr4</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 这里使用命名空间第一个字母作为前缀索引
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#5af78e">&#39;P&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;Predis\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">7</span>,
 </span></span><span style="display:flex;"><span>        ),
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;F&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#1bc5e0">&#39;Firebase\\JWT\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">13</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;F&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;Firebase\\JWT\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">13</span>,
 </span></span><span style="display:flex;"><span>        ),
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;A&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#1bc5e0">&#39;Admin\\Thinkphp51\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">17</span>,
-</span></span><span style="display:flex;"><span>        ),
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> $prefixDirsPsr4 <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;Predis\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/..&#39;</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/predis/predis/src&#39;</span>,
-</span></span><span style="display:flex;"><span>        ),
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;Firebase\\JWT\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/..&#39;</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/firebase/php-jwt/src&#39;</span>,
-</span></span><span style="display:flex;"><span>        ),
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;Admin\\Thinkphp51\\&#39;</span> <span style="color:#ffb8d1">=&gt;</span> 
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>            <span style="color:#c5a3ff">0</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/../..&#39;</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/src&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;A&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;Admin\\Thinkphp51\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">17</span>,
 </span></span><span style="display:flex;"><span>        ),
 </span></span><span style="display:flex;"><span>    );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> $classMap <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span> (
-</span></span><span style="display:flex;"><span>        <span style="color:#1bc5e0">&#39;Composer\\InstalledVersions&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/..&#39;</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/composer/InstalledVersions.php&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff5c57">$prefixDirsPsr4</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;Predis\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/..&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/predis/predis/src&#39;</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;Firebase\\JWT\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/..&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/firebase/php-jwt/src&#39;</span>,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;Admin\\Thinkphp51\\&#39;</span> <span style="color:#ff6ac1">=&gt;</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>            <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/../..&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/src&#39;</span>,
+</span></span><span style="display:flex;"><span>        ),
 </span></span><span style="display:flex;"><span>    );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">static</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">getInitializer</span>(ClassLoader $loader)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff5c57">$classMap</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span> (
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;Composer\\InstalledVersions&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/..&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/composer/InstalledVersions.php&#39;</span>,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">static</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">getInitializer</span>(ClassLoader <span style="color:#ff5c57">$loader</span>)
 </span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> \Closure<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">bind</span>(<span style="color:#c2ffdf">function</span> () <span style="color:#c2ffdf">use</span> ($loader) {
-</span></span><span style="display:flex;"><span>            $loader<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">prefixLengthsPsr4</span> <span style="color:#ffb8d1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ffb8d1">::</span>$prefixLengthsPsr4;
-</span></span><span style="display:flex;"><span>            $loader<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">prefixDirsPsr4</span> <span style="color:#ffb8d1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ffb8d1">::</span>$prefixDirsPsr4;
-</span></span><span style="display:flex;"><span>            $loader<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">classMap</span> <span style="color:#ffb8d1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ffb8d1">::</span>$classMap;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> \Closure<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">bind</span>(<span style="color:#ff6ac1">function</span> () <span style="color:#ff6ac1">use</span> (<span style="color:#ff5c57">$loader</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$loader</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">prefixLengthsPsr4</span> <span style="color:#ff6ac1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixLengthsPsr4</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$loader</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">prefixDirsPsr4</span> <span style="color:#ff6ac1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$prefixDirsPsr4</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$loader</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">classMap</span> <span style="color:#ff6ac1">=</span> ComposerStaticInite178cf12f908bc9f3e221ce38771c57e<span style="color:#ff6ac1">::</span><span style="color:#ff5c57">$classMap</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        }, <span style="color:#c2ffdf">null</span>, ClassLoader<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">class</span>);
+</span></span><span style="display:flex;"><span>        }, <span style="color:#ff6ac1">null</span>, ClassLoader<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">class</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="注册异常处理">注册异常处理</h2>
+</span></span></code></pre></div><h2 id="注册异常处理">注册异常处理</h2>
 <blockquote>
 <p>error_reporting();	设置 php 在 运行时 报告 何种错误</p>
 </blockquote>
@@ -1078,6 +764,39 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/thinkphp-container/">
+        
+        
+            <div class="article-image">
+                <img src="/thinkphp-container/img/thinkphp.8822d1d8efcd89bf3b3447f5479001eb_huad27109d203e5edca47bf84c04264273_36130_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post ThinkPHP Container(二)"
+                        
+                        data-hash="md5-iCLR2O/Nib87NEf1R5AB6w==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ThinkPHP Container(二)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

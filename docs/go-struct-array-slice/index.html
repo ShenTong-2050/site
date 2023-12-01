@@ -315,539 +315,253 @@
 <h3 id="定义使用-与-字段的访问">定义、使用 与 字段的访问</h3>
 <pre><code>使用 `struct` 关键字可以定义一个结构体及其中的字段或属性
 </code></pre>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
-</span></span><span style="display:flex;"><span>    Id      <span style="color:#c2ffdf">int</span>
-</span></span><span style="display:flex;"><span>    Name    <span style="color:#c2ffdf">string</span>
-</span></span><span style="display:flex;"><span>    Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">type</span> Member <span style="color:#ff5c57">struct</span> {
+</span></span><span style="display:flex;"><span>    Id      <span style="color:#9aedfe">int</span>
+</span></span><span style="display:flex;"><span>    Name    <span style="color:#9aedfe">string</span>
+</span></span><span style="display:flex;"><span>    Age     <span style="color:#9aedfe">int</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 使用方式
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,Name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}	<span style="color:#b0bec5">// 使用方式二
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">var</span> m2 Member
-</span></span><span style="display:flex;"><span>    m2.Id = <span style="color:#c5a3ff">2</span>
-</span></span><span style="display:flex;"><span>    m2.Name = <span style="color:#1bc5e0">&#34;李四&#34;</span>
-</span></span><span style="display:flex;"><span>    m2.Age = <span style="color:#c5a3ff">18</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 使用方式
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">var</span> m1 = Member{Id:<span style="color:#ff9f43">1</span>,Name: <span style="color:#5af78e">&#34;张三&#34;</span>,Age: <span style="color:#ff9f43">18</span>}	<span style="color:#78787e">// 使用方式二
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">var</span> m2 Member
+</span></span><span style="display:flex;"><span>    m2.Id = <span style="color:#ff9f43">2</span>
+</span></span><span style="display:flex;"><span>    m2.Name = <span style="color:#5af78e">&#34;李四&#34;</span>
+</span></span><span style="display:flex;"><span>    m2.Age = <span style="color:#ff9f43">18</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 使用方式三
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    m3 <span style="color:#ffb8d1">:=</span> Member{Id: <span style="color:#c5a3ff">3</span>,Name: <span style="color:#1bc5e0">&#34;王五&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 使用方式三
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    m3 <span style="color:#ff6ac1">:=</span> Member{Id: <span style="color:#ff9f43">3</span>,Name: <span style="color:#5af78e">&#34;王五&#34;</span>,Age: <span style="color:#ff9f43">18</span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 访问字段
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(m1.Id,m1.Name ,m1 .Age,m2 ,m3)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 访问字段
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(m1.Id,m1.Name ,m1 .Age,m2 ,m3)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="指针结构体">指针结构体</h3>
+</span></span></code></pre></div><h3 id="指针结构体">指针结构体</h3>
 <p>结构体与数组一样，都是值传递，当把数组或结构体作为实参传递给函数的形参时会复制一个副本，所以我们为了提高性能一般不会直接传递，而是使用切片或指针来进行</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
-</span></span><span style="display:flex;"><span>    Id      <span style="color:#c2ffdf">int</span>
-</span></span><span style="display:flex;"><span>    Name    <span style="color:#c2ffdf">string</span>
-</span></span><span style="display:flex;"><span>    Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">type</span> Member <span style="color:#ff5c57">struct</span> {
+</span></span><span style="display:flex;"><span>    Id      <span style="color:#9aedfe">int</span>
+</span></span><span style="display:flex;"><span>    Name    <span style="color:#9aedfe">string</span>
+</span></span><span style="display:flex;"><span>    Age     <span style="color:#9aedfe">int</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,Name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
-</span></span><span style="display:flex;"><span>    <span style="color:#ceb1ff">printlnStruct</span>(<span style="color:#ffb8d1">&amp;</span>m1)
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(m1)
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">var</span> m1 = Member{Id:<span style="color:#ff9f43">1</span>,Name: <span style="color:#5af78e">&#34;张三&#34;</span>,Age: <span style="color:#ff9f43">18</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">printlnStruct</span>(<span style="color:#ff6ac1">&amp;</span>m1)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(m1)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">printlnStruct</span>(m <span style="color:#ffb8d1">*</span>Member) {
-</span></span><span style="display:flex;"><span>    m.Id = <span style="color:#c5a3ff">5</span>
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(m)
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">printlnStruct</span>(m <span style="color:#ff6ac1">*</span>Member) {
+</span></span><span style="display:flex;"><span>    m.Id = <span style="color:#ff9f43">5</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(m)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="结构体字段可见性与php类中方法的公有私有相似">结构体字段可见性(与php类中方法的公有、私有相似)</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-teststruct.go" data-lang="teststruct.go"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> teststruct
+</span></span></code></pre></div><h3 id="结构体字段可见性与php类中方法的公有私有相似">结构体字段可见性(与php类中方法的公有、私有相似)</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-teststruct.go" data-lang="teststruct.go"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> teststruct
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
-</span></span><span style="display:flex;"><span>    Id      <span style="color:#c2ffdf">int</span>
-</span></span><span style="display:flex;"><span>    name    <span style="color:#c2ffdf">string</span>
-</span></span><span style="display:flex;"><span>    Age     <span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">type</span> Member <span style="color:#ff5c57">struct</span> {
+</span></span><span style="display:flex;"><span>    Id      <span style="color:#9aedfe">int</span>
+</span></span><span style="display:flex;"><span>    name    <span style="color:#9aedfe">string</span>
+</span></span><span style="display:flex;"><span>    Age     <span style="color:#9aedfe">int</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">Test</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">var</span> m1 = Member{Id:<span style="color:#c5a3ff">1</span>,name: <span style="color:#1bc5e0">&#34;张三&#34;</span>,Age: <span style="color:#c5a3ff">18</span>}
-</span></span><span style="display:flex;"><span>    <span style="color:#ceb1ff">PrintlnStruct</span>(<span style="color:#ffb8d1">&amp;</span>m1)
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(m1)
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">Test</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">var</span> m1 = Member{Id:<span style="color:#ff9f43">1</span>,name: <span style="color:#5af78e">&#34;张三&#34;</span>,Age: <span style="color:#ff9f43">18</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">PrintlnStruct</span>(<span style="color:#ff6ac1">&amp;</span>m1)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(m1)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">PrintlnStruct</span>(m <span style="color:#ffb8d1">*</span>Member) {
-</span></span><span style="display:flex;"><span>    m.Id = <span style="color:#c5a3ff">5</span>
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(m)
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">PrintlnStruct</span>(m <span style="color:#ff6ac1">*</span>Member) {
+</span></span><span style="display:flex;"><span>    m.Id = <span style="color:#ff9f43">5</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(m)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-main.go" data-lang="main.go"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-main.go" data-lang="main.go"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#34;test/teststruct&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#34;test/teststruct&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
-</span></span><span style="display:flex;"><span>    m <span style="color:#ffb8d1">:=</span> <span style="color:#ffb8d1">&amp;</span>teststruct.Member{
-</span></span><span style="display:flex;"><span>        Id:  <span style="color:#c5a3ff">8</span>,
-</span></span><span style="display:flex;"><span>        Age: <span style="color:#c5a3ff">13</span>,
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
+</span></span><span style="display:flex;"><span>    m <span style="color:#ff6ac1">:=</span> <span style="color:#ff6ac1">&amp;</span>teststruct.Member{
+</span></span><span style="display:flex;"><span>        Id:  <span style="color:#ff9f43">8</span>,
+</span></span><span style="display:flex;"><span>        Age: <span style="color:#ff9f43">13</span>,
 </span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    teststruct.<span style="color:#ceb1ff">PrintlnStruct</span>(m)
-</span></span><span style="display:flex;"><span>    teststruct.<span style="color:#ceb1ff">Test</span>()
+</span></span><span style="display:flex;"><span>    teststruct.<span style="color:#57c7ff">PrintlnStruct</span>(m)
+</span></span><span style="display:flex;"><span>    teststruct.<span style="color:#57c7ff">Test</span>()
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="结构体-tag">结构体 Tag</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+</span></span></code></pre></div><h3 id="结构体-tag">结构体 Tag</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#34;encoding/json&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#34;encoding/json&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">type</span> Member <span style="color:#c2ffdf">struct</span> {
-</span></span><span style="display:flex;"><span>    Id   <span style="color:#c2ffdf">int</span>    <span style="color:#1bc5e0">`json:&#34;json_id,omitempty&#34;`</span>
-</span></span><span style="display:flex;"><span>    Name <span style="color:#c2ffdf">string</span> <span style="color:#1bc5e0">`json:&#34;json_name,omitempty&#34;`</span>
-</span></span><span style="display:flex;"><span>    Age  <span style="color:#c2ffdf">int</span>    <span style="color:#1bc5e0">`json:&#34;json_age,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">type</span> Member <span style="color:#ff5c57">struct</span> {
+</span></span><span style="display:flex;"><span>    Id   <span style="color:#9aedfe">int</span>    <span style="color:#5af78e">`json:&#34;json_id,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span>    Name <span style="color:#9aedfe">string</span> <span style="color:#5af78e">`json:&#34;json_name,omitempty&#34;`</span>
+</span></span><span style="display:flex;"><span>    Age  <span style="color:#9aedfe">int</span>    <span style="color:#5af78e">`json:&#34;json_age,omitempty&#34;`</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">construct</span>(id,age <span style="color:#c2ffdf">int</span>, name <span style="color:#c2ffdf">string</span>) <span style="color:#ffb8d1">*</span>Member {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">return</span> <span style="color:#ffb8d1">&amp;</span>Member{
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">construct</span>(id,age <span style="color:#9aedfe">int</span>, name <span style="color:#9aedfe">string</span>) <span style="color:#ff6ac1">*</span>Member {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">&amp;</span>Member{
 </span></span><span style="display:flex;"><span>        Id:   id,
 </span></span><span style="display:flex;"><span>        Name: name,
 </span></span><span style="display:flex;"><span>        Age:  age,
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
-</span></span><span style="display:flex;"><span>    b,_ <span style="color:#ffb8d1">:=</span> json.<span style="color:#ceb1ff">Marshal</span>(<span style="color:#ceb1ff">construct</span>(<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">53</span>,<span style="color:#1bc5e0">&#34;李四&#34;</span>))
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(string(b))
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
+</span></span><span style="display:flex;"><span>    b,_ <span style="color:#ff6ac1">:=</span> json.<span style="color:#57c7ff">Marshal</span>(<span style="color:#57c7ff">construct</span>(<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">53</span>,<span style="color:#5af78e">&#34;李四&#34;</span>))
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(<span style="color:#ff5c57">string</span>(b))
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="数组">数组</h2>
+</span></span></code></pre></div><h2 id="数组">数组</h2>
 <h3 id="数组是一个由固定长度的特定类型元素组成的序列">数组是一个由固定长度的特定类型元素组成的序列</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> array
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> array
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// MainArray 入口
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">MainArray</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">var</span> a [<span style="color:#c5a3ff">3</span>]<span style="color:#c2ffdf">int</span>  					<span style="color:#b0bec5">// 定义长度为3的int型数组,元素为0
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">var</span> b = [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>:<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">2</span>:<span style="color:#c5a3ff">3</span>}		<span style="color:#b0bec5">// 定义长度为3的int型数组,元素为0，2，3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">var</span> c = [<span style="color:#c5a3ff">4</span>][<span style="color:#c5a3ff">5</span>]<span style="color:#c2ffdf">int</span>{}				<span style="color:#b0bec5">// 定义一个四行五列的二维数组
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>}			<span style="color:#b0bec5">// 定义长度为3的int型数组
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    e <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">4</span>:<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}		<span style="color:#b0bec5">// 定义长度为6的int型数组,元素为1,2,0,0,5,6
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a,b,c,d,e)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// MainArray 入口
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">MainArray</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">var</span> a [<span style="color:#ff9f43">3</span>]<span style="color:#9aedfe">int</span>  					<span style="color:#78787e">// 定义长度为3的int型数组,元素为0
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">var</span> b = [<span style="color:#ff6ac1">...</span>]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>:<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">2</span>:<span style="color:#ff9f43">3</span>}		<span style="color:#78787e">// 定义长度为3的int型数组,元素为0，2，3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">var</span> c = [<span style="color:#ff9f43">4</span>][<span style="color:#ff9f43">5</span>]<span style="color:#9aedfe">int</span>{}				<span style="color:#78787e">// 定义一个四行五列的二维数组
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    d <span style="color:#ff6ac1">:=</span> [<span style="color:#ff6ac1">...</span>]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>}			<span style="color:#78787e">// 定义长度为3的int型数组
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    e <span style="color:#ff6ac1">:=</span> [<span style="color:#ff6ac1">...</span>]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">4</span>:<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>}		<span style="color:#78787e">// 定义长度为6的int型数组,元素为1,2,0,0,5,6
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a,b,c,d,e)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="遍历数组">遍历数组</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span> () {
+</span></span></code></pre></div><h3 id="遍历数组">遍历数组</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span> () {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
+</span></span><span style="display:flex;"><span>    d <span style="color:#ff6ac1">:=</span> [<span style="color:#ff6ac1">...</span>]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>}
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 方式一
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">for</span> i<span style="color:#ffb8d1">:=</span><span style="color:#c5a3ff">0</span>; i&lt;len(d); i<span style="color:#ffb8d1">++</span> {
-</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(d[i])
-</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Printf</span>(<span style="color:#1bc5e0">&#34;%v\n&#34;</span>,d[i])
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 方式一
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">for</span> i<span style="color:#ff6ac1">:=</span><span style="color:#ff9f43">0</span>; i&lt;<span style="color:#ff5c57">len</span>(d); i<span style="color:#ff6ac1">++</span> {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#57c7ff">Println</span>(d[i])
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#57c7ff">Printf</span>(<span style="color:#5af78e">&#34;%v\n&#34;</span>,d[i])
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 方式二
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">for</span> i,v <span style="color:#ffb8d1">:=</span> <span style="color:#c2ffdf">range</span> d {
-</span></span><span style="display:flex;"><span>        fmt.<span style="color:#ceb1ff">Println</span>(i,v)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 方式二
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">for</span> i,v <span style="color:#ff6ac1">:=</span> <span style="color:#ff6ac1">range</span> d {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#57c7ff">Println</span>(i,v)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="数组布局">数组布局</h3>
+</span></span></code></pre></div><h3 id="数组布局">数组布局</h3>
 <p>Go语言数组是值语义即一个变量表示整个数组，当一个数组变量被赋值或传递的时候会复制
 整个数组，如果数组较大则会产生比较大的开销。为了避免复制数组带来的开销，可以传递一个
 指向数组的指针。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
-</span></span><span style="display:flex;"><span>    d <span style="color:#ffb8d1">:=</span> [<span style="color:#ffb8d1">...</span>]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">/*e := [...]int{1,2,3}	// 此处是无法运行的
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">    printArray(e)*/</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ceb1ff">printArray</span>(d)           <span style="color:#b0bec5">// 值传递示例
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// printArray(&amp;d)       // 指针传递
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
+</span></span><span style="display:flex;"><span>    d <span style="color:#ff6ac1">:=</span> [<span style="color:#ff6ac1">...</span>]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">/*e := [...]int{1,2,3}	// 此处是无法运行的
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    printArray(e)*/</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#57c7ff">printArray</span>(d)           <span style="color:#78787e">// 值传递示例
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// printArray(&amp;d)       // 指针传递
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// func printArray(arr *[6]int) {
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">printArray</span>(arr [<span style="color:#c5a3ff">6</span>]<span style="color:#c2ffdf">int</span>) {
-</span></span><span style="display:flex;"><span>    arr[<span style="color:#c5a3ff">1</span>] = <span style="color:#c5a3ff">100</span>
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(arr)
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// func printArray(arr *[6]int) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">printArray</span>(arr [<span style="color:#ff9f43">6</span>]<span style="color:#9aedfe">int</span>) {
+</span></span><span style="display:flex;"><span>    arr[<span style="color:#ff9f43">1</span>] = <span style="color:#ff9f43">100</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(arr)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span></code></pre></div><blockquote>
 <p>总结：因为数组的长度是数组类型的一个部分，不同长度或不同类型的数据组成的数组都是不同的类型，因此在Go语言中很少直接使用数组（不同长度的数组因为类型不同无法直接赋值）但数组是
 切片和字符串等结构的基础</p>
 </blockquote>
 <h2 id="切片">切片</h2>
 <p>切片是数组的简化版并且它不受长度的限制，数组虽然有适用他们的地方，但是其类型和操作都不够灵活，而切片正好弥补了这一点，切片在Go中的应用是非常广泛的</p>
-<!-- raw HTML omitted -->
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#c2ffdf">type</span> SliceHeader <span style="color:#c2ffdf">struct</span> {
-</span></span><span style="display:flex;"><span>    Data <span style="color:#c2ffdf">uintptr</span>
-</span></span><span style="display:flex;"><span>    Len  <span style="color:#c2ffdf">int</span>
-</span></span><span style="display:flex;"><span>    Cap  <span style="color:#c2ffdf">int</span>
+<!--#### 切片结构体定义-->
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff5c57">type</span> SliceHeader <span style="color:#ff5c57">struct</span> {
+</span></span><span style="display:flex;"><span>    Data <span style="color:#9aedfe">uintptr</span>
+</span></span><span style="display:flex;"><span>    Len  <span style="color:#9aedfe">int</span>
+</span></span><span style="display:flex;"><span>    Cap  <span style="color:#9aedfe">int</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="切片的定义">切片的定义</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> slice
+</span></span></code></pre></div><h3 id="切片的定义">切片的定义</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> slice
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">MainSlice</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">var</span> (
-</span></span><span style="display:flex;"><span>        a []<span style="color:#c2ffdf">int</span>					<span style="color:#b0bec5">// nil 切片 和 nil 相等，一般用来表示一个不存在的切片
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        b = []<span style="color:#c2ffdf">int</span>{}				<span style="color:#b0bec5">// 空切片 和 nil 不相等， 一般用来表示一个空的集合
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        c = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>}		<span style="color:#b0bec5">// 有 3 个元素的切片，len和cap都为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        d = c[:<span style="color:#c5a3ff">2</span>]				<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        e = c[<span style="color:#c5a3ff">0</span>:<span style="color:#c5a3ff">2</span>:cap(c)]		<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        f = c[:<span style="color:#c5a3ff">0</span>]				<span style="color:#b0bec5">// 有 0 个元素的切片，len为0，cap为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        g = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 3 个元素的切片，len和cap都为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        h = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 2 个元素的切片，len为2，cap为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        i = make([]<span style="color:#c2ffdf">int</span>,<span style="color:#c5a3ff">0</span>,<span style="color:#c5a3ff">3</span>)		<span style="color:#b0bec5">// 有 0 个元素的切片，len为0，cap为3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    )
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(a,b,c,d,e,f,g,h,i)
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">MainSlice</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">var</span> (
+</span></span><span style="display:flex;"><span>        a []<span style="color:#9aedfe">int</span>					<span style="color:#78787e">// nil 切片 和 nil 相等，一般用来表示一个不存在的切片
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        b = []<span style="color:#9aedfe">int</span>{}				<span style="color:#78787e">// 空切片 和 nil 不相等， 一般用来表示一个空的集合
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        c = []<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>}		<span style="color:#78787e">// 有 3 个元素的切片，len和cap都为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        d = c[:<span style="color:#ff9f43">2</span>]				<span style="color:#78787e">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        e = c[<span style="color:#ff9f43">0</span>:<span style="color:#ff9f43">2</span>:<span style="color:#ff5c57">cap</span>(c)]		<span style="color:#78787e">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        f = c[:<span style="color:#ff9f43">0</span>]				<span style="color:#78787e">// 有 0 个元素的切片，len为0，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        g = <span style="color:#ff5c57">make</span>([]<span style="color:#9aedfe">int</span>,<span style="color:#ff9f43">3</span>)		<span style="color:#78787e">// 有 3 个元素的切片，len和cap都为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        h = <span style="color:#ff5c57">make</span>([]<span style="color:#9aedfe">int</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>)		<span style="color:#78787e">// 有 2 个元素的切片，len为2，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        i = <span style="color:#ff5c57">make</span>([]<span style="color:#9aedfe">int</span>,<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">3</span>)		<span style="color:#78787e">// 有 0 个元素的切片，len为0，cap为3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    )
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(a,b,c,d,e,f,g,h,i)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span></code></pre></div><blockquote>
 <p>小结：在底层数组指针、长度、容量没有发生变化的情况下，对切片的遍历、元素的读取、修改都和数组一样，在对切片赋值和传递时与数组类似，只是复制切片头信息，并不会复制底层的数据</p>
 </blockquote>
 <blockquote>
 <p>与数组区别：切片的类型和长度无关，只要是相同类型元素构成的切片均对应相同的切片类型；</p>
 </blockquote>
 <h3 id="添加切片元素">添加切片元素</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ffb8d1">package</span> main
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff6ac1">package</span> main
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ffb8d1">import</span> <span style="color:#1bc5e0">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> <span style="color:#5af78e">&#34;fmt&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">main</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">main</span>() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">//var a = make([]int,100)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">var</span> a []<span style="color:#c2ffdf">int</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">//var a = make([]int,100)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">var</span> a []<span style="color:#9aedfe">int</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 尾部追加
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append(a,<span style="color:#c5a3ff">1</span>)          <span style="color:#b0bec5">// 追加 1 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append(a,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>)       <span style="color:#b0bec5">// 追加 3 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append(a,[]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>,<span style="color:#c5a3ff">7</span>}<span style="color:#ffb8d1">...</span>)  <span style="color:#b0bec5">// 追加 1 个切片
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(<span style="color:#1bc5e0">&#34;开区间:&#34;</span>,a[:<span style="color:#c5a3ff">2</span>])
-</span></span><span style="display:flex;"><span>    fmt.<span style="color:#ceb1ff">Println</span>(<span style="color:#1bc5e0">&#34;闭区间:&#34;</span>,a[<span style="color:#c5a3ff">2</span>:])
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 尾部追加
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>(a,<span style="color:#ff9f43">1</span>)          <span style="color:#78787e">// 追加 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>(a,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>)       <span style="color:#78787e">// 追加 3 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>(a,[]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>,<span style="color:#ff9f43">7</span>}<span style="color:#ff6ac1">...</span>)  <span style="color:#78787e">// 追加 1 个切片
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(<span style="color:#5af78e">&#34;开区间:&#34;</span>,a[:<span style="color:#ff9f43">2</span>])
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#57c7ff">Println</span>(<span style="color:#5af78e">&#34;闭区间:&#34;</span>,a[<span style="color:#ff9f43">2</span>:])
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 头部追加
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">0</span>},a<span style="color:#ffb8d1">...</span>)                    <span style="color:#b0bec5">// 在开头添加 1 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
-</span></span><span style="display:flex;"><span>    a = append([]<span style="color:#c2ffdf">int</span>{<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">3</span>,<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">2</span>,<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">1</span>},a<span style="color:#ffb8d1">...</span>)               <span style="color:#b0bec5">// 在开头添加 1 个切片
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 头部追加
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>([]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">0</span>},a<span style="color:#ff6ac1">...</span>)                    <span style="color:#78787e">// 在开头添加 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    a = <span style="color:#ff5c57">append</span>([]<span style="color:#9aedfe">int</span>{<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">3</span>,<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">2</span>,<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>},a<span style="color:#ff6ac1">...</span>)               <span style="color:#78787e">// 在开头添加 1 个切片
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 在索引为 4 的位置插入 8
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// 第二个 append操作会构建一个临时切片,然后追加到 a[:4] 其实它的本质是 &#34;截取&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append(a[:<span style="color:#c5a3ff">4</span>],append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">8</span>},a[<span style="color:#c5a3ff">4</span>:]<span style="color:#ffb8d1">...</span>)<span style="color:#ffb8d1">...</span>)    <span style="color:#b0bec5">// 在索引为 4 的位置插入 8 (本质是截取之后在构建)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
-</span></span><span style="display:flex;"><span>    a = append(a[:<span style="color:#c5a3ff">4</span>],append([]<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">9</span>,<span style="color:#c5a3ff">10</span>},a[<span style="color:#c5a3ff">4</span>:]<span style="color:#ffb8d1">...</span>)<span style="color:#ffb8d1">...</span>)  <span style="color:#b0bec5">// 在索引为 4 的位置插入切片
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 在索引为 4 的位置插入 8
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// 第二个 append操作会构建一个临时切片,然后追加到 a[:4] 其实它的本质是 &#34;截取&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>(a[:<span style="color:#ff9f43">4</span>],<span style="color:#ff5c57">append</span>([]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">8</span>},a[<span style="color:#ff9f43">4</span>:]<span style="color:#ff6ac1">...</span>)<span style="color:#ff6ac1">...</span>)    <span style="color:#78787e">// 在索引为 4 的位置插入 8 (本质是截取之后在构建)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    a = <span style="color:#ff5c57">append</span>(a[:<span style="color:#ff9f43">4</span>],<span style="color:#ff5c57">append</span>([]<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">9</span>,<span style="color:#ff9f43">10</span>},a[<span style="color:#ff9f43">4</span>:]<span style="color:#ff6ac1">...</span>)<span style="color:#ff6ac1">...</span>)  <span style="color:#78787e">// 在索引为 4 的位置插入切片
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 可以通过 copy 与 append 组合来避免临时切片的创建,同样是插入操作
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a = append(a,<span style="color:#c5a3ff">0</span>)       <span style="color:#b0bec5">// 给原始切片插入一个空元素(截取的规则是右闭左开)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    copy(a[<span style="color:#c5a3ff">4</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">1</span>:],a[<span style="color:#c5a3ff">4</span>:])          <span style="color:#b0bec5">// 将 a[4:] 向后移动 1 个位置
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    a[<span style="color:#c5a3ff">4</span>] = <span style="color:#c5a3ff">11</span>              <span style="color:#b0bec5">// 修改切片元素的值
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 可以通过 copy 与 append 组合来避免临时切片的创建,同样是插入操作
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a = <span style="color:#ff5c57">append</span>(a,<span style="color:#ff9f43">0</span>)       <span style="color:#78787e">// 给原始切片插入一个空元素(截取的规则是右闭左开)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">copy</span>(a[<span style="color:#ff9f43">4</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:],a[<span style="color:#ff9f43">4</span>:])          <span style="color:#78787e">// 将 a[4:] 向后移动 1 个位置
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    a[<span style="color:#ff9f43">4</span>] = <span style="color:#ff9f43">11</span>              <span style="color:#78787e">// 修改切片元素的值
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 也可以在指定位置插入多个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">var</span> tmpSlice = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">12</span>,<span style="color:#c5a3ff">13</span>}
-</span></span><span style="display:flex;"><span>    a = append(a,tmpSlice<span style="color:#ffb8d1">...</span>)        <span style="color:#b0bec5">// 将 tmpSlice 所有元素追加至 a 切片后方
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    copy(a[<span style="color:#c5a3ff">4</span><span style="color:#ffb8d1">+</span>len(tmpSlice):],a[<span style="color:#c5a3ff">4</span>:])       <span style="color:#b0bec5">// 将 a[4:] 后边所有元素向后移动 len(tmpSlice) 个位置
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    copy(a[<span style="color:#c5a3ff">4</span>:],tmpSlice)            <span style="color:#b0bec5">// 将 tmpSlice 拷贝到指定位置
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    fmt.<span style="color:#ceb1ff">Println</span>(a)
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 也可以在指定位置插入多个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">var</span> tmpSlice = []<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">12</span>,<span style="color:#ff9f43">13</span>}
+</span></span><span style="display:flex;"><span>    a = <span style="color:#ff5c57">append</span>(a,tmpSlice<span style="color:#ff6ac1">...</span>)        <span style="color:#78787e">// 将 tmpSlice 所有元素追加至 a 切片后方
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">copy</span>(a[<span style="color:#ff9f43">4</span><span style="color:#ff6ac1">+</span><span style="color:#ff5c57">len</span>(tmpSlice):],a[<span style="color:#ff9f43">4</span>:])       <span style="color:#78787e">// 将 a[4:] 后边所有元素向后移动 len(tmpSlice) 个位置
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">copy</span>(a[<span style="color:#ff9f43">4</span>:],tmpSlice)            <span style="color:#78787e">// 将 tmpSlice 拷贝到指定位置
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    fmt.<span style="color:#57c7ff">Println</span>(a)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/go-struct-array-slice/slice_add.jpg"
+</span></span></code></pre></div><p><img src="/go-struct-array-slice/slice_add.jpg"
 	width="1862"
 	height="454"
 	srcset="/go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_480x0_resize_q100_mitchellnetravali.jpg 480w, /go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
@@ -862,75 +576,38 @@
 	
 ></p>
 <h3 id="删除切片元素">删除切片元素</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#c2ffdf">func</span> <span style="color:#ceb1ff">delSlice</span>() {
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#ff5c57">func</span> <span style="color:#57c7ff">delSlice</span>() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#c2ffdf">var</span> a = []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>}
+</span></span><span style="display:flex;"><span>   <span style="color:#ff5c57">var</span> a = []<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">// 第一种:移动指针的方式
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">// 删除最后 1 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(a[:len(a)<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">1</span>])           <span style="color:#b0bec5">// [1 2 3]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   <span style="color:#b0bec5">// 删除最后 2/N 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(a[:len(a)<span style="color:#ffb8d1">-</span><span style="color:#c5a3ff">2</span>])           <span style="color:#b0bec5">// [1 2]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   <span style="color:#b0bec5">// 删除开头 1 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(a[<span style="color:#c5a3ff">1</span>:])                <span style="color:#b0bec5">// [2 3 4]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   <span style="color:#b0bec5">// 删除开头 2/N 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(a[<span style="color:#c5a3ff">2</span>:])                <span style="color:#b0bec5">// [3 4]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">// 第二种:通过append原地完成,不会导致内存空间结构发生变化
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>   b <span style="color:#ffb8d1">:=</span> []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>,<span style="color:#c5a3ff">7</span>,<span style="color:#c5a3ff">8</span>,<span style="color:#c5a3ff">9</span>}
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 第一种:移动指针的方式
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 删除最后 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(a[:<span style="color:#ff5c57">len</span>(a)<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">1</span>])           <span style="color:#78787e">// [1 2 3]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   <span style="color:#78787e">// 删除最后 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(a[:<span style="color:#ff5c57">len</span>(a)<span style="color:#ff6ac1">-</span><span style="color:#ff9f43">2</span>])           <span style="color:#78787e">// [1 2]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   <span style="color:#78787e">// 删除开头 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(a[<span style="color:#ff9f43">1</span>:])                <span style="color:#78787e">// [2 3 4]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   <span style="color:#78787e">// 删除开头 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(a[<span style="color:#ff9f43">2</span>:])                <span style="color:#78787e">// [3 4]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 第二种:通过append原地完成,不会导致内存空间结构发生变化
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>   b <span style="color:#ff6ac1">:=</span> []<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>,<span style="color:#ff9f43">7</span>,<span style="color:#ff9f43">8</span>,<span style="color:#ff9f43">9</span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">// 删除开头 1 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(append(b[:<span style="color:#c5a3ff">0</span>],b[<span style="color:#c5a3ff">1</span>:]<span style="color:#ffb8d1">...</span>))       <span style="color:#b0bec5">// [6 7 8 9]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   <span style="color:#b0bec5">// 删除开头 2/N 个元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(append(b[:<span style="color:#c5a3ff">0</span>],b[<span style="color:#c5a3ff">2</span>:]<span style="color:#ffb8d1">...</span>))       <span style="color:#b0bec5">// [7 8 9]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span>   <span style="color:#b0bec5">// 删除切片中间的元素
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   c <span style="color:#ffb8d1">:=</span> []<span style="color:#c2ffdf">int</span>{<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">4</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">6</span>}
-</span></span><span style="display:flex;"><span>   c = append(c[:<span style="color:#c5a3ff">3</span>],c[<span style="color:#c5a3ff">3</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">1</span>:]<span style="color:#ffb8d1">...</span>)         <span style="color:#b0bec5">// 删除切片中间 1 个索引为 3 的元素 [1 2 3 5 6]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   <span style="color:#b0bec5">//fmt.Println(c)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   c = append(c[:<span style="color:#c5a3ff">3</span>],c[<span style="color:#c5a3ff">3</span><span style="color:#ffb8d1">+</span><span style="color:#c5a3ff">2</span>:]<span style="color:#ffb8d1">...</span>)         <span style="color:#b0bec5">// 删除切片中间 2 个元素,索引分别为 3、4 [1 2 3 6]
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>   fmt.<span style="color:#ceb1ff">Println</span>(c)
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 删除开头 1 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(<span style="color:#ff5c57">append</span>(b[:<span style="color:#ff9f43">0</span>],b[<span style="color:#ff9f43">1</span>:]<span style="color:#ff6ac1">...</span>))       <span style="color:#78787e">// [6 7 8 9]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   <span style="color:#78787e">// 删除开头 2/N 个元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(<span style="color:#ff5c57">append</span>(b[:<span style="color:#ff9f43">0</span>],b[<span style="color:#ff9f43">2</span>:]<span style="color:#ff6ac1">...</span>))       <span style="color:#78787e">// [7 8 9]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>   <span style="color:#78787e">// 删除切片中间的元素
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   c <span style="color:#ff6ac1">:=</span> []<span style="color:#9aedfe">int</span>{<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">6</span>}
+</span></span><span style="display:flex;"><span>   c = <span style="color:#ff5c57">append</span>(c[:<span style="color:#ff9f43">3</span>],c[<span style="color:#ff9f43">3</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">1</span>:]<span style="color:#ff6ac1">...</span>)         <span style="color:#78787e">// 删除切片中间 1 个索引为 3 的元素 [1 2 3 5 6]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   <span style="color:#78787e">//fmt.Println(c)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   c = <span style="color:#ff5c57">append</span>(c[:<span style="color:#ff9f43">3</span>],c[<span style="color:#ff9f43">3</span><span style="color:#ff6ac1">+</span><span style="color:#ff9f43">2</span>:]<span style="color:#ff6ac1">...</span>)         <span style="color:#78787e">// 删除切片中间 2 个元素,索引分别为 3、4 [1 2 3 6]
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>   fmt.<span style="color:#57c7ff">Println</span>(c)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span></code></pre></div><blockquote>
 <p>总结：切片高效操作的要点是降低内存分配的次数，要尽量保证 &ldquo;append&rdquo; 操作不会超出 &ldquo;cap&rdquo;
 的容量，降低触发内存分配的次数和每次分配内存的大小</p>
 </blockquote>

@@ -327,15 +327,8 @@
 <p>我们建议使用最新的 PHP 8.x 版本，因为它比以前的 PHP 版本更节省内存且速度更快。</p>
 <p>我们建议为您的数据库使用MySQL 8+或MariaDB。</p>
 <p>为了充分利用 Matomo，您还需要一些额外的 PHP 扩展，例如用于生成迷你图（小图）的PHP GD 扩展、统计电子邮件报告中的图表以及 Matomo 移动应用程序中的图表。建议安装的 PHP 扩展列表是：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install php php-curl php-gd php-cli mysql-server php-mysql php-xml php-mbstring
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="优化-matomo-httpsmatomoorgfaqon-premisehow-to-configure-matomo-for-speed-优化-matomo-"><a class="link" href="https://matomo.org/faq/on-premise/how-to-configure-matomo-for-speed/"  title="优化 Matomo"
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install php php-curl php-gd php-cli mysql-server php-mysql php-xml php-mbstring
+</span></span></code></pre></div><h3 id="优化-matomo-httpsmatomoorgfaqon-premisehow-to-configure-matomo-for-speed-优化-matomo-"><a class="link" href="https://matomo.org/faq/on-premise/how-to-configure-matomo-for-speed/"  title="优化 Matomo"
      target="_blank" rel="noopener"
     >优化 Matomo</a></h3>
 <blockquote>
@@ -348,17 +341,9 @@
 <ul>
 <li>编辑 crontab 文件 并添加内容</li>
 </ul>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>MAILTO<span style="color:#ffb8d1">=</span><span style="color:#1bc5e0">&#34;17601077189@163.com&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#c5a3ff">5</span> * * * * cd /path/to/matomo/ <span style="color:#ffb8d1">&amp;&amp;</span> php console core:archive --url<span style="color:#ffb8d1">=</span>http://analyse.wsst.vip/ &gt; /path/to/matomo/log/matomo-archive/matomo-archive.log
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ff5c57">MAILTO</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;17601077189@163.com&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff9f43">5</span> * * * * <span style="color:#ff5c57">cd</span> /path/to/matomo/ <span style="color:#ff6ac1">&amp;&amp;</span> php console core:archive --url<span style="color:#ff6ac1">=</span>http://analyse.wsst.vip/ &gt; /path/to/matomo/log/matomo-archive/matomo-archive.log
+</span></span></code></pre></div><ul>
 <li>
 <p>参数详解
 <img src="/Matomo/img/matomo_param.png"

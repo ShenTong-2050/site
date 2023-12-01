@@ -18,539 +18,253 @@
 &lt;h3 id=&#34;定义使用-与-字段的访问&#34;&gt;定义、使用 与 字段的访问&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;使用 `struct` 关键字可以定义一个结构体及其中的字段或属性
 &lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#c2ffdf&#34;&gt;struct&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name    &lt;span style=&#34;color:#c2ffdf&#34;&gt;string&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#ff5c57&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name    &lt;span style=&#34;color:#9aedfe&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 使用方式
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,Name: &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#c5a3ff&#34;&gt;18&lt;/span&gt;}	&lt;span style=&#34;color:#b0bec5&#34;&gt;// 使用方式二
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; m2 Member
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Id = &lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Name = &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;李四&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Age = &lt;span style=&#34;color:#c5a3ff&#34;&gt;18&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 使用方式
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,Name: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#ff9f43&#34;&gt;18&lt;/span&gt;}	&lt;span style=&#34;color:#78787e&#34;&gt;// 使用方式二
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; m2 Member
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Id = &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Name = &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;李四&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m2.Age = &lt;span style=&#34;color:#ff9f43&#34;&gt;18&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 使用方式三
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    m3 &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; Member{Id: &lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,Name: &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;王五&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#c5a3ff&#34;&gt;18&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 使用方式三
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    m3 &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; Member{Id: &lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,Name: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;王五&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#ff9f43&#34;&gt;18&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 访问字段
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(m1.Id,m1.Name ,m1 .Age,m2 ,m3)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 访问字段
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(m1.Id,m1.Name ,m1 .Age,m2 ,m3)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;指针结构体&#34;&gt;指针结构体&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;指针结构体&#34;&gt;指针结构体&lt;/h3&gt;
 &lt;p&gt;结构体与数组一样，都是值传递，当把数组或结构体作为实参传递给函数的形参时会复制一个副本，所以我们为了提高性能一般不会直接传递，而是使用切片或指针来进行&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#c2ffdf&#34;&gt;struct&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name    &lt;span style=&#34;color:#c2ffdf&#34;&gt;string&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#ff5c57&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name    &lt;span style=&#34;color:#9aedfe&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,Name: &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#c5a3ff&#34;&gt;18&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ceb1ff&#34;&gt;printlnStruct&lt;/span&gt;(&lt;span style=&#34;color:#ffb8d1&#34;&gt;&amp;amp;&lt;/span&gt;m1)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(m1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,Name: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#ff9f43&#34;&gt;18&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;printlnStruct&lt;/span&gt;(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;m1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(m1)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;printlnStruct&lt;/span&gt;(m &lt;span style=&#34;color:#ffb8d1&#34;&gt;*&lt;/span&gt;Member) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m.Id = &lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(m)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;printlnStruct&lt;/span&gt;(m &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;Member) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m.Id = &lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(m)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;结构体字段可见性与php类中方法的公有私有相似&#34;&gt;结构体字段可见性(与php类中方法的公有、私有相似)&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-teststruct.go&#34; data-lang=&#34;teststruct.go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; teststruct
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;结构体字段可见性与php类中方法的公有私有相似&#34;&gt;结构体字段可见性(与php类中方法的公有、私有相似)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-teststruct.go&#34; data-lang=&#34;teststruct.go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; teststruct
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#c2ffdf&#34;&gt;struct&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    name    &lt;span style=&#34;color:#c2ffdf&#34;&gt;string&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#ff5c57&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id      &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    name    &lt;span style=&#34;color:#9aedfe&#34;&gt;string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age     &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;Test&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,name: &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#c5a3ff&#34;&gt;18&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ceb1ff&#34;&gt;PrintlnStruct&lt;/span&gt;(&lt;span style=&#34;color:#ffb8d1&#34;&gt;&amp;amp;&lt;/span&gt;m1)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(m1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;Test&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; m1 = Member{Id:&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,name: &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;张三&amp;#34;&lt;/span&gt;,Age: &lt;span style=&#34;color:#ff9f43&#34;&gt;18&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;PrintlnStruct&lt;/span&gt;(&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;m1)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(m1)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;PrintlnStruct&lt;/span&gt;(m &lt;span style=&#34;color:#ffb8d1&#34;&gt;*&lt;/span&gt;Member) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m.Id = &lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(m)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;PrintlnStruct&lt;/span&gt;(m &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;Member) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m.Id = &lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(m)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-main.go&#34; data-lang=&#34;main.go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-main.go&#34; data-lang=&#34;main.go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;test/teststruct&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;test/teststruct&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;&amp;amp;&lt;/span&gt;teststruct.Member{
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Id:  &lt;span style=&#34;color:#c5a3ff&#34;&gt;8&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Age: &lt;span style=&#34;color:#c5a3ff&#34;&gt;13&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    m &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;teststruct.Member{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Id:  &lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Age: &lt;span style=&#34;color:#ff9f43&#34;&gt;13&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    teststruct.&lt;span style=&#34;color:#ceb1ff&#34;&gt;PrintlnStruct&lt;/span&gt;(m)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    teststruct.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Test&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    teststruct.&lt;span style=&#34;color:#57c7ff&#34;&gt;PrintlnStruct&lt;/span&gt;(m)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    teststruct.&lt;span style=&#34;color:#57c7ff&#34;&gt;Test&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;结构体-tag&#34;&gt;结构体 Tag&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;结构体-tag&#34;&gt;结构体 Tag&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;encoding/json&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;encoding/json&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#c2ffdf&#34;&gt;struct&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id   &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;`json:&amp;#34;json_id,omitempty&amp;#34;`&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name &lt;span style=&#34;color:#c2ffdf&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;`json:&amp;#34;json_name,omitempty&amp;#34;`&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age  &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;`json:&amp;#34;json_age,omitempty&amp;#34;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;type&lt;/span&gt; Member &lt;span style=&#34;color:#ff5c57&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Id   &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;`json:&amp;#34;json_id,omitempty&amp;#34;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Name &lt;span style=&#34;color:#9aedfe&#34;&gt;string&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;`json:&amp;#34;json_name,omitempty&amp;#34;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Age  &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;`json:&amp;#34;json_age,omitempty&amp;#34;`&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;construct&lt;/span&gt;(id,age &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;, name &lt;span style=&#34;color:#c2ffdf&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#ffb8d1&#34;&gt;*&lt;/span&gt;Member {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ffb8d1&#34;&gt;&amp;amp;&lt;/span&gt;Member{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;construct&lt;/span&gt;(id,age &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;, name &lt;span style=&#34;color:#9aedfe&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#ff6ac1&#34;&gt;*&lt;/span&gt;Member {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;amp;&lt;/span&gt;Member{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Id:   id,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Name: name,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Age:  age,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    b,_ &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; json.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Marshal&lt;/span&gt;(&lt;span style=&#34;color:#ceb1ff&#34;&gt;construct&lt;/span&gt;(&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;53&lt;/span&gt;,&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;李四&amp;#34;&lt;/span&gt;))
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(string(b))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    b,_ &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; json.&lt;span style=&#34;color:#57c7ff&#34;&gt;Marshal&lt;/span&gt;(&lt;span style=&#34;color:#57c7ff&#34;&gt;construct&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;53&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;李四&amp;#34;&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;string&lt;/span&gt;(b))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;数组&#34;&gt;数组&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;数组&#34;&gt;数组&lt;/h2&gt;
 &lt;h3 id=&#34;数组是一个由固定长度的特定类型元素组成的序列&#34;&gt;数组是一个由固定长度的特定类型元素组成的序列&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; array
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; array
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// MainArray 入口
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;MainArray&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; a [&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;  					&lt;span style=&#34;color:#b0bec5&#34;&gt;// 定义长度为3的int型数组,元素为0
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; b = [&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;:&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;}		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 定义长度为3的int型数组,元素为0，2，3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; c = [&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;][&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{}				&lt;span style=&#34;color:#b0bec5&#34;&gt;// 定义一个四行五列的二维数组
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    d &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;}			&lt;span style=&#34;color:#b0bec5&#34;&gt;// 定义长度为3的int型数组
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    e &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;}		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 定义长度为6的int型数组,元素为1,2,0,0,5,6
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a,b,c,d,e)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// MainArray 入口
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;MainArray&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; a [&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;  					&lt;span style=&#34;color:#78787e&#34;&gt;// 定义长度为3的int型数组,元素为0
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; b = [&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;}		&lt;span style=&#34;color:#78787e&#34;&gt;// 定义长度为3的int型数组,元素为0，2，3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; c = [&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;][&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{}				&lt;span style=&#34;color:#78787e&#34;&gt;// 定义一个四行五列的二维数组
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    d &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;}			&lt;span style=&#34;color:#78787e&#34;&gt;// 定义长度为3的int型数组
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    e &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;}		&lt;span style=&#34;color:#78787e&#34;&gt;// 定义长度为6的int型数组,元素为1,2,0,0,5,6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a,b,c,d,e)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;遍历数组&#34;&gt;遍历数组&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt; () {
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;遍历数组&#34;&gt;遍历数组&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt; () {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    d &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    d &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 方式一
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;for&lt;/span&gt; i&lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;; i&amp;lt;len(d); i&lt;span style=&#34;color:#ffb8d1&#34;&gt;++&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(d[i])
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;%v\n&amp;#34;&lt;/span&gt;,d[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 方式一
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; i&lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;; i&amp;lt;&lt;span style=&#34;color:#ff5c57&#34;&gt;len&lt;/span&gt;(d); i&lt;span style=&#34;color:#ff6ac1&#34;&gt;++&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(d[i])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Printf&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;%v\n&amp;#34;&lt;/span&gt;,d[i])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 方式二
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;for&lt;/span&gt; i,v &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#c2ffdf&#34;&gt;range&lt;/span&gt; d {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(i,v)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 方式二
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;for&lt;/span&gt; i,v &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;range&lt;/span&gt; d {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(i,v)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;数组布局&#34;&gt;数组布局&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;数组布局&#34;&gt;数组布局&lt;/h3&gt;
 &lt;p&gt;Go语言数组是值语义即一个变量表示整个数组，当一个数组变量被赋值或传递的时候会复制
 整个数组，如果数组较大则会产生比较大的开销。为了避免复制数组带来的开销，可以传递一个
 指向数组的指针。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    d &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;/*e := [...]int{1,2,3}	// 此处是无法运行的
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;    printArray(e)*/&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ceb1ff&#34;&gt;printArray&lt;/span&gt;(d)           &lt;span style=&#34;color:#b0bec5&#34;&gt;// 值传递示例
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// printArray(&amp;amp;d)       // 指针传递
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    d &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; [&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;/*e := [...]int{1,2,3}	// 此处是无法运行的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;    printArray(e)*/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#57c7ff&#34;&gt;printArray&lt;/span&gt;(d)           &lt;span style=&#34;color:#78787e&#34;&gt;// 值传递示例
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// printArray(&amp;amp;d)       // 指针传递
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;// func printArray(arr *[6]int) {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;printArray&lt;/span&gt;(arr [&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arr[&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;] = &lt;span style=&#34;color:#c5a3ff&#34;&gt;100&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(arr)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// func printArray(arr *[6]int) {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;printArray&lt;/span&gt;(arr [&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    arr[&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;] = &lt;span style=&#34;color:#ff9f43&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(arr)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;总结：因为数组的长度是数组类型的一个部分，不同长度或不同类型的数据组成的数组都是不同的类型，因此在Go语言中很少直接使用数组（不同长度的数组因为类型不同无法直接赋值）但数组是
 切片和字符串等结构的基础&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;切片&#34;&gt;切片&lt;/h2&gt;
 &lt;p&gt;切片是数组的简化版并且它不受长度的限制，数组虽然有适用他们的地方，但是其类型和操作都不够灵活，而切片正好弥补了这一点，切片在Go中的应用是非常广泛的&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;type&lt;/span&gt; SliceHeader &lt;span style=&#34;color:#c2ffdf&#34;&gt;struct&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Data &lt;span style=&#34;color:#c2ffdf&#34;&gt;uintptr&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Len  &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Cap  &lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
+&lt;!--#### 切片结构体定义--&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;type&lt;/span&gt; SliceHeader &lt;span style=&#34;color:#ff5c57&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Data &lt;span style=&#34;color:#9aedfe&#34;&gt;uintptr&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Len  &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Cap  &lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;h3 id=&#34;切片的定义&#34;&gt;切片的定义&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; slice
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;切片的定义&#34;&gt;切片的定义&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; slice
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;MainSlice&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;					&lt;span style=&#34;color:#b0bec5&#34;&gt;// nil 切片 和 nil 相等，一般用来表示一个不存在的切片
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        b = []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{}				&lt;span style=&#34;color:#b0bec5&#34;&gt;// 空切片 和 nil 不相等， 一般用来表示一个空的集合
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        c = []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;}		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 3 个元素的切片，len和cap都为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        d = c[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;]				&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        e = c[&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:cap(c)]		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        f = c[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;]				&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 0 个元素的切片，len为0，cap为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        g = make([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 3 个元素的切片，len和cap都为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        h = make([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;        i = make([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#b0bec5&#34;&gt;// 有 0 个元素的切片，len为0，cap为3
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    )
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a,b,c,d,e,f,g,h,i)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;MainSlice&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        a []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;					&lt;span style=&#34;color:#78787e&#34;&gt;// nil 切片 和 nil 相等，一般用来表示一个不存在的切片
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        b = []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{}				&lt;span style=&#34;color:#78787e&#34;&gt;// 空切片 和 nil 不相等， 一般用来表示一个空的集合
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        c = []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;}		&lt;span style=&#34;color:#78787e&#34;&gt;// 有 3 个元素的切片，len和cap都为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        d = c[:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;]				&lt;span style=&#34;color:#78787e&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        e = c[&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:&lt;span style=&#34;color:#ff5c57&#34;&gt;cap&lt;/span&gt;(c)]		&lt;span style=&#34;color:#78787e&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        f = c[:&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;]				&lt;span style=&#34;color:#78787e&#34;&gt;// 有 0 个元素的切片，len为0，cap为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        g = &lt;span style=&#34;color:#ff5c57&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#78787e&#34;&gt;// 有 3 个元素的切片，len和cap都为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        h = &lt;span style=&#34;color:#ff5c57&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#78787e&#34;&gt;// 有 2 个元素的切片，len为2，cap为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        i = &lt;span style=&#34;color:#ff5c57&#34;&gt;make&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;)		&lt;span style=&#34;color:#78787e&#34;&gt;// 有 0 个元素的切片，len为0，cap为3
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a,b,c,d,e,f,g,h,i)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;小结：在底层数组指针、长度、容量没有发生变化的情况下，对切片的遍历、元素的读取、修改都和数组一样，在对切片赋值和传递时与数组类似，只是复制切片头信息，并不会复制底层的数据&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;与数组区别：切片的类型和长度无关，只要是相同类型元素构成的切片均对应相同的切片类型；&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;添加切片元素&#34;&gt;添加切片元素&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;32
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;33
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;34
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;35
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;36
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;37
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;38
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;39
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;40
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;41
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;42
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;43
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;44
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;package&lt;/span&gt; main
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;package&lt;/span&gt; main
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;main&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;//var a = make([]int,100)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; a []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;//var a = make([]int,100)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; a []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 尾部追加
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append(a,&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;)          &lt;span style=&#34;color:#b0bec5&#34;&gt;// 追加 1 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append(a,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;)       &lt;span style=&#34;color:#b0bec5&#34;&gt;// 追加 3 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append(a,[]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;7&lt;/span&gt;}&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)  &lt;span style=&#34;color:#b0bec5&#34;&gt;// 追加 1 个切片
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;开区间:&amp;#34;&lt;/span&gt;,a[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#1bc5e0&#34;&gt;&amp;#34;闭区间:&amp;#34;&lt;/span&gt;,a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 尾部追加
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;)          &lt;span style=&#34;color:#78787e&#34;&gt;// 追加 1 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;)       &lt;span style=&#34;color:#78787e&#34;&gt;// 追加 3 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a,[]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;7&lt;/span&gt;}&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)  &lt;span style=&#34;color:#78787e&#34;&gt;// 追加 1 个切片
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;开区间:&amp;#34;&lt;/span&gt;,a[:&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;闭区间:&amp;#34;&lt;/span&gt;,a[&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:])
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 头部追加
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;},a&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)                    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 在开头添加 1 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = append([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;},a&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)               &lt;span style=&#34;color:#b0bec5&#34;&gt;// 在开头添加 1 个切片
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 头部追加
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;},a&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)                    &lt;span style=&#34;color:#78787e&#34;&gt;// 在开头添加 1 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;},a&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)               &lt;span style=&#34;color:#78787e&#34;&gt;// 在开头添加 1 个切片
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 在索引为 4 的位置插入 8
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 第二个 append操作会构建一个临时切片,然后追加到 a[:4] 其实它的本质是 &amp;#34;截取&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append(a[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;],append([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;8&lt;/span&gt;},a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 在索引为 4 的位置插入 8 (本质是截取之后在构建)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = append(a[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;],append([]&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;9&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;10&lt;/span&gt;},a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)  &lt;span style=&#34;color:#b0bec5&#34;&gt;// 在索引为 4 的位置插入切片
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 在索引为 4 的位置插入 8
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 第二个 append操作会构建一个临时切片,然后追加到 a[:4] 其实它的本质是 &amp;#34;截取&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a[:&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;],&lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;},a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)    &lt;span style=&#34;color:#78787e&#34;&gt;// 在索引为 4 的位置插入 8 (本质是截取之后在构建)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a[:&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;],&lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;([]&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;9&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;},a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)  &lt;span style=&#34;color:#78787e&#34;&gt;// 在索引为 4 的位置插入切片
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 可以通过 copy 与 append 组合来避免临时切片的创建,同样是插入操作
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a = append(a,&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;)       &lt;span style=&#34;color:#b0bec5&#34;&gt;// 给原始切片插入一个空元素(截取的规则是右闭左开)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    copy(a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;:],a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:])          &lt;span style=&#34;color:#b0bec5&#34;&gt;// 将 a[4:] 向后移动 1 个位置
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;] = &lt;span style=&#34;color:#c5a3ff&#34;&gt;11&lt;/span&gt;              &lt;span style=&#34;color:#b0bec5&#34;&gt;// 修改切片元素的值
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 可以通过 copy 与 append 组合来避免临时切片的创建,同样是插入操作
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a,&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;)       &lt;span style=&#34;color:#78787e&#34;&gt;// 给原始切片插入一个空元素(截取的规则是右闭左开)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;copy&lt;/span&gt;(a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:],a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:])          &lt;span style=&#34;color:#78787e&#34;&gt;// 将 a[4:] 向后移动 1 个位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;] = &lt;span style=&#34;color:#ff9f43&#34;&gt;11&lt;/span&gt;              &lt;span style=&#34;color:#78787e&#34;&gt;// 修改切片元素的值
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#b0bec5&#34;&gt;// 也可以在指定位置插入多个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; tmpSlice = []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;12&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;13&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = append(a,tmpSlice&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)        &lt;span style=&#34;color:#b0bec5&#34;&gt;// 将 tmpSlice 所有元素追加至 a 切片后方
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    copy(a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;+&lt;/span&gt;len(tmpSlice):],a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:])       &lt;span style=&#34;color:#b0bec5&#34;&gt;// 将 a[4:] 后边所有元素向后移动 len(tmpSlice) 个位置
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    copy(a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;:],tmpSlice)            &lt;span style=&#34;color:#b0bec5&#34;&gt;// 将 tmpSlice 拷贝到指定位置
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#78787e&#34;&gt;// 也可以在指定位置插入多个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; tmpSlice = []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;12&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;13&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    a = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(a,tmpSlice&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)        &lt;span style=&#34;color:#78787e&#34;&gt;// 将 tmpSlice 所有元素追加至 a 切片后方
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;copy&lt;/span&gt;(a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;len&lt;/span&gt;(tmpSlice):],a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:])       &lt;span style=&#34;color:#78787e&#34;&gt;// 将 a[4:] 后边所有元素向后移动 len(tmpSlice) 个位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#ff5c57&#34;&gt;copy&lt;/span&gt;(a[&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;:],tmpSlice)            &lt;span style=&#34;color:#78787e&#34;&gt;// 将 tmpSlice 拷贝到指定位置
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/go-struct-array-slice/slice_add.jpg&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/go-struct-array-slice/slice_add.jpg&#34;
 	width=&#34;1862&#34;
 	height=&#34;454&#34;
 	srcset=&#34;http://www.shentongtong.cn/go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/go-struct-array-slice/slice_add_hu4e5b9d9b0e0b2ce5749f33fde6984312_42273_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
@@ -565,75 +279,38 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;删除切片元素&#34;&gt;删除切片元素&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;27
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;28
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;29
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;30
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;31
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#c2ffdf&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#ceb1ff&#34;&gt;delSlice&lt;/span&gt;() {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;delSlice&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#c2ffdf&#34;&gt;var&lt;/span&gt; a = []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#ff5c57&#34;&gt;var&lt;/span&gt; a = []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 第一种:移动指针的方式
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除最后 1 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a[:len(a)&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;])           &lt;span style=&#34;color:#b0bec5&#34;&gt;// [1 2 3]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除最后 2/N 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a[:len(a)&lt;span style=&#34;color:#ffb8d1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;])           &lt;span style=&#34;color:#b0bec5&#34;&gt;// [1 2]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除开头 1 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;:])                &lt;span style=&#34;color:#b0bec5&#34;&gt;// [2 3 4]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除开头 2/N 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(a[&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:])                &lt;span style=&#34;color:#b0bec5&#34;&gt;// [3 4]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 第二种:通过append原地完成,不会导致内存空间结构发生变化
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   b &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;7&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;8&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;9&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 第一种:移动指针的方式
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除最后 1 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a[:&lt;span style=&#34;color:#ff5c57&#34;&gt;len&lt;/span&gt;(a)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;])           &lt;span style=&#34;color:#78787e&#34;&gt;// [1 2 3]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除最后 2/N 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a[:&lt;span style=&#34;color:#ff5c57&#34;&gt;len&lt;/span&gt;(a)&lt;span style=&#34;color:#ff6ac1&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;])           &lt;span style=&#34;color:#78787e&#34;&gt;// [1 2]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除开头 1 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a[&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:])                &lt;span style=&#34;color:#78787e&#34;&gt;// [2 3 4]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除开头 2/N 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(a[&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:])                &lt;span style=&#34;color:#78787e&#34;&gt;// [3 4]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 第二种:通过append原地完成,不会导致内存空间结构发生变化
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   b &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;7&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;8&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;9&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除开头 1 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(append(b[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;],b[&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;))       &lt;span style=&#34;color:#b0bec5&#34;&gt;// [6 7 8 9]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除开头 2/N 个元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(append(b[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;0&lt;/span&gt;],b[&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;))       &lt;span style=&#34;color:#b0bec5&#34;&gt;// [7 8 9]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除切片中间的元素
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   c &lt;span style=&#34;color:#ffb8d1&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#c2ffdf&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#c5a3ff&#34;&gt;6&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   c = append(c[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;],c[&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;1&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)         &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除切片中间 1 个索引为 3 的元素 [1 2 3 5 6]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#b0bec5&#34;&gt;//fmt.Println(c)
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   c = append(c[:&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;],c[&lt;span style=&#34;color:#c5a3ff&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#ffb8d1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#c5a3ff&#34;&gt;2&lt;/span&gt;:]&lt;span style=&#34;color:#ffb8d1&#34;&gt;...&lt;/span&gt;)         &lt;span style=&#34;color:#b0bec5&#34;&gt;// 删除切片中间 2 个元素,索引分别为 3、4 [1 2 3 6]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#b0bec5&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#ceb1ff&#34;&gt;Println&lt;/span&gt;(c)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除开头 1 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(b[:&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;],b[&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;))       &lt;span style=&#34;color:#78787e&#34;&gt;// [6 7 8 9]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除开头 2/N 个元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(b[:&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;],b[&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;))       &lt;span style=&#34;color:#78787e&#34;&gt;// [7 8 9]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;// 删除切片中间的元素
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   c &lt;span style=&#34;color:#ff6ac1&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#9aedfe&#34;&gt;int&lt;/span&gt;{&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;4&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;5&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   c = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(c[:&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;],c[&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)         &lt;span style=&#34;color:#78787e&#34;&gt;// 删除切片中间 1 个索引为 3 的元素 [1 2 3 5 6]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   &lt;span style=&#34;color:#78787e&#34;&gt;//fmt.Println(c)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   c = &lt;span style=&#34;color:#ff5c57&#34;&gt;append&lt;/span&gt;(c[:&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;],c[&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;:]&lt;span style=&#34;color:#ff6ac1&#34;&gt;...&lt;/span&gt;)         &lt;span style=&#34;color:#78787e&#34;&gt;// 删除切片中间 2 个元素,索引分别为 3、4 [1 2 3 6]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;   fmt.&lt;span style=&#34;color:#57c7ff&#34;&gt;Println&lt;/span&gt;(c)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;blockquote&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;总结：切片高效操作的要点是降低内存分配的次数，要尽量保证 &amp;ldquo;append&amp;rdquo; 操作不会超出 &amp;ldquo;cap&amp;rdquo;
 的容量，降低触发内存分配的次数和每次分配内存的大小&lt;/p&gt;
 &lt;/blockquote&gt;

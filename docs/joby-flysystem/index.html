@@ -256,7 +256,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 6 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -331,228 +331,109 @@
 </li>
 </ul>
 <h3 id="安装">安装</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require hellogerard/jobby <span style="color:#b0bec5"># composer 安装</span>
-</span></span><span style="display:flex;"><span>* * * * * cd /path/to/project <span style="color:#ffb8d1">&amp;&amp;</span> php jobby.php 1&gt;&gt; /dev/null 2&gt;&amp;<span style="color:#c5a3ff">1</span>  <span style="color:#b0bec5"># 添加定时任务</span>
-</span></span><span style="display:flex;"><span>cp vendor/hellogerard/jobby/resources/jobby.php . <span style="color:#b0bec5"># 拷贝示例文件(可选)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="示例">示例</h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ffb8d1">&lt;?</span>php
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// config.php
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">return</span> [
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;recipients&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;17601077189@163.com&#39;</span>,  <span style="color:#b0bec5">//  收件人
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;mailer&#39;</span>         <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;smtp&#39;</span>,                 <span style="color:#b0bec5">// 发送 邮件 方式
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;maxRuntime&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">3</span>,                      <span style="color:#b0bec5">// 每个 任务 的 最长执行时间
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpHost&#39;</span>       <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;smtp.qq.com&#39;</span>,          <span style="color:#b0bec5">// 链接 QQ 域名邮箱的服务器地址
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpPort&#39;</span>       <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">465</span>,                    <span style="color:#b0bec5">// 连接 smtp 服务器 的 远程端口
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpUsername&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#34;1182887681&#34;</span>,           <span style="color:#b0bec5">// qq 账号
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpPassword&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#34;eiibywozxumcbadi&#34;</span>,     <span style="color:#b0bec5">// smtp 授权码
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpSenderName&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;crontabJob&#39;</span>,           <span style="color:#b0bec5">// 发件人 名称
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpSender&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;1182887681@qq.com&#39;</span>,    <span style="color:#b0bec5">// 发件人 地址
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;smtpSecurity&#39;</span>   <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;ssl&#39;</span>,                  <span style="color:#b0bec5">// 设置 使用 ssl 加密方式 登录 鉴权
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#b0bec5">// &#39;runAs&#39;          =&gt; &#39;jobby&#39;,             // 如果 crontab 用户 有 root 权限 则 可以切换为指定用户运行
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;output&#39;</span>         <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/output.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;dateFormat&#39;</span>     <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;Y-m-d H:i:s&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enabled&#39;</span>        <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;debug&#39;</span>          <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require hellogerard/jobby <span style="color:#78787e"># composer 安装</span>
+</span></span><span style="display:flex;"><span>* * * * * <span style="color:#ff5c57">cd</span> /path/to/project <span style="color:#ff6ac1">&amp;&amp;</span> php jobby.php 1&gt;&gt; /dev/null 2&gt;&amp;<span style="color:#ff9f43">1</span>  <span style="color:#78787e"># 添加定时任务</span>
+</span></span><span style="display:flex;"><span>cp vendor/hellogerard/jobby/resources/jobby.php . <span style="color:#78787e"># 拷贝示例文件(可选)</span>
+</span></span></code></pre></div><h3 id="示例">示例</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;?</span>php
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// config.php
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">return</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;recipients&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;17601077189@163.com&#39;</span>,  <span style="color:#78787e">//  收件人
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;mailer&#39;</span>         <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;smtp&#39;</span>,                 <span style="color:#78787e">// 发送 邮件 方式
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;maxRuntime&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">3</span>,                      <span style="color:#78787e">// 每个 任务 的 最长执行时间
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpHost&#39;</span>       <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;smtp.qq.com&#39;</span>,          <span style="color:#78787e">// 链接 QQ 域名邮箱的服务器地址
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpPort&#39;</span>       <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">465</span>,                    <span style="color:#78787e">// 连接 smtp 服务器 的 远程端口
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpUsername&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#34;1182887681&#34;</span>,           <span style="color:#78787e">// qq 账号
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpPassword&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#34;eiibywozxumcbadi&#34;</span>,     <span style="color:#78787e">// smtp 授权码
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpSenderName&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;crontabJob&#39;</span>,           <span style="color:#78787e">// 发件人 名称
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpSender&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;1182887681@qq.com&#39;</span>,    <span style="color:#78787e">// 发件人 地址
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;smtpSecurity&#39;</span>   <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;ssl&#39;</span>,                  <span style="color:#78787e">// 设置 使用 ssl 加密方式 登录 鉴权
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// &#39;runAs&#39;          =&gt; &#39;jobby&#39;,             // 如果 crontab 用户 有 root 权限 则 可以切换为指定用户运行
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;output&#39;</span>         <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/output.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;dateFormat&#39;</span>     <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;Y-m-d H:i:s&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enabled&#39;</span>        <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;debug&#39;</span>          <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
 </span></span><span style="display:flex;"><span>];
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// jobby.php
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#ffb8d1">&lt;?</span>php
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// jobby.php
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">&lt;?</span>php
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">//
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// Add this line to your crontab file:
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">// * * * * * cd /path/to/project &amp;&amp; php jobby.php 1&gt;&gt; /dev/null 2&gt;&amp;1
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5">//
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">require_once</span> <span style="color:#c5a3ff">__DIR__</span> <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/../vendor/autoload.php&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// Add this line to your crontab file:
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// * * * * * cd /path/to/project &amp;&amp; php jobby.php 1&gt;&gt; /dev/null 2&gt;&amp;1
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">//
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">require_once</span> <span style="color:#ff9f43">__DIR__</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/../vendor/autoload.php&#39;</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 全局 配置文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$config <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">include_once</span>(<span style="color:#1bc5e0">&#39;./config/config.php&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 全局 配置文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$config</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">include_once</span>(<span style="color:#5af78e">&#39;./config/config.php&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$jobby <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> \Jobby\Jobby($config);
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$jobby</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> \Jobby\Jobby(<span style="color:#ff5c57">$config</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 执行 命令行 的 定时任务
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;CommandExample&#39;</span>, <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;command&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;ls&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;* * * * *&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/command.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enabled&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 执行 命令行 的 定时任务
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;CommandExample&#39;</span>, <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;command&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;ls&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;* * * * *&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/command.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enabled&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
 </span></span><span style="display:flex;"><span>));
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 闭包 定时 任务
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;ClosureExample&#39;</span>, <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;command&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        $sleepTime <span style="color:#ffb8d1">=</span> <span style="color:#c5a3ff">4</span>;
-</span></span><span style="display:flex;"><span>        sleep($sleepTime);
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 闭包 定时 任务
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;ClosureExample&#39;</span>, <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;command&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">$sleepTime</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">4</span>;
+</span></span><span style="display:flex;"><span>        sleep(<span style="color:#ff5c57">$sleepTime</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;* * * * *&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/closure.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enabled&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;* * * * *&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/closure.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enabled&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
 </span></span><span style="display:flex;"><span>));
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 指定日期 执行
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;DateTimeExample&#39;</span>,<span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;command&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> date(<span style="color:#1bc5e0">&#39;Y-m-d H:i:s&#39;</span>,time())<span style="color:#ffb8d1">.</span>PHP_EOL;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 指定日期 执行
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;DateTimeExample&#39;</span>,<span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;command&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> date(<span style="color:#5af78e">&#39;Y-m-d H:i:s&#39;</span>,time())<span style="color:#ff6ac1">.</span>PHP_EOL;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;2022-12-07 11:17:00&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/datetime.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enabled&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;2022-12-07 11:17:00&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/datetime.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enabled&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
 </span></span><span style="display:flex;"><span>));
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 通过 判断 某个 状态 来 决定 是否执行
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;BoolExamle&#39;</span>,<span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 分钟数 为 偶数 时 执行
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">return</span> date(<span style="color:#1bc5e0">&#39;i&#39;</span>,time()) <span style="color:#ffb8d1">%</span> <span style="color:#c5a3ff">2</span> <span style="color:#ffb8d1">===</span> <span style="color:#c5a3ff">0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 通过 判断 某个 状态 来 决定 是否执行
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;BoolExamle&#39;</span>,<span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 分钟数 为 偶数 时 执行
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">return</span> date(<span style="color:#5af78e">&#39;i&#39;</span>,time()) <span style="color:#ff6ac1">%</span> <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">===</span> <span style="color:#ff9f43">0</span>;
 </span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/datetime.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enable&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 定时 执行 闭包
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;closure&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> date(<span style="color:#1bc5e0">&#34;Y-m-d H:i:s&#34;</span>,time())<span style="color:#ffb8d1">.</span>PHP_EOL;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/datetime.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enable&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 定时 执行 闭包
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;closure&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> date(<span style="color:#5af78e">&#34;Y-m-d H:i:s&#34;</span>,time())<span style="color:#ff6ac1">.</span>PHP_EOL;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
 </span></span><span style="display:flex;"><span>));
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 运行错误或超时 邮箱 预警
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;ErrorMail&#39;</span>,<span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 定时 执行 命令
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;* * * * *&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/datetime.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enable&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// 定时 执行 闭包
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#1bc5e0">&#39;closure&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// echo date(&#39;Y-m-d H:i:s&#39;).PHP_EOL;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        sleep(<span style="color:#c5a3ff">5</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// throw new \Jobby\Exception(&#39;something error!&#39;);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// exit;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 运行错误或超时 邮箱 预警
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;ErrorMail&#39;</span>,<span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 定时 执行 命令
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;* * * * *&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/datetime.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enable&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 定时 执行 闭包
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#5af78e">&#39;closure&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// echo date(&#39;Y-m-d H:i:s&#39;).PHP_EOL;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        sleep(<span style="color:#ff9f43">5</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// throw new \Jobby\Exception(&#39;something error!&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// exit;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
 </span></span><span style="display:flex;"><span>));
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">run</span>();
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="常见问题">常见问题</h3>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">run</span>();
+</span></span></code></pre></div><h3 id="常见问题">常见问题</h3>
 <h4 id="定时任务报错">定时任务报错</h4>
 <p><img src="/joby-flysystem/img/crontab_error.png"
 	width="1351"
@@ -568,50 +449,23 @@
 		data-flex-basis="3602px"
 	
 ></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd /path/to/php/etc/      <span style="color:#b0bec5"># 修改 cli 配置文件 </span>
-</span></span><span style="display:flex;"><span>vim php-cli.ini           <span style="color:#b0bec5"># 启用该函数【注意权限与安全问题】</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="command-与-closure-参数冲突问题">command 与 closure 参数冲突问题</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$jobby<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">add</span>(<span style="color:#1bc5e0">&#39;ClosureExample&#39;</span>, <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;command&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#39;Command : &#39;</span> <span style="color:#ffb8d1">.</span> date(<span style="color:#1bc5e0">&#39;Y-m-d H:i:s&#39;</span>) <span style="color:#ffb8d1">.</span> PHP_EOL;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#ff5c57">cd</span> /path/to/php/etc/      <span style="color:#78787e"># 修改 cli 配置文件 </span>
+</span></span><span style="display:flex;"><span>vim php-cli.ini           <span style="color:#78787e"># 启用该函数【注意权限与安全问题】</span>
+</span></span></code></pre></div><h4 id="command-与-closure-参数冲突问题">command 与 closure 参数冲突问题</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$jobby</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">add</span>(<span style="color:#5af78e">&#39;ClosureExample&#39;</span>, <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;command&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;Command : &#39;</span> <span style="color:#ff6ac1">.</span> date(<span style="color:#5af78e">&#39;Y-m-d H:i:s&#39;</span>) <span style="color:#ff6ac1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;schedule&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;* * * * *&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;output&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;logs/closure.log&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;enabled&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#1bc5e0">&#39;closure&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">function</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#39;Closure : &#39;</span> <span style="color:#ffb8d1">.</span> date(<span style="color:#1bc5e0">&#39;Y-m-d H:i:s&#39;</span>) <span style="color:#ffb8d1">.</span> PHP_EOL;
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> <span style="color:#c2ffdf">true</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;schedule&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;* * * * *&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;output&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;logs/closure.log&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;enabled&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;closure&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">function</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;Closure : &#39;</span> <span style="color:#ff6ac1">.</span> date(<span style="color:#5af78e">&#39;Y-m-d H:i:s&#39;</span>) <span style="color:#ff6ac1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">true</span>;
 </span></span><span style="display:flex;"><span>    },
 </span></span><span style="display:flex;"><span>));
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><img src="/joby-flysystem/img/jobby_conflict.png"
+</span></span></code></pre></div><p><img src="/joby-flysystem/img/jobby_conflict.png"
 	width="1792"
 	height="216"
 	srcset="/joby-flysystem/img/jobby_conflict_hu689e7d1956c19d8f8ba3b6677dd4379f_34264_480x0_resize_mitchellnetravali_3.png 480w, /joby-flysystem/img/jobby_conflict_hu689e7d1956c19d8f8ba3b6677dd4379f_34264_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -633,15 +487,8 @@
 <p><a class="link" href="https://flysystem.thephpleague.com/docs/"  title="Flysystem"
      target="_blank" rel="noopener"
     >Flysystem</a> 是一个 PHP 的文件操作库，它提供了一个接口来与许多不同类型的文件系统进行交互；</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/flysystem
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="官方支持的适配器">官方支持的适配器</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/flysystem
+</span></span></code></pre></div><h4 id="官方支持的适配器">官方支持的适配器</h4>
 <ul>
 <li>本地存储</li>
 <li>FTP、SFTP 存储</li>
@@ -659,571 +506,274 @@
 </ul>
 <h3 id="示例-1">示例</h3>
 <h4 id="本地文件操作">本地文件操作</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 基类示例
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Base</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 基类示例
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Base</span>
 </span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> string $root_path;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> string <span style="color:#ff5c57">$root_path</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> Filesystem $file_system;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> Filesystem <span style="color:#ff5c57">$file_system</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> <span style="color:#c2ffdf">array</span> $local_adapter_config;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> <span style="color:#ff6ac1">array</span> <span style="color:#ff5c57">$local_adapter_config</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> __construct() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> __construct() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">root_path</span> <span style="color:#ffb8d1">=</span> ENV<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;root_path&#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">root_path</span> <span style="color:#ff6ac1">=</span> ENV<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">get</span>(<span style="color:#5af78e">&#39;root_path&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 适配器 内部 配置
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">local_adapter_config</span> <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 配置 项目 根目录
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#1bc5e0">&#39;root_path&#39;</span> <span style="color:#ffb8d1">=&gt;</span> Env<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">get</span>(<span style="color:#1bc5e0">&#39;root_path&#39;</span>),
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 配置 Unix 文件 和 目录 的权限【仅限于 Linux、MacOS】
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#1bc5e0">&#39;visibility&#39;</span> <span style="color:#ffb8d1">=&gt;</span> PortableVisibilityConverter<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">fromArray</span>([
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;file&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;public&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0755</span>,
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;private&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0604</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 适配器 内部 配置
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">local_adapter_config</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 配置 项目 根目录
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#5af78e">&#39;root_path&#39;</span> <span style="color:#ff6ac1">=&gt;</span> Env<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">get</span>(<span style="color:#5af78e">&#39;root_path&#39;</span>),
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 配置 Unix 文件 和 目录 的权限【仅限于 Linux、MacOS】
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#5af78e">&#39;visibility&#39;</span> <span style="color:#ff6ac1">=&gt;</span> PortableVisibilityConverter<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">fromArray</span>([
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;file&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;public&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0755</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;private&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0604</span>,
 </span></span><span style="display:flex;"><span>                ),
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;dir&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;public&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0740</span>,
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;private&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">7604</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;dir&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;public&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0740</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;private&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">7604</span>,
 </span></span><span style="display:flex;"><span>                ),
 </span></span><span style="display:flex;"><span>            ]),
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 写入文件时 获取 独占锁
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#1bc5e0">&#39;write_flag&#39;</span> <span style="color:#ffb8d1">=&gt;</span> LOCK_EX,
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 是否允许 url 访问【DISALLOW_LINKS、SKIP_LINKS】
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// 禁用【DISALLOW_LINKS】 会导致异常
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#1bc5e0">&#39;http_link&#39;</span> <span style="color:#ffb8d1">=&gt;</span> LocalFilesystemAdapter<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">DISALLOW_LINKS</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 写入文件时 获取 独占锁
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#5af78e">&#39;write_flag&#39;</span> <span style="color:#ff6ac1">=&gt;</span> LOCK_EX,
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 是否允许 url 访问【DISALLOW_LINKS、SKIP_LINKS】
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// 禁用【DISALLOW_LINKS】 会导致异常
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#5af78e">&#39;http_link&#39;</span> <span style="color:#ff6ac1">=&gt;</span> LocalFilesystemAdapter<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">DISALLOW_LINKS</span>
 </span></span><span style="display:flex;"><span>        );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 适配器 初始化
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $localAdapter <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> LocalFilesystemAdapter(
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">local_adapter_config</span>[<span style="color:#1bc5e0">&#39;root_path&#39;</span>],
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">local_adapter_config</span>[<span style="color:#1bc5e0">&#39;visibility&#39;</span>],
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">local_adapter_config</span>[<span style="color:#1bc5e0">&#39;write_flag&#39;</span>],
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">local_adapter_config</span>[<span style="color:#1bc5e0">&#39;http_link&#39;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 适配器 初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff5c57">$localAdapter</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> LocalFilesystemAdapter(
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">local_adapter_config</span>[<span style="color:#5af78e">&#39;root_path&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">local_adapter_config</span>[<span style="color:#5af78e">&#39;visibility&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">local_adapter_config</span>[<span style="color:#5af78e">&#39;write_flag&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">local_adapter_config</span>[<span style="color:#5af78e">&#39;http_link&#39;</span>]
 </span></span><span style="display:flex;"><span>        );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 对于 具有 Unix 风格的文件系统【MacOS、Linux】可设置 系统文件 可见性设置
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $filesystemConfig <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>            <span style="color:#1bc5e0">&#39;visibility&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;private&#39;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#1bc5e0">&#39;visibility_directory&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;private&#39;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 对于 具有 Unix 风格的文件系统【MacOS、Linux】可设置 系统文件 可见性设置
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff5c57">$filesystemConfig</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;visibility&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;private&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;visibility_directory&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;private&#39;</span>,
 </span></span><span style="display:flex;"><span>        );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// 获取 操作文件对象、
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span> <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Filesystem($localAdapter,$filesystemConfig);
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 获取 操作文件对象、
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Filesystem(<span style="color:#ff5c57">$localAdapter</span>,<span style="color:#ff5c57">$filesystemConfig</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="写入读取-文件文件流创建删除-目录与-文件-操作">写入、读取 文件/文件流，创建、删除 目录与 文件 操作：</h5>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Flysystem</span> <span style="color:#c2ffdf">extends</span> Base {
+</span></span></code></pre></div><h5 id="写入读取-文件文件流创建删除-目录与-文件-操作">写入、读取 文件/文件流，创建、删除 目录与 文件 操作：</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Flysystem</span> <span style="color:#ff6ac1">extends</span> Base {
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">local</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">local</span>() {
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
-</span></span><span style="display:flex;"><span>            $filesystem  <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;/public/flysystem&#39;</span>;
-</span></span><span style="display:flex;"><span>            $img <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">root_path</span><span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;public/static/image/1.jpg&#39;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$filesystem</span>  <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;/public/flysystem&#39;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$img</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">root_path</span><span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;public/static/image/1.jpg&#39;</span>;
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 写入文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">write</span>($filesystem <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/write.txt&#39;</span>,<span style="color:#1bc5e0">&#39;write something...&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 写入文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">write</span>(<span style="color:#ff5c57">$filesystem</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/write.txt&#39;</span>,<span style="color:#5af78e">&#39;write something...&#39;</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 读取文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $content <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">read</span>($filesystem <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/write.txt&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 读取文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$content</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">read</span>(<span style="color:#ff5c57">$filesystem</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/write.txt&#39;</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 写入文件流
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $handle <span style="color:#ffb8d1">=</span> fopen($img,<span style="color:#1bc5e0">&#39;r+&#39;</span>);
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">writeStream</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/write_stream.txt&#39;</span>,$handle);
-</span></span><span style="display:flex;"><span>            fclose($handle);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 写入文件流
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$handle</span> <span style="color:#ff6ac1">=</span> fopen(<span style="color:#ff5c57">$img</span>,<span style="color:#5af78e">&#39;r+&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">writeStream</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/write_stream.txt&#39;</span>,<span style="color:#ff5c57">$handle</span>);
+</span></span><span style="display:flex;"><span>            fclose(<span style="color:#ff5c57">$handle</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 读取文件流 再 写入文件流 生成文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $stream <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">readStream</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/write_stream.txt&#39;</span>);
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">writeStream</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/stream.png&#39;</span>,$stream);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 读取文件流 再 写入文件流 生成文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$stream</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">readStream</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/write_stream.txt&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">writeStream</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/stream.png&#39;</span>,<span style="color:#ff5c57">$stream</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 删除文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">delete</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/stream.png&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 删除文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">delete</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/stream.png&#39;</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 创建目录
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">write</span>($filesystem <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/private/test.txt&#39;</span>,<span style="color:#1bc5e0">&#39;this is test!&#39;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// $this-&gt;file_system-&gt;createDirectory($filesystem.&#39;/private/test&#39;);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">deleteDirectory</span>($filesystem <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;/private&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 创建目录
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">write</span>(<span style="color:#ff5c57">$filesystem</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/private/test.txt&#39;</span>,<span style="color:#5af78e">&#39;this is test!&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// $this-&gt;file_system-&gt;createDirectory($filesystem.&#39;/private/test&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">deleteDirectory</span>(<span style="color:#ff5c57">$filesystem</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;/private&#39;</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 获取 mimeType
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">mimeType</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/private/test.txt&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 获取 mimeType
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">mimeType</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/private/test.txt&#39;</span>);
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#39;success&#39;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;success&#39;</span>;
 </span></span><span style="display:flex;"><span>        
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">catch</span> (FilesystemException <span style="color:#ffb8d1">|</span> UnableToWriteFile <span style="color:#ffb8d1">|</span> UnableToReadFile <span style="color:#ffb8d1">|</span> UnableToDeleteFile <span style="color:#ffb8d1">|</span> UnableToDeleteDirectory $exception) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> $exception<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getMessage</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">catch</span> (FilesystemException <span style="color:#ff6ac1">|</span> UnableToWriteFile <span style="color:#ff6ac1">|</span> UnableToReadFile <span style="color:#ff6ac1">|</span> UnableToDeleteFile <span style="color:#ff6ac1">|</span> UnableToDeleteDirectory <span style="color:#ff5c57">$exception</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#ff5c57">$exception</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getMessage</span>();
 </span></span><span style="display:flex;"><span>        }    
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
+</span></span></code></pre></div><blockquote>
 <p>Notice：<br>
 1）操作 本地文件系统 的 路径 是 相对于 项目根路径。<br>
 2）写入文件有两种方式，一种是 将内容作为字符串的形式写入文件。另一种是在写入大文件的情况下使用 资源 来编写文件会更好，资源允许将文件内容以 &ldquo;流&rdquo; 的形式到新的位置，这占用的内存非常低。【因为文件是以硬盘为存储介质，而数据流则可以将数据读入到内存】<br>
 3）在写入文件时，路径中没有的目录会自动创建，也可以通过 createDirectory 操作创建目录【仅限于支持目录创建的第三方】。</p>
 </blockquote>
 <h5 id="递归获取文件列表">递归获取文件列表</h5>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Flysystem</span> <span style="color:#c2ffdf">extends</span> Base {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">local</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
-</span></span><span style="display:flex;"><span>            $filesystem  <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;/public/flysystem&#39;</span>;	<span style="color:#b0bec5">// 路径
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $recursive   <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">true</span>;    		<span style="color:#b0bec5">// 是否递归获取
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 文件 目录 分类获取
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $list <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">listContents</span>($filesystem)<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">sortByPath</span>()<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">toArray</span>();
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 过滤获取所有目录
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// $list = $this-&gt;file_system-&gt;listContents($filesystem)-&gt;filter(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;isDir());
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// 过滤获取 所有文件 的 路径
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// $list = $this-&gt;file_system-&gt;listContents($filesystem)
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">//    -&gt;filter(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;isFile())
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">//    -&gt;map(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;path());
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">foreach</span> ($listing <span style="color:#c2ffdf">as</span> $item) {
-</span></span><span style="display:flex;"><span>                $path <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;&#39;</span>;
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">if</span> ($item instanceof FileAttributes) {
-</span></span><span style="display:flex;"><span>                    $path <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;file =&gt; &#39;</span> <span style="color:#ffb8d1">.</span> convertDs($item<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">path</span>());
-</span></span><span style="display:flex;"><span>                    $path<span style="color:#ffb8d1">.=</span> <span style="color:#1bc5e0">&#39;filesize =&gt; &#39;</span> <span style="color:#ffb8d1">.</span> $item[<span style="color:#1bc5e0">&#39;file_size&#39;</span>];
-</span></span><span style="display:flex;"><span>                    $path<span style="color:#ffb8d1">.=</span> <span style="color:#1bc5e0">&#39;lastModified =&gt; &#39;</span> <span style="color:#ffb8d1">.</span> $item<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">lastModified</span>();
-</span></span><span style="display:flex;"><span>                    $path<span style="color:#ffb8d1">.=</span> <span style="color:#1bc5e0">&#39;type =&gt; &#39;</span> <span style="color:#ffb8d1">.</span> $item<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">type</span>();	<span style="color:#b0bec5">// dir 或 file
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                } <span style="color:#c2ffdf">else</span> <span style="color:#c2ffdf">if</span> ($item instanceof DirectoryAttributes) {
-</span></span><span style="display:flex;"><span>                    <span style="color:#b0bec5">// 目录
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                    $path <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;dir =&gt; &#39;</span> <span style="color:#ffb8d1">.</span> convertDs($item<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">path</span>());
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Flysystem</span> <span style="color:#ff6ac1">extends</span> Base {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">local</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$filesystem</span>  <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;/public/flysystem&#39;</span>;	<span style="color:#78787e">// 路径
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$recursive</span>   <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">true</span>;    		<span style="color:#78787e">// 是否递归获取
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 文件 目录 分类获取
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$list</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">listContents</span>(<span style="color:#ff5c57">$filesystem</span>)<span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">sortByPath</span>()<span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">toArray</span>();
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 过滤获取所有目录
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// $list = $this-&gt;file_system-&gt;listContents($filesystem)-&gt;filter(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;isDir());
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// 过滤获取 所有文件 的 路径
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// $list = $this-&gt;file_system-&gt;listContents($filesystem)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">//    -&gt;filter(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;isFile())
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">//    -&gt;map(fn (StorageAttributes $attributes) =&gt; $attributes-&gt;path());
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$listing</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$item</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$item</span> instanceof FileAttributes) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;file =&gt; &#39;</span> <span style="color:#ff6ac1">.</span> convertDs(<span style="color:#ff5c57">$item</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">path</span>());
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff5c57">$path</span><span style="color:#ff6ac1">.=</span> <span style="color:#5af78e">&#39;filesize =&gt; &#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#ff5c57">$item</span>[<span style="color:#5af78e">&#39;file_size&#39;</span>];
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff5c57">$path</span><span style="color:#ff6ac1">.=</span> <span style="color:#5af78e">&#39;lastModified =&gt; &#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#ff5c57">$item</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">lastModified</span>();
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff5c57">$path</span><span style="color:#ff6ac1">.=</span> <span style="color:#5af78e">&#39;type =&gt; &#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#ff5c57">$item</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">type</span>();	<span style="color:#78787e">// dir 或 file
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                } <span style="color:#ff6ac1">else</span> <span style="color:#ff6ac1">if</span> (<span style="color:#ff5c57">$item</span> instanceof DirectoryAttributes) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">// 目录
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                    <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;dir =&gt; &#39;</span> <span style="color:#ff6ac1">.</span> convertDs(<span style="color:#ff5c57">$item</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">path</span>());
 </span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">echo</span> $path <span style="color:#ffb8d1">.</span> <span style="color:#1bc5e0">&#39;&lt;br&gt;&#39;</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">echo</span> <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;&lt;br&gt;&#39;</span>;
 </span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">catch</span> (FilesystemException  $exception) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> $exception<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getMessage</span>();
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">catch</span> (FilesystemException  <span style="color:#ff5c57">$exception</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#ff5c57">$exception</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getMessage</span>();
 </span></span><span style="display:flex;"><span>        }    
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h5 id="移动-与-复制文件">移动 与 复制文件</h5>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Flysystem</span> <span style="color:#c2ffdf">extends</span> Base {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">local</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
-</span></span><span style="display:flex;"><span>            $filesystem  <span style="color:#ffb8d1">=</span> <span style="color:#1bc5e0">&#39;/public/flysystem&#39;</span>;
-</span></span><span style="display:flex;"><span>            <span style="color:#b0bec5">// 移动文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// $this-&gt;file_system-&gt;move($filesystem.&#39;/dir2/2.txt&#39;,$filesystem.&#39;/dir3/3.txt&#39;);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            <span style="color:#b0bec5">// 拷贝文件
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">copy</span>($filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/dir2/1.txt&#39;</span>,$filesystem<span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/dir1/1.txt&#39;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#39;success&#39;</span>;
-</span></span><span style="display:flex;"><span>        } <span style="color:#c2ffdf">catch</span> (FilesystemException <span style="color:#ffb8d1">|</span> UnableToMoveFile <span style="color:#ffb8d1">|</span> UnableToCopyFile $exception) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> $exception<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getMessage</span>();
+</span></span></code></pre></div><h5 id="移动-与-复制文件">移动 与 复制文件</h5>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Flysystem</span> <span style="color:#ff6ac1">extends</span> Base {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">local</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$filesystem</span>  <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;/public/flysystem&#39;</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 移动文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// $this-&gt;file_system-&gt;move($filesystem.&#39;/dir2/2.txt&#39;,$filesystem.&#39;/dir3/3.txt&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// 拷贝文件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">copy</span>(<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/dir2/1.txt&#39;</span>,<span style="color:#ff5c57">$filesystem</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/dir1/1.txt&#39;</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;success&#39;</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff6ac1">catch</span> (FilesystemException <span style="color:#ff6ac1">|</span> UnableToMoveFile <span style="color:#ff6ac1">|</span> UnableToCopyFile <span style="color:#ff5c57">$exception</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#ff5c57">$exception</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getMessage</span>();
 </span></span><span style="display:flex;"><span>        } 
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="通过-ftpsftp-与文件系统交互">通过 ftp/sftp 与文件系统交互</h4>
+</span></span></code></pre></div><h4 id="通过-ftpsftp-与文件系统交互">通过 ftp/sftp 与文件系统交互</h4>
 <blockquote>
 <p>Notice：Flysystem版本为 3.X、PHP版本 &gt;= 8、需要安装 ftp 扩展</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#c2ffdf">require_once</span>(<span style="color:#1bc5e0">&#39;../vendor/autoload.php&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">require_once</span>(<span style="color:#5af78e">&#39;../vendor/autoload.php&#39;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Ftp\FtpAdapter;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Ftp\FtpConnectionOptions;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Filesystem;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\FilesystemException;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Ftp\FtpConnectionException;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\FileAttributes;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Local\LocalFilesystemAdapter;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\UnixVisibility\PortableVisibilityConverter;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Ftp\FtpAdapter;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Ftp\FtpConnectionOptions;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Filesystem;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\FilesystemException;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Ftp\FtpConnectionException;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\FileAttributes;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Local\LocalFilesystemAdapter;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\UnixVisibility\PortableVisibilityConverter;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">class</span> <span style="color:#ceb1ff">Flysystem</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Flysystem</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">protected</span> Filesystem $file_system;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> Filesystem <span style="color:#ff5c57">$file_system</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> __construct() {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">try</span> {
-</span></span><span style="display:flex;"><span>            $ftpConfig <span style="color:#ffb8d1">=</span> FtpConnectionOptions<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">fromArray</span>([
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;host&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;&#39;</span>, <span style="color:#b0bec5">// required
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;root&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;&#39;</span>, <span style="color:#b0bec5">// required
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;username&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;&#39;</span>, <span style="color:#b0bec5">// required
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;password&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;&#39;</span>, <span style="color:#b0bec5">// required
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;port&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">21</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;ssl&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">false</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;timeout&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">90</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;utf8&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">false</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;passive&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;transferMode&#39;</span> <span style="color:#ffb8d1">=&gt;</span> FTP_BINARY,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;systemType&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;unix&#39;</span>, <span style="color:#b0bec5">// &#39;windows&#39; or &#39;unix&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;ignorePassiveAddress&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">null</span>, <span style="color:#b0bec5">// true or false
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;timestampsOnUnixListingsEnabled&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">false</span>, <span style="color:#b0bec5">// true or false
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>                <span style="color:#1bc5e0">&#39;recurseManually&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">true</span> <span style="color:#b0bec5">// true
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>            ]);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> __construct() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$ftpConfig</span> <span style="color:#ff6ac1">=</span> FtpConnectionOptions<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">fromArray</span>([
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;host&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;&#39;</span>, <span style="color:#78787e">// required
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;root&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;&#39;</span>, <span style="color:#78787e">// required
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;username&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;&#39;</span>, <span style="color:#78787e">// required
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;password&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;&#39;</span>, <span style="color:#78787e">// required
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;port&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">21</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;ssl&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">false</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;timeout&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">90</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;utf8&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">false</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;passive&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;transferMode&#39;</span> <span style="color:#ff6ac1">=&gt;</span> FTP_BINARY,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;systemType&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;unix&#39;</span>, <span style="color:#78787e">// &#39;windows&#39; or &#39;unix&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;ignorePassiveAddress&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">null</span>, <span style="color:#78787e">// true or false
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;timestampsOnUnixListingsEnabled&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">false</span>, <span style="color:#78787e">// true or false
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                <span style="color:#5af78e">&#39;recurseManually&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">true</span> <span style="color:#78787e">// true
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            ]);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $ftpAdapterConfig <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;visibility&#39;</span> <span style="color:#ffb8d1">=&gt;</span> PortableVisibilityConverter<span style="color:#ffb8d1">::</span><span style="color:#ceb1ff">fromArray</span>([
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;file&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                        <span style="color:#1bc5e0">&#39;public&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0755</span>,
-</span></span><span style="display:flex;"><span>                        <span style="color:#1bc5e0">&#39;private&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0700</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$ftpAdapterConfig</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;visibility&#39;</span> <span style="color:#ff6ac1">=&gt;</span> PortableVisibilityConverter<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">fromArray</span>([
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;file&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                        <span style="color:#5af78e">&#39;public&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0755</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#5af78e">&#39;private&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0700</span>,
 </span></span><span style="display:flex;"><span>                    ),
-</span></span><span style="display:flex;"><span>                    <span style="color:#1bc5e0">&#39;dir&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                        <span style="color:#1bc5e0">&#39;public&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0740</span>,
-</span></span><span style="display:flex;"><span>                        <span style="color:#1bc5e0">&#39;private&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#c5a3ff">0700</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#5af78e">&#39;dir&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                        <span style="color:#5af78e">&#39;public&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0740</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#5af78e">&#39;private&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">0700</span>,
 </span></span><span style="display:flex;"><span>                    ),
 </span></span><span style="display:flex;"><span>                ])
 </span></span><span style="display:flex;"><span>            );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $adapter <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> FtpAdapter(
-</span></span><span style="display:flex;"><span>                $ftpConfig,
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">new</span> League\Flysystem\FTP\FtpConnectionProvider($ftpConfig),
-</span></span><span style="display:flex;"><span>                <span style="color:#c2ffdf">new</span> League\Flysystem\FTP\NoopCommandConnectivityChecker(),
-</span></span><span style="display:flex;"><span>                $ftpAdapterConfig[<span style="color:#1bc5e0">&#39;visibility&#39;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$adapter</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> FtpAdapter(
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">$ftpConfig</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">new</span> League\Flysystem\FTP\FtpConnectionProvider(<span style="color:#ff5c57">$ftpConfig</span>),
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">new</span> League\Flysystem\FTP\NoopCommandConnectivityChecker(),
+</span></span><span style="display:flex;"><span>                <span style="color:#ff5c57">$ftpAdapterConfig</span>[<span style="color:#5af78e">&#39;visibility&#39;</span>],
 </span></span><span style="display:flex;"><span>            );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $filesystemConfig <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">array</span>(
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;visibility&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;private&#39;</span>,
-</span></span><span style="display:flex;"><span>                <span style="color:#1bc5e0">&#39;visibility_directory&#39;</span> <span style="color:#ffb8d1">=&gt;</span> <span style="color:#1bc5e0">&#39;private&#39;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$filesystemConfig</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">array</span>(
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;visibility&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;private&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;visibility_directory&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;private&#39;</span>,
 </span></span><span style="display:flex;"><span>            );
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span> <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Filesystem($adapter,$filesystemConfig);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Filesystem(<span style="color:#ff5c57">$adapter</span>,<span style="color:#ff5c57">$filesystemConfig</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        }<span style="color:#c2ffdf">catch</span> ( FilesystemException <span style="color:#ffb8d1">|</span> FtpConnectionException $exception) {
-</span></span><span style="display:flex;"><span>            <span style="color:#c2ffdf">echo</span> $exception<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">getMessage</span>();
+</span></span><span style="display:flex;"><span>        }<span style="color:#ff6ac1">catch</span> ( FilesystemException <span style="color:#ff6ac1">|</span> FtpConnectionException <span style="color:#ff5c57">$exception</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">echo</span> <span style="color:#ff5c57">$exception</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getMessage</span>();
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">public</span> <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">ftp</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#b0bec5">// $this-&gt;file_system-&gt;write(&#39;/dir2/b.txt&#39;,&#39;this is private txt&#39;);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        <span style="color:#b0bec5">// $this-&gt;file_system-&gt;createDirectory(&#39;/mydir&#39;);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>        $list <span style="color:#ffb8d1">=</span> $this<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">file_system</span><span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">listContents</span>(<span style="color:#1bc5e0">&#39;/&#39;</span>,<span style="color:#c2ffdf">true</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">foreach</span> ($list <span style="color:#c2ffdf">as</span> $item) {
-</span></span><span style="display:flex;"><span>            p($item[<span style="color:#1bc5e0">&#39;path&#39;</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">ftp</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// $this-&gt;file_system-&gt;write(&#39;/dir2/b.txt&#39;,&#39;this is private txt&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// $this-&gt;file_system-&gt;createDirectory(&#39;/mydir&#39;);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff5c57">$list</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">file_system</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">listContents</span>(<span style="color:#5af78e">&#39;/&#39;</span>,<span style="color:#ff6ac1">true</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$list</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$item</span>) {
+</span></span><span style="display:flex;"><span>            p(<span style="color:#ff5c57">$item</span>[<span style="color:#5af78e">&#39;path&#39;</span>]);
 </span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;success&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#34;success&#34;</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">if</span> (<span style="color:#ffb8d1">!</span>function_exists(<span style="color:#1bc5e0">&#39;p&#39;</span>)) {
-</span></span><span style="display:flex;"><span>    <span style="color:#c2ffdf">function</span> <span style="color:#ceb1ff">p</span>($data) {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;&lt;pre&gt;&#34;</span>;
-</span></span><span style="display:flex;"><span>        print_r($data);
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;&lt;/pre&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span>function_exists(<span style="color:#5af78e">&#39;p&#39;</span>)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">p</span>(<span style="color:#ff5c57">$data</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#34;&lt;pre&gt;&#34;</span>;
+</span></span><span style="display:flex;"><span>        print_r(<span style="color:#ff5c57">$data</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#34;&lt;/pre&gt;&#34;</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>$obj <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Flysystem();
-</span></span><span style="display:flex;"><span>$obj<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">ftp</span>();
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="内存存储">内存存储</h4>
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$obj</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Flysystem();
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$obj</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">ftp</span>();
+</span></span></code></pre></div><h4 id="内存存储">内存存储</h4>
 <blockquote>
 <p>Notice：Flysystem版本为 3.x、PHP版本 &gt;= 8</p>
 </blockquote>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/flysystem-memory:^3.0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 基于适配器模式的实现
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span><span style="color:#c2ffdf">use</span> League\Flysystem\Adapter\Local <span style="color:#c2ffdf">as</span> Adapter;
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">use</span> League\Flysystem\Cache\Memcached <span style="color:#c2ffdf">as</span> Cache;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/flysystem-memory:^3.0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 基于适配器模式的实现
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">use</span> League\Flysystem\Adapter\Local <span style="color:#ff6ac1">as</span> Adapter;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">use</span> League\Flysystem\Cache\Memcached <span style="color:#ff6ac1">as</span> Cache;
 </span></span><span style="display:flex;"><span> 
-</span></span><span style="display:flex;"><span>$memcached <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Memcached;
-</span></span><span style="display:flex;"><span>$memcached<span style="color:#ffb8d1">-&gt;</span><span style="color:#ceb1ff">addServer</span>(<span style="color:#1bc5e0">&#39;localhost&#39;</span>, <span style="color:#c5a3ff">11211</span>);
-</span></span><span style="display:flex;"><span>$filesystem <span style="color:#ffb8d1">=</span> <span style="color:#c2ffdf">new</span> Filesystem(<span style="color:#c2ffdf">new</span> Adapter(<span style="color:#c5a3ff">__DIR__</span><span style="color:#ffb8d1">.</span><span style="color:#1bc5e0">&#39;/path/to/root&#39;</span>), <span style="color:#c2ffdf">new</span> Cache($memcached, <span style="color:#1bc5e0">&#39;storageKey&#39;</span>, <span style="color:#c5a3ff">300</span>));
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="第三方云存储-1">第三方云存储</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>// 阿里云 Oss 适配器
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$memcached</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Memcached;
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$memcached</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">addServer</span>(<span style="color:#5af78e">&#39;localhost&#39;</span>, <span style="color:#ff9f43">11211</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$filesystem</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Filesystem(<span style="color:#ff6ac1">new</span> Adapter(<span style="color:#ff9f43">__DIR__</span><span style="color:#ff6ac1">.</span><span style="color:#5af78e">&#39;/path/to/root&#39;</span>), <span style="color:#ff6ac1">new</span> Cache(<span style="color:#ff5c57">$memcached</span>, <span style="color:#5af78e">&#39;storageKey&#39;</span>, <span style="color:#ff9f43">300</span>));
+</span></span></code></pre></div><h4 id="第三方云存储-1">第三方云存储</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>// 阿里云 Oss 适配器
 </span></span><span style="display:flex;"><span>composer require shopwwi/filesystem-oss
 </span></span><span style="display:flex;"><span>// 七牛云 适配器【php7.x】
-</span></span><span style="display:flex;"><span>composer require <span style="color:#1bc5e0">&#34;overtrue/flysystem-qiniu:^2.0&#34;</span>
+</span></span><span style="display:flex;"><span>composer require <span style="color:#5af78e">&#34;overtrue/flysystem-qiniu:^2.0&#34;</span>
 </span></span><span style="display:flex;"><span>// 七牛云 适配器【php8.x】
-</span></span><span style="display:flex;"><span>composer require <span style="color:#1bc5e0">&#34;overtrue/flysystem-qiniu:^3.0&#34;</span>
+</span></span><span style="display:flex;"><span>composer require <span style="color:#5af78e">&#34;overtrue/flysystem-qiniu:^3.0&#34;</span>
 </span></span><span style="display:flex;"><span>// 腾讯云 适配器【php7.x】
-</span></span><span style="display:flex;"><span>composer require <span style="color:#1bc5e0">&#34;overtrue/flysystem-cos:^4.0&#34;</span>
+</span></span><span style="display:flex;"><span>composer require <span style="color:#5af78e">&#34;overtrue/flysystem-cos:^4.0&#34;</span>
 </span></span><span style="display:flex;"><span>// 腾讯云 适配器【php8.x】
-</span></span><span style="display:flex;"><span>composer require <span style="color:#1bc5e0">&#34;overtrue/flysystem-cos:^5.0&#34;</span>
+</span></span><span style="display:flex;"><span>composer require <span style="color:#5af78e">&#34;overtrue/flysystem-cos:^5.0&#34;</span>
 </span></span><span style="display:flex;"><span>// gitlab 适配器
 </span></span><span style="display:flex;"><span>composer require royvoetman/flysystem-gitlab-storage
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="箭头函数短闭包函数">箭头函数【短闭包函数】</h3>
+</span></span></code></pre></div><h3 id="箭头函数短闭包函数">箭头函数【短闭包函数】</h3>
 <h4 id="简介-2">简介</h4>
 <p>箭头函数是编写简单匿名函数的一种较短的方法。它们是在 PHP 7.4 中引入的。</p>
 <p>定义箭头函数时，关键字function被替换为fn，return关键字被完全省略。它们只包含一个表达式，该表达式是箭头函数的返回值。</p>
@@ -1235,59 +785,30 @@
 <li>闭包引用的变量 是在 定义时生效 而不是 使用时</li>
 </ul>
 <h4 id="示例-2">示例</h4>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#b0bec5">// 示例 1
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$factors <span style="color:#ffb8d1">=</span> [<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>,<span style="color:#c5a3ff">5</span>];
-</span></span><span style="display:flex;"><span>$numbers <span style="color:#ffb8d1">=</span> [<span style="color:#c5a3ff">18</span>,<span style="color:#c5a3ff">12</span>,<span style="color:#c5a3ff">5</span>,<span style="color:#c5a3ff">11</span>,<span style="color:#c5a3ff">10</span>,<span style="color:#c5a3ff">95</span>,<span style="color:#c5a3ff">3</span>];
-</span></span><span style="display:flex;"><span><span style="color:#c2ffdf">foreach</span>($factors <span style="color:#c2ffdf">as</span> $factor) {
-</span></span><span style="display:flex;"><span>    $multiple <span style="color:#ffb8d1">=</span> array_filter($numbers,<span style="color:#c2ffdf">function</span>($number) <span style="color:#c2ffdf">use</span>($factor) {
-</span></span><span style="display:flex;"><span>        <span style="color:#c2ffdf">return</span> $number <span style="color:#ffb8d1">%</span> $factor <span style="color:#ffb8d1">==</span> <span style="color:#c5a3ff">0</span>;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 示例 1
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$factors</span> <span style="color:#ff6ac1">=</span> [<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">5</span>];
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$numbers</span> <span style="color:#ff6ac1">=</span> [<span style="color:#ff9f43">18</span>,<span style="color:#ff9f43">12</span>,<span style="color:#ff9f43">5</span>,<span style="color:#ff9f43">11</span>,<span style="color:#ff9f43">10</span>,<span style="color:#ff9f43">95</span>,<span style="color:#ff9f43">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">foreach</span>(<span style="color:#ff5c57">$factors</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$factor</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$multiple</span> <span style="color:#ff6ac1">=</span> array_filter(<span style="color:#ff5c57">$numbers</span>,<span style="color:#ff6ac1">function</span>(<span style="color:#ff5c57">$number</span>) <span style="color:#ff6ac1">use</span>(<span style="color:#ff5c57">$factor</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$number</span> <span style="color:#ff6ac1">%</span> <span style="color:#ff5c57">$factor</span> <span style="color:#ff6ac1">==</span> <span style="color:#ff9f43">0</span>;
 </span></span><span style="display:flex;"><span>    });
-</span></span><span style="display:flex;"><span>    <span style="color:#b0bec5">// $multiple = array_filter($numbers,fn($number) =&gt; $number % $factor == 0);
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>    <span style="color:#c2ffdf">echo</span> <span style="color:#1bc5e0">&#34;multiple </span><span style="color:#1bc5e0">{</span>$factor<span style="color:#1bc5e0">}</span><span style="color:#1bc5e0">&#34;</span> <span style="color:#ffb8d1">.</span> PHP_EOL;
-</span></span><span style="display:flex;"><span>    print_r($multiple);
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">// $multiple = array_filter($numbers,fn($number) =&gt; $number % $factor == 0);
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#34;multiple </span><span style="color:#5af78e">{</span><span style="color:#ff5c57">$factor</span><span style="color:#5af78e">}</span><span style="color:#5af78e">&#34;</span> <span style="color:#ff6ac1">.</span> PHP_EOL;
+</span></span><span style="display:flex;"><span>    print_r(<span style="color:#ff5c57">$multiple</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 示例 2 
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$a <span style="color:#ffb8d1">=</span> [<span style="color:#c5a3ff">1</span>,<span style="color:#c5a3ff">2</span>,<span style="color:#c5a3ff">3</span>];
-</span></span><span style="display:flex;"><span>$closure <span style="color:#ffb8d1">=</span> fn($item) <span style="color:#ffb8d1">=&gt;</span> print_r(array_merge($a,[$item]));
-</span></span><span style="display:flex;"><span>$closure(<span style="color:#c5a3ff">4</span>);
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 示例 2 
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$a</span> <span style="color:#ff6ac1">=</span> [<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$closure</span> <span style="color:#ff6ac1">=</span> fn(<span style="color:#ff5c57">$item</span>) <span style="color:#ff6ac1">=&gt;</span> print_r(array_merge(<span style="color:#ff5c57">$a</span>,[<span style="color:#ff5c57">$item</span>]));
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$closure</span>(<span style="color:#ff9f43">4</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#b0bec5">// 示例 3
-</span></span></span><span style="display:flex;"><span><span style="color:#b0bec5"></span>$b <span style="color:#ffb8d1">=</span> <span style="color:#c5a3ff">1</span>;
-</span></span><span style="display:flex;"><span>$fn <span style="color:#ffb8d1">=</span> fn() <span style="color:#ffb8d1">=&gt;</span> print_r($b);
-</span></span><span style="display:flex;"><span>$b<span style="color:#ffb8d1">++</span>;
-</span></span><span style="display:flex;"><span>$fn();
-</span></span><span style="display:flex;"><span>print_r($b);
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>示例一运行结果：</p>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 示例 3
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$b</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff9f43">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$fn</span> <span style="color:#ff6ac1">=</span> fn() <span style="color:#ff6ac1">=&gt;</span> print_r(<span style="color:#ff5c57">$b</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$b</span><span style="color:#ff6ac1">++</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff5c57">$fn</span>();
+</span></span><span style="display:flex;"><span>print_r(<span style="color:#ff5c57">$b</span>);
+</span></span></code></pre></div><p>示例一运行结果：</p>
 <p><img src="/joby-flysystem/img/sample_one.png"
 	width="787"
 	height="501"
