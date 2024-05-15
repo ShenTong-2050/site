@@ -2,84 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://www.shentongtong.cn/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2023-11-30T11:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2023-11-30T11:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/phpword/</loc>
+    <loc>http://localhost:1313/phpword/</loc>
     <lastmod>2023-11-30T11:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/technology/</loc>
+    <loc>http://localhost:1313/technology/</loc>
     <lastmod>2023-11-30T11:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/technology/</loc>
+    <loc>http://localhost:1313/categories/technology/</loc>
     <lastmod>2023-11-30T11:30:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/glide/</loc>
+    <loc>http://localhost:1313/glide/</loc>
     <lastmod>2023-10-12T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/home/</loc>
+    <loc>http://localhost:1313/categories/home/</loc>
     <lastmod>2023-09-04T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/home/</loc>
+    <loc>http://localhost:1313/home/</loc>
     <lastmod>2023-09-04T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
     <lastmod>2023-09-04T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/contact/</loc>
+    <loc>http://localhost:1313/contact/</loc>
     <lastmod>2023-09-04T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/essay/</loc>
+    <loc>http://localhost:1313/categories/essay/</loc>
     <lastmod>2023-07-25T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/essay/</loc>
+    <loc>http://localhost:1313/essay/</loc>
     <lastmod>2023-07-25T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/essay/the-ordinary-world/</loc>
+    <loc>http://localhost:1313/essay/the-ordinary-world/</loc>
     <lastmod>2023-07-25T14:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/markdown/</loc>
+    <loc>http://localhost:1313/markdown/</loc>
     <lastmod>2023-07-20T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/elastica/</loc>
+    <loc>http://localhost:1313/elastica/</loc>
     <lastmod>2023-06-08T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/Psysh/</loc>
+    <loc>http://localhost:1313/Psysh/</loc>
     <lastmod>2023-04-11T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/joby-flysystem/</loc>
+    <loc>http://localhost:1313/joby-flysystem/</loc>
     <lastmod>2023-03-09T22:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/Matomo/</loc>
+    <loc>http://localhost:1313/Matomo/</loc>
     <lastmod>2023-02-02T21:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/SocketLog/</loc>
+    <loc>http://localhost:1313/SocketLog/</loc>
     <lastmod>2022-11-03T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/thinkphp/</loc>
+    <loc>http://localhost:1313/categories/thinkphp/</loc>
     <lastmod>2022-08-28T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/thinkphp-life-cycle/</loc>
+    <loc>http://localhost:1313/thinkphp-life-cycle/</loc>
     <lastmod>2022-08-28T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/thinkphp-container/</loc>
+    <loc>http://localhost:1313/thinkphp-container/</loc>
     <lastmod>2022-08-28T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/jwt/</loc>
+    <loc>http://localhost:1313/jwt/</loc>
     <lastmod>2022-06-21T20:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/categories/golang/</loc>
+    <loc>http://localhost:1313/categories/golang/</loc>
     <lastmod>2022-04-22T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/golang/</loc>
+    <loc>http://localhost:1313/golang/</loc>
     <lastmod>2022-04-22T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/go-struct-array-slice/</loc>
+    <loc>http://localhost:1313/go-struct-array-slice/</loc>
     <lastmod>2022-04-22T16:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://www.shentongtong.cn/archives/</loc>
+    <loc>http://localhost:1313/archives/</loc>
   </url>
 </urlset>

@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键'>
 <meta name="keywords" content="golang"><title>Go基础类型</title>
 
-<link rel='canonical' href='http://www.shentongtong.cn/go-struct-array-slice/'>
+<link rel='canonical' href='http://localhost:1313/go-struct-array-slice/'>
 
 <link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Go基础类型'>
 <meta property='og:description' content='结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键'>
-<meta property='og:url' content='http://www.shentongtong.cn/go-struct-array-slice/'>
+<meta property='og:url' content='http://localhost:1313/go-struct-array-slice/'>
 <meta property='og:site_name' content=''>
-<meta property='og:type' content='article'><meta property='article:section' content='Golang' /><meta property='article:published_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/go-struct-array-slice/golang_new.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Golang' /><meta property='article:published_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2022-04-22T16:00:00&#43;08:00'/><meta property='og:image' content='http://localhost:1313/go-struct-array-slice/golang_new.png' />
 <meta name="twitter:title" content="Go基础类型">
 <meta name="twitter:description" content="结构体 Go语言的结构体`struct`属于复合类型，它与php中的`class`属性类似，可以定义属性、方法 定义、使用 与 字段的访问 使用 `struct` 关键"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://www.shentongtong.cn/go-struct-array-slice/golang_new.png' />
-    <link rel="shortcut icon" href="/static/favicon.ico" />
+    <meta name="twitter:image" content='http://localhost:1313/go-struct-array-slice/golang_new.png' />
+  
+
 
     </head>
     <body class="
@@ -59,8 +60,8 @@
                     
                     
                         
-                        <img src="/img/avatar_hu3dc13b097e2f7867805642a43cfa2f61_11429_300x0_resize_mitchellnetravali_3.png" width="300"
-                            height="362" class="site-logo" loading="lazy" alt="Avatar">
+                        <img src="/img/avatar_hud0562191972c102080634509deeb4fad_2886644_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="400" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
                 </a>
@@ -71,7 +72,7 @@
 
         <div class="site-meta">
             <h1 class="site-name"><a href="/"></a></h1>
-            <h2 class="site-description">申通通</h2>
+            <h2 class="site-description"></h2>
         </div>
     </header><ol class="menu" id="main-menu">
         
@@ -128,6 +129,25 @@
         
 
         <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="http://localhost:1313/" selected></option>
+                        
+                    </select>
+                </li>
+            
             
             
                 <li id="dark-mode-toggle">
@@ -167,65 +187,31 @@
                         height="799" 
                         loading="lazy"
                         alt="Featured image of post Go基础类型" />
-
                 
             </a>
         </div>
     
 
-    <style>
-    .back {
-        width:110.4px;
-        height:34.11px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family:var(--base-font-family);
-        font-size:1.6rem;
-        box-sizing:border-box;
-        float: right;
-        color: black;
-        background-color: rgba(0,102, 153, 0.5);
-        margin-left: auto;
-        gap: 10px;
-        border-radius: 5px;
-    }
-    .back:hover {
-        background-color: rgba(0,102, 153, 0.5);
-    }
-
-</style>
-
-<div class="article-details">
+    <div class="article-details">
     
-    <header>
-        <span class="article-category" style="float: left;">
-            
+    <header class="article-category">
+        
             <a href="/categories/golang/" >
                 Golang
             </a>
-            
+        
             <a href="/categories/technology/" >
                 Technology
             </a>
-            
-        </span>
-
-        
-        
-        
-        
-            <span><a class="back" href="javascript:history.back()">返回</a></span>
         
     </header>
     
-
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
             <a href="/go-struct-array-slice/">Go基础类型</a>
         </h2>
-
+    
         
     </div>
 
@@ -268,40 +254,6 @@
     
 
     
-
-    
-    
-
-    
-    
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#结构体">结构体</a>
-      <ul>
-        <li><a href="#定义使用-与-字段的访问">定义、使用 与 字段的访问</a></li>
-        <li><a href="#指针结构体">指针结构体</a></li>
-        <li><a href="#结构体字段可见性与php类中方法的公有私有相似">结构体字段可见性(与php类中方法的公有、私有相似)</a></li>
-        <li><a href="#结构体-tag">结构体 Tag</a></li>
-      </ul>
-    </li>
-    <li><a href="#数组">数组</a>
-      <ul>
-        <li><a href="#数组是一个由固定长度的特定类型元素组成的序列">数组是一个由固定长度的特定类型元素组成的序列</a></li>
-        <li><a href="#遍历数组">遍历数组</a></li>
-        <li><a href="#数组布局">数组布局</a></li>
-      </ul>
-    </li>
-    <li><a href="#切片">切片</a>
-      <ul>
-        <li><a href="#切片的定义">切片的定义</a></li>
-        <li><a href="#添加切片元素">添加切片元素</a></li>
-        <li><a href="#删除切片元素">删除切片元素</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-    
-
 </div>
 
 </header>
@@ -628,7 +580,7 @@
 
 
 
-        <span>Licensed MIT</span>
+        <span>Licensed under CC BY-NC-SA 4.0</span>
     </section>
     </footer>
 
@@ -675,12 +627,12 @@
         
             1997 - 
         
-        2023 
+        2024 
     </section>
     
     <section class="powerby">
         
-            网页内容的最终解释权归本网站所有-本站已适配移动端 <br/>
+            CopyRight © 1997-2023 技术沉淀库 All Rights Reserved 京ICP备 <br/>
         
         
     </section>
@@ -767,7 +719,6 @@
 
             </main>
         </div>
-
         <script 
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 

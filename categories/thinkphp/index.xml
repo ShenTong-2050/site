@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>ThinkPHP on </title>
-        <link>http://www.shentongtong.cn/categories/thinkphp/</link>
+        <link>http://localhost:1313/categories/thinkphp/</link>
         <description>Recent content in ThinkPHP on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Sun, 28 Aug 2022 20:00:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 28 Aug 2022 20:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/thinkphp/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>ThinkPHP Autoload(一)</title>
-        <link>http://www.shentongtong.cn/thinkphp-life-cycle/</link>
+        <link>http://localhost:1313/thinkphp-life-cycle/</link>
         <pubDate>Sun, 28 Aug 2022 20:00:00 +0800</pubDate>
         
-        <guid>http://www.shentongtong.cn/thinkphp-life-cycle/</guid>
-        <description>&lt;img src="http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp.png" alt="Featured image of post ThinkPHP Autoload(一)" /&gt;&lt;h2 id=&#34;目录结构&#34;&gt;目录结构&lt;/h2&gt;
+        <guid>http://localhost:1313/thinkphp-life-cycle/</guid>
+        <description>&lt;img src="http://localhost:1313/thinkphp-life-cycle/img/thinkphp.png" alt="Featured image of post ThinkPHP Autoload(一)" /&gt;&lt;h2 id=&#34;目录结构&#34;&gt;目录结构&lt;/h2&gt;
 &lt;p&gt;www  WEB部署目录（或者子目录）&lt;br&gt;
 ├─application           应用目录&lt;br&gt;
 │  ├─common             公共模块目录（可以更改）&lt;br&gt;
@@ -148,10 +148,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;View&amp;#39;&lt;/span&gt;     &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&amp;gt;&lt;/span&gt; facade\View&lt;span style=&#34;color:#ff6ac1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;,
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;注册自动加载流程图&#34;&gt;注册自动加载流程图&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_autoload_class.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-life-cycle/img/thinkphp_autoload_class.png&#34;
 	width=&#34;750&#34;
 	height=&#34;886&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_autoload_class_hu506717638f568eacd9207925923355d9_34003_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_autoload_class_hu506717638f568eacd9207925923355d9_34003_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-life-cycle/img/thinkphp_autoload_class_hu506717638f568eacd9207925923355d9_34003_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-life-cycle/img/thinkphp_autoload_class_hu506717638f568eacd9207925923355d9_34003_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Autoload Process&#34;
@@ -378,10 +378,10 @@
 &lt;blockquote&gt;
 &lt;p&gt;error_reporting();	设置 php 在 运行时 报告 何种错误&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_error_regist.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-life-cycle/img/thinkphp_error_regist.png&#34;
 	width=&#34;877&#34;
 	height=&#34;427&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_error_regist_hu0bf65e15d12d9da68b93e80a106e85b6_43131_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-life-cycle/img/thinkphp_error_regist_hu0bf65e15d12d9da68b93e80a106e85b6_43131_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-life-cycle/img/thinkphp_error_regist_hu0bf65e15d12d9da68b93e80a106e85b6_43131_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-life-cycle/img/thinkphp_error_regist_hu0bf65e15d12d9da68b93e80a106e85b6_43131_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;thinkphp error register&#34;
@@ -393,10 +393,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;自定义错误处理函数&#34;&gt;自定义错误处理函数&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_custom.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-life-cycle/img/exception_custom.png&#34;
 	width=&#34;1182&#34;
 	height=&#34;656&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_custom_hu90a6057c691ca275a10463f2efcf8973_93042_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_custom_hu90a6057c691ca275a10463f2efcf8973_93042_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-life-cycle/img/exception_custom_hu90a6057c691ca275a10463f2efcf8973_93042_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-life-cycle/img/exception_custom_hu90a6057c691ca275a10463f2efcf8973_93042_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;exception custom&#34;
@@ -408,10 +408,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;ErrorException：设置错误异常构造函数属性&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_construct.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-life-cycle/img/exception_construct.png&#34;
 	width=&#34;968&#34;
 	height=&#34;553&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_construct_hu0675cb0fac7c132fbf958319cee87880_62096_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-life-cycle/img/exception_construct_hu0675cb0fac7c132fbf958319cee87880_62096_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-life-cycle/img/exception_construct_hu0675cb0fac7c132fbf958319cee87880_62096_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-life-cycle/img/exception_construct_hu0675cb0fac7c132fbf958319cee87880_62096_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;exception construct&#34;
@@ -426,17 +426,17 @@
         </item>
         <item>
         <title>ThinkPHP Container(二)</title>
-        <link>http://www.shentongtong.cn/thinkphp-container/</link>
+        <link>http://localhost:1313/thinkphp-container/</link>
         <pubDate>Sun, 28 Aug 2022 20:00:00 +0800</pubDate>
         
-        <guid>http://www.shentongtong.cn/thinkphp-container/</guid>
-        <description>&lt;img src="http://www.shentongtong.cn/thinkphp-container/img/thinkphp.png" alt="Featured image of post ThinkPHP Container(二)" /&gt;&lt;h2 id=&#34;什么是容器以及为什么使用它&#34;&gt;什么是容器以及为什么使用它&lt;/h2&gt;
+        <guid>http://localhost:1313/thinkphp-container/</guid>
+        <description>&lt;img src="http://localhost:1313/thinkphp-container/img/thinkphp.png" alt="Featured image of post ThinkPHP Container(二)" /&gt;&lt;h2 id=&#34;什么是容器以及为什么使用它&#34;&gt;什么是容器以及为什么使用它&lt;/h2&gt;
 &lt;h3 id=&#34;为什么要用-ioc&#34;&gt;为什么要用 IOC&lt;/h3&gt;
 &lt;p&gt;在面向对象设计的程序系统里, 有N多个类, 这些类与类相互依赖, 相互合作, 我们的程序才能完整的运行起来, 但是久而久之就发现一些问题, 如果对一个类结构进行更改, 那么与这个类直接依赖或间接依赖的类也要做出相对应的更改; 就像一块精密的手表, 里面多个独立的齿轮相互啮合在一起, 才能正常工作, 但如果更换其中一个齿轮, 变成其他型号, 那么如果别的齿轮不去更换, 手表就很难再继续运行了; 齿轮之间的啮合就像我们程序系统里的耦合一样, 耦合是不能消除的, 我们只能尽量去降低他, 而IOC的出现就是为了解决这个问题。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/ioc.png&#34;
 	width=&#34;344&#34;
 	height=&#34;201&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/ioc_hudd0ce98164adf646f779c3733ed89683_72388_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ioc&#34;
@@ -449,10 +449,10 @@
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;iocinversion-of-control&#34;&gt;IOC（Inversion of Control）&lt;/h3&gt;
 &lt;p&gt;控制反转（Inversion of Control，缩写为IOC），是面向对象编程中的一种设计原则，可以用来减低计算机代码之间的耦合度。其中最常见的方式叫做依赖注入（Dependency Injection，简称DI），还有一种方式叫“依赖查找”（Dependency Lookup）。通过控制反转，对象在被创建的时候，由一个调控系统内所有对象的外界实体将其所依赖的对象的引用传递给它。也可以说，依赖被注入到对象中。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc_1.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/ioc_1.png&#34;
 	width=&#34;368&#34;
 	height=&#34;181&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/ioc_1_huf9f487849eb13ed7ccc306ca1c4f0c33_47840_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ioc&#34;
@@ -465,10 +465,10 @@
 &gt;&lt;/p&gt;
 &lt;p&gt;由于引进了中间位置的“第三方”, 也就是IOC容器, 使得A、B、C、D这4个对象没有了耦合关系, 齿轮之间的传动全部依靠“第三方”了, 全部对象的控制权全部上缴给“第三方”IOC容器, 所以, IOC容器成了整个系统的关键核心, 它起到了一种类似“粘合剂”的作用, 把系统中的所有对象粘合在一起发挥作用，如果没有这个“粘合剂”, 对象与对象之间会彼此失去联系，这就是有人把IOC容器比喻成“粘合剂”的由来。&lt;/p&gt;
 &lt;p&gt;如果我们把IOC这个第三方拿掉, 这个系统就变成了：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc_2.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/ioc_2.png&#34;
 	width=&#34;401&#34;
 	height=&#34;194&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/ioc_2_hu7f0bae91dd7db4b152b8dd75daf13b50_35502_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;ioc&#34;
@@ -481,10 +481,10 @@
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;容器源码分析&#34;&gt;容器源码分析&lt;/h2&gt;
 &lt;h3 id=&#34;类中属性&#34;&gt;类中属性&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/container.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/container.png&#34;
 	width=&#34;361&#34;
 	height=&#34;240&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/container_hu7ebe5ba01cab4def0ba1046c4100e772_7665_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;container&#34;
@@ -730,10 +730,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// 执行调用
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;Container&lt;span style=&#34;color:#ff6ac1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;get_live_day&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff6ac1&#34;&gt;array&lt;/span&gt;(&lt;span style=&#34;color:#ff9f43&#34;&gt;1997&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;));
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行示例：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/container_closure.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/container_closure.png&#34;
 	width=&#34;367&#34;
 	height=&#34;254&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/container_closure_hub2a932a6ae2b242fabe326e0300ede43_6949_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;container closure&#34;
@@ -830,10 +830,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;__make-示例&#34;&gt;__make 示例&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/__make.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/__make.png&#34;
 	width=&#34;810&#34;
 	height=&#34;176&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/__make_hu5eb332b108707a6b24808e7ec60e9e29_16509_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;__make&#34;
@@ -858,10 +858,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;// 获取 log 对象示例
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;$appObj&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;new&lt;/span&gt; App();
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Container&lt;span style=&#34;color:#ff6ac1&#34;&gt;::&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;get&lt;/span&gt;(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;log&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff6ac1&#34;&gt;array&lt;/span&gt;(&lt;span style=&#34;color:#ff5c57&#34;&gt;$appObj&lt;/span&gt;));&lt;span style=&#34;color:#ff6ac1&#34;&gt;die&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/thinkphp-container/img/container_log.png&#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/thinkphp-container/img/container_log.png&#34;
 	width=&#34;752&#34;
 	height=&#34;157&#34;
-	srcset=&#34;http://www.shentongtong.cn/thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_480x0_resize_mitchellnetravali_3.png 480w, http://www.shentongtong.cn/thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
+	srcset=&#34;http://localhost:1313/thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_480x0_resize_mitchellnetravali_3.png 480w, http://localhost:1313/thinkphp-container/img/container_log_huce096f3384e90a773d93885a202a7c60_17619_1024x0_resize_mitchellnetravali_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;container log&#34;
