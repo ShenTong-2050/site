@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Elastica'>
 <meta name="keywords" content="Elastica"><title>Elastica</title>
 
-<link rel='canonical' href='http://localhost:1313/elastica/'>
+<link rel='canonical' href='http://www.shentongtong.cn/elastica/'>
 
 <link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Elastica'>
 <meta property='og:description' content='Elastica'>
-<meta property='og:url' content='http://localhost:1313/elastica/'>
+<meta property='og:url' content='http://www.shentongtong.cn/elastica/'>
 <meta property='og:site_name' content=''>
-<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-06-08T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-06-08T16:00:00&#43;08:00'/><meta property='og:image' content='http://localhost:1313/elastica/img/elasticsearch.svg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-06-08T16:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-06-08T16:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/elastica/img/elasticsearch.svg' />
 <meta name="twitter:title" content="Elastica">
 <meta name="twitter:description" content="Elastica"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:1313/elastica/img/elasticsearch.svg' />
+    <meta name="twitter:image" content='http://www.shentongtong.cn/elastica/img/elasticsearch.svg' />
   
 
 
@@ -65,6 +65,8 @@
                     
                 
                 </a>
+                
+                    <span class="emoji">-_-</span>
                 
             </figure>
             
@@ -143,7 +145,7 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="http://localhost:1313/" selected></option>
+                            <option value="http://www.shentongtong.cn/" selected></option>
                         
                     </select>
                 </li>
@@ -242,7 +244,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 8 分钟
+                    阅读时长: 9 分钟
                 </time>
             </div>
         
@@ -254,6 +256,29 @@
 
 </header>
 
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于-elastica">关于 Elastica</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#示例">示例</a>
+      <ul>
+        <li><a href="#连接-es">连接 Es</a></li>
+        <li><a href="#创建删除-索引">创建/删除 索引</a></li>
+        <li><a href="#创建-mapping">创建 Mapping</a></li>
+        <li><a href="#文档-增删改">文档 增、删、改</a></li>
+        <li><a href="#搜索文档">搜索文档</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a>
+      <ul>
+        <li><a href="#multimatch">MultiMatch</a></li>
+        <li><a href="#分组查询">分组查询</a></li>
+        <li><a href="#分词器">分词器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
     <section class="article-content">
     
     
@@ -263,11 +288,44 @@
     >Elastica</a> 是 Elasticsearch 的 PHP 客户端【基于官方文档】</p>
 <h2 id="安装">安装</h2>
 <p>Composer:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require ruflin/elastica
-</span></span></code></pre></div><p>Git:</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone git://github.com/ruflin/Elastica
-</span></span></code></pre></div><p>注册 Elastica 自动加载</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">__autoload_elastica</span> (<span style="color:#ff5c57">$class</span>) {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require ruflin/elastica
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Git:</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone git://github.com/ruflin/Elastica
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注册 Elastica 自动加载</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">__autoload_elastica</span> (<span style="color:#ff5c57">$class</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">=</span> str_replace(<span style="color:#5af78e">&#39;\\&#39;</span>, <span style="color:#5af78e">&#39;/&#39;</span>, substr(<span style="color:#ff5c57">$class</span>, <span style="color:#ff9f43">1</span>));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">if</span> (file_exists(<span style="color:#5af78e">&#39;/var/www/&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#ff5c57">$path</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;.php&#39;</span>)) {
@@ -282,9 +340,49 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">require_once</span>(<span style="color:#5af78e">&#39;/var/www/&#39;</span> <span style="color:#ff6ac1">.</span> <span style="color:#ff5c57">$class</span> <span style="color:#ff6ac1">.</span> <span style="color:#5af78e">&#39;.php&#39;</span>);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>});
-</span></span></code></pre></div><h2 id="示例">示例</h2>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="示例">示例</h2>
 <h3 id="连接-es">连接 Es</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 单机
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 单机
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$elasticaClient</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Client(<span style="color:#ff6ac1">array</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;host&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;127.0.0.1&#39;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;port&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;9200&#39;</span>,
@@ -318,8 +416,54 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e">// 获取 ES 版本信息
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$elasticaClient</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getVersion</span>();
-</span></span></code></pre></div><h3 id="创建删除-索引">创建/删除 索引</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Es</span> {
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建删除-索引">创建/删除 索引</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Es</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> Client <span style="color:#ff5c57">$elastica_client</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">protected</span> string <span style="color:#ff5c57">$index_name</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;test_index_name&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> __construct() {
@@ -359,7 +503,9 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;success&#39;</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><blockquote>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>type 和 tokenizer 在 ik_analyzer 配置中的含义【低版本中可用】：</p>
 <p>type: 指定整体分词策略</p>
 <p>ik_analyzer 支持多种类型:</p>
@@ -380,15 +526,75 @@
 <li>不再区分type和tokenizer这两个参数</li>
 <li>直接使用tokenizer参数指定分词器的实现</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">array</span>(
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">array</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;analyzer&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
 </span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;ik_analyzer&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">array</span>(
 </span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;tokenizer&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;ik_max_word&#39;</span>,
 </span></span><span style="display:flex;"><span>        ),
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>);
-</span></span></code></pre></div><h3 id="创建-mapping">创建 Mapping</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建-mapping">创建 Mapping</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> * 创建 Mapping
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">createMapping</span>() {
@@ -431,8 +637,103 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$index</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setMapping</span>(<span style="color:#ff5c57">$mapping</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">echo</span> <span style="color:#5af78e">&#39;success&#39;</span>;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="文档-增删改">文档 增、删、改</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文档-增删改">文档 增、删、改</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">81
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">82
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">83
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">84
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">85
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">86
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">87
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">88
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">89
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> * 创建文档
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">createDocument</span>() {
@@ -521,7 +822,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$status</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$index</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">updateDocument</span>(<span style="color:#ff5c57">$doc</span>)<span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getStatus</span>();
 </span></span><span style="display:flex;"><span>    var_dump(<span style="color:#ff5c57">$status</span>);  <span style="color:#78787e">// 200
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>}
-</span></span></code></pre></div><blockquote>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>假数据生成：https://github.com/fzaninotto/faker<br>
 中文扩展：https://github.com/imvkmark/poppy-faker【extension=intl】</p>
 </blockquote>
@@ -539,7 +842,34 @@
 <p>Elastica\Query 类 是 Elasticsearch 查询 API 的 PHP 封装。可以通过它构建各种类型的查询对象以便在 Elasticsearch 中执行搜索查询。</p>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 创建 Search 对象
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 创建 Search 对象
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$search</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Search(<span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">elastica_client</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$search</span> <span style="color:#ff6ac1">-&gt;</span> <span style="color:#57c7ff">addIndex</span>(<span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">index_name</span>);              <span style="color:#78787e">// 指定查询的索引
@@ -562,12 +892,21 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$search</span> <span style="color:#ff6ac1">-&gt;</span> <span style="color:#57c7ff">getResults</span>();                             <span style="color:#78787e">// 获取查找结果集对象
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$search</span> <span style="color:#ff6ac1">-&gt;</span> <span style="color:#57c7ff">count</span>();                                  <span style="color:#78787e">// 获取查找结果的数量
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$search</span> <span style="color:#ff6ac1">-&gt;</span> <span style="color:#57c7ff">getDocuments</span>();                           <span style="color:#78787e">// 获取文档集对象
-</span></span></span></code></pre></div><blockquote>
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>\stdClass 是 PHP 中的一个内置类，它可以用来创建一个空对象。当您需要创建一个对象来存储一些属性和值，但不想使用自定义的类时，可以使用 \stdClass。</p>
 </blockquote>
 <h4 id="match">Match</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MatchQuery(<span style="color:#5af78e">&#39;company&#39;</span>,<span style="color:#5af78e">&#39;万迅&#39;</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_match.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MatchQuery(<span style="color:#5af78e">&#39;company&#39;</span>,<span style="color:#5af78e">&#39;万迅&#39;</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_match.png"
 	width="906"
 	height="714"
 	srcset="/elastica/img/elastica_match_hu9426c4b3b54940c1c509bd40d7ccce33_31582_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_match_hu9426c4b3b54940c1c509bd40d7ccce33_31582_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -582,9 +921,17 @@
 	
 ></p>
 <h4 id="term">Term</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 精确查询
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 精确查询
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Term([<span style="color:#5af78e">&#39;name&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;阳玉兰&#39;</span>]);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_term.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_term.png"
 	width="937"
 	height="712"
 	srcset="/elastica/img/elastica_term_hud68599833c8b5bc501d5a7c0746a3b06_25653_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_term_hud68599833c8b5bc501d5a7c0746a3b06_25653_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -599,7 +946,22 @@
 	
 ></p>
 <h4 id="bool">Bool</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\BoolQuery();
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\BoolQuery();
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span>  <span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">addMust</span>(<span style="color:#ff6ac1">new</span> Query\MatchQuery(<span style="color:#5af78e">&#39;name&#39;</span>,<span style="color:#5af78e">&#39;阳玉兰&#39;</span>))
 </span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">addMust</span>(<span style="color:#ff6ac1">new</span> Query\Terms(<span style="color:#5af78e">&#39;color&#39;</span>,[<span style="color:#5af78e">&#39;亮珊瑚色&#39;</span>,<span style="color:#5af78e">&#39;优品紫红&#39;</span>]))
@@ -610,7 +972,9 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">addShould</span>(<span style="color:#ff6ac1">new</span> Query\MatchQuery(<span style="color:#5af78e">&#39;bank_name&#39;</span>,<span style="color:#5af78e">&#39;中国光大银行&#39;</span>))
 </span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">addShould</span>(<span style="color:#ff6ac1">new</span> Query\MatchQuery(<span style="color:#5af78e">&#39;title&#39;</span>,<span style="color:#5af78e">&#39;医生&#39;</span>))
 </span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setMinimumShouldMatch</span>(<span style="color:#ff9f43">2</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_bool_1.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_bool_1.png"
 	width="773"
 	height="350"
 	srcset="/elastica/img/elastica_bool_1_hu1aeb708f01e041a492df40f098dad90b_15965_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_bool_1_hu1aeb708f01e041a492df40f098dad90b_15965_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -639,8 +1003,15 @@
 	
 ></p>
 <h4 id="range">Range</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Range(<span style="color:#5af78e">&#39;age&#39;</span>,[<span style="color:#5af78e">&#39;gte&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">15</span>,<span style="color:#5af78e">&#39;lte&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">38</span>]);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_range.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Range(<span style="color:#5af78e">&#39;age&#39;</span>,[<span style="color:#5af78e">&#39;gte&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">15</span>,<span style="color:#5af78e">&#39;lte&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">38</span>]);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_range.png"
 	width="693"
 	height="585"
 	srcset="/elastica/img/elastica_range_hu3a9d86256ae8913c44f04a7bdcc6db10_15792_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_range_hu3a9d86256ae8913c44f04a7bdcc6db10_15792_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -655,8 +1026,15 @@
 	
 ></p>
 <h4 id="prefix">Prefix</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Prefix([<span style="color:#5af78e">&#39;name&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;申&#39;</span>]);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_prefix.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Prefix([<span style="color:#5af78e">&#39;name&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;申&#39;</span>]);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_prefix.png"
 	width="844"
 	height="586"
 	srcset="/elastica/img/elastica_prefix_hub57d71c1ba66dcefed8d2198322a235f_18216_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_prefix_hub57d71c1ba66dcefed8d2198322a235f_18216_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -671,8 +1049,15 @@
 	
 ></p>
 <h4 id="wildcard-通配符查询">Wildcard 通配符查询</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Wildcard(<span style="color:#5af78e">&#39;name&#39;</span>,<span style="color:#5af78e">&#39;*玉*&#39;</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_wildcard.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Wildcard(<span style="color:#5af78e">&#39;name&#39;</span>,<span style="color:#5af78e">&#39;*玉*&#39;</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_wildcard.png"
 	width="917"
 	height="705"
 	srcset="/elastica/img/elastica_wildcard_hudd5fb05e890942b40a556d818a173ec2_24104_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_wildcard_hudd5fb05e890942b40a556d818a173ec2_24104_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -687,8 +1072,15 @@
 	
 ></p>
 <h4 id="ids">ids</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Ids([<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">100</span>]);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_ids.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Ids([<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">100</span>]);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_ids.png"
 	width="897"
 	height="590"
 	srcset="/elastica/img/elastica_ids_hu6c4007dace329e1c9b1a3228960b39c4_17040_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_ids_hu6c4007dace329e1c9b1a3228960b39c4_17040_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -703,8 +1095,15 @@
 	
 ></p>
 <h4 id="exists-查找具有指定字段的文档">Exists 查找具有指定字段的文档</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Exists(<span style="color:#5af78e">&#39;tag&#39;</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_exists.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Exists(<span style="color:#5af78e">&#39;tag&#39;</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_exists.png"
 	width="729"
 	height="415"
 	srcset="/elastica/img/elastica_exists_hu42c40102c5eefa186929f5b401d166a4_20336_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_exists_hu42c40102c5eefa186929f5b401d166a4_20336_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -719,8 +1118,15 @@
 	
 ></p>
 <h4 id="fuzzy-查找-指定字段中-与-给定值-相似的文档">Fuzzy 查找 指定字段中 与 给定值 相似的文档</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Fuzzy(<span style="color:#5af78e">&#39;bank_name&#39;</span>,<span style="color:#5af78e">&#39;工商银行&#39;</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_fuzzy.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Fuzzy(<span style="color:#5af78e">&#39;bank_name&#39;</span>,<span style="color:#5af78e">&#39;工商银行&#39;</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_fuzzy.png"
 	width="798"
 	height="718"
 	srcset="/elastica/img/elastica_fuzzy_hu312769646eb8dec0077b234db2b58da8_26436_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_fuzzy_hu312769646eb8dec0077b234db2b58da8_26436_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -735,8 +1141,15 @@
 	
 ></p>
 <h4 id="geodistance-查找-与-指定位置-相邻-指定距离-的-文档">geoDistance 查找 与 指定位置 相邻 指定距离 的 文档</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\GeoDistance(<span style="color:#5af78e">&#39;location&#39;</span>,[<span style="color:#5af78e">&#39;lat&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">40.7127837</span>,<span style="color:#5af78e">&#39;lon&#39;</span><span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">-</span><span style="color:#ff9f43">74.0059413</span>],<span style="color:#5af78e">&#39;10km&#39;</span>);
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_geo.png"
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\GeoDistance(<span style="color:#5af78e">&#39;location&#39;</span>,[<span style="color:#5af78e">&#39;lat&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">40.7127837</span>,<span style="color:#5af78e">&#39;lon&#39;</span><span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff6ac1">-</span><span style="color:#ff9f43">74.0059413</span>],<span style="color:#5af78e">&#39;10km&#39;</span>);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_geo.png"
 	width="1219"
 	height="769"
 	srcset="/elastica/img/elastica_geo_hu0572b8ee759d3c27fd28184cff20b1b2_33507_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_geo_hu0572b8ee759d3c27fd28184cff20b1b2_33507_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -759,9 +1172,29 @@
     >在 Elasticsearch 内部 不管是 字符串 还是 数组 都是 经度在前、纬度在后  </a></p>
 </blockquote>
 <h4 id="matchall-匹配所有文档">matchAll 匹配所有文档</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MatchAll();
-</span></span></code></pre></div><h4 id="multimatch-多字段匹配">multiMatch 多字段匹配</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// multiMatch 多字段匹配文本
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MatchAll();
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="multimatch-多字段匹配">multiMatch 多字段匹配</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// multiMatch 多字段匹配文本
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MultiMatch();
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setQuery</span>(<span style="color:#5af78e">&#39;忆戏&#39;</span>);                                <span style="color:#78787e">// 匹配的字符串
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setFields</span>([<span style="color:#5af78e">&#39;title&#39;</span>,<span style="color:#5af78e">&#39;content&#39;</span>]);                 <span style="color:#78787e">// 匹配的字段
@@ -770,7 +1203,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">// $queryType-&gt;setTieBreaker(0.3);                          // 调整评分权重
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setType</span>(Query\MultiMatch<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">TYPE_PHRASE</span>);         <span style="color:#78787e">// 匹配类型,默认是 best_fields
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">// $queryType-&gt;setFuzziness(Query\MultiMatch::FUZZINESS_AUTO);    // 模糊匹配程度
-</span></span></span></code></pre></div><blockquote>
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><a class="link" href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/multi-match-query.html"  title="匹配类型"
      target="_blank" rel="noopener"
     >匹配类型</a></p>
@@ -796,12 +1231,23 @@
 		data-flex-basis="1331px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MultiMatch();
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\MultiMatch();
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setQuery</span>(<span style="color:#5af78e">&#39;回 忍&#39;</span>);                                     <span style="color:#78787e">// 匹配的字符串
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setFields</span>([<span style="color:#5af78e">&#39;content&#39;</span>,<span style="color:#5af78e">&#39;title&#39;</span>]);                       <span style="color:#78787e">// 匹配的字段
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setOperator</span>(Query\MultiMatch<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">OPERATOR_AND</span>);          <span style="color:#78787e">// 匹配方式
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setType</span>(Query\MultiMatch<span style="color:#ff6ac1">::</span><span style="color:#57c7ff">TYPE_BEST_FIELDS</span>);          <span style="color:#78787e">// 匹配类型,默认是 best_fields
-</span></span></span></code></pre></div><p><img src="/elastica/img/elastica_multi_match_best.png"
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_multi_match_best.png"
 	width="1904"
 	height="702"
 	srcset="/elastica/img/elastica_multi_match_best_hu6a6f9154c3186049e12acf74909c8a2e_115109_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_multi_match_best_hu6a6f9154c3186049e12acf74909c8a2e_115109_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -816,7 +1262,47 @@
 	
 ></p>
 <h4 id="aggregation-分组查询">Aggregation 分组查询</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// term 精确查询
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// term 精确查询
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query\Term([<span style="color:#5af78e">&#39;bank_name&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;国家开发银行&#39;</span>]);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e">// 分组
@@ -852,7 +1338,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$groupData</span>[<span style="color:#5af78e">&#39;buckets&#39;</span>] <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$gv</span>) {
 </span></span><span style="display:flex;"><span>    p(<span style="color:#ff5c57">$gv</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_aggregation_parent.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_aggregation_parent.png"
 	width="1613"
 	height="854"
 	srcset="/elastica/img/elastica_aggregation_parent_hu52dad110de61950527358a3945438a8a_42461_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_aggregation_parent_hu52dad110de61950527358a3945438a8a_42461_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -881,7 +1369,31 @@
 	
 ></p>
 <h4 id="原生查询">原生查询</h4>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query([
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff5c57">$queryType</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">new</span> Query([
 </span></span><span style="display:flex;"><span>    <span style="color:#5af78e">&#39;query&#39;</span> <span style="color:#ff6ac1">=&gt;</span> [
 </span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;bool&#39;</span> <span style="color:#ff6ac1">=&gt;</span> [
 </span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;must&#39;</span> <span style="color:#ff6ac1">=&gt;</span> [
@@ -901,7 +1413,9 @@
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">foreach</span> (<span style="color:#ff5c57">$docs</span> <span style="color:#ff6ac1">as</span> <span style="color:#ff5c57">$dv</span>) {
 </span></span><span style="display:flex;"><span>    p(<span style="color:#ff5c57">$dv</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getData</span>());
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/elastica/img/elastica_json_query.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/elastica/img/elastica_json_query.png"
 	width="1586"
 	height="842"
 	srcset="/elastica/img/elastica_json_query_hub06737f95d83260a4a5f9d35bcb75c99_40448_480x0_resize_mitchellnetravali_3.png 480w, /elastica/img/elastica_json_query_hub06737f95d83260a4a5f9d35bcb75c99_40448_1024x0_resize_mitchellnetravali_3.png 1024w"

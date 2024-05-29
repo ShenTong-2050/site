@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+    <head><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Intervention Image、Flysystem'>
 <meta name="keywords" content="Glide"><title>Glide</title>
 
-<link rel='canonical' href='http://localhost:1313/glide/'>
+<link rel='canonical' href='http://www.shentongtong.cn/glide/'>
 
 <link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Glide'>
 <meta property='og:description' content='Intervention Image、Flysystem'>
-<meta property='og:url' content='http://localhost:1313/glide/'>
+<meta property='og:url' content='http://www.shentongtong.cn/glide/'>
 <meta property='og:site_name' content=''>
-<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-10-12T10:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-10-12T10:00:00&#43;08:00'/><meta property='og:image' content='http://localhost:1313/glide/img/thephpleague.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2023-10-12T10:00:00&#43;08:00'/><meta property='article:modified_time' content='2023-10-12T10:00:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/glide/img/thephpleague.png' />
 <meta name="twitter:title" content="Glide">
 <meta name="twitter:description" content="Intervention Image、Flysystem"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:1313/glide/img/thephpleague.png' />
+    <meta name="twitter:image" content='http://www.shentongtong.cn/glide/img/thephpleague.png' />
   
 
 
@@ -65,6 +65,8 @@
                     
                 
                 </a>
+                
+                    <span class="emoji">-_-</span>
                 
             </figure>
             
@@ -143,7 +145,7 @@
 
                     <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
                         
-                            <option value="http://localhost:1313/" selected></option>
+                            <option value="http://www.shentongtong.cn/" selected></option>
                         
                     </select>
                 </li>
@@ -246,7 +248,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 9 分钟
+                    阅读时长: 10 分钟
                 </time>
             </div>
         
@@ -257,6 +259,42 @@
 </div>
 
 </header>
+
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于图像处理">关于图像处理</a>
+      <ul>
+        <li><a href="#glide">Glide</a></li>
+        <li><a href="#关于-intervention-image">关于 Intervention Image</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置">配置</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#工厂配置">工厂配置</a></li>
+        <li><a href="#安全">安全</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#默认值-与-预设">默认值 与 预设</a></li>
+        <li><a href="#图像旋转">图像旋转</a></li>
+        <li><a href="#图像裁剪">图像裁剪</a></li>
+        <li><a href="#图像调整">图像调整</a></li>
+        <li><a href="#调整图像效果">调整图像效果</a></li>
+        <li><a href="#设置背景色">设置背景色</a></li>
+        <li><a href="#设置边框">设置边框</a></li>
+        <li><a href="#设置输出图像格式">设置输出图像格式</a></li>
+      </ul>
+    </li>
+    <li><a href="#问题">问题</a>
+      <ul>
+        <li><a href="#41-图像旋转">4.1 图像旋转</a></li>
+        <li><a href="#42-使用-gd-驱动获取-exif-信息问题-需要开启-exif-扩展">4.2 使用 GD 驱动获取 exif 信息问题 需要开启 exif 扩展</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
 
     <section class="article-content">
     
@@ -298,13 +336,30 @@
 <h2 id="配置">配置</h2>
 <h3 id="安装">安装</h3>
 <p>独立版本</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/glide
-</span></span></code></pre></div><p>框架版本</p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require admad/cakephp-glide
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require league/glide
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>框架版本</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer require admad/cakephp-glide
 </span></span><span style="display:flex;"><span>composer require league/glide-laravel
 </span></span><span style="display:flex;"><span>composer require league/glide-symfony
 </span></span><span style="display:flex;"><span>composer require league/glide-zend
-</span></span></code></pre></div><blockquote>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p>框架版 与 独立版 不需要同时安装</p>
 </blockquote>
 <h3 id="工厂配置">工厂配置</h3>
@@ -550,7 +605,91 @@
 </tr>
 </tbody>
 </table></div>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;?</span>php
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">70
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">71
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">72
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">73
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">74
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">75
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">76
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">77
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">78
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">79
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">80
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;?</span>php
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">class</span> <span style="color:#f3f99d">Glide</span> <span style="color:#ff6ac1">extends</span> Controller
 </span></span><span style="display:flex;"><span>{
@@ -630,12 +769,40 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        ]);
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="安全">安全</h3>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安全">安全</h3>
 <p>使用 HTTP 签名保护您的 Glide 图像服务器。通过使用私钥对每个请求进行签名，就无法对 URL 参数进行任何更改。</p>
 <blockquote>
 <p>强烈建议您在生产环境中使用签名 URL，否则您的应用程序将容易受到大规模图像调整大小攻击。</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">create</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">create</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$_GET</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 签名校验
@@ -657,7 +824,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$avatar</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#5af78e">&#39;avatar/cat.png&#39;</span>,[<span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">200</span>, <span style="color:#5af78e">&#39;h&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">100</span>, <span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;crop&#39;</span>]);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$avatar</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>请求地址示例：</p>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>请求地址示例：</p>
 <p><img src="/glide/img/glide_image_address_1.png"
 	width="1149"
 	height="420"
@@ -719,7 +888,25 @@
 	
 ></p>
 <h3 id="默认值-与-预设">默认值 与 预设</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">presets</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">presets</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">setPresets</span>(<span style="color:#ff6ac1">array</span>(
 </span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;small&#39;</span> <span style="color:#ff6ac1">=&gt;</span> [
 </span></span><span style="display:flex;"><span>            <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">100</span>,
@@ -733,7 +920,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$avatar</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#5af78e">&#39;banner/grass.png&#39;</span>,[]);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$avatar</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_default_and_preset.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_default_and_preset.png"
 	width="1221"
 	height="535"
 	srcset="/glide/img/glide_default_and_preset_hu6dc7af249706d172cd0e7a4a166063a5_65769_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_default_and_preset_hu6dc7af249706d172cd0e7a4a166063a5_65769_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -748,7 +937,20 @@
 	
 ></p>
 <h3 id="图像旋转">图像旋转</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> * 旋转图像
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">orientation</span>() {
@@ -757,7 +959,9 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$orientation</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$orientation</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_orientation.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_orientation.png"
 	width="816"
 	height="543"
 	srcset="/glide/img/glide_orientation_hu302b723a443cd59e9df5061f5afa19ff_750322_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_orientation_hu302b723a443cd59e9df5061f5afa19ff_750322_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -772,7 +976,29 @@
 	
 ></p>
 <h3 id="图像裁剪">图像裁剪</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> * 裁剪图像
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">crop</span>() {
@@ -790,7 +1016,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$crop</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$crop</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_crop.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_crop.png"
 	width="776"
 	height="528"
 	srcset="/glide/img/glide_crop_hu2ace1bd942f6a1fa32fe25ea3275dc0d_704830_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_crop_hu2ace1bd942f6a1fa32fe25ea3275dc0d_704830_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -805,7 +1033,20 @@
 	
 ></p>
 <h3 id="图像调整">图像调整</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">resize</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">resize</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$img</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;banner/grass.png&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 1) contain 默认，适用于 原图大 生成小图 的情况 宽高比不变
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>,<span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>, <span style="color:#5af78e">&#39;h&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>];
@@ -814,7 +1055,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$resize</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$resize</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_resize_1.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_resize_1.png"
 	width="838"
 	height="905"
 	srcset="/glide/img/glide_resize_1_hubc76a197017a2cb8fff71a76595b19d4_582949_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_resize_1_hubc76a197017a2cb8fff71a76595b19d4_582949_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -828,10 +1071,19 @@
 		data-flex-basis="222px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 3) fill: 图像将被调整大小以适应指定的宽度和高度边界，而不会被裁剪或扭曲。
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 3) fill: 图像将被调整大小以适应指定的宽度和高度边界，而不会被裁剪或扭曲。
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">// 剩余的空白区域将填充为指定的背景颜色。生成的图像将完全填充指定的边界。
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;fill&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">900</span>, <span style="color:#5af78e">&#39;h&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">900</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_resize_3.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_resize_3.png"
 	width="1116"
 	height="929"
 	srcset="/glide/img/glide_resize_3_hud996c59d28e538b20ea55fc144fe0ae3_841890_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_resize_3_hud996c59d28e538b20ea55fc144fe0ae3_841890_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -845,9 +1097,17 @@
 		data-flex-basis="288px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 4) stretch: 图像将被 拉伸 或 挤压 至特定 宽度 和 高度，宽高比发生变化
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 4) stretch: 图像将被 拉伸 或 挤压 至特定 宽度 和 高度，宽高比发生变化
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;stretch&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">200</span>, <span style="color:#5af78e">&#39;h&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">200</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_resize_4.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_resize_4.png"
 	width="974"
 	height="774"
 	srcset="/glide/img/glide_resize_4_hue193f1575fe61628438b4e023085cdb0_228594_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_resize_4_hue193f1575fe61628438b4e023085cdb0_228594_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -861,9 +1121,17 @@
 		data-flex-basis="302px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 5) 调整图像 至特定 宽高 并 裁剪掉多余的图像
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 5) 调整图像 至特定 宽高 并 裁剪掉多余的图像
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;crop&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">200</span>, <span style="color:#5af78e">&#39;h&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">200</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_fit_crop.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_fit_crop.png"
 	width="691"
 	height="771"
 	srcset="/glide/img/glide_fit_crop_hu31914c84ba66f8b54f34400d58aa1989_170781_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_fit_crop_hu31914c84ba66f8b54f34400d58aa1989_170781_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -877,9 +1145,17 @@
 		data-flex-basis="215px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 6) 调整图像亮度【-100 至 +100 之间，0 表示 无变化】
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 6) 调整图像亮度【-100 至 +100 之间，0 表示 无变化】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">400</span>,<span style="color:#5af78e">&#39;bri&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">50</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_bri.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_bri.png"
 	width="586"
 	height="373"
 	srcset="/glide/img/glide_bri_hu9890d006d81a21a15a951b4990e5808b_272468_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_bri_hu9890d006d81a21a15a951b4990e5808b_272468_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -893,9 +1169,17 @@
 		data-flex-basis="377px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 7) 调整图像对比度【-100 至 +100 之间，0 表示 无变化】
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 7) 调整图像对比度【-100 至 +100 之间，0 表示 无变化】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">400</span>,<span style="color:#5af78e">&#39;con&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">50</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_con.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_con.png"
 	width="588"
 	height="384"
 	srcset="/glide/img/glide_con_hua739062a63f98053728aa1d9cbb34b63_192139_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_con_hua739062a63f98053728aa1d9cbb34b63_192139_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -909,9 +1193,17 @@
 		data-flex-basis="367px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 8) 调整图像 伽马 值【0.1 至 9.99 之间】
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 8) 调整图像 伽马 值【0.1 至 9.99 之间】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">400</span>,<span style="color:#5af78e">&#39;gam&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">1.6</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_gam.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_gam.png"
 	width="536"
 	height="360"
 	srcset="/glide/img/glide_gam_hu8a5bc973166f0f652b790985f9efb834_317444_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_gam_hu8a5bc973166f0f652b790985f9efb834_317444_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -925,9 +1217,17 @@
 		data-flex-basis="357px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 9) 锐化 【0 至 100 之间】
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 9) 锐化 【0 至 100 之间】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;fit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">400</span>, <span style="color:#5af78e">&#39;sharp&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">15</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_sharp.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_sharp.png"
 	width="563"
 	height="363"
 	srcset="/glide/img/glide_sharp_hu1673c132c7028c61264559909c89e8c7_373446_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_sharp_hu1673c132c7028c61264559909c89e8c7_373446_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -942,14 +1242,27 @@
 	
 ></p>
 <h3 id="调整图像效果">调整图像效果</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">effects</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">effects</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$img</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;banner/grass.png&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#78787e">// 1) 模糊效果【blur 0 至 100】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;crop&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>,<span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>,<span style="color:#5af78e">&#39;blur&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">10</span>];
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$sepia</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;sepia&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$sepia</span>,<span style="color:#5af78e">&#39;greyscale&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$greyscale</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_fuzzy.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_fuzzy.png"
 	width="646"
 	height="438"
 	srcset="/glide/img/glide_fuzzy_huf6777f3b8b680e9e34ba0c91274c0477_319856_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_fuzzy_huf6777f3b8b680e9e34ba0c91274c0477_319856_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -963,11 +1276,21 @@
 		data-flex-basis="353px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 2) 像素化效果【pixel 0 至 1000】
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 2) 像素化效果【pixel 0 至 1000】
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;crop&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>, <span style="color:#5af78e">&#39;pixel&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">50</span>];
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$effects</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$effects</span>]); 
-</span></span></code></pre></div><p><img src="/glide/img/glide_pixel.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_pixel.png"
 	width="656"
 	height="430"
 	srcset="/glide/img/glide_pixel_hu74213ad87c0346f9411a562636bdd8ef_13209_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_pixel_hu74213ad87c0346f9411a562636bdd8ef_13209_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -981,11 +1304,21 @@
 		data-flex-basis="366px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 3) 滤镜效果
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#78787e">// 3) 滤镜效果
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;crop&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>, <span style="color:#5af78e">&#39;filt&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;greyscale&#39;</span>];
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$greyscale</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span><span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;crop&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>, <span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>, <span style="color:#5af78e">&#39;filt&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;sepia&#39;</span>];
-</span></span></code></pre></div><p><img src="/glide/img/glide_filter.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_filter.png"
 	width="1289"
 	height="444"
 	srcset="/glide/img/glide_filter_huf6f4b626e6cd085528e8e8d5543ec0a7_438307_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_filter_huf6f4b626e6cd085528e8e8d5543ec0a7_438307_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -999,7 +1332,25 @@
 		data-flex-basis="696px"
 	
 ></p>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">water</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">water</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$sourceImg</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;banner/grass.png&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;w&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">500</span>,<span style="color:#5af78e">&#39;markfit&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;contain&#39;</span>,<span style="color:#5af78e">&#39;mark&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;flower.png&#39;</span>,<span style="color:#5af78e">&#39;markw&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">70</span>, <span style="color:#5af78e">&#39;markh&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff9f43">70</span>]; <span style="color:#78787e">// logo.png 是相对于 watermarks 指定的路径
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// 1) 通过 x、y 指定 水印位置
@@ -1013,7 +1364,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#ff5c57">$waterImg</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$sourceImg</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$waterImg</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_water.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_water.png"
 	width="639"
 	height="428"
 	srcset="/glide/img/glide_water_hu71445f8a3793e6bbd5343dde4ce9d698_506714_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_water_hu71445f8a3793e6bbd5343dde4ce9d698_506714_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -1028,13 +1381,25 @@
 	
 ></p>
 <h3 id="设置背景色">设置背景色</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">bg</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">bg</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$img</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;banner/logo.png&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$data</span> <span style="color:#ff6ac1">=</span> [<span style="color:#5af78e">&#39;bg&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#5af78e">&#39;red&#39;</span>];
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$bg</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$bg</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_bg.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_bg.png"
 	width="154"
 	height="98"
 	srcset="/glide/img/glide_bg_hu791c08f3d3cce1549781dbedf6a2a823_9378_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_bg_hu791c08f3d3cce1549781dbedf6a2a823_9378_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -1049,7 +1414,20 @@
 	
 ></p>
 <h3 id="设置边框">设置边框</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">border</span>() {
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">border</span>() {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$img</span> <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;banner/grass.png&#39;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#78787e">// overlay 将边框放在图像顶部 默认
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    <span style="color:#78787e">// shrink 缩小边框内的图像，画布不变
@@ -1058,7 +1436,9 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$border</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$border</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p><img src="/glide/img/glide_border.png"
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/glide/img/glide_border.png"
 	width="646"
 	height="433"
 	srcset="/glide/img/glide_border_hud9b25cfedee556506f5777e774542e3a_457947_480x0_resize_mitchellnetravali_3.png 480w, /glide/img/glide_border_hud9b25cfedee556506f5777e774542e3a_457947_1024x0_resize_mitchellnetravali_3.png 1024w"
@@ -1073,7 +1453,22 @@
 	
 ></p>
 <h3 id="设置输出图像格式">设置输出图像格式</h3>
-<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#5af78e">/**
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> * 设置输出图像编码
 </span></span></span><span style="display:flex;"><span><span style="color:#5af78e"> */</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff6ac1">public</span> <span style="color:#ff6ac1">function</span> <span style="color:#57c7ff">encode</span>() {
@@ -1084,7 +1479,9 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#ff5c57">$encode</span> <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">server</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">getImageAsBase64</span>(<span style="color:#ff5c57">$img</span>,<span style="color:#ff5c57">$data</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> <span style="color:#ff5c57">$this</span><span style="color:#ff6ac1">-&gt;</span><span style="color:#57c7ff">fetch</span>(<span style="color:#5af78e">&#39;avatar&#39;</span>,[<span style="color:#5af78e">&#39;avatar&#39;</span> <span style="color:#ff6ac1">=&gt;</span> <span style="color:#ff5c57">$encode</span>]);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="问题">问题</h2>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="问题">问题</h2>
 <h3 id="41-图像旋转">4.1 图像旋转</h3>
 <p>or 参数 问题：</p>
 <ul>

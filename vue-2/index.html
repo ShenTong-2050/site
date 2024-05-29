@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Vue'>
+<meta name="keywords" content="Vue"><title>Vue基础（二）</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/vue-2/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Vue基础（二）'>
+<meta property='og:description' content='Vue'>
+<meta property='og:url' content='http://www.shentongtong.cn/vue-2/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-2/img/logo/vue.png' />
+<meta name="twitter:title" content="Vue基础（二）">
+<meta name="twitter:description" content="Vue"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/vue-2/img/logo/vue.png' />
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hud0562191972c102080634509deeb4fad_2886644_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="400" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">-_-</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/technology/' >
+                
+                
+                
+                <span>技术</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="http://www.shentongtong.cn/" selected></option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/vue-2/">
+                <img src="/vue-2/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png"
+                        srcset="/vue-2/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png 800w, /vue-2/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_1600x0_resize_mitchellnetravali_3.png 1600w"
+                        width="800" 
+                        height="376" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（二）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" >
+                Vue
+            </a>
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/vue-2/">Vue基础（二）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Vue
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 27, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 7 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#计算属性">计算属性</a>
+      <ul>
+        <li><a href="#基础示例">基础示例</a></li>
+        <li><a href="#计算属性缓存-与-方法">计算属性缓存 与 方法</a></li>
+        <li><a href="#可写计算属性">可写计算属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#绑定-html-class">绑定 HTML class</a>
+      <ul>
+        <li><a href="#绑定对象">绑定对象</a></li>
+        <li><a href="#绑定数组">绑定数组</a></li>
+        <li><a href="#在组件上使用">在组件上使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#绑定内联样式">绑定内联样式</a>
+      <ul>
+        <li><a href="#绑定对象-1">绑定对象</a></li>
+        <li><a href="#绑定数组-1">绑定数组</a></li>
+        <li><a href="#自动前缀">自动前缀</a></li>
+        <li><a href="#样式多值">样式多值</a></li>
+      </ul>
+    </li>
+    <li><a href="#条件渲染">条件渲染</a>
+      <ul>
+        <li><a href="#template-之-v-if">template 之 v-if</a></li>
+        <li><a href="#template-之-v-show">template 之 v-show</a></li>
+        <li><a href="#v-show-与-v-if-的区别">v-show 与 v-if 的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#列表渲染">列表渲染</a>
+      <ul>
+        <li><a href="#v-for">v-for</a></li>
+        <li><a href="#v-for-与-对象">v-for 与 对象</a></li>
+        <li><a href="#v-for-之-数值-与-template-的使用">v-for 之 数值 与 template 的使用</a></li>
+        <li><a href="#v-for-与-v-if">v-for 与 v-if</a></li>
+        <li><a href="#v-for-之-key-的使用">v-for 之 key 的使用</a></li>
+        <li><a href="#组件上-使用-v-for">组件上 使用 v-for</a></li>
+        <li><a href="#数组变化侦测">数组变化侦测</a></li>
+        <li><a href="#数组过滤与排序">数组过滤与排序</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <section class="article-content">
+    
+    
+    <h2 id="计算属性">计算属性</h2>
+<h3 id="基础示例">基础示例</h3>
+<p>计算属性 是为了 解决 在模板中 书写 比较复杂逻辑 的 问题</p>
+<p>例如：</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#34;Alex&#34;</span>
+</span></span><span style="display:flex;"><span>            books<span style="color:#ff6ac1">:</span>[
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;book-1&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;book-2&#39;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#5af78e">&#39;book-3&#39;</span>            
+</span></span><span style="display:flex;"><span>            ]        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    computed<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        publishBooksMessage() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">this</span>.books.length <span style="color:#ff6ac1">&gt;</span> <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">?</span> <span style="color:#5af78e">&#39;Yes&#39;</span> <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;No&#39;</span>       
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">span</span>&gt;{{ <span style="color:#ff6ac1">this</span>.books.length <span style="color:#ff6ac1">&gt;</span> <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">?</span> <span style="color:#5af78e">&#39;Yes&#39;</span> <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;No&#39;</span> }}&lt;/<span style="color:#ff6ac1">span</span>&gt; <span style="color:#78787e">&lt;!--</span>比较复杂<span style="color:#ff6ac1">--&gt;</span> 
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">span</span>&gt;{{ publishBooksMessage }}&lt;/<span style="color:#ff6ac1">span</span>&gt; <span style="color:#78787e">&lt;!--</span>通过 computed 属性 获取逻辑结果 就 比较简洁了<span style="color:#ff6ac1">--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="计算属性缓存-与-方法">计算属性缓存 与 方法</h3>
+<p>如果将 上例 中的 publishBooksMessage 写为一个方法也可以实现同样的效果，区别在于 compute 属性 是 仅在 响应式依赖（books） 发生变化的时候 才会更新缓存，而 函数 则是每次都会执行。</p>
+<h3 id="可写计算属性">可写计算属性</h3>
+<p>计算属性 computed 默认是 只读 的，但 在 某些 特殊场景中 会 用到 可写 属性，可以通过 getter 和 setter 来创建：</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> { debounce } from <span style="color:#5af78e">&#39;lodash-es&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            firstName <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;John&#39;</span>,
+</span></span><span style="display:flex;"><span>            lastName<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;Doe&#39;</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    created <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        debounceClick <span style="color:#ff6ac1">:</span> debounce(<span style="color:#ff6ac1">this</span>.click,<span style="color:#ff9f43">3000</span>)  <span style="color:#78787e">// 本组件的防抖动实例
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    },
+</span></span><span style="display:flex;"><span>    computed<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        fullName <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// getter        
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            get() {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">this</span>.firstName <span style="color:#ff6ac1">+</span> <span style="color:#5af78e">&#39; &#39;</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.lastName            
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// setter
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            set(newName) {
+</span></span><span style="display:flex;"><span>                <span style="color:#78787e">// 解析赋值
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>                [<span style="color:#ff6ac1">this</span>.firstName,<span style="color:#ff6ac1">this</span>.lastName] <span style="color:#ff6ac1">=</span> newName.Split(<span style="color:#5af78e">&#39; &#39;</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#5af78e">&#39;fullName is &#39;</span><span style="color:#ff6ac1">+</span><span style="color:#ff6ac1">this</span>.fullName)
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    unmounted() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">this</span>.debounceClick.cancel()
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        click() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.fullName <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#34;申 通通&#34;</span>
+</span></span><span style="display:flex;"><span>            console.log(<span style="color:#5af78e">&#39;firstName is &#39;</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.firstName <span style="color:#ff6ac1">+</span> <span style="color:#5af78e">&#39; lastName is &#39;</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.lastName)
+</span></span><span style="display:flex;"><span>            console.log(<span style="color:#5af78e">&#39;fullName is &#39;</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.fullName)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff6ac1">@click</span><span style="color:#5af78e">=&#34;debounceClick()&#34;</span>&gt;<span style="color:#57c7ff">修改计算属性的值</span>&lt;/<span style="color:#ff6ac1">button</span>&gt; <span style="color:#ff5c57">//</span> <span style="color:#57c7ff">默认计算属性是</span> <span style="color:#57c7ff">只读</span> <span style="color:#57c7ff">的</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-2/img/computed_get_set.jpg"
+	width="441"
+	height="129"
+	srcset="/vue-2/img/computed_get_set_huc00e5b6e76914f5c2723d05c9522cfb9_4099_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/computed_get_set_huc00e5b6e76914f5c2723d05c9522cfb9_4099_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Computed Get Set"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="341"
+		data-flex-basis="820px"
+	
+></p>
+<blockquote>
+<p>computed 最佳实践：计算属性 computed 的 get 属性 中 不应有 其他 异步请求 或 更改 DOM 操作，它的职责 是 计算 和 返回结果</p>
+</blockquote>
+<h2 id="绑定-html-class">绑定 HTML class</h2>
+<h3 id="绑定对象">绑定对象</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 动态绑定 对应 js
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            isActive <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">true</span>,    
+</span></span><span style="display:flex;"><span>            text<span style="color:#ff6ac1">-</span>danger <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>            objectClass {
+</span></span><span style="display:flex;"><span>                isActive <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">true</span>,
+</span></span><span style="display:flex;"><span>                text<span style="color:#ff6ac1">-</span>danger <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">false</span>,        
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    computed<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        classObject() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>                errorClass <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">!</span><span style="color:#ff6ac1">this</span>.isActive <span style="color:#ff6ac1">&amp;&amp;</span> <span style="color:#ff6ac1">this</span>.text<span style="color:#ff6ac1">-</span>danger
+</span></span><span style="display:flex;"><span>            }        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }    
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 1) 动态绑定
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;static&#34;</span> <span style="color:#ff6ac1">:</span><span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{ active: isActive,text-danger: isActive}&#34;</span>&gt; 
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// class 对应结果
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;static active text-danger&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">// 如果 text-danger 为 false 则 class=&#34;static active&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// 2) 动态绑定对象
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:class</span><span style="color:#5af78e">=&#34;objectClass&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">// 效果参照 1
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">// 3) 动态绑定 计算结果
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:class</span><span style="color:#5af78e">=&#34;classObject&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">// 效果同 1
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="绑定数组">绑定数组</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>data() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>        activeClass <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;active&#39;</span>,
+</span></span><span style="display:flex;"><span>        errorClass<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;text-danger&#39;</span>    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:class</span><span style="color:#5af78e">=&#34;[activeClass,errorClass]&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:</span><span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;[activeClass ? activeClass : &#39;&#39;,errorClass]&#34;</span>&gt; <span style="color:#78787e">// 数组中使用三元判断
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:</span><span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;[{activeClass : isActive},errorclass]&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">// 数组中嵌套对象
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="在组件上使用">在组件上使用</h3>
+<p>当你使用 引入组件 的时候，在 组件上 增加的 <code>class</code> 会动态合并</p>
+<blockquote>
+<p>特殊情况：当你的 引入组件 中 有多个 根元素 时 需要通过 <code>$attrs</code> 属性 来 指定接收 class 的元素，例如：</p>
+</blockquote>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#78787e">&lt;!--</span>Mycomponent<span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:class</span><span style="color:#5af78e">=&#34;$attrs.class&#34;</span>&gt;Hi&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">p</span>&gt;text content&lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">&lt;!--</span>使用 引入的 Mycomponent 组件<span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">Mycomponent</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;baz&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span><span style="color:#78787e">// 渲染结果为
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;baz&#34;</span>&gt;Hi&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">p</span>&gt;text content&lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="绑定内联样式">绑定内联样式</h2>
+<h3 id="绑定对象-1">绑定对象</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            activeColor<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;red&#39;</span>,
+</span></span><span style="display:flex;"><span>            fontSize<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">30</span>,
+</span></span><span style="display:flex;"><span>            styleObject {
+</span></span><span style="display:flex;"><span>                color<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;red&#39;</span>,
+</span></span><span style="display:flex;"><span>                fontSize<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;13px&#39;</span>            
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:</span><span style="color:#57c7ff">style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{fontSize : fontSize+&#39;px&#39;,color:activeColor}&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">:style</span><span style="color:#5af78e">=&#34;{styleObject}&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">// 直接绑定对象
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>如果 样式对象 需要 更复杂的逻辑 可以通过 计算 computed 返回样式对象</p>
+</blockquote>
+<h3 id="绑定数组-1">绑定数组</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">:style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;[baseStyles,overridingStyles]&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt; <span style="color:#78787e">&lt;!-- 一个 包含 两个 样式对象 的 数组--&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自动前缀">自动前缀</h3>
+<p>对于在 :style 中 使用了 需要 浏览器特殊前缀 的 CSS 属性时，Vue 会 自动为他们 加上 响应地前缀。</p>
+<p>Vue 在运行时会自动检查浏览器 是否支持该属性</p>
+<h3 id="样式多值">样式多值</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">:style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{display: [&#39;-webkit-box&#39;,&#39;-ms-flexbox&#39;,&#39;flex&#39;] }&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这种情况下 Vue 会 渲染 浏览器 支持的 最后一个 值</p>
+<h2 id="条件渲染">条件渲染</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">h1</span> <span style="color:#ff6ac1">v-if</span><span style="color:#5af78e">=&#34;awesome&#34;</span>&gt;<span style="color:#57c7ff">hello</span> <span style="color:#57c7ff">world</span>&lt;/<span style="color:#ff6ac1">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">h1</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-else-if</span><span style="color:#ff5c57">=&#34;</span><span style="color:#57c7ff">awsome </span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">=</span> <span style="color:#ff5c57">&#39;</span><span style="color:#57c7ff">Y</span><span style="color:#ff5c57">&#39;&#34;</span>&gt;yes&lt;/<span style="color:#ff6ac1">h1</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">h1</span> <span style="color:#ff6ac1">v-else</span>&gt;<span style="color:#57c7ff">not</span> <span style="color:#57c7ff">good</span>&lt;/<span style="color:#ff6ac1">h1</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;awesome = !awesome&#34;</span>&gt;Toggle&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="template-之-v-if">template 之 v-if</h3>
+<p>根据判断结果显示 区块元素，渲染结果并不包含 <code>&lt;template&gt;</code> 元素</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span> <span style="color:#ff6ac1">v-if</span><span style="color:#5af78e">=&#34;ok&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h1</span>&gt;Title&lt;/<span style="color:#ff6ac1">h1</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">p</span>&gt;Paragraph <span style="color:#ff9f43">1</span>&lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="template-之-v-show">template 之 v-show</h3>
+<p>与 <code>template</code> 不同的 是 <code>v-show</code> 会在 DOM 中保留该元素，仅仅是 切换了元素的 display 属性</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">h1</span> <span style="color:#57c7ff">v-show</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;ok&#34;</span>&gt; hello! &lt;/<span style="color:#ff6ac1">h1</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="v-show-与-v-if-的区别">v-show 与 v-if 的区别</h3>
+<ul>
+<li><code>v-if</code> 的真实性：<code>v-if</code> 区块内 的 事件监听器 和 子组件 都会被 销毁 和 重建</li>
+<li><code>v-if</code> 的惰性：初次渲染条件为 <code>false</code> 不会做任何事，为 <code>true</code> 时才被渲染</li>
+</ul>
+<p>总的来说，<code>v-if</code> 有更高的切换开销、<code>v-show</code> 有更高的初始渲染开销。</p>
+<p>因此 如果需要频繁切换 推荐使用 <code>v-show</code>，如果在运行时绑定条件很少改变，则 <code>v-if</code> 会更合适。</p>
+<blockquote>
+<p>不推荐同时使用 <code>v-if</code> 与 <code>v-for</code>，虽然 <code>v-if</code> 的 优先级 大于 <code>v-for</code></p>
+</blockquote>
+<h2 id="列表渲染">列表渲染</h2>
+<h3 id="v-for">v-for</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;列表&#39;</span>,
+</span></span><span style="display:flex;"><span>            items <span style="color:#ff6ac1">:</span> [{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>}],
+</span></span><span style="display:flex;"><span>            duowei <span style="color:#ff6ac1">:</span> [
+</span></span><span style="display:flex;"><span>                [
+</span></span><span style="display:flex;"><span>                    {id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#34;shen&#34;</span>},
+</span></span><span style="display:flex;"><span>                    {id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>,name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#34;zhang&#34;</span>},                
+</span></span><span style="display:flex;"><span>                ],
+</span></span><span style="display:flex;"><span>                [
+</span></span><span style="display:flex;"><span>                    {id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>,name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#34;xie&#34;</span>},
+</span></span><span style="display:flex;"><span>                    {id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">4</span>,name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#34;wang&#34;</span>},                
+</span></span><span style="display:flex;"><span>                ]
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;(item , index) in items&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{ name }} - {{ index }} - {{ item.id }}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">&lt;!--别名--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{id} in items&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    {{name}} - {{id}}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#78787e">&lt;!--多维数组--&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">ul</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in duowei&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;sonItem in item&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ sonItem.id }} - {{ sonItem.name }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-2/img/list-v-for.jpg"
+	width="427"
+	height="150"
+	srcset="/vue-2/img/list-v-for_hu1ce1d179a8a1e16eb43bc0b5a0730739_4488_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for_hu1ce1d179a8a1e16eb43bc0b5a0730739_4488_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="284"
+		data-flex-basis="683px"
+	
+></p>
+<h3 id="v-for-与-对象">v-for 与 对象</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            name<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;food&#39;</span>,
+</span></span><span style="display:flex;"><span>            eat <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>                title <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;page title&#39;</span>,
+</span></span><span style="display:flex;"><span>                describe<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;page describe&#39;</span>,
+</span></span><span style="display:flex;"><span>                key<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;breakfast,lunch,dinner&#39;</span>,            
+</span></span><span style="display:flex;"><span>            }        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;(value , key , index) in eat&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ index }} -- {{ key }} -- {{ value }}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-2/img/list-v-for-object.jpg"
+	width="466"
+	height="134"
+	srcset="/vue-2/img/list-v-for-object_hu750253cedaacbaef4760748414216319_7054_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for-object_hu750253cedaacbaef4760748414216319_7054_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for-object"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="347"
+		data-flex-basis="834px"
+	
+></p>
+<h3 id="v-for-之-数值-与-template-的使用">v-for 之 数值 与 template 的使用</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>// 范围值
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">span</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;n in 10&#34;</span>&gt; {{ n }} &lt;/<span style="color:#ff6ac1">span</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// template
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in list&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">li</span>&gt; {{ item.id }} &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">li</span>&gt; {{ item.name }} &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>范围值：此处的 n 为 从 1 开始 而非 0</p>
+</blockquote>
+<h3 id="v-for-与-v-if">v-for 与 v-if</h3>
+<blockquote>
+<p>同时 在一个元素上 使用 v-for 与 v-if 是不推荐的，v-if 的优先级比 v-for 的 更高，所以 v-if 无法使用 v-for 作用域内的变量</p>
+<p>除非 将 v-for 与 template 进行绑定 且 v-if 位于 template 元素内部 可以解决这个问题</p>
+</blockquote>
+<h3 id="v-for-之-key-的使用">v-for 之 key 的使用</h3>
+<p>总的来说， vue 在 渲染元素列表时 采用的是 &ldquo;就地更新&rdquo; 策略，而 key 属性 是 提示 vue 每一个节点的唯一标识，这样在渲染的时候能最大限度的提高效率。</p>
+<p>关于什么是 就地更新 策略：</p>
+<p><img src="/vue-2/img/list-v-for-update.jpg"
+	width="1154"
+	height="598"
+	srcset="/vue-2/img/list-v-for-update_hud523c6724f7d252b16101bd77bd4b7f7_128301_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for-update_hud523c6724f7d252b16101bd77bd4b7f7_128301_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for 就地更新策略"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="192"
+		data-flex-basis="463px"
+	
+></p>
+<p>关于 key 的特征：</p>
+<ul>
+<li>key 的值 为 字符串 或 number 类型</li>
+<li>key 的值 在 同一 父元素下 的 子元素 必须是 唯一的【重复的 key 会导致渲染异常】</li>
+</ul>
+<h3 id="组件上-使用-v-for">组件上 使用 v-for</h3>
+<h4 id="appvue">App.vue</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">import</span> Fruit from <span style="color:#5af78e">&#39;./components/fruit/FruitApp.vue&#39;</span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">main</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">Fruit</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">main</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="componentsfruitfruitappvue">components/fruit/FruitApp.vue</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#78787e">&lt;!--</span> v<span style="color:#ff6ac1">-</span><span style="color:#ff6ac1">for</span> 与 template 使用的 入口文件  <span style="color:#ff6ac1">----&gt;&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> Vfortemplate from <span style="color:#5af78e">&#39;./Vfortemplate.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    components <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        Vfortemplate
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            newFruitName <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            fruits <span style="color:#ff6ac1">:</span> [
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id <span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">1</span>,
+</span></span><span style="display:flex;"><span>                    name <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;苹果&#39;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id <span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">2</span>,
+</span></span><span style="display:flex;"><span>                    name <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;香蕉&#39;</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id <span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">3</span>,
+</span></span><span style="display:flex;"><span>                    name <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;橙子&#39;</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            nextFruit <span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">4</span>,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        addFruit() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.fruits.push({
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">this</span>.nextFruit<span style="color:#ff6ac1">++</span>,
+</span></span><span style="display:flex;"><span>                name <span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">this</span>.newFruitName
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.newFruitName <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">form</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:submit.prevent</span><span style="color:#5af78e">=&#34;addFruit&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;new-fruit&#34;</span>&gt;添加水果<span style="color:#ff6ac1">:</span>&lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;new-fruit&#34;</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-model</span><span style="color:#ff5c57">=&#34;</span><span style="color:#57c7ff">newFruitName</span><span style="color:#ff5c57">&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;例如:香蕉...&#34;</span>/&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span>&gt;确定&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">form</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">Vfortemplate</span> 
+</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-for</span><span style="color:#ff5c57">=&#34;(</span><span style="color:#57c7ff">fruit</span> <span style="color:#ff5c57">,</span> <span style="color:#57c7ff">index</span><span style="color:#ff5c57">)</span> <span style="color:#57c7ff">in</span> <span style="color:#57c7ff">fruits</span><span style="color:#ff5c57">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">:key</span><span style="color:#5af78e">=&#34;fruit.id&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">:title</span><span style="color:#5af78e">=&#34;fruit.name&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">@remove</span><span style="color:#5af78e">=&#34;fruits.splice(index,1)&#34;</span>
+</span></span><span style="display:flex;"><span>        &gt;&lt;/<span style="color:#ff6ac1">Vfortemplate</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="componentsfruitfruittemplatevue">components/fruit/FruitTemplate.vue</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    props <span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;title&#39;</span>], <span style="color:#78787e">// 获取 父组件 传递过来的 属性
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    emits <span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;remove&#39;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>        {{ title }}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff6ac1">@click</span><span style="color:#5af78e">=&#34;$emit(&#39;remove&#39;)&#34;</span>&gt;<span style="color:#57c7ff">Remove</span>&lt;/<span style="color:#ff6ac1">button</span>&gt; <span style="color:#ff5c57">&lt;!--</span><span style="color:#ff6ac1">-点击</span> <span style="color:#57c7ff">触发</span> <span style="color:#57c7ff">remove</span> <span style="color:#57c7ff">事件</span><span style="color:#ff5c57">--</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-2/img/list-v-for-template.jpg"
+	width="735"
+	height="344"
+	srcset="/vue-2/img/list-v-for-template_hud42264411df5811c24f2b0bbde9f5e41_10646_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for-template_hud42264411df5811c24f2b0bbde9f5e41_10646_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for template"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="213"
+		data-flex-basis="512px"
+	
+></p>
+<p>关于父子组件的通信方式：</p>
+<ul>
+<li>父组件 的 属性 通过 props 传递给子组件</li>
+<li>父组件定义的 事件 通过 emit 关键字 传递</li>
+</ul>
+<h3 id="数组变化侦测">数组变化侦测</h3>
+<p>变更方法 与 非变更方法 的 区别：</p>
+<ul>
+<li>变更方法：使用 这些函数 push()、pop()、shift()、unshift()、splice()、sort()、reverse() 修改数组时 Vue 会 监听到这些变化 并 更新相对应的视图。</li>
+<li>非变更方法：使用 filter()、concat()、slice()、map()、reduce()、reduceRight()、some()、every() 这些函数时 不会修改 原数组，而是返回一个 新数组 或 某种结果，由于 没有修改 原数组，所以相对应的试图 也不会做更新的操作。</li>
+</ul>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            list<span style="color:#ff6ac1">:</span> [
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,
+</span></span><span style="display:flex;"><span>                    name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;张三&#39;</span>,
+</span></span><span style="display:flex;"><span>                    age<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">18</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>,
+</span></span><span style="display:flex;"><span>                    name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;李四&#39;</span>,
+</span></span><span style="display:flex;"><span>                    age<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">20</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>,
+</span></span><span style="display:flex;"><span>                    name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;王五&#39;</span>,
+</span></span><span style="display:flex;"><span>                    age<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">22</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            ],
+</span></span><span style="display:flex;"><span>            newList<span style="color:#ff6ac1">:</span> [],
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        test() {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 会更新视图
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// this.list.push({
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">//     id:4,
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">//     name:&#39;赵六&#39;,
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">//     age:24
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// })
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 不会更新视图
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff6ac1">this</span>.newList <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">this</span>.list.slice(<span style="color:#ff9f43">0</span>,<span style="color:#ff9f43">2</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">li</span> <span style="color:#ff6ac1">v-for</span><span style="color:#5af78e">=&#34;item in list&#34; :key=&#34;item.id&#34;&gt;{{item.name}}&lt;/li&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">        &lt;/ul&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">    &lt;/div&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">    &lt;button @click=&#34;test&#34;</span>&gt;<span style="color:#57c7ff">测试修改数组操作</span>&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="数组过滤与排序">数组过滤与排序</h3>
+<h4 id="过滤">过滤</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            numbers<span style="color:#ff6ac1">:</span> [<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>,<span style="color:#ff9f43">4</span>,<span style="color:#ff9f43">5</span>]        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    computed<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        getEvenNumbers() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">return</span> <span style="color:#ff6ac1">this</span>.numbers.filter(n =&gt; n <span style="color:#ff6ac1">%</span> <span style="color:#ff9f43">2</span> <span style="color:#ff6ac1">===</span> <span style="color:#ff9f43">0</span>)        
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">li</span> <span style="color:#ff6ac1">v-for</span><span style="color:#5af78e">=&#34;n in numbers&#34;</span>&gt; {{ <span style="color:#57c7ff">n</span> }} &lt;/<span style="color:#ff6ac1">li</span>&gt;  <span style="color:#ff5c57">&lt;!-</span><span style="color:#ff6ac1">-对于</span> <span style="color:#57c7ff">多维数组</span> <span style="color:#57c7ff">可以通过循环嵌套</span> <span style="color:#57c7ff">计算</span> <span style="color:#57c7ff">输出</span><span style="color:#ff5c57">--</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="排序">排序</h4>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            rank <span style="color:#ff6ac1">:</span> [<span style="color:#ff9f43">55</span>,<span style="color:#ff9f43">76</span>,<span style="color:#ff9f43">45</span>,<span style="color:#ff9f43">33</span>,<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">33</span>,<span style="color:#ff9f43">88</span>],       
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    computed <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        getSortResult() {
+</span></span><span style="display:flex;"><span>            console.log(<span style="color:#5af78e">&#39;原始 rank 数组: &#39;</span><span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.rank)
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// return this.rank.sort((a,b) =&gt; a - b)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff6ac1">return</span> [...<span style="color:#ff6ac1">this</span>.rank].sort((a,b) =&gt; a <span style="color:#ff6ac1">-</span> b)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>         console.log(<span style="color:#5af78e">&#39;组件加载完成后的 rank 数组 : &#39;</span> <span style="color:#ff6ac1">+</span> <span style="color:#ff6ac1">this</span>.rank)    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt; 
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">li</span> <span style="color:#ff6ac1">v-for</span><span style="color:#5af78e">=&#34;n in getSortResult&#34;</span>&gt; {{ <span style="color:#57c7ff">n</span> }} &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-2/img/list-v-for-sort.jpg"
+	width="1352"
+	height="205"
+	srcset="/vue-2/img/list-v-for-sort_hu89f4fff74fabf2ba78e5b28bafd224f0_11523_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for-sort_hu89f4fff74fabf2ba78e5b28bafd224f0_11523_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for 排序"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="659"
+		data-flex-basis="1582px"
+	
+></p>
+<p><img src="/vue-2/img/list-v-for-sort-copy.jpg"
+	width="1313"
+	height="205"
+	srcset="/vue-2/img/list-v-for-sort-copy_huc0805ed57722df3b4523a85b90e1e32d_11376_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-2/img/list-v-for-sort-copy_huc0805ed57722df3b4523a85b90e1e32d_11376_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-for 拷贝排序"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="640"
+		data-flex-basis="1537px"
+	
+></p>
+<blockquote>
+<p>在 计算属性中 使用 <code>reverse()</code> 和 <code>sort()</code> 函数需要注意 会 导致 原始数组 发生变更，对应的视图 也会 发生改变</p>
+<p>推荐通过 数组的副本 来 调用这些方法</p>
+</blockquote>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/vue-1/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-1/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（一）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2024 
+    </section>
+    
+    <section class="powerby">
+        
+            CopyRight © 1997-2023 技术沉淀库 All Rights Reserved 京ICP备 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

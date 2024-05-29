@@ -2,48 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on </title>
-        <link>http://localhost:1313/categories/</link>
+        <link>http://www.shentongtong.cn/categories/</link>
         <description>Recent content in Categories on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Thu, 30 Nov 2023 11:30:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 27 May 2024 11:30:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Technology</title>
-        <link>http://localhost:1313/categories/technology/</link>
-        <pubDate>Thu, 30 Nov 2023 11:30:00 +0800</pubDate>
+        <link>http://www.shentongtong.cn/categories/technology/</link>
+        <pubDate>Mon, 27 May 2024 11:30:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/technology/</guid>
+        <guid>http://www.shentongtong.cn/categories/technology/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Vue</title>
+        <link>http://www.shentongtong.cn/categories/vue/</link>
+        <pubDate>Mon, 27 May 2024 11:30:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/categories/vue/</guid>
         <description></description>
         </item>
         <item>
         <title>Home</title>
-        <link>http://localhost:1313/categories/home/</link>
+        <link>http://www.shentongtong.cn/categories/home/</link>
         <pubDate>Mon, 04 Sep 2023 16:00:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/home/</guid>
+        <guid>http://www.shentongtong.cn/categories/home/</guid>
         <description></description>
         </item>
         <item>
         <title>Essay</title>
-        <link>http://localhost:1313/categories/essay/</link>
+        <link>http://www.shentongtong.cn/categories/essay/</link>
         <pubDate>Tue, 25 Jul 2023 14:00:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/essay/</guid>
+        <guid>http://www.shentongtong.cn/categories/essay/</guid>
         <description></description>
         </item>
         <item>
         <title>ThinkPHP</title>
-        <link>http://localhost:1313/categories/thinkphp/</link>
+        <link>http://www.shentongtong.cn/categories/thinkphp/</link>
         <pubDate>Sun, 28 Aug 2022 20:00:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/thinkphp/</guid>
+        <guid>http://www.shentongtong.cn/categories/thinkphp/</guid>
         <description></description>
         </item>
         <item>
         <title>Golang</title>
-        <link>http://localhost:1313/categories/golang/</link>
+        <link>http://www.shentongtong.cn/categories/golang/</link>
         <pubDate>Fri, 22 Apr 2022 16:00:00 +0800</pubDate>
         
-        <guid>http://localhost:1313/categories/golang/</guid>
+        <guid>http://www.shentongtong.cn/categories/golang/</guid>
         <description></description>
         </item>
         
