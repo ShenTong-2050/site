@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Vue'>
+<meta name="keywords" content="Vue"><title>Vue基础（三）</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/vue-3/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Vue基础（三）'>
+<meta property='og:description' content='Vue'>
+<meta property='og:url' content='http://www.shentongtong.cn/vue-3/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-3/img/logo/vue.png' />
+<meta name="twitter:title" content="Vue基础（三）">
+<meta name="twitter:description" content="Vue"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/vue-3/img/logo/vue.png' />
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hud0562191972c102080634509deeb4fad_2886644_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="400" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">-_-</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/technology/' >
+                
+                
+                
+                <span>技术</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="http://www.shentongtong.cn/" selected></option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/vue-3/">
+                <img src="/vue-3/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png"
+                        srcset="/vue-3/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png 800w, /vue-3/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_1600x0_resize_mitchellnetravali_3.png 1600w"
+                        width="800" 
+                        height="376" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（三）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" >
+                Vue
+            </a>
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/vue-3/">Vue基础（三）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Vue
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 27, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 8 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+
+</header>
+
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事件处理">事件处理</a>
+      <ul>
+        <li><a href="#监听事件">监听事件</a></li>
+        <li><a href="#内联事件处理">内联事件处理</a></li>
+        <li><a href="#方法事件处理器">方法事件处理器</a></li>
+        <li><a href="#方法-与-内联事件-的-判断">方法 与 内联事件 的 判断</a></li>
+      </ul>
+    </li>
+    <li><a href="#内联事件-参数传递">内联事件 参数传递</a></li>
+    <li><a href="#事件修饰符">事件修饰符</a></li>
+    <li><a href="#按键-修饰符">按键 修饰符</a>
+      <ul>
+        <li><a href="#按键别名">按键别名</a></li>
+        <li><a href="#系统按键修饰符">系统按键修饰符</a></li>
+        <li><a href="#exact-修饰符"><code>.exact</code> 修饰符</a></li>
+      </ul>
+    </li>
+    <li><a href="#鼠标按键修饰符">鼠标按键修饰符</a></li>
+    <li><a href="#表单输入绑定">表单输入绑定</a></li>
+    <li><a href="#基本用法">基本用法</a>
+      <ul>
+        <li><a href="#文本">文本</a></li>
+        <li><a href="#多行文本">多行文本</a></li>
+        <li><a href="#复选框">复选框</a></li>
+        <li><a href="#选择器">选择器</a></li>
+        <li><a href="#复选框-1">复选框</a></li>
+      </ul>
+    </li>
+    <li><a href="#修饰符">修饰符</a></li>
+    <li><a href="#组件上的-v-model">组件上的 v-model</a></li>
+  </ul>
+</nav>
+
+    <section class="article-content">
+    
+    
+    <h2 id="事件处理">事件处理</h2>
+<h3 id="监听事件">监听事件</h3>
+<p>语法：通过 <code>v-on</code> 指令 或 <code>@</code> 符号 来 监听 DOM 事件，并在事件触发时 执行对应的 JavaScript</p>
+<p>事件处理器 的 值：</p>
+<ul>
+<li>内联事件 处理器：事件 被 触发时 执行的 内联 JavaScript 语句（与 onclick 类似）</li>
+<li>方法事件处理器：指向 组件 定义方法 的 属性名 或 路径</li>
+</ul>
+<h3 id="内联事件处理">内联事件处理</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            count<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">0</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff6ac1">@click</span><span style="color:#5af78e">=&#34;count++&#34;</span>&gt;<span style="color:#57c7ff">Add</span> <span style="color:#57c7ff">1</span>&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">p</span>&gt;Count is<span style="color:#ff6ac1">:</span> {{ count }} &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="方法事件处理器">方法事件处理器</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            name <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;stt&#39;</span>        
+</span></span><span style="display:flex;"><span>        }        
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        greet(event)     {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 方法中的 `this` 指向当前活跃的 组件实例
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            alert(<span style="color:#5af78e">`Hello </span><span style="color:#5af78e">${</span><span style="color:#ff6ac1">this</span>.name<span style="color:#5af78e">}</span><span style="color:#5af78e"> !`</span>)        
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// `event` 是 DOM 原生事件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff6ac1">if</span> (event) {
+</span></span><span style="display:flex;"><span>                alert(event.target.tagName)            
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!--</span> greet 为 methods 中 定义的 方法名 <span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff6ac1">@click</span><span style="color:#5af78e">=&#34;greet&#34;</span>&gt;<span style="color:#57c7ff">Greet</span>&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="方法-与-内联事件-的-判断">方法 与 内联事件 的 判断</h3>
+<h4 id="方法事件处理器-1">方法事件处理器：</h4>
+<ul>
+<li>foo：直接引用一个 名为 <code>foo</code> 的 方法</li>
+<li>foo.bar：引用一个对象 <code>foo</code> 的属性 <code>bar</code>，该属性是一个方法</li>
+<li>foo[&lsquo;bar&rsquo;]：引用一个对象 <code>foo</code> 的 属性 <code>bar</code>，该属性是一个方法</li>
+</ul>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!--</span> 方法事件处理器 <span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:click</span><span style="color:#5af78e">=&#34;foo&#34;</span>&gt;Click me&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:click</span><span style="color:#5af78e">=&#34;foo.bar&#34;</span>&gt;Click me&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:click</span><span style="color:#5af78e">=&#34;foo[&#39;bar&#39;]&#34;</span>&gt;Click me&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="内联事件-处理器">内联事件 处理器：</h4>
+<ul>
+<li>foo()：调用 <code>foo</code> 方法</li>
+<li>count++：递增 <code>count</code> 变量</li>
+</ul>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!--</span>内联事件处理器<span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:click</span><span style="color:#5af78e">=&#34;foo()&#34;</span>&gt;Click me&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">v</span><span style="color:#ff6ac1">-on:click</span><span style="color:#5af78e">=&#34;count++&#34;</span>&gt;Click me&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>此处 <code>foo()</code> 与 <code>count++</code> 都是表达式</p>
+<h2 id="内联事件-参数传递">内联事件 参数传递</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    warn(message,event) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">if</span> (event) {
+</span></span><span style="display:flex;"><span>            event.preventDerfault()                    
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        alert(message)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#78787e">&lt;!--</span> 使用特殊的 $event 变量 <span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;warn(&#39;Warn message&#39;,$event)&#34;</span>&gt;Warnning&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#78787e">&lt;!--</span> 使用内联箭头函数 <span style="color:#ff6ac1">--&gt;</span>
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;(event) =&gt; warn(&#39;Warn message&#39;,event)&#34;</span>&gt;Warning&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="事件修饰符">事件修饰符</h2>
+<ul>
+<li><code>.stop</code>：终止 事件 的 传播</li>
+<li><code>.prevent</code>：阻止默认事件【例如 submit 刷新页面事件】</li>
+<li><code>.self</code>：只有 当 <code>event.target</code> 是 元素本身 时 才会触发 事件处理器</li>
+<li><code>.capture</code>：在 捕获阶段 触发 事件处理器</li>
+<li><code>.once</code>：只会 触发一次 的 事件处理器</li>
+<li><code>.passive</code>：不想组织</li>
+</ul>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span>script<span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    methods <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        wrapperFunc() {
+</span></span><span style="display:flex;"><span>            alert(<span style="color:#5af78e">&#39;最外层事件&#39;</span>)
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        test(message,event) {
+</span></span><span style="display:flex;"><span>            alert(message)
+</span></span><span style="display:flex;"><span>            console.log(event.target)
+</span></span><span style="display:flex;"><span>        },multiEvent() {
+</span></span><span style="display:flex;"><span>            alert(<span style="color:#5af78e">&#39;multi event&#39;</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;wrapper&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;wrapperFunc()&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!-- &lt;a v-on:click=&#34;test(11,$event)&#34;&gt;终止事件向外传递修饰符&lt;/a&gt; --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!-- &lt;form v-on:submit.prevent=&#34;onSubmit&#34;&gt; --&gt;</span> <span style="color:#78787e">&lt;!-- 刷新页面 事件 终止 --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!--&lt;form v-on:submit.stop.prevent=&#34;onSubmit&#34;&gt; 
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">            &lt;button type=&#34;submit&#34;&gt;提交&lt;/button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">        &lt;/form&gt;--&gt;</span>         <span style="color:#78787e">&lt;!-- 虽然 刷新页面 事件 终止了，但 提交事件 还是会 向外传递 --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!-- &lt;a @click.stop.prevent=&#34;test(22,$event)&#34;&gt;修饰符的链式调用&lt;/a&gt; --&gt;</span> <span style="color:#78787e">&lt;!-- 向外传递事件 终止 --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!--&lt;form @submit.prevent&gt;提交&lt;/form&gt;--&gt;</span>  <span style="color:#78787e">&lt;!-- 只有修饰符，事件还是会向外传递，刷新页面事件终止 --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;card&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">self</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;test(33,$event)&#34;</span>&gt;仅当 event.target 是元素本身时才会触发事件&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!--&lt;div v-on:click.capture=&#34;onClickCapture&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">            &lt;button v-on:click=&#34;onClick&#34;&gt;Click me&lt;/button&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">        &lt;/div&gt;--&gt;</span>  <span style="color:#78787e">&lt;!-- 捕获阶段 触发 事件处理器 --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;card&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">once</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;test(44,$event)&#34;</span>&gt;只会触发一次&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff6ac1">style</span><span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">wrapper</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">width</span>: <span style="color:#ff9f43">100</span><span style="color:#9aedfe">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">height</span>: <span style="color:#ff9f43">100</span><span style="color:#9aedfe">%</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">background-color</span>: <span style="color:#ff9f43">#ccc</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">card</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">width</span>: <span style="color:#ff9f43">200</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">height</span>: <span style="color:#ff9f43">200</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">background-color</span>: <span style="color:#ff9f43">#f00</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">btn</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">margin</span>: <span style="color:#ff9f43">20</span><span style="color:#9aedfe">px</span> <span style="color:#ff9f43">100</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;/</span><span style="color:#ff6ac1">style</span><span style="color:#ff6ac1">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>使用链式修饰符需要注意调用顺序，例如：</p>
+<p><code>event.prevent.self</code>：此时 子元素 的 默认行为 也会被 阻止</p>
+<p><code>event.self.prevent</code>：此时 子元素 的 默认行为 不会被 阻止</p>
+<p>这两种情况下 <code>self</code> 修饰符 的 作用域 还是 仅限于 当前元素，不会对 子元素 造成影响</p>
+</blockquote>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- 
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    @event.prevent.self：应用顺序是 先 prevent 后 self
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    此时 div 及其子元素 的 默认行为 都会被阻止，且 只有当 点击div 时 才会调用 test 方法
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    @event.self.prevent：子元素 的 默认行为 不会被阻止 且 只有点击 div 才会调用 multiEvent 方法
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e">    --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">form</span> <span style="color:#57c7ff">action</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;/&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">self</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">prevent</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;multiEvent&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            DIV Content
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">button</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;btn&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">submit</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;multiEvent&#34;</span>&gt;提交&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">form</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>.passive</code> 与 <code>.prevent</code> 修饰符 是 相互冲突的，所以建议不要同时使用，否则 <code>.prevent</code> 会被忽略</p>
+</blockquote>
+<h2 id="按键-修饰符">按键 修饰符</h2>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        onSubmit() {
+</span></span><span style="display:flex;"><span>            alert(<span style="color:#5af78e">&#39;submit event&#39;</span>)        
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        onPageDown() {
+</span></span><span style="display:flex;"><span>            alert(<span style="color:#5af78e">&#39;page down event&#39;</span>)        
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">form</span> <span style="color:#57c7ff">action</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;/&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">submit</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">prevent</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onSubmit&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">keyup</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">enter</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onSubmit&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;Enter 提交&#34;</span> /&gt;&lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- 可以直接使用 `KeyboardEvent.key` 暴露 的 按键名称 作为 修饰符，但 需要转为 kebab-case 形式 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">keydown</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">page-down</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onPageDown&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;PAGE DOWN 按钮&#34;</span>&gt;  
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">keyup</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">delete</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onSubmit&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;DELETE 按钮&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">form</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="按键别名">按键别名</h3>
+<ul>
+<li><code>.enter</code></li>
+<li><code>.tab</code></li>
+<li><code>.delete</code>（捕获 <code>Delete</code> 和 <code>Backspace</code> 两个按键）</li>
+<li><code>.esc</code></li>
+<li><code>.space</code></li>
+<li><code>.up</code></li>
+<li><code>.down</code></li>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+</ul>
+<h3 id="系统按键修饰符">系统按键修饰符</h3>
+<ul>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code></li>
+<li><code>.meta</code></li>
+</ul>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">keyup</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">alt</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">enter</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;clear&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;ALT + ENTER 按钮&#34;</span> /&gt;&lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">keydown</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">ctrl</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">alt</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;clear&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;CTRL + ALT 按钮&#34;</span> /&gt;&lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>系统按键 修饰符 与 常规按键 不同，当 系统按键 与 <code>keyup</code> 事件 一起使用时 例如： <code>keyup.ctrl</code>，只有当你仍然按住 <code>ctrl</code> 但 松开了另一个按键时被触发。若你单独松开 <code>ctrl</code> 键 将不会触发。</p>
+</blockquote>
+<h3 id="exact-修饰符"><code>.exact</code> 修饰符</h3>
+<p><code>.exact</code> 修饰符 允许 精确控制 触发事件 所需的 系统修饰符 的 组合</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- 当 按下 Ctrl 时，即便同时按下 Alt 或 Shift 也会触发 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">ctrl</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onClick&#34;</span>&gt; A &lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- 当 按下  Ctrl 且 未按任何其他键 时 才会触发 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">ctrl</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">exact</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onCtrlClick&#34;</span>&gt;A&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- 当没有按下任何系统按键时 触发 --&gt;</span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">exact</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onClick&#34;</span>&gt;A&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;    
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><code>.exact</code> 修饰符 需要与 鼠标 左键 搭配使用</p>
+</blockquote>
+<h2 id="鼠标按键修饰符">鼠标按键修饰符</h2>
+<ul>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+<li><code>.middle</code></li>
+</ul>
+<p>通过 以上 修饰符 将 程序限定为 由 特定鼠标按键 触发</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">left</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onClick&#34;</span>&gt;鼠标左键才会触发&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">right</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onClick&#34;</span>&gt;鼠标右键才会触发&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff5c57">.</span><span style="color:#57c7ff">middle</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onClick&#34;</span>&gt;鼠标中间键才会触发&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="表单输入绑定">表单输入绑定</h2>
+<p>将 表单内容 同步给 JavaScript 中 相应的变量</p>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">:value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">input</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;event =&gt; text = event.target.value&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#78787e">&lt;!-- v-model 指令 --&gt;</span> 
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>input</code> 与 <code>textarea</code> 元素 会 绑定 <code>value</code> 属性 并 侦听 <code>input</code> 事件</li>
+<li><code>&lt;input type=&quot;checkbox&quot;&gt;</code> 和 <code>&lt;input type=&quot;radio&quot;&gt;</code> 会 绑定 <code>checked</code> 属性 并 侦听 <code>change</code> 事件</li>
+<li><code>&lt;select&gt;</code> 会绑定 <code>value</code>  属性 并 侦听 <code>change</code> 事件</li>
+</ul>
+<blockquote>
+<p>v-model 会 忽略 任何 表单元素 上 初始的 <code>value</code>、<code>checked</code> 或 <code>selected</code> 属性。</p>
+<p>v-model 会将当前绑定的 JavaScript 状态 视为 数据的正确来源，你应该在 JavaScript 中使用 <code>data</code> 选项 来 声明该初始值。</p>
+</blockquote>
+<h2 id="基本用法">基本用法</h2>
+<h3 id="文本">文本</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span>script<span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>             msg <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;&#39;</span>,     <span style="color:#78787e">// 初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt;输入内容：{{ msg }}&lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;msg&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;请输入内容...&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>对于 <code>IME</code> 语言（中文、日文、韩文），<code>v-model</code> 指令不会在 <code>IME</code> 还在输入阶段时 触发更新。</p>
+<p>如果想在拼音阶段也触发更新，应使用自己的 <code>input</code> 事件监听器 和 <code>value</code> 绑定，而不要 使用 <code>v-model</code></p>
+</blockquote>
+<h3 id="多行文本">多行文本</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span>script<span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>             multiMsg<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;&#39;</span>, <span style="color:#78787e">// 初始化
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span> <span style="color:#57c7ff">style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;white-space:pre-line;&#34;</span>&gt;多行文本内容：{{ multiMsg }}&lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">textarea</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;multiMsg&#34;</span> <span style="color:#57c7ff">placeholder</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;请输入多行文本内容...&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">textarea</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="复选框">复选框</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span>script<span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>             isRain<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>             favoriteFruit<span style="color:#ff6ac1">:</span> [],
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff5c57">/script&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;isRain&#34;</span>&gt;明天是否下雨：{{ isRain }}&lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;yes&#34;</span> <span style="color:#57c7ff">id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;isRain&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;apple&#34;</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;apple&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;favoriteFruit&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;apple&#34;</span>&gt;Apple&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;banana&#34;</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;banana&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;favoriteFruit&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;banana&#34;</span>&gt;Banana&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pear&#34;</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pear&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;favoriteFruit&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pear&#34;</span>&gt;Pear&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;favoriteFruit&#34;</span>&gt;喜欢吃的水果：{{ favoriteFruit }} &lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-3/img/v-model-checkbox.jpg"
+	width="671"
+	height="307"
+	srcset="/vue-3/img/v-model-checkbox_huc048143c5a9e66b978787b8d155f4a15_8681_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-3/img/v-model-checkbox_huc048143c5a9e66b978787b8d155f4a15_8681_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-model Checkbox"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="218"
+		data-flex-basis="524px"
+	
+></p>
+<h3 id="选择器">选择器</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>             hobby<span style="color:#ff6ac1">:</span>[<span style="color:#5af78e">&#39;足球&#39;</span>,<span style="color:#5af78e">&#39;跑步&#39;</span>],
+</span></span><span style="display:flex;"><span>             hobbyOptions<span style="color:#ff6ac1">:</span>[
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">1</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;篮球&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">2</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;足球&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">3</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;乒乓球&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">4</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;跑步&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">5</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;游泳&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">6</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;爬山&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">7</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;骑行&#39;</span>},
+</span></span><span style="display:flex;"><span>                {value<span style="color:#ff6ac1">:</span> <span style="color:#ff9f43">8</span>, text<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;桌球&#39;</span>},
+</span></span><span style="display:flex;"><span>            ],       
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;单个选择器&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;satisfication&#34;</span>&gt;满意度评价：{{ satisfication }}&lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;satisfication&#34;</span>&gt;开始选择：&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">select</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;satisfication&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;&#34;</span> <span style="color:#57c7ff">disabled</span>&gt;请选择&lt;/<span style="color:#ff6ac1">option</span>&gt; 
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;A&#34;</span>&gt;A&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;B&#34;</span>&gt;B&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;C&#34;</span>&gt;C&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;D&#34;</span>&gt;D&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#ff6ac1">select</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h3</span>&gt;多个选择器&lt;/<span style="color:#ff6ac1">h3</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;hobby&#34;</span>&gt;爱好：{{ hobby }}&lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;hobby&#34;</span>&gt;开始选择：&lt;/<span style="color:#ff6ac1">label</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">select</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;hobby&#34;</span> <span style="color:#57c7ff">multiple</span>&gt;  <span style="color:#78787e">&lt;!-- multiple 是 关键字 --&gt;</span>
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;option in hobbyOptions&#34;</span> <span style="color:#57c7ff">:value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;option.value&#34;</span> <span style="color:#57c7ff">:key</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;option.value&#34;</span> &gt; 
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;option.value === 2 || option.value === 4 &#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">selected</span> &gt;{{ option.text }}&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else</span>&gt;
+</span></span><span style="display:flex;"><span>                            &lt;<span style="color:#ff6ac1">option</span> &gt;{{ option.text }}&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#ff6ac1">select</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-3/img/v-model-select.jpg"
+	width="787"
+	height="520"
+	srcset="/vue-3/img/v-model-select_huabad1364ac726cc81e119920de979947_15448_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-3/img/v-model-select_huabad1364ac726cc81e119920de979947_15448_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-model select"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="151"
+		data-flex-basis="363px"
+	
+></p>
+<h3 id="复选框-1">复选框</h3>
+<div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 绑定值
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            bindValueRadio<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            bindValueCheckbox<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            bindValueSelect<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">h2</span>&gt;单选框的值绑定：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">&lt;!-- `picked` 在被选择 时 时 字符串 `a`--&gt;</span>
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueRadio&#34;</span>&gt;给单选框绑定值：{{ bindValueRadio }}&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;radio&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueRadio&#34;</span> <span style="color:#57c7ff">:value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;1&#34;</span>&gt;小米
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;radio&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueRadio&#34;</span> <span style="color:#57c7ff">:value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;2&#34;</span>&gt;苹果
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;radio&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueRadio&#34;</span> <span style="color:#57c7ff">:value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;3&#34;</span>&gt;华为&lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">h2</span>&gt;多选框的值绑定：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueCheckbox&#34;</span>&gt;给多选框绑定值：{{ bindValueCheckbox }}&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">&lt;!--`bindValueCheckbox` 只会为 true 或 false--&gt;</span>
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueCheckbox&#34;</span> <span style="color:#57c7ff">:true-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;1&#34;</span> <span style="color:#57c7ff">:false-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;false&#34;</span>/&gt;Apple
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueCheckbox&#34;</span> <span style="color:#57c7ff">:true-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;2&#34;</span> <span style="color:#57c7ff">:false-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;false&#34;</span>/&gt;Pear
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;checkbox&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueCheckbox&#34;</span> <span style="color:#57c7ff">:true-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;3&#34;</span> <span style="color:#57c7ff">:false-value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;false&#34;</span>/&gt;Orange&lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">br</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">h2</span>&gt;下拉框的值绑定：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>                    <span style="color:#78787e">&lt;!-- `selected` 在 第一项 被选中时 为 字符串 `abc`--&gt;</span>
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">label</span> <span style="color:#57c7ff">for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueSelect&#34;</span>&gt;给下拉框绑定值：{{ bindValueSelect }}&lt;/<span style="color:#ff6ac1">label</span>&gt;&amp;nbsp;
+</span></span><span style="display:flex;"><span>                    &lt;<span style="color:#ff6ac1">select</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;bindValueSelect&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;abc&#34;</span>&gt;ABC&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                        &lt;<span style="color:#ff6ac1">option</span> <span style="color:#57c7ff">value</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;def&#34;</span>&gt;DEF&lt;/<span style="color:#ff6ac1">option</span>&gt;
+</span></span><span style="display:flex;"><span>                    &lt;/<span style="color:#ff6ac1">select</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/vue-3/img/v-model-checkbox-duoxuan.jpg"
+	width="852"
+	height="524"
+	srcset="/vue-3/img/v-model-checkbox-duoxuan_hu0f5eed4403fc5fc3da04d5cdf7a57d9d_25566_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-3/img/v-model-checkbox-duoxuan_hu0f5eed4403fc5fc3da04d5cdf7a57d9d_25566_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="v-model multiply"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="162"
+		data-flex-basis="390px"
+	
+></p>
+<h2 id="修饰符">修饰符</h2>
+<ul>
+<li><code>.lazy</code>：<code>v-model</code> 默认会在每次 <code>input</code> 事件后更新数据（IME除外），可以通过添加 <code>lazy</code> 修饰符 来 改为在 每次 <code>change</code> 事件后 更新数据。</li>
+<li><code>.number</code>：自动将用户输入自动转数字【当 <code>input</code> <code>type=&quot;number&quot;</code> 时自动启用】（如果无法被 <code>parseFloat()</code> 处理则返回原值）</li>
+<li><code>.trim</code>：自动将用户输入两端去掉空格</li>
+</ul>
+<h2 id="组件上的-v-model">组件上的 v-model</h2>
+<p>待补充：&#x1f605;</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/vue-1/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-1/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（一）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-2/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-2/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（二）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（二）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2024 
+    </section>
+    
+    <section class="powerby">
+        
+            CopyRight © 1997-2023 技术沉淀库 All Rights Reserved 京ICP备 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
