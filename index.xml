@@ -6,7 +6,940 @@
         <description>Recent content on </description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <lastBuildDate>Mon, 27 May 2024 12:30:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 27 May 2024 16:30:00 +0800</lastBuildDate><atom:link href="http://www.shentongtong.cn/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Vue基础（五）</title>
+        <link>http://www.shentongtong.cn/vue-5/</link>
+        <pubDate>Mon, 27 May 2024 16:30:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/vue-5/</guid>
+        <description>&lt;img src="http://www.shentongtong.cn/vue-5/img/logo/vue.png" alt="Featured image of post Vue基础（五）" /&gt;&lt;h2 id=&#34;模板引用&#34;&gt;模板引用&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;ref&lt;/code&gt;  属性 适用于 直接访问底层 DOM 元素 的 场景&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ref&lt;/code&gt; 与 &lt;code&gt;v-for&lt;/code&gt; 中的 key 类似【唯一】，它允许我们在一个特定的 DOM 元素 或 子组件 实例 被 挂载后 获得 对它的直接引用，比如 在 组件挂载时 将 焦点 设置到一个  input 元素上，或 在一个元素上 初始化 一个 第三方库。&lt;/p&gt;
+&lt;h3 id=&#34;访问模板引用&#34;&gt;访问模板引用&lt;/h3&gt;
+&lt;p&gt;组件挂载结束后 引用 都会被 暴露在 &lt;code&gt;this.$refs&lt;/code&gt; 之上：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mounted() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.$refs.name.focus()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    请输入名称：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;ref&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意：你只能在 组件挂载后 才能访问模板引用。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;v-for-中的模板引用&#34;&gt;v-for 中的模板引用&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            list&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;]        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mounted() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        console.log(&lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.$refs.vfor)    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;v-for之模板的引用&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-for&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item in list&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;ref&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;vfor&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                {{ item }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-template-quote.jpg&#34;
+	width=&#34;981&#34;
+	height=&#34;367&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-template-quote_huad7399a2a3731a76105440b941c79b18_15604_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-template-quote_huad7399a2a3731a76105440b941c79b18_15604_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;模板引用&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;267&#34;
+		data-flex-basis=&#34;641px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;函数模板引用&#34;&gt;函数模板引用&lt;/h3&gt;
+&lt;p&gt;除了使用 字符串 值 做名字，&lt;code&gt;ref&lt;/code&gt; 属性 还可以绑定 为 一个函数，会在每次组件更新时 被调用。&lt;/p&gt;
+&lt;p&gt;该函数第一个参数为 对 该元素的引用。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:ref&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;(el) =&amp;gt; { /*将 el 赋值给 一个数据属性 或 ref 变量*/ } &amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;注意这里需要使用动态的 &lt;code&gt;:ref&lt;/code&gt; 绑定 才能够 传入一个函数，当绑定的元素被卸载时函数也会被调用一次，此时传给 对该元素引用的 将是一个 &lt;code&gt;null&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            age&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }&lt;span style=&#34;color:#ff5c57&#34;&gt;，&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mounted() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        console.log(&lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.age)    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;函数模板引用：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        请输入年龄：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:ref&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;(age) =&amp;gt; { this.age = age }&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-template-closure.jpg&#34;
+	width=&#34;1069&#34;
+	height=&#34;336&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-template-closure_hud27c7345f2e93cadd5220f5e4156c1aa_16130_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-template-closure_hud27c7345f2e93cadd5220f5e4156c1aa_16130_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Template Closure&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;318&#34;
+		data-flex-basis=&#34;763px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;组件上的-ref&#34;&gt;组件上的 ref&lt;/h3&gt;
+&lt;h4 id=&#34;子组件上的模板引用&#34;&gt;子组件上的模板引用：&lt;/h4&gt;
+&lt;p&gt;如果一个 子组件 使用的是 &lt;span style=&#34;color:green;&#34;&gt;选项式API&lt;/span&gt;，被引用的组件实例 和 该 子组件的 &lt;code&gt;this&lt;/code&gt; 完全一致，
+这意味着 父组件 对 子组件 的 每一个属性 和 方法 都有完全的访问权。
+这使得 父组件 和 子组件 之间 创建紧密耦合 的 实现细节 变得很容易，
+当然也因此 应该 只在 绝对需要时 才 使用 组件引用。
+大多数情况下你应该先使用 标准的 &lt;code&gt;props&lt;/code&gt; 和 &lt;code&gt;emit&lt;/code&gt; 接口 来 实现 父子组件的交互&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; Child from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;./Child.vue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    components&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Child    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mounted() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// this.$refs.child 时 &amp;lt;Child /&amp;gt; 组件的实例
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;Child&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;ref&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;child&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;限制对-子组件-实例的访问&#34;&gt;限制对 子组件 实例的访问&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    expose&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;publicData&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;publicMethod&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            publicData&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            privateData&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;bar&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        publicMethod() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;/* ... */&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        privateMethod() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;/* ... */&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过 &lt;code&gt;expose&lt;/code&gt; 的使用，父组件 通过模板引用 访问到 子组件的实例 后，仅能访问到 &lt;code&gt;publicData&lt;/code&gt; 和 &lt;code&gt;publicMethod&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;组件&#34;&gt;组件&lt;/h2&gt;
+&lt;h3 id=&#34;定义&#34;&gt;定义&lt;/h3&gt;
+&lt;p&gt;官方 推荐使用 &lt;code&gt;.vue&lt;/code&gt; 结尾的 单文件组件，其中包括 &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;template&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; 三部分&lt;/p&gt;
+&lt;p&gt;组件的命名方式推荐采用 &lt;code&gt;pascalCase&lt;/code&gt; 方式命名&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全局注册
+&lt;ul&gt;
+&lt;li&gt;在打包过程中，未使用到的组件 也会被 保留&lt;/li&gt;
+&lt;li&gt;影响长期的维护&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;局部注册
+&lt;ul&gt;
+&lt;li&gt;局部注册 组件 仅在 当前的组件中 可用，无法在 子组件 中 可用&lt;/li&gt;
+&lt;li&gt;依赖关系明确&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            count&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; {{ count }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;count++&amp;#34;&lt;/span&gt;&amp;gt;加1&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;style&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;style&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;组件的使用&#34;&gt;组件的使用&lt;/h3&gt;
+&lt;h4 id=&#34;特征&#34;&gt;特征&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;通过 &lt;code&gt;import &lt;/code&gt; 导入&lt;/li&gt;
+&lt;li&gt;若要在模板中使用：需要通过 &lt;code&gt;components&lt;/code&gt; 选项 注册&lt;/li&gt;
+&lt;li&gt;当重复使用组件时，每个组件都会创建一个新的实例&lt;/li&gt;
+&lt;li&gt;组件的名称推荐使用类似 &lt;code&gt;pascalCase&lt;/code&gt; 的标签名，在 编译的时候 Vue 会区分大小写&lt;/li&gt;
+&lt;li&gt;局部注册的组件 在 后代组件中 不可用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;props-属性&#34;&gt;props 属性&lt;/h3&gt;
+&lt;h4 id=&#34;appvue&#34;&gt;App.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;setup&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; Vprops from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;./components/vprops.vue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            title&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;标题&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            progaraphy&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;我在想&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;今天吃什么&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;呢&amp;#39;&lt;/span&gt;}]        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    components &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Vprops    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;main&lt;/span&gt;&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;Vprops&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:title&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:progarphy&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;prography&amp;#34;&lt;/span&gt; /&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;main&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;componentsvpropsvue&#34;&gt;components/vprops.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    props&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;prography&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; this.title &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-for&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item in prography&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 2&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;red-cont&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 3&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;green-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;pink-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;red-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;red&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;green-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;green&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;pink-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;pink&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-props.jpg&#34;
+	width=&#34;772&#34;
+	height=&#34;262&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-props_huc56e23ee5cc87bc44f15232d64fdcd56_5502_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-component-props_huc56e23ee5cc87bc44f15232d64fdcd56_5502_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Component Props&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;294&#34;
+		data-flex-basis=&#34;707px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;监听事件&#34;&gt;监听事件&lt;/h3&gt;
+&lt;h4 id=&#34;appvue-1&#34;&gt;App.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      title&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;标题&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      prography&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;今天&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;我在想&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;吃什么&amp;#39;&lt;/span&gt;}],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      postFontSize&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  components&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    VProps
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;main&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;{fontSize:postFontSize+&amp;#39;em&amp;#39;}&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;Vprops&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:title&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:prography&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;prography&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;change-font-size&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;postFontSize+=0.2&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;main&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;componentsvpropsvue-1&#34;&gt;components/vprops.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    props&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;,     &lt;span style=&#34;color:#78787e&#34;&gt;// 文章标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;prography&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#78787e&#34;&gt;// 文章段落，数组形式的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    emits&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;change-font-size&amp;#39;&lt;/span&gt;] 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; {{ title }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-for&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item in prography&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 2&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;red-cont&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 3&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;green-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;pink-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;$emit(&amp;#39;change-font-size&amp;#39;)&amp;#34;&lt;/span&gt;&amp;gt;放大字体&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;向组件传递html内容&#34;&gt;向组件传递HTML内容&lt;/h3&gt;
+&lt;p&gt;在 父子组件的通信过程中，可以在 子组件 中 插入 &lt;code&gt;&amp;lt;slot/&amp;gt;&lt;/code&gt; 标签 来 作为一个占位符，供 父组件 传递的内容展示&lt;/p&gt;
+&lt;h4 id=&#34;appvue-2&#34;&gt;App.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; VSlot from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;./components/Vslot.vue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            msg&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;这是父组件的data&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    components&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        VSlot    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;VSlot&lt;/span&gt;&amp;gt; {{ msg }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;VSlot&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;componentsvslotvue&#34;&gt;components/Vslot.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; 通过 插槽 向 子组件 传递 html 内容： &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;slot&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-slot.jpg&#34;
+	width=&#34;830&#34;
+	height=&#34;185&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-slot_hueb7855df195dd6d8c26a3732ce46ea62_9438_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-component-slot_hueb7855df195dd6d8c26a3732ce46ea62_9438_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Component Slot&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;448&#34;
+		data-flex-basis=&#34;1076px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;动态组件&#34;&gt;动态组件&lt;/h3&gt;
+&lt;h4 id=&#34;appvue-3&#34;&gt;App.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; VProps from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;./components/vprops/vprops.vue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; VSlot from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;./components/vslot/vslot.vue&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    components {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        VProps,         &lt;span style=&#34;color:#78787e&#34;&gt;// 组件间的传值 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        VSlot,          &lt;span style=&#34;color:#78787e&#34;&gt;// 传 html 组件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            tabs&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VProps&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;VSlot&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            slotMsg&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;这是父组件中的内容&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            title&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;冯齐的忏悔&amp;#39;&lt;/span&gt;,  &lt;span style=&#34;color:#78787e&#34;&gt;// 文章标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            prography&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;冯齐&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;陈研&amp;#39;&lt;/span&gt;},{id&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;,content&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;相差十岁的爱情&amp;#39;&lt;/span&gt;}],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            fontSize&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;,         &lt;span style=&#34;color:#78787e&#34;&gt;// 放大字体
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;demo&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;!--导航栏--&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;v-for&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;tab in tabs&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;:key&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;tab&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#57c7ff&#34;&gt;:class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;[&amp;#39;tab-button&amp;#39;, { active: currentTab === tab}]&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;currentTab = tab&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            {{ tab }}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;KeepAlive&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:include&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;[&amp;#39;VProps&amp;#39;]&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:max&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;10&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;!-- VSlot 组件 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;currentTab === &amp;#39;VSlot&amp;#39; &amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;component&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:is&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;currentTab&amp;#34;&lt;/span&gt; &amp;gt; {{ msg }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;component&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;!-- VProps 组件 --&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;{fontSize:postFontSize+&amp;#39;em&amp;#39;}&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;component&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:is&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;currentTab&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:title&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:prography&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;prography&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;change-font-size&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;postFontSize+=0.2&amp;#34;&lt;/span&gt;  /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;KeepAlive&lt;/span&gt;&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;demo&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;font-family&lt;/span&gt;: &lt;span style=&#34;color:#ff6ac1&#34;&gt;sans-serif&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;border&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;solid&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;#eee&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;border-radius&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;padding&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;20&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;30&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;margin-top&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;em&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;margin-bottom&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;40&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;user-select&lt;/span&gt;: &lt;span style=&#34;color:#ff6ac1&#34;&gt;none&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;overflow-x&lt;/span&gt;: &lt;span style=&#34;color:#ff6ac1&#34;&gt;auto&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;tab-button&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;padding&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;6&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;border-top-left-radius&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;border-top-right-radius&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;border&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;solid&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;#ccc&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;cursor&lt;/span&gt;: &lt;span style=&#34;color:#ff6ac1&#34;&gt;pointer&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;background&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;#f0f0f0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;margin-bottom&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;margin-right&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;-1&lt;/span&gt;&lt;span style=&#34;color:#9aedfe&#34;&gt;px&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;tab-button&lt;/span&gt;:&lt;span style=&#34;color:#ff9f43&#34;&gt;hover&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;background&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;#e0e0e0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;tab-button&lt;/span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;active&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff6ac1&#34;&gt;background&lt;/span&gt;: &lt;span style=&#34;color:#ff9f43&#34;&gt;#e0e0e0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;componentsvpropsvue-2&#34;&gt;components/vprops.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    props&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;title&amp;#39;&lt;/span&gt;,     &lt;span style=&#34;color:#78787e&#34;&gt;// 文章标题
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;prography&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#78787e&#34;&gt;// 文章段落，数组形式的
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    emits&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;change-font-size&amp;#39;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; {{ title }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-for&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item in prography&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 2&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;red-cont&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;item.id == 3&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;green-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.id }} - {{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-else&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;pink-font&amp;#34;&lt;/span&gt;&amp;gt;{{ item.content }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;li&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;$emit(&amp;#39;change-font-size&amp;#39;)&amp;#34;&lt;/span&gt;&amp;gt;放大字体&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;ul&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;slot&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;red-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;red&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;green-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;green&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.&lt;span style=&#34;color:#f3f99d&#34;&gt;pink-font&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ff6ac1&#34;&gt;pink&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;componentsvslotvslotvue&#34;&gt;components/vslot/vslot.vue&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt; 通过 插槽 向 子组件 传递 html 内容： &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;slot&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-props.jpg&#34;
+	width=&#34;481&#34;
+	height=&#34;353&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-props_hu2249585a85cccb574144d6bdebb0b57e_10840_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-props_hu2249585a85cccb574144d6bdebb0b57e_10840_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Component Dynamic Props&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;136&#34;
+		data-flex-basis=&#34;327px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-slot.jpg&#34;
+	width=&#34;714&#34;
+	height=&#34;284&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-slot_hu195b95879e60dd1c4997dd685bbc5d65_12570_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-5/img/vue-component-dynamic-slot_hu195b95879e60dd1c4997dd685bbc5d65_12570_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Component Dynamic Slot&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;251&#34;
+		data-flex-basis=&#34;603px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;dom-内模板解析注意事项&#34;&gt;DOM 内模板解析注意事项&lt;/h3&gt;
+&lt;p&gt;如果想在 DOM 中 直接书写 Vue 模板，Vue 则 必须从 DOM 中获取模板字符串，由于 浏览器 的 原生 HTML 解析行为限制，有一些注意事项：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这些 注意事项 仅限于 直接在 DOM 中编写模板的情况，如果你使用 以下 来源的 字符串 模板，就&lt;span style=&#34;color:pink;&#34;&gt;不需要关注&lt;/span&gt;这些注意事项了：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单文件组件&lt;/li&gt;
+&lt;li&gt;内联模板字符串（例如：template:&lt;code&gt;....&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;script type=&amp;quot;text/x-template&amp;quot;&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;大小写区分&#34;&gt;大小写区分&lt;/h4&gt;
+&lt;p&gt;HTML 标签 和 属性名称 是 不区分大小写的，所以浏览器会把 任何 大写的字符 解释为 小写。&lt;/p&gt;
+&lt;p&gt;这意味着当你使用 DOM 内的模板时，无论是 PascalCase【首字母大写】 形式的组件名称、cameCase 【驼峰】形式的 prop 名称，还是 v-on 的事件名称，都需要转换为等价的 &lt;code&gt;kebab-case&lt;/code&gt;（短横线连字符）形式：&lt;/p&gt;
+&lt;h4 id=&#34;在-javascript-中-定义一个-dom-模板&#34;&gt;在 JavaScript 中 定义一个 DOM 模板&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; BlogPost &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    props&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;postTitle&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    emits&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; [&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;updatePost&amp;#39;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    template&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;`
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;        &amp;lt;h3&amp;gt; {{ postTitle }} &amp;lt;/h3&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;    `&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;转换为对应的 HTML 内容为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;blog-post&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;post-title&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;hello!&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;update-post&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;onUpdatePost&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;blog-post&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;闭合标签&#34;&gt;闭合标签&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 在 vue 模板解析器中 支持任意标签使用  `/&amp;gt;` 作为 闭合标志 例如：
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;MyComponent&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 在 html 中只有 例如 `input`、`img` 等少数标签 支持，所以如果你省略了关闭标签 则 意味着 标签没有结束
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;my-component&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt; hello &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 解析为
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;my-component&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;hello&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;my-component&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 所以正确写法为
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;my-component&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;my-component&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;元素位置限制&#34;&gt;元素位置限制&lt;/h4&gt;
+&lt;p&gt;对于 在 &lt;code&gt;table&lt;/code&gt;、&lt;code&gt;ul&lt;/code&gt;、&lt;code&gt;select&lt;/code&gt; 这些 带有 限制性标签 的 元素 中 使用 组件时 引发的问题 可以通过 &lt;code&gt;is&lt;/code&gt; 属性解决，例如：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 错误示例
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;table&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;blog-post-row&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;blog-post-row&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;table&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;// 正确示例
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;table&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;tr&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;is&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;vueLblog-post-row&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;tr&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;table&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用 &lt;code&gt;is&lt;/code&gt; 属性 时 前边 必须加上 &lt;code&gt;vue:&lt;/code&gt; 才能 被 正确解析，这是为了避免 和 原生的
+&lt;a class=&#34;link&#34; href=&#34;%27https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example%27&#34;  title=&#34;自定义内置元素&#34;
+    &gt;自定义内置元素&lt;/a&gt;
+混淆&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Vue基础（四）</title>
+        <link>http://www.shentongtong.cn/vue-4/</link>
+        <pubDate>Mon, 27 May 2024 15:30:00 +0800</pubDate>
+        
+        <guid>http://www.shentongtong.cn/vue-4/</guid>
+        <description>&lt;img src="http://www.shentongtong.cn/vue-4/img/logo/vue.png" alt="Featured image of post Vue基础（四）" /&gt;&lt;h2 id=&#34;生命周期&#34;&gt;生命周期&lt;/h2&gt;
+&lt;p&gt;每个 Vue 组件实例 在 创建时 都需要经理一系列的初始化步骤，比如 设置好 数据侦听、编译模板、挂载实例到DOM，在这个过程中 它 也会运行被称为 生命周期 钩子的函数，让开发者有机会 在 特定阶段 运行自己的代码。&lt;/p&gt;
+&lt;h3 id=&#34;注册周期钩子&#34;&gt;注册周期钩子&lt;/h3&gt;
+&lt;p&gt;举例来说，&lt;code&gt;mounted&lt;/code&gt; 钩子 可以 在组件 完成初始渲染 并 创建DOM  节点后 运行代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    mounted() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        console.log(&lt;span style=&#34;color:#5af78e&#34;&gt;`the component is now mounted.`&lt;/span&gt;)    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;还有其他钩子：&lt;code&gt;mounted&lt;/code&gt;、&lt;code&gt;updated&lt;/code&gt; 和 &lt;code&gt;unmounted&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;所有 生命周期 钩子函数 的 &lt;code&gt;this&lt;/code&gt; 上下文 都会 自动指向 当前调用它的组件实例。【避免使用箭头函数定义生命周期钩子】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;生命周期图示&#34;&gt;生命周期图示&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-life-cycle.jpg&#34;
+	width=&#34;1376&#34;
+	height=&#34;1998&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-life-cycle_hub0294d1285c620a95cf5fb86778acfcf_93198_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-life-cycle_hub0294d1285c620a95cf5fb86778acfcf_93198_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Life-Cycle&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;68&#34;
+		data-flex-basis=&#34;165px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;生命周期钩子 及其 用例信息 参考：https://cn.vuejs.org/api/options-lifecycle.html&lt;/p&gt;
+&lt;h2 id=&#34;侦听器&#34;&gt;侦听器&lt;/h2&gt;
+&lt;h3 id=&#34;基本示例&#34;&gt;基本示例&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;watch&lt;/code&gt; 选项可以在 每次 响应式 属性 发生变化 时 触发一个函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            loading&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            question&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            answer&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;default answer&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            profile &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                name&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                age&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    watch&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        question(newQuestion,oldQuestion) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (newQuestion.includes(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;?&amp;#39;&lt;/span&gt;)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.getAnswer()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// 监听 对象 某个属性的 更改
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// &amp;#39;profile.name&amp;#39;(newName,oldName) {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;//     this.getName()
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// },
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// &amp;#39;profile.age&amp;#39;(newAge,oldAge) {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;//     this.getAge()
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// 监听整个对象
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        profile&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handler(newValue,oldValue) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.editProfile(newValue,oldValue)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            deep&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        async getAnswer() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.loading &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.answer &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Thinking...&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; res &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; await fetch(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;https://www.demo.com/api&amp;#39;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.answer &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; (await res.json()).answer
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#ff6ac1&#34;&gt;catch&lt;/span&gt;(error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.answer &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Error! Could not reach the API. &amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt; error
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#ff6ac1&#34;&gt;finally&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.loading &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        async getName(newName,oldName) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; url &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;http://www.test.com/api/profile/edit?name=&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.profile.name;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; res &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; await fetch(url).then(response =&amp;gt; response.json())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.profile.name &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; res.data.name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(res.data.name)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#ff6ac1&#34;&gt;catch&lt;/span&gt;(error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.name &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Request name api something errror&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        async getAge(newAge,oldAge) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; url &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;http://www.test.com/api/profile/edit?age=&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.profile.age
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; res &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; await fetch(url).then(response =&amp;gt; response.json())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.profile.age &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; res.data.age
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(res.data.age)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            } &lt;span style=&#34;color:#ff6ac1&#34;&gt;catch&lt;/span&gt;(error) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.name &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Request age api something errror&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        async editProfile(newValue,oldValue) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; url &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;http://www.test.com/api/profile/edit?name=&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;newValue.name&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;amp;age=&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;+&lt;/span&gt;newValue.age
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;const&lt;/span&gt; res &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; await fetch(url).then(response =&amp;gt; response.json())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            console.log(res.code)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;默认浅层 watch 监听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            问个问题：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;question&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:disabled&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;loading&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt; {{ answer }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;深层 watch 监听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            输入姓名：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;profile.name&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            输入年龄：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;profile.age&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;{{ profile.name }} 今年 {{ profile.age }} 岁!&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-program.jpg&#34;
+	width=&#34;882&#34;
+	height=&#34;414&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-program_hu57ad98a71e5be989308155f119ffea81_21160_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-watch-program_hu57ad98a71e5be989308155f119ffea81_21160_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Watch Program&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;213&#34;
+		data-flex-basis=&#34;511px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1、侦听器 默认为 浅层侦听&lt;/p&gt;
+&lt;p&gt;2、当 对象 结构过于庞大 时 慎用 深层侦听器，因为这会导致 开销变大，建议只在必要情况下使用，并且要留意性能&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;及时回调侦听器&#34;&gt;及时回调侦听器&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;watch&lt;/code&gt; 默认是 惰性加载，只有 当 数据源变化 的 时候 才会执行回调，如果想在 创建 侦听器的时候 立即执行一遍 回调，可以通过如下这种方式进行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            immediate&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    watch&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        immediate&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             handler(newText,oldText) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(newText)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(oldText)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            immediate&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;及时回调侦听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        获取最新并修改结果：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;immediate&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-immediate.jpg&#34;
+	width=&#34;1375&#34;
+	height=&#34;802&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-immediate_hua2d91eca9e67f5c53626dc8cea11de02_21983_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-watch-immediate_hua2d91eca9e67f5c53626dc8cea11de02_21983_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Watch Immediate&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;171&#34;
+		data-flex-basis=&#34;411px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;一次性侦听&#34;&gt;一次性侦听&lt;/h3&gt;
+&lt;p&gt;顾名思义，一次侦听 就是 在 数据源变化时 触发一次 更新，通过 增加 &lt;code&gt;once:true&lt;/code&gt; 对象 实现&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            nickname&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    watch&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nickname&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handler(newNickname,oldNickname) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(newNickname)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(oldNickname)            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            once&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;一次性侦听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        一个月只能修改一次的昵称：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;nickname&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-once.jpg&#34;
+	width=&#34;1407&#34;
+	height=&#34;749&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-once_hu9989b70b4caf2984cb7360ef636e835e_21777_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-watch-once_hu9989b70b4caf2984cb7360ef636e835e_21777_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Watch Once&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;187&#34;
+		data-flex-basis=&#34;450px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h3 id=&#34;回调的触发时机&#34;&gt;回调的触发时机&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;响应式状态 变化：如 &lt;code&gt;data&lt;/code&gt; 或 &lt;code&gt;computed&lt;/code&gt; 中 数据的修改&lt;/li&gt;
+&lt;li&gt;组件更新 和 侦听器 回调函数 的 触发：
+&lt;ul&gt;
+&lt;li&gt;组件更新：响应式 数据 的 变化 会 触发 vue 组件的 重新渲染&lt;/li&gt;
+&lt;li&gt;侦听器 回调：watch 监听的回调函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;批量处理以避免重复调用：为了提高性能避免重复调用，Vue 会 将 组件更新 和 侦听器回调 进行 批量处理，例如：如果你在一次 同步操作中 对 数组 进行了多次修改，Vue 不会立即触发多次回调，而是会进行批量处理，只触发一次更新&lt;/li&gt;
+&lt;li&gt;回调的触发顺序：默认情况下 侦听器回调 会在 父组件（如果存在）更新之后、所属组件更新之前 被 调用，这意味着 在 父组件更新之后 和 当前组件更新之前 回调函数被 调用&lt;/li&gt;
+&lt;li&gt;DOM状态：由于 侦听器 回调 在 DOM 更新之前 被 调用，因此 在 回调中 访问 DOM 时 DOM 仍然处于 更新前的状态。如果你需要在侦听器回调中访问更新后的 DOM，可以使用 &lt;code&gt;this.$nextTick&lt;/code&gt; 来 确保在 DOM 更新完成之后进行访问。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            timetick &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    watch&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        timetick(newValue,oldValue)  {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            console.log(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;Message changed from&amp;#39;&lt;/span&gt;,oldValue,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;to&amp;#39;&lt;/span&gt;,newValue)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;// 尝试访问 DOM
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;// console.log(this.$el)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            console.log(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;DOM befor update: &amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;timetick&amp;#39;&lt;/span&gt;).textContent);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;// 使用 $nextTick 来 确保 DOM 已更新
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.$nextTick(() =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                console.log(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;DOM after update: &amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#ff5c57&#34;&gt;document&lt;/span&gt;.getElementById(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;timetick&amp;#39;&lt;/span&gt;).textContent);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            })
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        changeMessge() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.timetick &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;newTimeTick&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;回调的触发时机：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;{{ timetick }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;span&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;changeMessge&amp;#34;&lt;/span&gt; &amp;gt;Test Time Tick&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-timetick.jpg&#34;
+	width=&#34;1453&#34;
+	height=&#34;818&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-timetick_hu10dd88b99b9a7731015e1c7b21e421da_27710_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-watch-timetick_hu10dd88b99b9a7731015e1c7b21e421da_27710_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Watch TimeTick&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;177&#34;
+		data-flex-basis=&#34;426px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结：&lt;/p&gt;
+&lt;p&gt;1、由于 Vue 的 响应式系统 和 DOM更新 是 高度优化 和 同步的，但在 复杂 或 大量数据 变动的场景下，使用 &lt;code&gt;$nextTick&lt;/code&gt; 能确保操作是在DOM 完全更新后进行的。&lt;/p&gt;
+&lt;p&gt;2、尽管 &lt;code&gt;watch&lt;/code&gt; 回调通常能够直接访问更新后的 DOM，但为了代码的稳定性 和 可维护性，依然建议在需要确保 DOM 更新后的操作中 使用 &lt;code&gt;$nextTick&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;同步侦听器&#34;&gt;同步侦听器&lt;/h3&gt;
+&lt;p&gt;同步侦听器 指的是 立即响应数据变化 的 侦听器。通常 vue 的 &lt;code&gt;watch&lt;/code&gt; 侦听器 是在 下一次 DOM 更新周期之前 执行的，确保 数据变化 和 DOM 更新之间的顺序。
+然而有时 &lt;span style=&#34;color:green;font-weight:bold;&#34;&gt;你可能希望在数据变化时立即做出相应，而不必等待 DOM更新周期完成&lt;/span&gt;。这就涉及到所谓的同步侦听器。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        profile&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            name&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            age&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;        
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    watch&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        profile&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            handler() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                            
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            flush&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;sync&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;简单来说 同步侦听器 就是在 响应数据 发生变化后 立即做出反应，也就是会在 vue进行任何更新之前触发&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;thiswatch&#34;&gt;this.$watch()&lt;/h3&gt;
+&lt;p&gt;除了 生命周期中的 &lt;code&gt;watch&lt;/code&gt; 关键字为，还可以通过 &lt;code&gt;$watch()&lt;/code&gt; 方法 来 命令式的 创建一个 侦听器：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    created() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.$watch(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;question&amp;#39;&lt;/span&gt;,(newQuestion) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;// ....  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            console.log(newQuestion)      
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;默认浅层 watch 监听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            问个问题：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;question&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:disabled&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;loading&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt; {{ answer }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-creator.jpg&#34;
+	width=&#34;1465&#34;
+	height=&#34;813&#34;
+	srcset=&#34;http://www.shentongtong.cn/vue-4/img/vue-watch-creator_hu8a72ef8db37b1ba6b090628e6de29ff8_25098_480x0_resize_q100_mitchellnetravali.jpg 480w, http://www.shentongtong.cn/vue-4/img/vue-watch-creator_hu8a72ef8db37b1ba6b090628e6de29ff8_25098_1024x0_resize_q100_mitchellnetravali.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Vue Watch Creator&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;180&#34;
+		data-flex-basis=&#34;432px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;适用于 特定条件下的 侦听器，例如 只 侦听 响应 用户交互的内容，除此之外 还允许 你 提前终止 该 侦听器&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;停止侦听器&#34;&gt;停止侦听器&lt;/h3&gt;
+&lt;p&gt;大多数场景中，用 &lt;code&gt;watch&lt;/code&gt; 与 &lt;code&gt;$watch()&lt;/code&gt; 实例方法 声明 的 侦听器 会在 宿主组件 卸载时 自动停止，所以我们无需关心怎么停止它。&lt;/p&gt;
+&lt;p&gt;在 少数场景中，我们需要在 组件写在之前 就 停止一个侦听器，这时 可以调用 &lt;code&gt;$watch()&lt;/code&gt; API 返回的函数：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            question&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;,            &lt;span style=&#34;color:#78787e&#34;&gt;// 初始化 question 字段
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            unwatchQuestion&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;null&lt;/span&gt;,   &lt;span style=&#34;color:#78787e&#34;&gt;// 存储 question 字段的 监听函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    created() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#78787e&#34;&gt;// 注册 question 字段的监听事件
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.unwatchQuestion &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.$watch(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;question&amp;#39;&lt;/span&gt;,(newQuestion) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            console.log(newQuestion)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        })    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        stopQuestionWatch() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.unwatchQuestion) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#ff6ac1&#34;&gt;this&lt;/span&gt;.unwatchQuestion() &lt;span style=&#34;color:#78787e&#34;&gt;// 调用 取消 侦听器 函数
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;默认浅层 watch 监听：&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;h2&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            问个问题：&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-model&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;question&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:disabled&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;loading&amp;#34;&lt;/span&gt; /&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt; {{ answer }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;stopQuestionWatch()&amp;#34;&lt;/span&gt;&amp;gt;停止Question侦听函数&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>Vue基础（三）</title>
         <link>http://www.shentongtong.cn/vue-3/</link>
         <pubDate>Mon, 27 May 2024 12:30:00 +0800</pubDate>
@@ -14,14 +947,14 @@
         <guid>http://www.shentongtong.cn/vue-3/</guid>
         <description>&lt;img src="http://www.shentongtong.cn/vue-3/img/logo/vue.png" alt="Featured image of post Vue基础（三）" /&gt;&lt;h2 id=&#34;事件处理&#34;&gt;事件处理&lt;/h2&gt;
 &lt;h3 id=&#34;监听事件&#34;&gt;监听事件&lt;/h3&gt;
-&lt;p&gt;语法：通过 &lt;code&gt;v-on&lt;/code&gt; 指令 或 &lt;code&gt;@&lt;/code&gt; 符号 来 监听 DOM 事件，并在事件触发时 执行对应的 JavaScript&lt;/p&gt;
+&lt;p&gt;语法：通过 &lt;code&gt;v-on&lt;/code&gt; 指令 或 &lt;code&gt;@&lt;/code&gt; 符号 来 监听 DOM 事件，并在事件触发时 执行对应的 vue&lt;/p&gt;
 &lt;p&gt;事件处理器 的 值：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;内联事件 处理器：事件 被 触发时 执行的 内联 JavaScript 语句（与 onclick 类似）&lt;/li&gt;
+&lt;li&gt;内联事件 处理器：事件 被 触发时 执行的 内联 vue 语句（与 onclick 类似）&lt;/li&gt;
 &lt;li&gt;方法事件处理器：指向 组件 定义方法 的 属性名 或 路径&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;内联事件处理&#34;&gt;内联事件处理&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            count&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#ff9f43&#34;&gt;0&lt;/span&gt;        
@@ -33,7 +966,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;Count is&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {{ count }} &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;方法事件处理器&#34;&gt;方法事件处理器&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            name &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;stt&amp;#39;&lt;/span&gt;        
@@ -79,7 +1012,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此处 &lt;code&gt;foo()&lt;/code&gt; 与 &lt;code&gt;count++&lt;/code&gt; 都是表达式&lt;/p&gt;
 &lt;h2 id=&#34;内联事件-参数传递&#34;&gt;内联事件 参数传递&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    warn(message,event) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;if&lt;/span&gt; (event) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            event.preventDerfault()                    
@@ -103,7 +1036,7 @@
 &lt;li&gt;&lt;code&gt;.once&lt;/code&gt;：只会 触发一次 的 事件处理器&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;.passive&lt;/code&gt;：不想组织&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;script&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods &lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        wrapperFunc() {
@@ -117,7 +1050,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;wrapper&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;wrapperFunc()&amp;#34;&lt;/span&gt;&amp;gt;
@@ -185,7 +1118,7 @@
 &lt;p&gt;&lt;code&gt;.passive&lt;/code&gt; 与 &lt;code&gt;.prevent&lt;/code&gt; 修饰符 是 相互冲突的，所以建议不要同时使用，否则 &lt;code&gt;.prevent&lt;/code&gt; 会被忽略&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;按键-修饰符&#34;&gt;按键 修饰符&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    methods&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        onSubmit() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            alert(&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;submit event&amp;#39;&lt;/span&gt;)        
@@ -257,7 +1190,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;middle&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;onClick&amp;#34;&lt;/span&gt;&amp;gt;鼠标中间键才会触发&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;button&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;表单输入绑定&#34;&gt;表单输入绑定&lt;/h2&gt;
-&lt;p&gt;将 表单内容 同步给 JavaScript 中 相应的变量&lt;/p&gt;
+&lt;p&gt;将 表单内容 同步给 vue 中 相应的变量&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:value&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;input&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;event =&amp;gt; text = event.target.value&amp;#34;&lt;/span&gt; /&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
@@ -271,11 +1204,11 @@
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;v-model 会 忽略 任何 表单元素 上 初始的 &lt;code&gt;value&lt;/code&gt;、&lt;code&gt;checked&lt;/code&gt; 或 &lt;code&gt;selected&lt;/code&gt; 属性。&lt;/p&gt;
-&lt;p&gt;v-model 会将当前绑定的 JavaScript 状态 视为 数据的正确来源，你应该在 JavaScript 中使用 &lt;code&gt;data&lt;/code&gt; 选项 来 声明该初始值。&lt;/p&gt;
+&lt;p&gt;v-model 会将当前绑定的 vue 状态 视为 数据的正确来源，你应该在 vue 中使用 &lt;code&gt;data&lt;/code&gt; 选项 来 声明该初始值。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;基本用法&#34;&gt;基本用法&lt;/h2&gt;
+&lt;h2 id=&#34;表单输入绑定基本用法&#34;&gt;表单输入绑定基本用法&lt;/h2&gt;
 &lt;h3 id=&#34;文本&#34;&gt;文本&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;script&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
@@ -283,7 +1216,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        }    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;输入内容：{{ msg }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
@@ -295,7 +1228,7 @@
 &lt;p&gt;如果想在拼音阶段也触发更新，应使用自己的 &lt;code&gt;input&lt;/code&gt; 事件监听器 和 &lt;code&gt;value&lt;/code&gt; 绑定，而不要 使用 &lt;code&gt;v-model&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;多行文本&#34;&gt;多行文本&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;script&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
@@ -303,7 +1236,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&lt;/span&gt;        }    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;white-space:pre-line;&amp;#34;&lt;/span&gt;&amp;gt;多行文本内容：{{ multiMsg }}&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
@@ -311,7 +1244,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;复选框&#34;&gt;复选框&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;script&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
@@ -320,7 +1253,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }    
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;/script&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;template&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
@@ -355,7 +1288,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;选择器&#34;&gt;选择器&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             hobby&lt;span style=&#34;color:#ff6ac1&#34;&gt;:&lt;/span&gt;[&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;足球&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;跑步&amp;#39;&lt;/span&gt;],
@@ -422,7 +1355,7 @@
 	
 &gt;&lt;/p&gt;
 &lt;h3 id=&#34;复选框-1&#34;&gt;复选框&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#78787e&#34;&gt;// 绑定值
@@ -1059,17 +1992,17 @@
         <item>
         <title>Vue基础（一）</title>
         <link>http://www.shentongtong.cn/vue-1/</link>
-        <pubDate>Mon, 27 May 2024 11:30:00 +0800</pubDate>
+        <pubDate>Mon, 27 May 2024 10:30:00 +0800</pubDate>
         
         <guid>http://www.shentongtong.cn/vue-1/</guid>
         <description>&lt;img src="http://www.shentongtong.cn/vue-1/img/logo/vue.png" alt="Featured image of post Vue基础（一）" /&gt;&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://cn.vuejs.org/guide/introduction.html&#34;  title=&#34;Vue&#34;
      target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Vue&lt;/a&gt; 发音为 /vjuː/，类似 view 是一款用于构建用户界面的 JavaScript 框架。&lt;/p&gt;
-&lt;p&gt;它基于标准 HTML、CSS 和 JavaScript 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。&lt;/p&gt;
+    &gt;Vue&lt;/a&gt; 发音为 /vjuː/，类似 view 是一款用于构建用户界面的 vue 框架。&lt;/p&gt;
+&lt;p&gt;它基于标准 HTML、CSS 和 vue 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。&lt;/p&gt;
 &lt;h2 id=&#34;单文件组件&#34;&gt;单文件组件&lt;/h2&gt;
 &lt;p&gt;在大多数已经启用了构建工具的 Vue 项目中，我们可以使用一种类似 HTML  格式的文件 来 书写 Vue 组件，它被成为 单文件组件（也被称为 *.vue 文件，英文 Single-File Components 缩写为 SFC）。&lt;/p&gt;
-&lt;p&gt;顾名思义， Vue 的单文件组件 会 将一个组件的逻辑（Javascript）、模板（HTML） 和 样式（CSS） 封装在同一个文件里。&lt;/p&gt;
+&lt;p&gt;顾名思义， Vue 的单文件组件 会 将一个组件的逻辑（vue）、模板（HTML） 和 样式（CSS） 封装在同一个文件里。&lt;/p&gt;
 &lt;p&gt;例如 使用 单文件组件 的 格式 写一个计数器示例：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;script&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;setup&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#ff6ac1&#34;&gt;import&lt;/span&gt; { ref } from &lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;vue&amp;#39;&lt;/span&gt;
@@ -1277,18 +2210,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;v-bind&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;=&amp;#34;objectOfAttrs&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用-javascript-表达式&#34;&gt;使用 JavaScript 表达式&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用-vue-表达式&#34;&gt;使用 vue 表达式&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{number + 1}}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ ok ? &amp;#39;YES&amp;#39; : &amp;#39;NO&amp;#39;}}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{ message.split(&amp;#39;&amp;#39;).reverse().join(&amp;#39;&amp;#39;) }}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:id&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#39;`list-${id}`&amp;#39;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;div&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Vue 模板内 JavaScript 表达式可以被使用在如下场景上：&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在 Vue 模板内 vue 表达式可以被使用在如下场景上：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;在 文本插值 中（双 大括号）&lt;/li&gt;
 &lt;li&gt;在任何 Vue 指令（以  v- 开头的特殊 属性）中&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;仅支持表达式&#34;&gt;仅支持表达式&lt;/h4&gt;
-&lt;p&gt;每个绑定仅支持单一表达式，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方式是 是否可以合法得 卸载 return 后面。&lt;/p&gt;
+&lt;p&gt;每个绑定仅支持单一表达式，也就是一段能够被求值的 vue 代码。一个简单的判断方式是 是否可以合法得 卸载 return 后面。&lt;/p&gt;
 &lt;h4 id=&#34;调用函数&#34;&gt;调用函数&lt;/h4&gt;
 &lt;p&gt;可以 在 绑定的表达式中 使用 一个组件 暴露 的 方法：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;time&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:title&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;toTitleDate(date)&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:datetime&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&amp;gt;
@@ -1299,7 +2232,7 @@
 &lt;/blockquote&gt;
 &lt;h3 id=&#34;指令-directives&#34;&gt;指令 Directives&lt;/h3&gt;
 &lt;p&gt;指令是带有 v- 前缀的特殊 attribute。 Vue 提供了许多 内置指令，参考：https://cn.vuejs.org/api/built-in-directives.html&lt;/p&gt;
-&lt;p&gt;指令 attribute 的期望值为一个 javascript 表达式（除了少数几个例外，如：v-for、v-on 和 v-slot），一个指令的任务是在其 表达式 的 值 变化时 响应地更新 DOM。&lt;/p&gt;
+&lt;p&gt;指令 attribute 的期望值为一个 vue 表达式（除了少数几个例外，如：v-for、v-on 和 v-slot），一个指令的任务是在其 表达式 的 值 变化时 响应地更新 DOM。&lt;/p&gt;
 &lt;p&gt;以 v-if 为例：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-if&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;seen&amp;#34;&lt;/span&gt;&amp;gt;Now you see me&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;p&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里 v-if 指令会 基于表达式 seen 的值得 真假 来 移除/插入 该 &lt;p&gt; 元素。&lt;/p&gt;
@@ -1311,7 +2244,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;click&lt;/span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#5af78e&#34;&gt;&amp;#34;doSomething&amp;#34;&lt;/span&gt;&amp;gt; ... &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt;&amp;gt;   // click 监听的事件名称，v-on 有一个缩写 为 @
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;href 就是一个参数，它 搞作 v-bind 指令 将 表达式 url 的值 绑定到元素的 href attribute 上。&lt;/p&gt;
 &lt;h4 id=&#34;动态参数&#34;&gt;动态参数&lt;/h4&gt;
-&lt;p&gt;同样可以在指令参数上 使用一个 JavaScript 表达式，需要包括在一对 方括号内：&lt;/p&gt;
+&lt;p&gt;同样可以在指令参数上 使用一个 vue 表达式，需要包括在一对 方括号内：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;!--
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;注意，参数表达式有一些约束，
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;参见下面“动态参数值的限制”与“动态参数语法的限制”章节的解释
@@ -1320,7 +2253,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#78787e&#34;&gt;&amp;lt;!-- 简写 --&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;attributeName&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;]=&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;url&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt; ... &amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt;&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的 attributeName 会作为一个 JavaScript 表达式被动态执行，计算得到的值会被用作最终的参数。举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 &amp;ldquo;href&amp;rdquo;，那么这个绑定就等价于 v-bind:href。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的 attributeName 会作为一个 vue 表达式被动态执行，计算得到的值会被用作最终的参数。举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 &amp;ldquo;href&amp;rdquo;，那么这个绑定就等价于 v-bind:href。&lt;/p&gt;
 &lt;p&gt;相似地，你还可以将一个函数绑定到动态的事件名称上：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#57c7ff&#34;&gt;v-on:&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;eventName&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;]=&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;doSomething&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt;...&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#ff5c57&#34;&gt;@[&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;eventName&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;]=&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#57c7ff&#34;&gt;doSomething&lt;/span&gt;&lt;span style=&#34;color:#ff5c57&#34;&gt;&amp;#34;&lt;/span&gt;&amp;gt;...&amp;lt;/&lt;span style=&#34;color:#ff6ac1&#34;&gt;a&lt;/span&gt;&amp;gt;
@@ -1430,7 +2363,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;Vue 在组件实例上 暴露的 内置API 使用 &lt;code&gt;$&lt;/code&gt; 作为前缀，它同时也为内部属性 保留 &lt;code&gt;_&lt;/code&gt; 前缀，因此应避免在 &lt;code&gt;data&lt;/code&gt; 上使用这个保留字符&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;在 Vue3 中 数据是 基于 JavaScript Proxy  代理 实现响应式的，所以需要注意原始值的问题，例子如下：&lt;/p&gt;
+&lt;p&gt;在 Vue3 中 数据是 基于 vue Proxy  代理 实现响应式的，所以需要注意原始值的问题，例子如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-vue&#34; data-lang=&#34;vue&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff6ac1&#34;&gt;export&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;default&lt;/span&gt; &lt;span style=&#34;color:#ff6ac1&#34;&gt;=&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    data() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#ff6ac1&#34;&gt;return&lt;/span&gt; {

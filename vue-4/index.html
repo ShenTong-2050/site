@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Vue'>
+<meta name="keywords" content="Vue"><title>Vue基础（四）</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/vue-4/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Vue基础（四）'>
+<meta property='og:description' content='Vue'>
+<meta property='og:url' content='http://www.shentongtong.cn/vue-4/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T15:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T15:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-4/img/logo/vue.png' />
+<meta name="twitter:title" content="Vue基础（四）">
+<meta name="twitter:description" content="Vue"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/vue-4/img/logo/vue.png' />
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hud0562191972c102080634509deeb4fad_2886644_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="400" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">~_~</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/technology/' >
+                
+                
+                
+                <span>技术</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="http://www.shentongtong.cn/" selected></option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/vue-4/">
+                <img src="/vue-4/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png"
+                        srcset="/vue-4/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png 800w, /vue-4/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_1600x0_resize_mitchellnetravali_3.png 1600w"
+                        width="800" 
+                        height="376" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（四）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" >
+                Vue
+            </a>
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/vue-4/">Vue基础（四）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Vue
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 27, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+
+</header>
+
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#生命周期">生命周期</a>
+      <ul>
+        <li><a href="#注册周期钩子">注册周期钩子</a></li>
+        <li><a href="#生命周期图示">生命周期图示</a></li>
+      </ul>
+    </li>
+    <li><a href="#侦听器">侦听器</a>
+      <ul>
+        <li><a href="#基本示例">基本示例</a></li>
+        <li><a href="#及时回调侦听器">及时回调侦听器</a></li>
+        <li><a href="#一次性侦听">一次性侦听</a></li>
+        <li><a href="#回调的触发时机">回调的触发时机</a></li>
+        <li><a href="#同步侦听器">同步侦听器</a></li>
+        <li><a href="#thiswatch">this.$watch()</a></li>
+        <li><a href="#停止侦听器">停止侦听器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <section class="article-content">
+    
+    
+    <h2 id="生命周期">生命周期</h2>
+<p>每个 Vue 组件实例 在 创建时 都需要经理一系列的初始化步骤，比如 设置好 数据侦听、编译模板、挂载实例到DOM，在这个过程中 它 也会运行被称为 生命周期 钩子的函数，让开发者有机会 在 特定阶段 运行自己的代码。</p>
+<h3 id="注册周期钩子">注册周期钩子</h3>
+<p>举例来说，<code>mounted</code> 钩子 可以 在组件 完成初始渲染 并 创建DOM  节点后 运行代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#5af78e">`the component is now mounted.`</span>)    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>还有其他钩子：<code>mounted</code>、<code>updated</code> 和 <code>unmounted</code></p>
+<blockquote>
+<p>所有 生命周期 钩子函数 的 <code>this</code> 上下文 都会 自动指向 当前调用它的组件实例。【避免使用箭头函数定义生命周期钩子】</p>
+</blockquote>
+<h3 id="生命周期图示">生命周期图示</h3>
+<p><img src="/vue-4/img/vue-life-cycle.jpg"
+	width="1376"
+	height="1998"
+	srcset="/vue-4/img/vue-life-cycle_hub0294d1285c620a95cf5fb86778acfcf_93198_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-life-cycle_hub0294d1285c620a95cf5fb86778acfcf_93198_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Life-Cycle"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="68"
+		data-flex-basis="165px"
+	
+></p>
+<p>生命周期钩子 及其 用例信息 参考：https://cn.vuejs.org/api/options-lifecycle.html</p>
+<h2 id="侦听器">侦听器</h2>
+<h3 id="基本示例">基本示例</h3>
+<p><code>watch</code> 选项可以在 每次 响应式 属性 发生变化 时 触发一个函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            loading<span style="color:#ff6ac1">:</span><span style="color:#ff6ac1">false</span>,
+</span></span><span style="display:flex;"><span>            question<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            answer<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;default answer&#39;</span>,
+</span></span><span style="display:flex;"><span>            profile <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>                name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>                age<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    watch<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        question(newQuestion,oldQuestion) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (newQuestion.includes(<span style="color:#5af78e">&#39;?&#39;</span>)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.getAnswer()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 监听 对象 某个属性的 更改
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// &#39;profile.name&#39;(newName,oldName) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">//     this.getName()
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// },
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// &#39;profile.age&#39;(newAge,oldAge) {
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">//     this.getAge()
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// }
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#78787e">// 监听整个对象
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        profile<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>            handler(newValue,oldValue) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.editProfile(newValue,oldValue)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            deep<span style="color:#ff6ac1">:</span><span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        async getAnswer() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.loading <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.answer <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;Thinking...&#39;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> res <span style="color:#ff6ac1">=</span> await fetch(<span style="color:#5af78e">&#39;https://www.demo.com/api&#39;</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.answer <span style="color:#ff6ac1">=</span> (await res.json()).answer
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">catch</span>(error) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.answer <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;Error! Could not reach the API. &#39;</span> <span style="color:#ff6ac1">+</span> error
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">finally</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.loading <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">false</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        async getName(newName,oldName) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> url <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;http://www.test.com/api/profile/edit?name=&#39;</span><span style="color:#ff6ac1">+</span><span style="color:#ff6ac1">this</span>.profile.name;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> res <span style="color:#ff6ac1">=</span> await fetch(url).then(response =&gt; response.json())
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.profile.name <span style="color:#ff6ac1">=</span> res.data.name
+</span></span><span style="display:flex;"><span>                console.log(res.data.name)
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">catch</span>(error) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.name <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;Request name api something errror&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        async getAge(newAge,oldAge) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">try</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> url <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;http://www.test.com/api/profile/edit?age=&#39;</span><span style="color:#ff6ac1">+</span><span style="color:#ff6ac1">this</span>.profile.age
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">const</span> res <span style="color:#ff6ac1">=</span> await fetch(url).then(response =&gt; response.json())
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.profile.age <span style="color:#ff6ac1">=</span> res.data.age
+</span></span><span style="display:flex;"><span>                console.log(res.data.age)
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff6ac1">catch</span>(error) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.name <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;Request age api something errror&#39;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        async editProfile(newValue,oldValue) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">const</span> url <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;http://www.test.com/api/profile/edit?name=&#39;</span><span style="color:#ff6ac1">+</span>newValue.name<span style="color:#ff6ac1">+</span><span style="color:#5af78e">&#39;&amp;age=&#39;</span><span style="color:#ff6ac1">+</span>newValue.age
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">const</span> res <span style="color:#ff6ac1">=</span> await fetch(url).then(response =&gt; response.json())
+</span></span><span style="display:flex;"><span>            console.log(res.code)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;默认浅层 watch 监听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>            问个问题：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;question&#34;</span> <span style="color:#57c7ff">:disabled</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;loading&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt; {{ answer }} &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;深层 watch 监听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            输入姓名：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;profile.name&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            输入年龄：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;profile.age&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">span</span>&gt;{{ profile.name }} 今年 {{ profile.age }} 岁!&lt;/<span style="color:#ff6ac1">span</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-4/img/vue-watch-program.jpg"
+	width="882"
+	height="414"
+	srcset="/vue-4/img/vue-watch-program_hu57ad98a71e5be989308155f119ffea81_21160_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-watch-program_hu57ad98a71e5be989308155f119ffea81_21160_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Watch Program"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="213"
+		data-flex-basis="511px"
+	
+></p>
+<blockquote>
+<p>1、侦听器 默认为 浅层侦听</p>
+<p>2、当 对象 结构过于庞大 时 慎用 深层侦听器，因为这会导致 开销变大，建议只在必要情况下使用，并且要留意性能</p>
+</blockquote>
+<h3 id="及时回调侦听器">及时回调侦听器</h3>
+<p><code>watch</code> 默认是 惰性加载，只有 当 数据源变化 的 时候 才会执行回调，如果想在 创建 侦听器的时候 立即执行一遍 回调，可以通过如下这种方式进行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            immediate<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    watch<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        immediate<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>             handler(newText,oldText) {
+</span></span><span style="display:flex;"><span>                console.log(newText)
+</span></span><span style="display:flex;"><span>                console.log(oldText)
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            immediate<span style="color:#ff6ac1">:</span><span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;及时回调侦听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        获取最新并修改结果：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;immediate&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-4/img/vue-watch-immediate.jpg"
+	width="1375"
+	height="802"
+	srcset="/vue-4/img/vue-watch-immediate_hua2d91eca9e67f5c53626dc8cea11de02_21983_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-watch-immediate_hua2d91eca9e67f5c53626dc8cea11de02_21983_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Watch Immediate"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="171"
+		data-flex-basis="411px"
+	
+></p>
+<h3 id="一次性侦听">一次性侦听</h3>
+<p>顾名思义，一次侦听 就是 在 数据源变化时 触发一次 更新，通过 增加 <code>once:true</code> 对象 实现</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            nickname<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    watch<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        nickname<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>            handler(newNickname,oldNickname) {
+</span></span><span style="display:flex;"><span>                console.log(newNickname)
+</span></span><span style="display:flex;"><span>                console.log(oldNickname)            
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            once<span style="color:#ff6ac1">:</span><span style="color:#ff6ac1">true</span>
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;一次性侦听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        一个月只能修改一次的昵称：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;nickname&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-4/img/vue-watch-once.jpg"
+	width="1407"
+	height="749"
+	srcset="/vue-4/img/vue-watch-once_hu9989b70b4caf2984cb7360ef636e835e_21777_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-watch-once_hu9989b70b4caf2984cb7360ef636e835e_21777_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Watch Once"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="187"
+		data-flex-basis="450px"
+	
+></p>
+<h3 id="回调的触发时机">回调的触发时机</h3>
+<ul>
+<li>响应式状态 变化：如 <code>data</code> 或 <code>computed</code> 中 数据的修改</li>
+<li>组件更新 和 侦听器 回调函数 的 触发：
+<ul>
+<li>组件更新：响应式 数据 的 变化 会 触发 vue 组件的 重新渲染</li>
+<li>侦听器 回调：watch 监听的回调函数</li>
+</ul>
+</li>
+<li>批量处理以避免重复调用：为了提高性能避免重复调用，Vue 会 将 组件更新 和 侦听器回调 进行 批量处理，例如：如果你在一次 同步操作中 对 数组 进行了多次修改，Vue 不会立即触发多次回调，而是会进行批量处理，只触发一次更新</li>
+<li>回调的触发顺序：默认情况下 侦听器回调 会在 父组件（如果存在）更新之后、所属组件更新之前 被 调用，这意味着 在 父组件更新之后 和 当前组件更新之前 回调函数被 调用</li>
+<li>DOM状态：由于 侦听器 回调 在 DOM 更新之前 被 调用，因此 在 回调中 访问 DOM 时 DOM 仍然处于 更新前的状态。如果你需要在侦听器回调中访问更新后的 DOM，可以使用 <code>this.$nextTick</code> 来 确保在 DOM 更新完成之后进行访问。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            timetick <span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;&#39;</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    watch<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        timetick(newValue,oldValue)  {
+</span></span><span style="display:flex;"><span>            console.log(<span style="color:#5af78e">&#39;Message changed from&#39;</span>,oldValue,<span style="color:#5af78e">&#39;to&#39;</span>,newValue)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 尝试访问 DOM
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#78787e">// console.log(this.$el)
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            console.log(<span style="color:#5af78e">&#39;DOM befor update: &#39;</span>,<span style="color:#ff5c57">document</span>.getElementById(<span style="color:#5af78e">&#39;timetick&#39;</span>).textContent);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// 使用 $nextTick 来 确保 DOM 已更新
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            <span style="color:#ff6ac1">this</span>.$nextTick(() =&gt; {
+</span></span><span style="display:flex;"><span>                console.log(<span style="color:#5af78e">&#39;DOM after update: &#39;</span>,<span style="color:#ff5c57">document</span>.getElementById(<span style="color:#5af78e">&#39;timetick&#39;</span>).textContent);
+</span></span><span style="display:flex;"><span>            })
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        changeMessge() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">this</span>.timetick <span style="color:#ff6ac1">=</span> <span style="color:#5af78e">&#39;newTimeTick&#39;</span>
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;回调的触发时机：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">span</span>&gt;{{ timetick }}&lt;/<span style="color:#ff6ac1">span</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;changeMessge&#34;</span> &gt;Test Time Tick&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-4/img/vue-watch-timetick.jpg"
+	width="1453"
+	height="818"
+	srcset="/vue-4/img/vue-watch-timetick_hu10dd88b99b9a7731015e1c7b21e421da_27710_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-watch-timetick_hu10dd88b99b9a7731015e1c7b21e421da_27710_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Watch TimeTick"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<blockquote>
+<p>总结：</p>
+<p>1、由于 Vue 的 响应式系统 和 DOM更新 是 高度优化 和 同步的，但在 复杂 或 大量数据 变动的场景下，使用 <code>$nextTick</code> 能确保操作是在DOM 完全更新后进行的。</p>
+<p>2、尽管 <code>watch</code> 回调通常能够直接访问更新后的 DOM，但为了代码的稳定性 和 可维护性，依然建议在需要确保 DOM 更新后的操作中 使用 <code>$nextTick</code>。</p>
+</blockquote>
+<h3 id="同步侦听器">同步侦听器</h3>
+<p>同步侦听器 指的是 立即响应数据变化 的 侦听器。通常 vue 的 <code>watch</code> 侦听器 是在 下一次 DOM 更新周期之前 执行的，确保 数据变化 和 DOM 更新之间的顺序。
+然而有时 <span style="color:green;font-weight:bold;">你可能希望在数据变化时立即做出相应，而不必等待 DOM更新周期完成</span>。这就涉及到所谓的同步侦听器。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        profile<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>            name<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>            age<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>        
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    watch<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        profile<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>            handler() {
+</span></span><span style="display:flex;"><span>                            
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            flush<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;sync&#39;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
+<p>简单来说 同步侦听器 就是在 响应数据 发生变化后 立即做出反应，也就是会在 vue进行任何更新之前触发</p>
+</blockquote>
+<h3 id="thiswatch">this.$watch()</h3>
+<p>除了 生命周期中的 <code>watch</code> 关键字为，还可以通过 <code>$watch()</code> 方法 来 命令式的 创建一个 侦听器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    created() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">this</span>.$watch(<span style="color:#5af78e">&#39;question&#39;</span>,(newQuestion) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">// ....  
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            console.log(newQuestion)      
+</span></span><span style="display:flex;"><span>        })    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;默认浅层 watch 监听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>            问个问题：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;question&#34;</span> <span style="color:#57c7ff">:disabled</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;loading&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt; {{ answer }} &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-4/img/vue-watch-creator.jpg"
+	width="1465"
+	height="813"
+	srcset="/vue-4/img/vue-watch-creator_hu8a72ef8db37b1ba6b090628e6de29ff8_25098_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-4/img/vue-watch-creator_hu8a72ef8db37b1ba6b090628e6de29ff8_25098_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Watch Creator"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="180"
+		data-flex-basis="432px"
+	
+></p>
+<blockquote>
+<p>适用于 特定条件下的 侦听器，例如 只 侦听 响应 用户交互的内容，除此之外 还允许 你 提前终止 该 侦听器</p>
+</blockquote>
+<h3 id="停止侦听器">停止侦听器</h3>
+<p>大多数场景中，用 <code>watch</code> 与 <code>$watch()</code> 实例方法 声明 的 侦听器 会在 宿主组件 卸载时 自动停止，所以我们无需关心怎么停止它。</p>
+<p>在 少数场景中，我们需要在 组件写在之前 就 停止一个侦听器，这时 可以调用 <code>$watch()</code> API 返回的函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            question<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;&#39;</span>,            <span style="color:#78787e">// 初始化 question 字段
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            unwatchQuestion<span style="color:#ff6ac1">:</span> <span style="color:#ff6ac1">null</span>,   <span style="color:#78787e">// 存储 question 字段的 监听函数
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    created() {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// 注册 question 字段的监听事件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#ff6ac1">this</span>.unwatchQuestion <span style="color:#ff6ac1">=</span> <span style="color:#ff6ac1">this</span>.$watch(<span style="color:#5af78e">&#39;question&#39;</span>,(newQuestion) =&gt; {
+</span></span><span style="display:flex;"><span>            console.log(newQuestion)
+</span></span><span style="display:flex;"><span>        })    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        stopQuestionWatch() {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">this</span>.unwatchQuestion) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff6ac1">this</span>.unwatchQuestion() <span style="color:#78787e">// 调用 取消 侦听器 函数
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            }
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;默认浅层 watch 监听：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>            问个问题：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">type</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;text&#34;</span> <span style="color:#57c7ff">v-model</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;question&#34;</span> <span style="color:#57c7ff">:disabled</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;loading&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">p</span>&gt; {{ answer }} &lt;/<span style="color:#ff6ac1">p</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span>&gt;&lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;stopQuestionWatch()&#34;</span>&gt;停止Question侦听函数&lt;/<span style="color:#ff6ac1">button</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/vue-3/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-3/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（三）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（三）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-2/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-2/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（二）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（二）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-1/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-1/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（一）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2024 
+    </section>
+    
+    <section class="powerby">
+        
+            CopyRight © 1997-2023 技术沉淀库 All Rights Reserved 京ICP备 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

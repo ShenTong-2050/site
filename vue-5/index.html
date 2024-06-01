@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='Vue'>
+<meta name="keywords" content="Vue"><title>Vue基础（五）</title>
+
+<link rel='canonical' href='http://www.shentongtong.cn/vue-5/'>
+
+<link rel="stylesheet" href="/scss/style.min.83fdf04f357d6c514ee15e600463b045549e8b40c428f14454adecaa742b352f.css"><meta property='og:title' content='Vue基础（五）'>
+<meta property='og:description' content='Vue'>
+<meta property='og:url' content='http://www.shentongtong.cn/vue-5/'>
+<meta property='og:site_name' content=''>
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T16:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T16:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-5/img/logo/vue.png' />
+<meta name="twitter:title" content="Vue基础（五）">
+<meta name="twitter:description" content="Vue"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://www.shentongtong.cn/vue-5/img/logo/vue.png' />
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column compact"><aside class="sidebar left-sidebar sticky compact">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hud0562191972c102080634509deeb4fad_2886644_300x0_resize_mitchellnetravali_3.png" width="300"
+                            height="400" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">~_~</span>
+                
+            </figure>
+            
+        
+
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/"></a></h1>
+            <h2 class="site-description"></h2>
+        </div>
+    </header><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                <span>首页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                <span>分类</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/contact/' >
+                
+                
+                
+                <span>联系</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories/technology/' >
+                
+                
+                
+                <span>技术</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+                <li id="i18n-switch">  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                    <select name="language" onchange="window.location.href = this.selectedOptions[0].value">
+                        
+                            <option value="http://www.shentongtong.cn/" selected></option>
+                        
+                    </select>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/vue-5/">
+                <img src="/vue-5/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png"
+                        srcset="/vue-5/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_800x0_resize_mitchellnetravali_3.png 800w, /vue-5/img/logo/vue_hu3267eebef70ec700c8d18ede31dafca4_3516_1600x0_resize_mitchellnetravali_3.png 1600w"
+                        width="800" 
+                        height="376" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（五）" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/vue/" >
+                Vue
+            </a>
+        
+            <a href="/categories/technology/" >
+                Technology
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/vue-5/">Vue基础（五）</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            Vue
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">May 27, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 6 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+
+</header>
+
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#模板引用">模板引用</a>
+      <ul>
+        <li><a href="#访问模板引用">访问模板引用</a></li>
+        <li><a href="#v-for-中的模板引用">v-for 中的模板引用</a></li>
+        <li><a href="#函数模板引用">函数模板引用</a></li>
+        <li><a href="#组件上的-ref">组件上的 ref</a></li>
+      </ul>
+    </li>
+    <li><a href="#组件">组件</a>
+      <ul>
+        <li><a href="#定义">定义</a></li>
+        <li><a href="#组件的使用">组件的使用</a></li>
+        <li><a href="#props-属性">props 属性</a></li>
+        <li><a href="#监听事件">监听事件</a></li>
+        <li><a href="#向组件传递html内容">向组件传递HTML内容</a></li>
+        <li><a href="#动态组件">动态组件</a></li>
+        <li><a href="#dom-内模板解析注意事项">DOM 内模板解析注意事项</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+    <section class="article-content">
+    
+    
+    <h2 id="模板引用">模板引用</h2>
+<p><code>ref</code>  属性 适用于 直接访问底层 DOM 元素 的 场景</p>
+<p><code>ref</code> 与 <code>v-for</code> 中的 key 类似【唯一】，它允许我们在一个特定的 DOM 元素 或 子组件 实例 被 挂载后 获得 对它的直接引用，比如 在 组件挂载时 将 焦点 设置到一个  input 元素上，或 在一个元素上 初始化 一个 第三方库。</p>
+<h3 id="访问模板引用">访问模板引用</h3>
+<p>组件挂载结束后 引用 都会被 暴露在 <code>this.$refs</code> 之上：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;    
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">this</span>.$refs.name.focus()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    请输入名称：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">ref</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;name&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p>注意：你只能在 组件挂载后 才能访问模板引用。</p>
+</blockquote>
+<h3 id="v-for-中的模板引用">v-for 中的模板引用</h3>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            list<span style="color:#ff6ac1">:</span>[<span style="color:#ff9f43">1</span>,<span style="color:#ff9f43">2</span>,<span style="color:#ff9f43">3</span>]        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#ff6ac1">this</span>.$refs.vfor)    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;v-for之模板的引用&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in list&#34;</span> <span style="color:#57c7ff">ref</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;vfor&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                {{ item }}
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-5/img/vue-template-quote.jpg"
+	width="981"
+	height="367"
+	srcset="/vue-5/img/vue-template-quote_huad7399a2a3731a76105440b941c79b18_15604_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-template-quote_huad7399a2a3731a76105440b941c79b18_15604_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="模板引用"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="267"
+		data-flex-basis="641px"
+	
+></p>
+<h3 id="函数模板引用">函数模板引用</h3>
+<p>除了使用 字符串 值 做名字，<code>ref</code> 属性 还可以绑定 为 一个函数，会在每次组件更新时 被调用。</p>
+<p>该函数第一个参数为 对 该元素的引用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">:ref</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;(el) =&gt; { /*将 el 赋值给 一个数据属性 或 ref 变量*/ } &#34;</span>&gt;
+</span></span></code></pre></div><blockquote>
+<p>注意这里需要使用动态的 <code>:ref</code> 绑定 才能够 传入一个函数，当绑定的元素被卸载时函数也会被调用一次，此时传给 对该元素引用的 将是一个 <code>null</code></p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            age<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;&#39;</span>,
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }<span style="color:#ff5c57">，</span>
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        console.log(<span style="color:#ff6ac1">this</span>.age)    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">h2</span>&gt;函数模板引用：&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>        请输入年龄：&lt;<span style="color:#ff6ac1">input</span> <span style="color:#57c7ff">:ref</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;(age) =&gt; { this.age = age }&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-5/img/vue-template-closure.jpg"
+	width="1069"
+	height="336"
+	srcset="/vue-5/img/vue-template-closure_hud27c7345f2e93cadd5220f5e4156c1aa_16130_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-template-closure_hud27c7345f2e93cadd5220f5e4156c1aa_16130_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Template Closure"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="318"
+		data-flex-basis="763px"
+	
+></p>
+<h3 id="组件上的-ref">组件上的 ref</h3>
+<h4 id="子组件上的模板引用">子组件上的模板引用：</h4>
+<p>如果一个 子组件 使用的是 <span style="color:green;">选项式API</span>，被引用的组件实例 和 该 子组件的 <code>this</code> 完全一致，
+这意味着 父组件 对 子组件 的 每一个属性 和 方法 都有完全的访问权。
+这使得 父组件 和 子组件 之间 创建紧密耦合 的 实现细节 变得很容易，
+当然也因此 应该 只在 绝对需要时 才 使用 组件引用。
+大多数情况下你应该先使用 标准的 <code>props</code> 和 <code>emit</code> 接口 来 实现 父子组件的交互</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> Child from <span style="color:#5af78e">&#39;./Child.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    components<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        Child    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    mounted() {
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">// this.$refs.child 时 &lt;Child /&gt; 组件的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">Child</span> <span style="color:#57c7ff">ref</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;child&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><h4 id="限制对-子组件-实例的访问">限制对 子组件 实例的访问</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    expose<span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;publicData&#39;</span>,<span style="color:#5af78e">&#39;publicMethod&#39;</span>],
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            publicData<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;foo&#39;</span>,
+</span></span><span style="display:flex;"><span>            privateData<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;bar&#39;</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    methods <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        publicMethod() {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">/* ... */</span>        
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        privateMethod() {
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">/* ... */</span>        
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>通过 <code>expose</code> 的使用，父组件 通过模板引用 访问到 子组件的实例 后，仅能访问到 <code>publicData</code> 和 <code>publicMethod</code></p>
+<h2 id="组件">组件</h2>
+<h3 id="定义">定义</h3>
+<p>官方 推荐使用 <code>.vue</code> 结尾的 单文件组件，其中包括 <code>&lt;script&gt;</code>、<code>&lt;template&gt;</code>、<code>&lt;style&gt;</code> 三部分</p>
+<p>组件的命名方式推荐采用 <code>pascalCase</code> 方式命名</p>
+<ul>
+<li>全局注册
+<ul>
+<li>在打包过程中，未使用到的组件 也会被 保留</li>
+<li>影响长期的维护</li>
+</ul>
+</li>
+<li>局部注册
+<ul>
+<li>局部注册 组件 仅在 当前的组件中 可用，无法在 子组件 中 可用</li>
+<li>依赖关系明确</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            count<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">0</span>        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; {{ count }}&lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;count++&#34;</span>&gt;加1&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">style</span>&gt;&lt;/<span style="color:#ff6ac1">style</span>&gt;
+</span></span></code></pre></div><h3 id="组件的使用">组件的使用</h3>
+<h4 id="特征">特征</h4>
+<ul>
+<li>通过 <code>import </code> 导入</li>
+<li>若要在模板中使用：需要通过 <code>components</code> 选项 注册</li>
+<li>当重复使用组件时，每个组件都会创建一个新的实例</li>
+<li>组件的名称推荐使用类似 <code>pascalCase</code> 的标签名，在 编译的时候 Vue 会区分大小写</li>
+<li>局部注册的组件 在 后代组件中 不可用</li>
+</ul>
+<h3 id="props-属性">props 属性</h3>
+<h4 id="appvue">App.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span> <span style="color:#57c7ff">setup</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> Vprops from <span style="color:#5af78e">&#39;./components/vprops.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            title<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;标题&#39;</span>,
+</span></span><span style="display:flex;"><span>            progaraphy<span style="color:#ff6ac1">:</span>[{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;我在想&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;今天吃什么&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;呢&#39;</span>}]        
+</span></span><span style="display:flex;"><span>        }    
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    components <span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>        Vprops    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">main</span>&gt; 
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">Vprops</span> <span style="color:#57c7ff">:title</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;title&#34;</span> <span style="color:#57c7ff">:progarphy</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;prography&#34;</span> /&gt; 
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">main</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><h4 id="componentsvpropsvue">components/vprops.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    props<span style="color:#ff6ac1">:</span>[<span style="color:#5af78e">&#39;title&#39;</span>,<span style="color:#5af78e">&#39;prography&#39;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; this.title &lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in prography&#34;</span> <span style="color:#57c7ff">:id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;red-cont&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 3&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;green-font&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pink-font&#34;</span>&gt;{{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#f3f99d">red-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">green-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">green</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">pink-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">pink</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;/</span><span style="color:#ff6ac1">style</span><span style="color:#ff6ac1">&gt;</span>
+</span></span></code></pre></div><p><img src="/vue-5/img/vue-component-props.jpg"
+	width="772"
+	height="262"
+	srcset="/vue-5/img/vue-component-props_huc56e23ee5cc87bc44f15232d64fdcd56_5502_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-component-props_huc56e23ee5cc87bc44f15232d64fdcd56_5502_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Component Props"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="294"
+		data-flex-basis="707px"
+	
+></p>
+<h3 id="监听事件">监听事件</h3>
+<h4 id="appvue-1">App.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>  data() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>      title<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;标题&#39;</span>,
+</span></span><span style="display:flex;"><span>      prography<span style="color:#ff6ac1">:</span>[{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;今天&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;我在想&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;吃什么&#39;</span>}],
+</span></span><span style="display:flex;"><span>      postFontSize<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  components<span style="color:#ff6ac1">:</span> {
+</span></span><span style="display:flex;"><span>    VProps
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">main</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">:style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{fontSize:postFontSize+&#39;em&#39;}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#ff6ac1">Vprops</span> <span style="color:#57c7ff">:title</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;title&#34;</span> <span style="color:#57c7ff">:prography</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;prography&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">change-font-size</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;postFontSize+=0.2&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">main</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><h4 id="componentsvpropsvue-1">components/vprops.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    props<span style="color:#ff6ac1">:</span>[
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;title&#39;</span>,     <span style="color:#78787e">// 文章标题
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#5af78e">&#39;prography&#39;</span>, <span style="color:#78787e">// 文章段落，数组形式的
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    ],
+</span></span><span style="display:flex;"><span>    emits<span style="color:#ff6ac1">:</span>[<span style="color:#5af78e">&#39;change-font-size&#39;</span>] 
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; {{ title }} &lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in prography&#34;</span> <span style="color:#57c7ff">:id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;red-cont&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 3&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;green-font&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pink-font&#34;</span>&gt;{{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;$emit(&#39;change-font-size&#39;)&#34;</span>&gt;放大字体&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><h3 id="向组件传递html内容">向组件传递HTML内容</h3>
+<p>在 父子组件的通信过程中，可以在 子组件 中 插入 <code>&lt;slot/&gt;</code> 标签 来 作为一个占位符，供 父组件 传递的内容展示</p>
+<h4 id="appvue-2">App.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> VSlot from <span style="color:#5af78e">&#39;./components/Vslot.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            msg<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;这是父组件的data&#39;</span>        
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    components<span style="color:#ff6ac1">:</span>{
+</span></span><span style="display:flex;"><span>        VSlot    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">VSlot</span>&gt; {{ msg }} &lt;/<span style="color:#ff6ac1">VSlot</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><h4 id="componentsvslotvue">components/Vslot.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; 通过 插槽 向 子组件 传递 html 内容： &lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">slot</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-5/img/vue-component-slot.jpg"
+	width="830"
+	height="185"
+	srcset="/vue-5/img/vue-component-slot_hueb7855df195dd6d8c26a3732ce46ea62_9438_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-component-slot_hueb7855df195dd6d8c26a3732ce46ea62_9438_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Component Slot"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="448"
+		data-flex-basis="1076px"
+	
+></p>
+<h3 id="动态组件">动态组件</h3>
+<h4 id="appvue-3">App.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> VProps from <span style="color:#5af78e">&#39;./components/vprops/vprops.vue&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">import</span> VSlot from <span style="color:#5af78e">&#39;./components/vslot/vslot.vue&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    components {
+</span></span><span style="display:flex;"><span>        VProps,         <span style="color:#78787e">// 组件间的传值 
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        VSlot,          <span style="color:#78787e">// 传 html 组件
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    },
+</span></span><span style="display:flex;"><span>    data() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
+</span></span><span style="display:flex;"><span>            tabs<span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;VProps&#39;</span>,<span style="color:#5af78e">&#39;VSlot&#39;</span>],
+</span></span><span style="display:flex;"><span>            slotMsg<span style="color:#ff6ac1">:</span> <span style="color:#5af78e">&#39;这是父组件中的内容&#39;</span>,
+</span></span><span style="display:flex;"><span>            title<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;冯齐的忏悔&#39;</span>,  <span style="color:#78787e">// 文章标题
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>            prography<span style="color:#ff6ac1">:</span>[{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;冯齐&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">2</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;陈研&#39;</span>},{id<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">3</span>,content<span style="color:#ff6ac1">:</span><span style="color:#5af78e">&#39;相差十岁的爱情&#39;</span>}],
+</span></span><span style="display:flex;"><span>            fontSize<span style="color:#ff6ac1">:</span><span style="color:#ff9f43">1</span>,         <span style="color:#78787e">// 放大字体
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        }    
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;demo&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#78787e">&lt;!--导航栏--&gt;</span>
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;tab in tabs&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">:key</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;tab&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#57c7ff">:class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;[&#39;tab-button&#39;, { active: currentTab === tab}]&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;currentTab = tab&#34;</span>
+</span></span><span style="display:flex;"><span>        &gt;
+</span></span><span style="display:flex;"><span>            {{ tab }}
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">KeepAlive</span> <span style="color:#57c7ff">:include</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;[&#39;VProps&#39;]&#34;</span> <span style="color:#57c7ff">:max</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;10&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">&lt;!-- VSlot 组件 --&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;currentTab === &#39;VSlot&#39; &#34;</span>&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#ff6ac1">component</span> <span style="color:#57c7ff">:is</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;currentTab&#34;</span> &gt; {{ msg }} &lt;/<span style="color:#ff6ac1">component</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            <span style="color:#78787e">&lt;!-- VProps 组件 --&gt;</span>
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else</span>&gt;
+</span></span><span style="display:flex;"><span>              &lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">:style</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;{fontSize:postFontSize+&#39;em&#39;}&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">component</span> <span style="color:#57c7ff">:is</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;currentTab&#34;</span> <span style="color:#57c7ff">:title</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;title&#34;</span> <span style="color:#57c7ff">:prography</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;prography&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">change-font-size</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;postFontSize+=0.2&#34;</span>  /&gt;
+</span></span><span style="display:flex;"><span>              &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">KeepAlive</span>&gt; 
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#f3f99d">demo</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">font-family</span>: <span style="color:#ff6ac1">sans-serif</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">border</span>: <span style="color:#ff9f43">1</span><span style="color:#9aedfe">px</span> <span style="color:#ff6ac1">solid</span> <span style="color:#ff9f43">#eee</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">border-radius</span>: <span style="color:#ff9f43">2</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">padding</span>: <span style="color:#ff9f43">20</span><span style="color:#9aedfe">px</span> <span style="color:#ff9f43">30</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">margin-top</span>: <span style="color:#ff9f43">1</span><span style="color:#9aedfe">em</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">margin-bottom</span>: <span style="color:#ff9f43">40</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">user-select</span>: <span style="color:#ff6ac1">none</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">overflow-x</span>: <span style="color:#ff6ac1">auto</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">tab-button</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">padding</span>: <span style="color:#ff9f43">6</span><span style="color:#9aedfe">px</span> <span style="color:#ff9f43">10</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">border-top-left-radius</span>: <span style="color:#ff9f43">3</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">border-top-right-radius</span>: <span style="color:#ff9f43">3</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">border</span>: <span style="color:#ff9f43">1</span><span style="color:#9aedfe">px</span> <span style="color:#ff6ac1">solid</span> <span style="color:#ff9f43">#ccc</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">cursor</span>: <span style="color:#ff6ac1">pointer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">background</span>: <span style="color:#ff9f43">#f0f0f0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">margin-bottom</span>: <span style="color:#ff9f43">-1</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">margin-right</span>: <span style="color:#ff9f43">-1</span><span style="color:#9aedfe">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">tab-button</span>:<span style="color:#ff9f43">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">background</span>: <span style="color:#ff9f43">#e0e0e0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">tab-button</span>.<span style="color:#f3f99d">active</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff6ac1">background</span>: <span style="color:#ff9f43">#e0e0e0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="componentsvpropsvue-2">components/vprops.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span>&gt;
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> {
+</span></span><span style="display:flex;"><span>    props<span style="color:#ff6ac1">:</span>[
+</span></span><span style="display:flex;"><span>        <span style="color:#5af78e">&#39;title&#39;</span>,     <span style="color:#78787e">// 文章标题
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>        <span style="color:#5af78e">&#39;prography&#39;</span>, <span style="color:#78787e">// 文章段落，数组形式的
+</span></span></span><span style="display:flex;"><span><span style="color:#78787e"></span>    ],
+</span></span><span style="display:flex;"><span>    emits<span style="color:#ff6ac1">:</span>[<span style="color:#5af78e">&#39;change-font-size&#39;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">script</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; {{ title }} &lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-for</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item in prography&#34;</span> <span style="color:#57c7ff">:id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 2&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;red-cont&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;item.id == 3&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;green-font&#34;</span>&gt;{{ item.id }} - {{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;<span style="color:#ff6ac1">template</span> <span style="color:#57c7ff">v-else</span>&gt;
+</span></span><span style="display:flex;"><span>                &lt;<span style="color:#ff6ac1">li</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;pink-font&#34;</span>&gt;{{ item.content }}&lt;/<span style="color:#ff6ac1">li</span>&gt;
+</span></span><span style="display:flex;"><span>            &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#ff6ac1">button</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;$emit(&#39;change-font-size&#39;)&#34;</span>&gt;放大字体&lt;/<span style="color:#ff6ac1">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#ff6ac1">ul</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">slot</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;</span><span style="color:#ff6ac1">style</span><span style="color:#ff6ac1">&gt;</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">red-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">red</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">green-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">green</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#f3f99d">pink-font</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">color</span>:<span style="color:#ff6ac1">pink</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#ff6ac1">&lt;/</span><span style="color:#ff6ac1">style</span><span style="color:#ff6ac1">&gt;</span>
+</span></span></code></pre></div><h4 id="componentsvslotvslotvue">components/vslot/vslot.vue</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">template</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">h2</span>&gt; 通过 插槽 向 子组件 传递 html 内容： &lt;/<span style="color:#ff6ac1">h2</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">slot</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">template</span>&gt;
+</span></span></code></pre></div><p><img src="/vue-5/img/vue-component-dynamic-props.jpg"
+	width="481"
+	height="353"
+	srcset="/vue-5/img/vue-component-dynamic-props_hu2249585a85cccb574144d6bdebb0b57e_10840_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-component-dynamic-props_hu2249585a85cccb574144d6bdebb0b57e_10840_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Component Dynamic Props"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="327px"
+	
+></p>
+<p><img src="/vue-5/img/vue-component-dynamic-slot.jpg"
+	width="714"
+	height="284"
+	srcset="/vue-5/img/vue-component-dynamic-slot_hu195b95879e60dd1c4997dd685bbc5d65_12570_480x0_resize_q100_mitchellnetravali.jpg 480w, /vue-5/img/vue-component-dynamic-slot_hu195b95879e60dd1c4997dd685bbc5d65_12570_1024x0_resize_q100_mitchellnetravali.jpg 1024w"
+	loading="lazy"
+	
+		alt="Vue Component Dynamic Slot"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="251"
+		data-flex-basis="603px"
+	
+></p>
+<h3 id="dom-内模板解析注意事项">DOM 内模板解析注意事项</h3>
+<p>如果想在 DOM 中 直接书写 Vue 模板，Vue 则 必须从 DOM 中获取模板字符串，由于 浏览器 的 原生 HTML 解析行为限制，有一些注意事项：</p>
+<blockquote>
+<p>这些 注意事项 仅限于 直接在 DOM 中编写模板的情况，如果你使用 以下 来源的 字符串 模板，就<span style="color:pink;">不需要关注</span>这些注意事项了：</p>
+<ul>
+<li>单文件组件</li>
+<li>内联模板字符串（例如：template:<code>....</code>）</li>
+<li><code>&lt;script type=&quot;text/x-template&quot;&gt;</code></li>
+</ul>
+</blockquote>
+<h4 id="大小写区分">大小写区分</h4>
+<p>HTML 标签 和 属性名称 是 不区分大小写的，所以浏览器会把 任何 大写的字符 解释为 小写。</p>
+<p>这意味着当你使用 DOM 内的模板时，无论是 PascalCase【首字母大写】 形式的组件名称、cameCase 【驼峰】形式的 prop 名称，还是 v-on 的事件名称，都需要转换为等价的 <code>kebab-case</code>（短横线连字符）形式：</p>
+<h4 id="在-javascript-中-定义一个-dom-模板">在 JavaScript 中 定义一个 DOM 模板</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">const</span> BlogPost <span style="color:#ff6ac1">=</span> {
+</span></span><span style="display:flex;"><span>    props<span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;postTitle&#39;</span>],
+</span></span><span style="display:flex;"><span>    emits<span style="color:#ff6ac1">:</span> [<span style="color:#5af78e">&#39;updatePost&#39;</span>],
+</span></span><span style="display:flex;"><span>    template<span style="color:#ff6ac1">:</span><span style="color:#5af78e">`
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">        &lt;h3&gt; {{ postTitle }} &lt;/h3&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#5af78e">    `</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>转换为对应的 HTML 内容为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">blog-post</span> <span style="color:#57c7ff">post-title</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;hello!&#34;</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">update-post</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;onUpdatePost&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">blog-post</span>&gt;
+</span></span></code></pre></div><h4 id="闭合标签">闭合标签</h4>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>// 在 vue 模板解析器中 支持任意标签使用  `/&gt;` 作为 闭合标志 例如：
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">MyComponent</span> /&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 在 html 中只有 例如 `input`、`img` 等少数标签 支持，所以如果你省略了关闭标签 则 意味着 标签没有结束
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">my-component</span> /&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">span</span>&gt; hello &lt;/<span style="color:#ff6ac1">span</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 解析为
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">my-component</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">span</span>&gt;hello&lt;/<span style="color:#ff6ac1">span</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">my-component</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 所以正确写法为
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">my-component</span>&gt;&lt;/<span style="color:#ff6ac1">my-component</span>&gt;
+</span></span></code></pre></div><h4 id="元素位置限制">元素位置限制</h4>
+<p>对于 在 <code>table</code>、<code>ul</code>、<code>select</code> 这些 带有 限制性标签 的 元素 中 使用 组件时 引发的问题 可以通过 <code>is</code> 属性解决，例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>// 错误示例
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">blog-post-row</span>&gt;&lt;/<span style="color:#ff6ac1">blog-post-row</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">table</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// 正确示例
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">table</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#ff6ac1">tr</span> <span style="color:#57c7ff">is</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;vueLblog-post-row&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">tr</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#ff6ac1">table</span>&gt;
+</span></span></code></pre></div><p>使用 <code>is</code> 属性 时 前边 必须加上 <code>vue:</code> 才能 被 正确解析，这是为了避免 和 原生的
+<a class="link" href="%27https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-customized-builtin-example%27"  title="自定义内置元素"
+    >自定义内置元素</a>
+混淆</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>true</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.css"integrity="sha256-J&#43;iAE0sgH8QSz9hpcDxXIftnj65JEZgNhGcgReTTK9s="crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/katex.min.js"integrity="sha256-InsNdER1b2xUewP&#43;pKCUJpkhiqwHgqiPXDlIk7GzBu4="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.15.6/dist/contrib/auto-render.min.js"integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.querySelector(`.article-content`), {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/vue-4/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-4/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（四）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（四）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-3/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-3/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（三）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（三）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-2/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-2/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（二）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（二）</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/vue-1/">
+        
+        
+            <div class="article-image">
+                <img src="/vue-1/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Vue基础（一）"
+                        
+                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Vue基础（一）</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            1997 - 
+        
+        2024 
+    </section>
+    
+    <section class="powerby">
+        
+            CopyRight © 1997-2023 技术沉淀库 All Rights Reserved 京ICP备 <br/>
+        
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

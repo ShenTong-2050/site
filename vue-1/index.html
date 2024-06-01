@@ -10,7 +10,7 @@
 <meta property='og:description' content='Vue'>
 <meta property='og:url' content='http://www.shentongtong.cn/vue-1/'>
 <meta property='og:site_name' content=''>
-<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T11:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-1/img/logo/vue.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Technology' /><meta property='article:published_time' content='2024-05-27T10:30:00&#43;08:00'/><meta property='article:modified_time' content='2024-05-27T10:30:00&#43;08:00'/><meta property='og:image' content='http://www.shentongtong.cn/vue-1/img/logo/vue.png' />
 <meta name="twitter:title" content="Vue基础（一）">
 <meta name="twitter:description" content="Vue"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='http://www.shentongtong.cn/vue-1/img/logo/vue.png' />
@@ -66,7 +66,7 @@
                 
                 </a>
                 
-                    <span class="emoji">-_-</span>
+                    <span class="emoji">~_~</span>
                 
             </figure>
             
@@ -290,7 +290,7 @@
         <li><a href="#文本插值">文本插值</a></li>
         <li><a href="#原始-html">原始 HTML</a></li>
         <li><a href="#属性绑定">属性绑定</a></li>
-        <li><a href="#使用-javascript-表达式">使用 JavaScript 表达式</a></li>
+        <li><a href="#使用-vue-表达式">使用 vue 表达式</a></li>
         <li><a href="#指令-directives">指令 Directives</a></li>
         <li><a href="#修饰符">修饰符</a></li>
       </ul>
@@ -311,11 +311,11 @@
     <h2 id="简介">简介</h2>
 <p><a class="link" href="https://cn.vuejs.org/guide/introduction.html"  title="Vue"
      target="_blank" rel="noopener"
-    >Vue</a> 发音为 /vjuː/，类似 view 是一款用于构建用户界面的 JavaScript 框架。</p>
-<p>它基于标准 HTML、CSS 和 JavaScript 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
+    >Vue</a> 发音为 /vjuː/，类似 view 是一款用于构建用户界面的 vue 框架。</p>
+<p>它基于标准 HTML、CSS 和 vue 构建，并提供了一套声明式的、组件化的编程模型，帮助你高效地开发用户界面。无论是简单还是复杂的界面，Vue 都可以胜任。</p>
 <h2 id="单文件组件">单文件组件</h2>
 <p>在大多数已经启用了构建工具的 Vue 项目中，我们可以使用一种类似 HTML  格式的文件 来 书写 Vue 组件，它被成为 单文件组件（也被称为 *.vue 文件，英文 Single-File Components 缩写为 SFC）。</p>
-<p>顾名思义， Vue 的单文件组件 会 将一个组件的逻辑（Javascript）、模板（HTML） 和 样式（CSS） 封装在同一个文件里。</p>
+<p>顾名思义， Vue 的单文件组件 会 将一个组件的逻辑（vue）、模板（HTML） 和 样式（CSS） 封装在同一个文件里。</p>
 <p>例如 使用 单文件组件 的 格式 写一个计数器示例：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">script</span> <span style="color:#57c7ff">setup</span>&gt;
 </span></span><span style="display:flex;"><span>    <span style="color:#ff6ac1">import</span> { ref } from <span style="color:#5af78e">&#39;vue&#39;</span>
@@ -523,18 +523,18 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#ff6ac1">v-bind</span><span style="color:#5af78e">=&#34;objectOfAttrs&#34;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
-</span></span></code></pre></div><h3 id="使用-javascript-表达式">使用 JavaScript 表达式</h3>
+</span></span></code></pre></div><h3 id="使用-vue-表达式">使用 vue 表达式</h3>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>{{number + 1}}
 </span></span><span style="display:flex;"><span>{{ ok ? &#39;YES&#39; : &#39;NO&#39;}}
 </span></span><span style="display:flex;"><span>{{ message.split(&#39;&#39;).reverse().join(&#39;&#39;) }}
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">:id</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;`list-${id}`&#39;</span>&gt;&lt;/<span style="color:#ff6ac1">div</span>&gt;
-</span></span></code></pre></div><p>在 Vue 模板内 JavaScript 表达式可以被使用在如下场景上：</p>
+</span></span></code></pre></div><p>在 Vue 模板内 vue 表达式可以被使用在如下场景上：</p>
 <ul>
 <li>在 文本插值 中（双 大括号）</li>
 <li>在任何 Vue 指令（以  v- 开头的特殊 属性）中</li>
 </ul>
 <h4 id="仅支持表达式">仅支持表达式</h4>
-<p>每个绑定仅支持单一表达式，也就是一段能够被求值的 JavaScript 代码。一个简单的判断方式是 是否可以合法得 卸载 return 后面。</p>
+<p>每个绑定仅支持单一表达式，也就是一段能够被求值的 vue 代码。一个简单的判断方式是 是否可以合法得 卸载 return 后面。</p>
 <h4 id="调用函数">调用函数</h4>
 <p>可以 在 绑定的表达式中 使用 一个组件 暴露 的 方法：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">time</span> <span style="color:#57c7ff">:title</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;toTitleDate(date)&#34;</span> <span style="color:#57c7ff">:datetime</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;date&#34;</span>&gt;
@@ -545,7 +545,7 @@
 </blockquote>
 <h3 id="指令-directives">指令 Directives</h3>
 <p>指令是带有 v- 前缀的特殊 attribute。 Vue 提供了许多 内置指令，参考：https://cn.vuejs.org/api/built-in-directives.html</p>
-<p>指令 attribute 的期望值为一个 javascript 表达式（除了少数几个例外，如：v-for、v-on 和 v-slot），一个指令的任务是在其 表达式 的 值 变化时 响应地更新 DOM。</p>
+<p>指令 attribute 的期望值为一个 vue 表达式（除了少数几个例外，如：v-for、v-on 和 v-slot），一个指令的任务是在其 表达式 的 值 变化时 响应地更新 DOM。</p>
 <p>以 v-if 为例：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">p</span> <span style="color:#57c7ff">v-if</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;seen&#34;</span>&gt;Now you see me&lt;/<span style="color:#ff6ac1">p</span>&gt;
 </span></span></code></pre></div><p>这里 v-if 指令会 基于表达式 seen 的值得 真假 来 移除/插入 该 <p> 元素。</p>
@@ -557,7 +557,7 @@
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">a</span> <span style="color:#ff5c57">@</span><span style="color:#57c7ff">click</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;doSomething&#34;</span>&gt; ... &lt;/<span style="color:#ff6ac1">a</span>&gt;   // click 监听的事件名称，v-on 有一个缩写 为 @
 </span></span></code></pre></div><p>href 就是一个参数，它 搞作 v-bind 指令 将 表达式 url 的值 绑定到元素的 href attribute 上。</p>
 <h4 id="动态参数">动态参数</h4>
-<p>同样可以在指令参数上 使用一个 JavaScript 表达式，需要包括在一对 方括号内：</p>
+<p>同样可以在指令参数上 使用一个 vue 表达式，需要包括在一对 方括号内：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#78787e">&lt;!--
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">注意，参数表达式有一些约束，
 </span></span></span><span style="display:flex;"><span><span style="color:#78787e">参见下面“动态参数值的限制”与“动态参数语法的限制”章节的解释
@@ -566,7 +566,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#78787e">&lt;!-- 简写 --&gt;</span>
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">a</span> <span style="color:#57c7ff">:</span><span style="color:#ff5c57">[</span><span style="color:#57c7ff">attributeName</span><span style="color:#ff5c57">]=&#34;</span><span style="color:#57c7ff">url</span><span style="color:#ff5c57">&#34;</span>&gt; ... &lt;/<span style="color:#ff6ac1">a</span>&gt;
-</span></span></code></pre></div><p>这里的 attributeName 会作为一个 JavaScript 表达式被动态执行，计算得到的值会被用作最终的参数。举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 &ldquo;href&rdquo;，那么这个绑定就等价于 v-bind:href。</p>
+</span></span></code></pre></div><p>这里的 attributeName 会作为一个 vue 表达式被动态执行，计算得到的值会被用作最终的参数。举例来说，如果你的组件实例有一个数据属性 attributeName，其值为 &ldquo;href&rdquo;，那么这个绑定就等价于 v-bind:href。</p>
 <p>相似地，你还可以将一个函数绑定到动态的事件名称上：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">a</span> <span style="color:#57c7ff">v-on:</span><span style="color:#ff5c57">[</span><span style="color:#57c7ff">eventName</span><span style="color:#ff5c57">]=&#34;</span><span style="color:#57c7ff">doSomething</span><span style="color:#ff5c57">&#34;</span>&gt;...&lt;/<span style="color:#ff6ac1">a</span>&gt;
 </span></span><span style="display:flex;"><span>&lt;<span style="color:#ff6ac1">a</span> <span style="color:#ff5c57">@[</span><span style="color:#57c7ff">eventName</span><span style="color:#ff5c57">]=&#34;</span><span style="color:#57c7ff">doSomething</span><span style="color:#ff5c57">&#34;</span>&gt;...&lt;/<span style="color:#ff6ac1">a</span>&gt;
@@ -676,7 +676,7 @@
 </span></span></code></pre></div><blockquote>
 <p>Vue 在组件实例上 暴露的 内置API 使用 <code>$</code> 作为前缀，它同时也为内部属性 保留 <code>_</code> 前缀，因此应避免在 <code>data</code> 上使用这个保留字符</p>
 </blockquote>
-<p>在 Vue3 中 数据是 基于 JavaScript Proxy  代理 实现响应式的，所以需要注意原始值的问题，例子如下：</p>
+<p>在 Vue3 中 数据是 基于 vue Proxy  代理 实现响应式的，所以需要注意原始值的问题，例子如下：</p>
 <div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vue" data-lang="vue"><span style="display:flex;"><span><span style="color:#ff6ac1">export</span> <span style="color:#ff6ac1">default</span> <span style="color:#ff6ac1">=</span> {
 </span></span><span style="display:flex;"><span>    data() {
 </span></span><span style="display:flex;"><span>        <span style="color:#ff6ac1">return</span> {
@@ -826,39 +826,6 @@
     
 
     
-
-<aside class="related-content--wrapper">
-    <h2 class="section-title">相关文章</h2>
-    <div class="related-content">
-        <div class="flex article-list--tile">
-            
-                
-<article class="has-image">
-    <a href="/vue-2/">
-        
-        
-            <div class="article-image">
-                <img src="/vue-2/img/logo/vue.ac04aa2e907720770f378269e186b02f_hu3267eebef70ec700c8d18ede31dafca4_3516_250x150_fill_mitchellnetravali_smart1_3.png" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Vue基础（二）"
-                        
-                        data-hash="md5-rASqLpB3IHcPN4Jp4YawLw==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Vue基础（二）</h2>
-        </div>
-    </a>
-</article>
-
-            
-        </div>
-    </div>
-</aside>
 
      
     
